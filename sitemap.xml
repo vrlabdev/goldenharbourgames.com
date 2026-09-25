@@ -10,4 +10,44 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/"/>
   </url>
+  <url>
+    <loc>https://goldenharbourgames.com/play/peregon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/peregon/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/peregon/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/play/peregon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/peregon/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/peregon/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/play/punch-league/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/punch-league/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/punch-league/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/play/punch-league/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/punch-league/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/punch-league/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/play/aerofire-command/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/aerofire-command/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/aerofire-command/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/play/aerofire-command/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/aerofire-command/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/aerofire-command/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/play/vladivostok-fortress/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/vladivostok-fortress/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/vladivostok-fortress/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/play/vladivostok-fortress/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/vladivostok-fortress/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/vladivostok-fortress/"/>
+  </url>
 </urlset>

@@ -167,7 +167,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.08; m
 .facts dt::after { content: ':'; }
 .facts dd { margin: 0; color: var(--text-2); }
 .play {
-  align-self: flex-start; margin-top: auto;
+  align-self: flex-start;
   display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px;
   border: 1.5px solid var(--gold); border-radius: 999px;
   color: var(--gold); font-weight: 600; font-size: 15px; text-decoration: none;
@@ -182,6 +182,84 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.08; m
 .featured .text { font-size: 18px; }
 
 .grid { display: grid; gap: 32px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* the buttons at the foot of a card: play here, or go to itch */
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin: auto 0 0; padding-top: 8px; }
+.itch-link { color: var(--muted); font-weight: 500; font-size: 15px; text-decoration: none; white-space: nowrap; }
+.itch-link:hover { color: var(--gold-hi); text-decoration: underline; text-underline-offset: 4px; }
+
+/* a game's own page */
+.game-page { padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(48px, 6vw, 80px); }
+.crumbs { margin: 0 0 28px; font-size: 15px; }
+.crumbs a { color: var(--text-2); text-decoration: none; }
+.crumbs a:hover { color: var(--gold-hi); }
+.game-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.game-head h1 { font-size: clamp(32px, 4.4vw, 60px); }
+.game-head .aka { margin: 0; font-size: 15px; }
+
+/* the frame the game plays in: the cover and a Play button until it is pressed. Wide games take
+   the column; tall ones (AeroFire) are held to the screen's height and centred. */
+.stage {
+  position: relative; overflow: hidden; margin: 0 auto;
+  width: min(100%, calc(78vh * var(--fw) / var(--fh)));
+  aspect-ratio: var(--fw) / var(--fh);
+  background: #050b14; border: 1px solid var(--line); border-radius: 20px;
+  display: grid; place-items: center;
+}
+.stage-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.38; }
+.stage-start {
+  position: relative; display: inline-flex; align-items: center; gap: 12px;
+  min-height: 64px; padding: 0 36px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--gold); color: var(--ink); font: 700 20px var(--display); letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.stage-start:hover { background: var(--gold-hi); }
+.stage-frame { position: absolute; inset: 0; display: none; }
+.stage-frame iframe { width: 100%; height: 100%; border: 0; display: block; background: #000; }
+.stage.is-playing .stage-frame { display: block; }
+.stage.is-playing .stage-start, .stage.is-playing .stage-cover { display: none; }
+.stage:fullscreen { width: 100%; height: 100%; max-width: none; aspect-ratio: auto; border: 0; border-radius: 0; }
+/* a phone: the game becomes a layer over the whole screen, with a way back */
+.stage.is-layer {
+  position: fixed; inset: 0; z-index: 50; width: 100vw; height: 100vh; height: 100dvh;
+  aspect-ratio: auto; border: 0; border-radius: 0;
+}
+.stage-close {
+  position: absolute; top: max(10px, env(safe-area-inset-top)); left: 10px; z-index: 2;
+  width: 44px; height: 44px; border: 1px solid var(--line-2); border-radius: 50%;
+  background: rgba(11, 22, 38, 0.85); color: var(--text); font-size: 26px; line-height: 1; cursor: pointer;
+}
+.stage-close[hidden] { display: none; }
+.no-scroll, .no-scroll body { overflow: hidden; }
+
+.stage-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
+  margin: 16px auto 0; width: min(100%, calc(78vh * var(--fw, 16) / var(--fh, 9)));
+}
+.stage.portrait + .stage-bar { --fw: 540; --fh: 960; }
+.stage-note { margin: 0; color: var(--muted); font-size: 15px; }
+.stage-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin: 0; }
+.stage-full {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px;
+  border: 1.5px solid var(--line-2); border-radius: 999px; background: transparent; color: var(--text);
+  font: 500 15px var(--body); cursor: pointer;
+}
+.stage-full:hover { border-color: var(--gold-hi); color: var(--gold-hi); }
+.stage-full[hidden] { display: none; }
+.game-info { max-width: 46em; margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+.game-info .text { margin: 0; font-size: 19px; line-height: 1.55; color: var(--text-2); }
+
+.more-games { padding-top: clamp(48px, 6vw, 80px); border-top: 1px solid #1e3150; }
+.more-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.more-card {
+  display: flex; flex-direction: column; gap: 10px; padding-bottom: 18px; overflow: hidden;
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: 20px;
+  color: var(--text); text-decoration: none;
+}
+.more-card:hover { border-color: var(--line-2); color: var(--text); }
+.more-card img { aspect-ratio: 630 / 500; object-fit: cover; width: 100%; }
+.more-title { padding: 6px 20px 0; font: 700 18px var(--display); }
+.more-go { padding: 0 20px; color: var(--gold); font-weight: 600; font-size: 15px; }
 
 /* about: a paper section */
 .about { background: var(--paper); color: var(--ink); }
@@ -231,6 +309,11 @@ footer p { margin: 0; }
   .featured .cover { flex: none; aspect-ratio: 630 / 500; }
 }
 @media (max-width: 860px) {
+  .more-grid { grid-template-columns: 1fr; }
+  .more-card { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+  .more-card img { width: 120px; flex: none; }
+  .more-title { padding: 0; font-size: 16px; }
+  .more-go { display: none; }
   .hero { flex-direction: column-reverse; align-items: flex-start; }
   .hero-mark { align-self: center; width: min(78vw, 360px); }
   .top nav { display: none; }
