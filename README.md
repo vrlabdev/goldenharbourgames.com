@@ -8,14 +8,15 @@ file is GitHub's; leave it alone). English at `/`, Russian at `/ru/`.
 The pages are generated. Edit the sources, then rebuild:
 
     node tools/build.mjs                            # the pages, 404, sitemap, robots.txt
-    powershell -File tools/render_images.ps1        # share images + phone icon (only if the hero or title changed)
+    powershell -File tools/render_images.ps1        # share images + phone icon (only if the title or the logo changed)
 
 | Change | Edit |
 |---|---|
 | Any text on the page | `content/en.json`, `content/ru.json` |
 | A new game | one entry in `content/games.json` (itch link, 630x500 cover in `img/`, platforms, languages) and its text under `games` in every language file |
 | A new language | copy `content/en.json` to `content/<code>.json`, translate it, give it `"path": "<code>/"` |
-| The hero drawing | `content/skyline.svg` |
+| The two bridges in About | `content/skyline.svg` |
+| The logo | `img/logo.svg` (full, with the bridges; 64px and up), `img/mark.svg` (small: favicon, header) |
 | The look | `style.css` |
 
 `index.html`, `ru/index.html`, `404.html`, `sitemap.xml` and `robots.txt` are build output. Commit

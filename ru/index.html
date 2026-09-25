@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://vvofort.itch.io/"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
 </head>
@@ -40,8 +40,8 @@
 
 <header class="top">
   <a class="brand" href="../ru/">
-    <img src="../img/mark.svg" alt="" width="32" height="32">
-    <span>Golden Harbour Games</span>
+    <img src="../img/mark.svg" alt="" width="36" height="36">
+    <span class="wordmark"><b>Golden Harbour</b><small>Games</small></span>
   </a>
   <div class="top-right">
     <nav>
@@ -53,160 +53,148 @@
   </div>
 </header>
 
-<section class="hero">
-  <!-- Dusk over one harbour with both bridges in it: the Golden Bridge over Vladivostok's Golden
-       Horn on the left, the Sydney Harbour Bridge on the right. -->
-  <svg class="skyline" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-  <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0b1626"/>
-      <stop offset="0.62" stop-color="#1c2c44"/>
-      <stop offset="1" stop-color="#6b4a2a"/>
-    </linearGradient>
-    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1a2638"/>
-      <stop offset="1" stop-color="#08111d"/>
-    </linearGradient>
-    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#ffd98a"/>
-      <stop offset="0.35" stop-color="#e9b04c" stop-opacity="0.8"/>
-      <stop offset="1" stop-color="#e9b04c" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="300" fill="url(#sky)"/>
-  <circle cx="600" cy="296" r="150" fill="url(#sun)"/>
-  <circle cx="600" cy="296" r="30" fill="#ffd98a"/>
-  <!-- far hills -->
-  <path d="M0 282 C120 250 200 262 300 270 C380 276 440 262 500 280 C530 290 555 298 575 300 L0 300 Z" fill="#14202f"/>
-  <path d="M625 300 C650 296 680 284 720 274 C780 260 840 262 920 272 C1010 282 1100 256 1200 266 L1200 300 Z" fill="#14202f"/>
-  <rect y="300" width="1200" height="120" fill="url(#sea)"/>
-  <!-- sun on the water -->
-  <g fill="#e9b04c">
-    <rect x="560" y="306" width="80" height="3" rx="1.5" opacity="0.85"/>
-    <rect x="540" y="318" width="120" height="3" rx="1.5" opacity="0.6"/>
-    <rect x="575" y="330" width="50" height="3" rx="1.5" opacity="0.7"/>
-    <rect x="520" y="344" width="160" height="3" rx="1.5" opacity="0.35"/>
-    <rect x="555" y="360" width="90" height="3" rx="1.5" opacity="0.45"/>
-    <rect x="500" y="378" width="200" height="3" rx="1.5" opacity="0.2"/>
-  </g>
-  <!-- Golden Bridge, Vladivostok: two A-shaped pylons, fans of stays -->
-  <g stroke="#0a0f18" fill="#0a0f18">
-    <rect x="20" y="258" width="470" height="7" stroke="none"/>
-    <path d="M150 300 L166 150 L182 300 M156 258 L176 258" fill="none" stroke-width="6"/>
-    <path d="M340 300 L356 150 L372 300 M346 258 L366 258" fill="none" stroke-width="6"/>
-    <g stroke-width="1.3" fill="none">
-      <path d="M166 158 L40 258 M166 164 L70 258 M166 170 L100 258 M166 176 L128 258"/>
-      <path d="M166 158 L292 258 M166 164 L262 258 M166 170 L232 258 M166 176 L204 258"/>
-      <path d="M356 158 L230 258 M356 164 L260 258 M356 170 L290 258 M356 176 L318 258"/>
-      <path d="M356 158 L482 258 M356 164 L452 258 M356 170 L422 258 M356 176 L394 258"/>
-    </g>
-  </g>
-  <!-- Sydney Harbour Bridge: the coathanger arch between four granite pylons -->
-  <g fill="#0a0f18" stroke="#0a0f18">
-    <rect x="720" y="252" width="460" height="7" stroke="none"/>
-    <rect x="760" y="214" width="22" height="86" stroke="none"/>
-    <rect x="790" y="214" width="22" height="86" stroke="none"/>
-    <rect x="1088" y="214" width="22" height="86" stroke="none"/>
-    <rect x="1118" y="214" width="22" height="86" stroke="none"/>
-    <path d="M812 262 Q950 110 1088 262" fill="none" stroke-width="9"/>
-    <path d="M812 238 Q950 150 1088 238" fill="none" stroke-width="4"/>
-    <g stroke-width="1.6">
-      <path d="M840 226 L840 252 M866 200 L866 252 M892 181 L892 252 M918 170 L918 252 M950 166 L950 252 M982 170 L982 252 M1008 181 L1008 252 M1034 200 L1034 252 M1060 226 L1060 252"/>
-    </g>
-  </g>
-    </svg>
+<section class="hero chart">
   <div class="hero-text">
-    <p class="eyebrow">Независимая игровая студия</p>
-    <h1>Игры из двух гаваней</h1>
+    <p class="kicker">Независимая игровая студия · Владивосток ⇄ Сидней</p>
+    <h1>Игры из двух <span>гаваней.</span></h1>
     <p class="lede">Мы выросли у Золотого Рога во Владивостоке, а игры делаем у Сиднейской гавани. Небольшие точные игры, в которые можно бесплатно играть прямо в браузере.</p>
-    <a class="button" href="#games">Смотреть игры</a>
+    <div class="actions">
+      <a class="button" href="https://vvofort.itch.io/peregon">Играть в «Перегон» <span aria-hidden="true">→</span></a>
+      <a class="button ghost" href="#games">Смотреть игры</a>
+    </div>
+  </div>
+  <div class="hero-mark" aria-hidden="true">
+    <svg class="rings" viewBox="0 0 520 520" fill="none"><circle cx="260" cy="260" r="250" stroke-dasharray="3 7"/><circle cx="260" cy="260" r="214"/><path d="M0 260H520M260 0V520" stroke-dasharray="2 6"/></svg>
+    <img src="../img/logo.svg" alt="" width="380" height="380">
+    <span class="coord north">43°06′N 131°53′E<br>ЗОЛОТОЙ РОГ</span>
+    <span class="coord south">33°51′S 151°13′E<br>PORT JACKSON</span>
   </div>
 </section>
 
+<div class="strip"><span>Бесплатно в браузере</span><i aria-hidden="true">◆</i><span>Телефон · планшет · компьютер</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID</span><i aria-hidden="true">◆</i><span>Игр в порту: 4</span></div>
+
 <main>
-  <section id="games" class="games">
-    <h2>Игры</h2>
+  <section id="games" class="section games">
+    <div class="section-head">
+      <div>
+        <p class="kicker">01 / Игры</p>
+        <h2>Сейчас в порту</h2>
+      </div>
+      <p>Небольшие точные игры, которые открываются во вкладке браузера — и на телефоне тоже.</p>
+    </div>
+
+      <article class="card featured">
+        <a class="cover" href="https://vvofort.itch.io/peregon" tabindex="-1"><img src="../img/peregon.jpg" alt="Перегон" width="630" height="500"></a>
+        <div class="card-body">
+          <p class="kind"><span class="badge">Новинка</span>Рогалик · Дорога</p>
+          <h3>Перегон</h3>
+          <p class="aka">Range Anxiety: Far East</p>
+          <p class="text">Рогалик о том, как купить подержанный электромобиль во Владивостоке и перегнать его туда, где холоднее. Машина в порядке. Страна – начальник.</p>
+          <dl class="facts">
+            <div><dt>Где играть</dt><dd>Браузер · Телефон</dd></div>
+            <div><dt>Языки</dt><dd>EN · RU</dd></div>
+          </dl>
+          <a class="play button" href="https://vvofort.itch.io/peregon">Играть бесплатно на itch.io <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
     <div class="grid">
 
       <article class="card">
-        <a href="https://vvofort.itch.io/peregon" tabindex="-1"><img src="../img/peregon.jpg" alt="Перегон" width="630" height="500" loading="lazy"></a>
+        <a class="cover" href="https://vvofort.itch.io/punch-league" tabindex="-1"><img src="../img/punch-league.jpg" alt="Punch League" width="630" height="500" loading="lazy"></a>
         <div class="card-body">
-          <h3>Перегон</h3>
-          <p class="aka">Range Anxiety: Far East</p>
-          <p>Рогалик о том, как купить подержанный электромобиль во Владивостоке и перегнать его туда, где холоднее. Машина в порядке. Страна – начальник.</p>
-          <ul class="tags"><li>Рогалик</li><li>Дорога</li></ul>
-          <dl class="facts">
-            <div><dt>Где играть</dt><dd>Браузер · Телефон</dd></div>
-            <div><dt>Языки</dt><dd>EN · RU</dd></div>
-          </dl>
-          <a class="play" href="https://vvofort.itch.io/peregon">Играть бесплатно на itch.io</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <a href="https://vvofort.itch.io/punch-league" tabindex="-1"><img src="../img/punch-league.jpg" alt="Punch League" width="630" height="500" loading="lazy"></a>
-        <div class="card-body">
+          <p class="kind">Карточные бои · Бокс</p>
           <h3>Punch League</h3>
-          <p>Карточная игра про бокс. Читай его следующий удар, раскуси блеф и отправь соперника в нокаут. Быстрые бои, глубокие решения.</p>
-          <ul class="tags"><li>Карточные бои</li><li>Бокс</li></ul>
+          <p class="text">Карточная игра про бокс. Читай его следующий удар, раскуси блеф и отправь соперника в нокаут. Быстрые бои, глубокие решения.</p>
           <dl class="facts">
             <div><dt>Где играть</dt><dd>Браузер · Телефон</dd></div>
             <div><dt>Языки</dt><dd>EN · RU</dd></div>
           </dl>
-          <a class="play" href="https://vvofort.itch.io/punch-league">Играть бесплатно на itch.io</a>
+          <a class="play" href="https://vvofort.itch.io/punch-league">Играть бесплатно на itch.io <span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
       <article class="card">
-        <a href="https://vvofort.itch.io/aerofire-command" tabindex="-1"><img src="../img/aerofire-command.jpg" alt="AeroFire Command" width="630" height="500" loading="lazy"></a>
+        <a class="cover" href="https://vvofort.itch.io/aerofire-command" tabindex="-1"><img src="../img/aerofire-command.jpg" alt="AeroFire Command" width="630" height="500" loading="lazy"></a>
         <div class="card-body">
+          <p class="kind">Стратегия · Симулятор</p>
           <h3>AeroFire Command</h3>
-          <p>Туши лесные пожары самолётами, вертолётами и наземными бригадами. Читай ветер, прокладывай заградительные полосы и бей туда, куда идёт огонь, а не туда, где он сейчас.</p>
-          <ul class="tags"><li>Стратегия</li><li>Симулятор</li></ul>
+          <p class="text">Туши лесные пожары самолётами, вертолётами и наземными бригадами. Читай ветер, прокладывай заградительные полосы и бей туда, куда идёт огонь, а не туда, где он сейчас.</p>
           <dl class="facts">
             <div><dt>Где играть</dt><dd>Браузер · Телефон</dd></div>
             <div><dt>Языки</dt><dd>EN · RU · ES · ID</dd></div>
           </dl>
-          <a class="play" href="https://vvofort.itch.io/aerofire-command">Играть бесплатно на itch.io</a>
+          <a class="play" href="https://vvofort.itch.io/aerofire-command">Играть бесплатно на itch.io <span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
       <article class="card">
-        <a href="https://vvofort.itch.io/vladivostok-fortress" tabindex="-1"><img src="../img/vladivostok-fortress.jpg" alt="Владивостокская крепость" width="630" height="500" loading="lazy"></a>
+        <a class="cover" href="https://vvofort.itch.io/vladivostok-fortress" tabindex="-1"><img src="../img/vladivostok-fortress.jpg" alt="Владивостокская крепость" width="630" height="500" loading="lazy"></a>
         <div class="card-body">
+          <p class="kind">Нарратив · Стратегия · История</p>
           <h3>Владивостокская крепость</h3>
           <p class="aka">Vladivostok Fortress</p>
-          <p>Нарративная стратегия о строительстве последней и самой большой крепости в мире — по альбому военного инженера 1899 года.</p>
-          <ul class="tags"><li>Нарратив</li><li>Стратегия</li><li>История</li></ul>
+          <p class="text">Нарративная стратегия о строительстве последней и самой большой крепости в мире — по альбому военного инженера 1899 года.</p>
           <dl class="facts">
             <div><dt>Где играть</dt><dd>Браузер · Планшет</dd></div>
             <div><dt>Языки</dt><dd>EN · RU</dd></div>
           </dl>
-          <a class="play" href="https://vvofort.itch.io/vladivostok-fortress">Играть бесплатно на itch.io</a>
+          <a class="play" href="https://vvofort.itch.io/vladivostok-fortress">Играть бесплатно на itch.io <span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <section id="about" class="about">
-    <div class="about-text">
-      <h2>Две гавани</h2>
-      <p>Владивосток стоит на Золотом Роге — бухте, названной в честь стамбульской. Сидней стоит на Порт-Джексоне. Оба города портовые, в обоих через воду перекинут знаменитый мост, и студия названа в честь этой пары.</p>
-      <p>Наши игры — из обоих мест: дороги, форты и погода Дальнего Востока и край лесных пожаров вокруг Сиднея. Они работают в браузере, на телефоне или на компьютере, и во все можно бесплатно играть на itch.io.</p>
+  <section id="about" class="section about">
+    <div class="section-head">
+      <div>
+        <p class="kicker">02 / О нас</p>
+        <h2>Две гавани</h2>
+      </div>
+      <div class="about-text">
+        <p>Владивосток стоит на Золотом Роге — бухте, названной в честь стамбульской. Сидней стоит на Порт-Джексоне. Оба города портовые, в обоих через воду перекинут знаменитый мост, и студия названа в честь этой пары.</p>
+        <p>Наши игры — из обоих мест: дороги, форты и погода Дальнего Востока и край лесных пожаров вокруг Сиднея. Они работают в браузере, на телефоне или на компьютере, и во все можно бесплатно играть на itch.io.</p>
+      </div>
     </div>
+    <figure class="bridges-figure">
+      <svg class="bridges" viewBox="0 0 1080 240" fill="none" stroke="currentColor" aria-hidden="true">
+        <!-- Left: the Golden Bridge over Vladivostok's Golden Horn, two A-shaped pylons and fans of stays.
+             Right: the Sydney Harbour Bridge, the arch between granite pylons. Line colour comes from CSS. -->
+        <g transform="translate(0 10)">
+          <path d="M0 160H500" stroke-width="4"/>
+          <path d="M146 196L160 30L174 196M326 196L340 30L354 196" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M160 44L30 160M160 44L62 160M160 44L96 160M160 44L128 160M160 44L192 160M160 44L224 160M160 44L250 160M340 44L250 160M340 44L276 160M340 44L308 160M340 44L372 160M340 44L404 160M340 44L438 160M340 44L470 160" stroke-width="1.5"/>
+          <path class="water" d="M0 190H120M150 204H330M380 190H500" stroke-width="2" stroke-dasharray="6 8"/>
+        </g>
+        <g transform="translate(580 20)">
+          <path d="M0 150H500" stroke-width="4"/>
+          <path d="M60 190Q250 -40 440 190" stroke-width="4"/>
+          <path d="M117 131V150M155 104V150M193 85V150M231 76V150M269 76V150M307 85V150M345 104V150M383 131V150" stroke-width="1.5"/>
+          <rect x="30" y="100" width="34" height="100" stroke-width="3"/>
+          <rect x="436" y="100" width="34" height="100" stroke-width="3"/>
+          <path class="water" d="M0 210H500" stroke-width="2" stroke-dasharray="6 8"/>
+        </g>
+      </svg>
+      <figcaption>
+        <span>Владивосток · Золотой Рог <em>43°06′N 131°53′E</em></span>
+        <span>Сидней · Порт-Джексон <em>33°51′S 151°13′E</em></span>
+      </figcaption>
+    </figure>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="section contact chart">
+    <p class="kicker">03 / Контакты</p>
     <h2>Напишите нам</h2>
-    <p>Пресса, игроки, издатели — или тот, кто проехал М-60 на «Лифе»: мы читаем всё.</p>
-    <a class="button" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
+    <p class="contact-text">Пресса, игроки, издатели — или тот, кто проехал М-60 на «Лифе»: мы читаем всё.</p>
+    <a class="email" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Golden Harbour Games &middot; Сидней, Австралия</p>
-  <p><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> &middot; <a href="https://vvofort.itch.io/">itch.io</a></p>
+  <p class="foot-brand"><img src="../img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; Сидней, Австралия</p>
+  <p class="foot-links"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> &middot; <a href="https://vvofort.itch.io/">itch.io</a></p>
+  <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
 <script>

@@ -1,7 +1,7 @@
 // Writes the site from content/:  node tools/build.mjs
 //   content/<lang>.json  every word on the page, one file per language
 //   content/games.json   the games, in order: itch link, cover, platforms, languages
-//   content/skyline.svg  the hero drawing, shared by every language
+//   content/skyline.svg  the two bridges drawn in About, shared by every language
 // Out: index.html (English), <lang>/index.html for the rest, 404.html, sitemap.xml, robots.txt,
 // and .cache/ pages that tools/render_images.ps1 turns into the share images and the touch icon.
 // A new language is one more JSON file with a "path" of its own; nothing here changes.
@@ -47,26 +47,38 @@ function page(t) {
   const others = langs.filter((l) => l.lang !== t.lang)
     .map((l) => ({ lang: l.lang, href: up + (l.path || './'), text: l.hint.text, go: l.hint.go, close: l.hint.close }));
 
-  const cards = games.map((g) => {
+  // The first game is the featured one: a wide card at the top of the list.
+  const card = (g, featured) => {
     const c = t.games[g.id];
     const cover = up + g.cover;
     const aka = c.aka ? `\n          <p class="aka">${esc(c.aka)}</p>` : '';
-    const tags = c.tags.map((x) => `<li>${esc(x)}</li>`).join('');
+    const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
     const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
-    return `      <article class="card">
-        <a href="${g.itch}" tabindex="-1"><img src="${cover}" alt="${esc(c.title)}" width="630" height="500" loading="lazy"></a>
+    return `      <article class="card${featured ? ' featured' : ''}">
+        <a class="cover" href="${g.itch}" tabindex="-1"><img src="${cover}" alt="${esc(c.title)}" width="630" height="500"${featured ? '' : ' loading="lazy"'}></a>
         <div class="card-body">
+          <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
           <h3>${esc(c.title)}</h3>${aka}
-          <p>${esc(c.text)}</p>
-          <ul class="tags">${tags}</ul>
+          <p class="text">${esc(c.text)}</p>
           <dl class="facts">
             <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
             <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
           </dl>
-          <a class="play" href="${g.itch}">${esc(t.play)}</a>
+          <a class="play${featured ? ' button' : ''}" href="${g.itch}">${esc(t.play)} <span aria-hidden="true">↗</span></a>
         </div>
       </article>`;
-  }).join('\n\n');
+  };
+  const featured = card(games[0], true);
+  const cards = games.slice(1).map((g) => card(g, false)).join('\n\n');
+
+  // "Games from two harbours" -> the last word in brass, with a full stop.
+  const words = t.hero.title.split(' ');
+  const last = words.pop();
+  const heroTitle = `${esc(words.join(' '))} <span>${esc(last)}.</span>`;
+
+  const allLangs = [...new Set(games.flatMap((g) => g.languages))];
+  const strip = [...t.strip, allLangs.join(' · '), t.strip_games.replace('{n}', games.length)]
+    .map((s) => `<span>${esc(s)}</span>`).join('<i aria-hidden="true">◆</i>');
 
   const org = {
     '@context': 'https://schema.org',
@@ -105,7 +117,7 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
   <link rel="apple-touch-icon" href="${up}img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${up}style.css">
   <script type="application/ld+json">${JSON.stringify(org)}</script>
 </head>
@@ -120,8 +132,8 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
 
 <header class="top">
   <a class="brand" href="${up}${t.path || './'}">
-    <img src="${up}img/mark.svg" alt="" width="32" height="32">
-    <span>Golden Harbour Games</span>
+    <img src="${up}img/mark.svg" alt="" width="36" height="36">
+    <span class="wordmark"><b>Golden Harbour</b><small>Games</small></span>
   </a>
   <div class="top-right">
     <nav>
@@ -133,21 +145,38 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
   </div>
 </header>
 
-<section class="hero">
-  <!-- Dusk over one harbour with both bridges in it: the Golden Bridge over Vladivostok's Golden
-       Horn on the left, the Sydney Harbour Bridge on the right. -->
-  ${skyline.replace(/\n/g, '\n  ')}
+<section class="hero chart">
   <div class="hero-text">
-    <p class="eyebrow">${esc(t.hero.eyebrow)}</p>
-    <h1>${esc(t.hero.title)}</h1>
+    <p class="kicker">${esc(t.hero.eyebrow)} · ${esc(t.hero.route)}</p>
+    <h1>${heroTitle}</h1>
     <p class="lede">${esc(t.hero.lede)}</p>
-    <a class="button" href="#games">${esc(t.hero.button)}</a>
+    <div class="actions">
+      <a class="button" href="${games[0].itch}">${esc(t.hero.play)} <span aria-hidden="true">→</span></a>
+      <a class="button ghost" href="#games">${esc(t.hero.button)}</a>
+    </div>
+  </div>
+  <div class="hero-mark" aria-hidden="true">
+    <svg class="rings" viewBox="0 0 520 520" fill="none"><circle cx="260" cy="260" r="250" stroke-dasharray="3 7"/><circle cx="260" cy="260" r="214"/><path d="M0 260H520M260 0V520" stroke-dasharray="2 6"/></svg>
+    <img src="${up}img/logo.svg" alt="" width="380" height="380">
+    <span class="coord north">43°06′N 131°53′E<br>ЗОЛОТОЙ РОГ</span>
+    <span class="coord south">33°51′S 151°13′E<br>PORT JACKSON</span>
   </div>
 </section>
 
+<div class="strip">${strip}</div>
+
 <main>
-  <section id="games" class="games">
-    <h2>${esc(t.games_title)}</h2>
+  <section id="games" class="section games">
+    <div class="section-head">
+      <div>
+        <p class="kicker">01 / ${esc(t.nav.games)}</p>
+        <h2>${esc(t.games_title)}</h2>
+      </div>
+      <p>${esc(t.games_lede)}</p>
+    </div>
+
+${featured}
+
     <div class="grid">
 
 ${cards}
@@ -155,23 +184,37 @@ ${cards}
     </div>
   </section>
 
-  <section id="about" class="about">
-    <div class="about-text">
-      <h2>${esc(t.about.title)}</h2>
-${t.about.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
+  <section id="about" class="section about">
+    <div class="section-head">
+      <div>
+        <p class="kicker">02 / ${esc(t.nav.about)}</p>
+        <h2>${esc(t.about.title)}</h2>
+      </div>
+      <div class="about-text">
+${t.about.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
+      </div>
     </div>
+    <figure class="bridges-figure">
+      ${skyline.replace(/\n/g, '\n      ')}
+      <figcaption>
+        <span>${esc(t.about.north)} <em>43°06′N 131°53′E</em></span>
+        <span>${esc(t.about.south)} <em>33°51′S 151°13′E</em></span>
+      </figcaption>
+    </figure>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="section contact chart">
+    <p class="kicker">03 / ${esc(t.nav.contact)}</p>
     <h2>${esc(t.contact.title)}</h2>
-    <p>${esc(t.contact.text)}</p>
-    <a class="button" href="mailto:${EMAIL}">${EMAIL}</a>
+    <p class="contact-text">${esc(t.contact.text)}</p>
+    <a class="email" href="mailto:${EMAIL}">${EMAIL}</a>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
-  <p><a href="mailto:${EMAIL}">${EMAIL}</a> &middot; <a href="${ITCH}">itch.io</a></p>
+  <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
+  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a> &middot; <a href="${ITCH}">itch.io</a></p>
+  <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
 <script>
@@ -229,13 +272,13 @@ function notFound() {
   <title>404 · Golden Harbour Games</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/img/mark.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body class="lost">
 <!-- Generated by tools/build.mjs. -->
 <main class="lost-body">
-  <a class="brand" href="/"><img src="/img/mark.svg" alt="" width="40" height="40"><span>Golden Harbour Games</span></a>
+  <a class="brand" href="/"><img src="/img/mark.svg" alt="" width="40" height="40"><span class="wordmark"><b>Golden Harbour</b><small>Games</small></span></a>
   <div class="lost-langs">
 ${blocks}
   </div>
@@ -247,32 +290,36 @@ ${blocks}
 
 // The share image and the touch icon are pictures of these pages; see tools/render_images.ps1.
 function shareCard(t) {
+  const words = t.hero.title.split(' ');
+  const last = words.pop();
   return `<!doctype html>
 <html lang="${t.lang}"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
-  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0b1626; }
-  .card-og { position: relative; width: 1200px; height: 630px; }
-  .card-og .skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 1200px; height: 420px; }
-  .card-og .words { position: absolute; left: 72px; top: 64px; }
-  .card-og .brand { font-size: 30px; gap: 16px; }
-  .card-og .brand img { width: 52px; height: 52px; }
-  .card-og h1 { font-size: 76px; font-weight: 500; margin-top: 30px; color: var(--text); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  .card-og { width: 1200px; height: 630px; box-sizing: border-box; padding: 72px; display: flex; align-items: center; gap: 56px; }
+  .card-og .words { flex: 1; display: flex; flex-direction: column; gap: 28px; }
+  .card-og .kicker { font-size: 18px; margin: 0; }
+  .card-og h1 { font-size: 76px; margin: 0; text-wrap: balance; }
+  .card-og .lede { font-size: 24px; margin: 0; color: var(--text-2); }
+  .card-og img { width: 360px; height: 360px; }
 </style></head>
-<body><div class="card-og">
-  ${skyline}
+<body><div class="card-og chart">
   <div class="words">
-    <span class="brand"><img src="../img/mark.svg" alt=""><span>Golden Harbour Games</span></span>
-    <h1>${esc(t.hero.title)}</h1>
+    <p class="kicker">goldenharbourgames.com</p>
+    <h1>${esc(words.join(' '))} <span>${esc(last)}.</span></h1>
+    <p class="lede">${esc(t.og_description.replace(t.hero.title + '. ', ''))}</p>
   </div>
+  <img src="../img/logo.svg" alt="">
 </div></body></html>
 `;
 }
 
 const ICON = `<!doctype html><html><head><meta charset="utf-8"><style>
-html, body { margin: 0; background: #0b1626; } img { display: block; width: 540px; height: 540px; }
-</style></head><body><img src="../img/mark.svg" alt=""></body></html>
+html, body { margin: 0; width: 540px; height: 540px; background: #0b1626; }
+img { display: block; width: 420px; height: 420px; margin: 50px 60px 70px; }
+</style></head><body><img src="../img/logo.svg" alt=""></body></html>
 `;
 
 for (const t of langs) write(t.path + 'index.html', page(t));

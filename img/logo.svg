@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Two suns on one horizon: Vladivostok's above the line with the Golden Bridge against it,
+       Sydney's below as a reflection, with the Harbour Bridge arch upside down in the water.
+       Drawn for a navy (#0b1626) background: the bridges are navy and vanish outside the suns. -->
+  <path d="M12 62A34 34 0 0 1 80 62Z" fill="#e8b04b"/>
+  <rect x="40.8" y="66" width="66.4" height="7" rx="3.5" fill="#e8b04b"/>
+  <rect x="45.2" y="77" width="57.6" height="6" rx="3" fill="#e8b04b"/>
+  <rect x="54" y="87" width="40" height="5" rx="2.5" fill="#e8b04b"/>
+  <g stroke="#0b1626" stroke-linecap="round">
+    <path d="M10 54H82" stroke-width="2"/>
+    <path d="M28 62L32 36L36 62M56 62L60 36L64 62" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M32 38L18 54M32 38L24 54M32 38L40 54M32 38L46 54M60 38L46 54M60 38L52 54M60 38L68 54M60 38L74 54" stroke-width="1.2"/>
+    <path d="M44 62Q74 108 104 62" stroke-width="2.5"/>
+    <path d="M56 62V76.7M65 62V82.9M74 62V85M83 62V82.9M92 62V76.7" stroke-width="1.2"/>
+  </g>
+  <path d="M4 62H116" stroke="#f3eee2" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

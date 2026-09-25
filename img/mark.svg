@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- The mark: a golden horn of a bay over two lines of water. -->
-  <rect width="64" height="64" rx="14" fill="#0b1626"/>
-  <path d="M14 38 C14 22 28 12 46 14 C36 18 28 26 28 38 Z" fill="#e9b04c"/>
-  <rect x="12" y="43" width="40" height="3.5" rx="1.75" fill="#e9b04c"/>
-  <rect x="18" y="50" width="28" height="3.5" rx="1.75" fill="#e9b04c" opacity="0.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- The small mark (favicon, header, anything under 64px): the two suns without the bridges. -->
+  <rect width="120" height="120" rx="26" fill="#0b1626"/>
+  <path d="M10 60A36 36 0 0 1 82 60Z" fill="#e8b04b"/>
+  <rect x="40" y="68" width="68" height="13" rx="6.5" fill="#e8b04b"/>
+  <rect x="56" y="88" width="36" height="11" rx="5.5" fill="#e8b04b"/>
 </svg>

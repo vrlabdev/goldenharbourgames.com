@@ -17,9 +17,11 @@
     "eyebrow": "Independent game studio",
     "title": "Games from two harbours",
     "lede": "We grew up by the Golden Horn in Vladivostok and make games by Sydney Harbour. Small, sharp games you can play in your browser, free.",
-    "button": "See the games"
+    "button": "See the games",
+    "route": "Vladivostok ⇄ Sydney",
+    "play": "Play Range Anxiety"
   },
-  "games_title": "Games",
+  "games_title": "In port now",
   "play": "Play free on itch.io",
   "plays_label": "Plays on",
   "platforms": {
@@ -69,7 +71,9 @@
     "paragraphs": [
       "Vladivostok sits on the Golden Horn, a bay named after Istanbul's. Sydney sits on Port Jackson. Both are harbour cities with a famous bridge across the water, and the studio is named for the pair of them.",
       "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run in a browser, on a phone or a desk, and you can play them all free on itch.io."
-    ]
+    ],
+    "north": "Vladivostok · Golden Horn",
+    "south": "Sydney · Port Jackson"
   },
   "contact": {
     "title": "Say hello",
@@ -85,5 +89,12 @@
     "title": "Nothing here",
     "text": "This page has driven off somewhere colder.",
     "home": "Back to the harbour"
-  }
+  },
+  "games_lede": "Small, sharp games that open in a browser tab — on your phone, too.",
+  "new": "New",
+  "strip": [
+    "Free in your browser",
+    "Phone · tablet · desktop"
+  ],
+  "strip_games": "{n} games in port"
 }
