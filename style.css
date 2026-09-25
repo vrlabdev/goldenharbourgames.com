@@ -107,11 +107,20 @@ main { padding: 0 clamp(16px, 6vw, 80px); }
 
 /* about */
 .about {
-  max-width: 1200px; margin: 40px auto 0; padding: 72px 0 96px;
+  max-width: 1200px; margin: 40px auto 0; padding: 72px 0 64px;
   border-top: 1px solid var(--line);
 }
 .about-text { max-width: 44em; }
 .about p { color: #c6ccd6; font-size: 18px; }
+
+/* contact */
+.contact {
+  max-width: 1200px; margin: 0 auto; padding: 64px 0 96px;
+  border-top: 1px solid var(--line);
+}
+.contact h2 { font-size: clamp(30px, 4vw, 42px); font-weight: 500; margin-bottom: 16px; }
+.contact p { color: #c6ccd6; font-size: 18px; margin: 0 0 28px; max-width: 44em; }
+.contact .button { white-space: nowrap; font-size: clamp(14px, 4vw, 17px); }
 
 footer {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
