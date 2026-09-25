@@ -91,6 +91,8 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
   <meta name="twitter:image" content="${ogImage}">
   <meta name="theme-color" content="#0b1626">
   <link rel="icon" href="${up}img/mark.svg" type="image/svg+xml">
+  <link rel="icon" href="${up}favicon.ico" sizes="48x48">
+  <link rel="icon" href="${up}img/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="${up}img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
