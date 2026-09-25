@@ -1,0 +1,89 @@
+{
+  "lang": "en",
+  "label": "EN",
+  "name": "English",
+  "path": "",
+  "og_locale": "en_AU",
+  "title": "Golden Harbour Games",
+  "description": "An independent game studio between two harbours: Vladivostok's Golden Horn and Sydney Harbour. Browser games you can play free on itch.io.",
+  "og_description": "Games from two harbours. Play free in your browser.",
+  "nav": {
+    "games": "Games",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "switch_label": "Language",
+  "hero": {
+    "eyebrow": "Independent game studio",
+    "title": "Games from two harbours",
+    "lede": "We grew up by the Golden Horn in Vladivostok and make games by Sydney Harbour. Small, sharp games you can play in your browser, free.",
+    "button": "See the games"
+  },
+  "games_title": "Games",
+  "play": "Play free on itch.io",
+  "plays_label": "Plays on",
+  "platforms": {
+    "browser": "Browser",
+    "phone": "Phone",
+    "tablet": "Tablet"
+  },
+  "languages_label": "Languages",
+  "games": {
+    "peregon": {
+      "title": "Range Anxiety: Far East",
+      "aka": "Перегон",
+      "text": "A roguelike about buying used electric cars in Vladivostok and driving them somewhere colder. The car is fine. The country is the boss.",
+      "tags": [
+        "Roguelike",
+        "Road trip"
+      ]
+    },
+    "punch-league": {
+      "title": "Punch League",
+      "text": "A boxing card game. Read his next move, spot the bluff, and knock him out. Quick fights, deep decisions.",
+      "tags": [
+        "Card battler",
+        "Boxing"
+      ]
+    },
+    "aerofire-command": {
+      "title": "AeroFire Command",
+      "text": "Fight wildfires with air tankers, helicopters and ground crews. Read the wind, cut the line, and aim where the fire is going, not where it is.",
+      "tags": [
+        "Strategy",
+        "Simulation"
+      ]
+    },
+    "vladivostok-fortress": {
+      "title": "Vladivostok Fortress",
+      "text": "A narrative strategy game about building the world's last and biggest fortress, told through an engineer officer's album from 1899.",
+      "tags": [
+        "Narrative",
+        "Strategy",
+        "History"
+      ]
+    }
+  },
+  "about": {
+    "title": "Two harbours",
+    "paragraphs": [
+      "Vladivostok sits on the Golden Horn, a bay named after Istanbul's. Sydney sits on Port Jackson. Both are harbour cities with a famous bridge across the water, and the studio is named for the pair of them.",
+      "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run in a browser, on a phone or a desk, and you can play them all free on itch.io."
+    ]
+  },
+  "contact": {
+    "title": "Say hello",
+    "text": "Press, players, publishers, or someone who has driven the M60 in a Leaf: we read everything."
+  },
+  "footer": "Sydney, Australia",
+  "hint": {
+    "text": "This page is also in English.",
+    "go": "Read in English",
+    "close": "Close"
+  },
+  "not_found": {
+    "title": "Nothing here",
+    "text": "This page has driven off somewhere colder.",
+    "home": "Back to the harbour"
+  }
+}

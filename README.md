@@ -1,14 +1,31 @@
 # goldenharbourgames.com
 
-The studio site: one static page, no build step. `index.html`, `style.css`, and `img/` (the four
-game covers at 630x500, the same art as the itch pages, plus `mark.svg`, the logo and favicon).
+The studio site, served by GitHub Pages from `main` at https://goldenharbourgames.com (the `CNAME`
+file is GitHub's; leave it alone). English at `/`, Russian at `/ru/`.
 
-Open `index.html` in a browser to see it. To put it online with GitHub Pages: repo Settings -> Pages
--> Deploy from a branch -> `main`, folder `/ (root)`. It is then at
-`https://vrlabdev.github.io/goldenharbourgames.com/`.
+## Changing it
 
-When the domain is bought: add a `CNAME` file containing `goldenharbourgames.com`, set the domain in
-the same Pages screen, and point the DNS at GitHub (four A records for the apex, see GitHub's
-"Managing a custom domain" page). Not before - with a CNAME and no domain, the site is unreachable.
+The pages are generated. Edit the sources, then rebuild:
 
-A new game is one more `<article class="card">` in `index.html` and a 630x500 cover in `img/`.
+    node tools/build.mjs                            # the pages, 404, sitemap, robots.txt
+    powershell -File tools/render_images.ps1        # share images + phone icon (only if the hero or title changed)
+
+| Change | Edit |
+|---|---|
+| Any text on the page | `content/en.json`, `content/ru.json` |
+| A new game | one entry in `content/games.json` (itch link, 630x500 cover in `img/`, platforms, languages) and its text under `games` in every language file |
+| A new language | copy `content/en.json` to `content/<code>.json`, translate it, give it `"path": "<code>/"` |
+| The hero drawing | `content/skyline.svg` |
+| The look | `style.css` |
+
+`index.html`, `ru/index.html`, `404.html`, `sitemap.xml` and `robots.txt` are build output. Commit
+them, since Pages serves what is in the repo, but do not edit them by hand.
+
+A visitor whose browser language has a page of its own is offered it in a strip at the bottom of the
+screen, never redirected. Choosing a language, or closing the strip, is remembered in that browser.
+
+## DNS (Cloudflare)
+
+Four `A` records on `@` to 185.199.108.153 / .109 / .110 / .111 and `www` as a `CNAME` to
+`vrlabdev.github.io`, all DNS only (grey cloud) so GitHub can keep the HTTPS certificate. The MX
+and TXT records are Cloudflare Email Routing for contact@goldenharbourgames.com.

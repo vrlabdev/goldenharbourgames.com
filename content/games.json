@@ -1,0 +1,30 @@
+[
+  {
+    "id": "peregon",
+    "itch": "https://vvofort.itch.io/peregon",
+    "cover": "img/peregon.jpg",
+    "platforms": ["browser", "phone"],
+    "languages": ["EN", "RU"]
+  },
+  {
+    "id": "punch-league",
+    "itch": "https://vvofort.itch.io/punch-league",
+    "cover": "img/punch-league.jpg",
+    "platforms": ["browser", "phone"],
+    "languages": ["EN", "RU"]
+  },
+  {
+    "id": "aerofire-command",
+    "itch": "https://vvofort.itch.io/aerofire-command",
+    "cover": "img/aerofire-command.jpg",
+    "platforms": ["browser", "phone"],
+    "languages": ["EN", "RU", "ES", "ID"]
+  },
+  {
+    "id": "vladivostok-fortress",
+    "itch": "https://vvofort.itch.io/vladivostok-fortress",
+    "cover": "img/vladivostok-fortress.jpg",
+    "platforms": ["browser", "tablet"],
+    "languages": ["EN", "RU"]
+  }
+]
