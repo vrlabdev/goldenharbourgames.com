@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Harbour Games</title>
+  <meta name="description" content="An independent game studio between two harbours: Vladivostok's Golden Horn and Sydney Harbour. Browser games you can play free on itch.io.">
+  <meta property="og:title" content="Golden Harbour Games">
+  <meta property="og:description" content="Games from two harbours. Play free in your browser.">
+  <meta property="og:image" content="img/peregon.jpg">
+  <link rel="icon" href="img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#">
+    <img src="img/mark.svg" alt="" width="32" height="32">
+    <span>Golden Harbour Games</span>
+  </a>
+  <nav>
+    <a href="#games">Games</a>
+    <a href="#about">About</a>
+    <a href="https://vvofort.itch.io/">itch.io</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <!-- Dusk over one harbour with both bridges in it: the Golden Bridge over Vladivostok's Golden
+       Horn on the left, the Sydney Harbour Bridge on the right. -->
+  <svg class="skyline" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0b1626"/>
+        <stop offset="0.62" stop-color="#1c2c44"/>
+        <stop offset="1" stop-color="#6b4a2a"/>
+      </linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1a2638"/>
+        <stop offset="1" stop-color="#08111d"/>
+      </linearGradient>
+      <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#ffd98a"/>
+        <stop offset="0.35" stop-color="#e9b04c" stop-opacity="0.8"/>
+        <stop offset="1" stop-color="#e9b04c" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="300" fill="url(#sky)"/>
+    <circle cx="600" cy="296" r="150" fill="url(#sun)"/>
+    <circle cx="600" cy="296" r="30" fill="#ffd98a"/>
+    <!-- far hills -->
+    <path d="M0 282 C120 250 200 262 300 270 C380 276 440 262 500 280 C530 290 555 298 575 300 L0 300 Z" fill="#14202f"/>
+    <path d="M625 300 C650 296 680 284 720 274 C780 260 840 262 920 272 C1010 282 1100 256 1200 266 L1200 300 Z" fill="#14202f"/>
+    <rect y="300" width="1200" height="120" fill="url(#sea)"/>
+    <!-- sun on the water -->
+    <g fill="#e9b04c">
+      <rect x="560" y="306" width="80" height="3" rx="1.5" opacity="0.85"/>
+      <rect x="540" y="318" width="120" height="3" rx="1.5" opacity="0.6"/>
+      <rect x="575" y="330" width="50" height="3" rx="1.5" opacity="0.7"/>
+      <rect x="520" y="344" width="160" height="3" rx="1.5" opacity="0.35"/>
+      <rect x="555" y="360" width="90" height="3" rx="1.5" opacity="0.45"/>
+      <rect x="500" y="378" width="200" height="3" rx="1.5" opacity="0.2"/>
+    </g>
+    <!-- Golden Bridge, Vladivostok: two A-shaped pylons, fans of stays -->
+    <g stroke="#0a0f18" fill="#0a0f18">
+      <rect x="20" y="258" width="470" height="7" stroke="none"/>
+      <path d="M150 300 L166 150 L182 300 M156 258 L176 258" fill="none" stroke-width="6"/>
+      <path d="M340 300 L356 150 L372 300 M346 258 L366 258" fill="none" stroke-width="6"/>
+      <g stroke-width="1.3" fill="none">
+        <path d="M166 158 L40 258 M166 164 L70 258 M166 170 L100 258 M166 176 L128 258"/>
+        <path d="M166 158 L292 258 M166 164 L262 258 M166 170 L232 258 M166 176 L204 258"/>
+        <path d="M356 158 L230 258 M356 164 L260 258 M356 170 L290 258 M356 176 L318 258"/>
+        <path d="M356 158 L482 258 M356 164 L452 258 M356 170 L422 258 M356 176 L394 258"/>
+      </g>
+    </g>
+    <!-- Sydney Harbour Bridge: the coathanger arch between four granite pylons -->
+    <g fill="#0a0f18" stroke="#0a0f18">
+      <rect x="720" y="252" width="460" height="7" stroke="none"/>
+      <rect x="760" y="214" width="22" height="86" stroke="none"/>
+      <rect x="790" y="214" width="22" height="86" stroke="none"/>
+      <rect x="1088" y="214" width="22" height="86" stroke="none"/>
+      <rect x="1118" y="214" width="22" height="86" stroke="none"/>
+      <path d="M812 262 Q950 110 1088 262" fill="none" stroke-width="9"/>
+      <path d="M812 238 Q950 150 1088 238" fill="none" stroke-width="4"/>
+      <g stroke-width="1.6">
+        <path d="M840 226 L840 252 M866 200 L866 252 M892 181 L892 252 M918 170 L918 252 M950 166 L950 252 M982 170 L982 252 M1008 181 L1008 252 M1034 200 L1034 252 M1060 226 L1060 252"/>
+      </g>
+    </g>
+  </svg>
+  <div class="hero-text">
+    <p class="eyebrow">Independent game studio</p>
+    <h1>Games from two harbours</h1>
+    <p class="lede">We grew up by the Golden Horn in Vladivostok and make games by Sydney Harbour.
+      Small, sharp games you can play in your browser, free.</p>
+    <a class="button" href="#games">See the games</a>
+  </div>
+</section>
+
+<main>
+  <section id="games" class="games">
+    <h2>Games</h2>
+    <div class="grid">
+
+      <article class="card">
+        <a href="https://vvofort.itch.io/peregon"><img src="img/peregon.jpg" alt="Range Anxiety: Far East cover" width="630" height="500" loading="lazy"></a>
+        <div class="card-body">
+          <h3>Range Anxiety: Far East</h3>
+          <p class="aka">Перегон</p>
+          <p>A roguelike about buying used electric cars in Vladivostok and driving them somewhere colder. The car is fine. The country is the boss.</p>
+          <ul class="tags"><li>Roguelike</li><li>Road trip</li><li>RU / EN</li></ul>
+          <a class="play" href="https://vvofort.itch.io/peregon">Play free on itch.io</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="https://vvofort.itch.io/punch-league"><img src="img/punch-league.jpg" alt="Punch League cover" width="630" height="500" loading="lazy"></a>
+        <div class="card-body">
+          <h3>Punch League</h3>
+          <p>A boxing card game. Read his next move, spot the bluff, and knock him out. Quick fights, deep decisions.</p>
+          <ul class="tags"><li>Card battler</li><li>Boxing</li><li>Mobile</li></ul>
+          <a class="play" href="https://vvofort.itch.io/punch-league">Play free on itch.io</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="https://vvofort.itch.io/aerofire-command"><img src="img/aerofire-command.jpg" alt="AeroFire Command cover" width="630" height="500" loading="lazy"></a>
+        <div class="card-body">
+          <h3>AeroFire Command</h3>
+          <p>Fight wildfires with air tankers, helicopters and ground crews. Read the wind, cut the line, and aim where the fire is going, not where it is.</p>
+          <ul class="tags"><li>Strategy</li><li>Simulation</li><li>Mobile</li></ul>
+          <a class="play" href="https://vvofort.itch.io/aerofire-command">Play free on itch.io</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <a href="https://vvofort.itch.io/vladivostok-fortress"><img src="img/vladivostok-fortress.jpg" alt="Vladivostok Fortress cover" width="630" height="500" loading="lazy"></a>
+        <div class="card-body">
+          <h3>Vladivostok Fortress</h3>
+          <p>A narrative strategy game about building the world's last and biggest fortress, told through an engineer officer's album from 1899.</p>
+          <ul class="tags"><li>Narrative</li><li>Strategy</li><li>History</li></ul>
+          <a class="play" href="https://vvofort.itch.io/vladivostok-fortress">Play free on itch.io</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>Two harbours</h2>
+      <p>Vladivostok sits on the Golden Horn, a bay named after Istanbul's. Sydney sits on Port
+        Jackson. Both are harbour cities with a famous bridge across the water, and the studio is
+        named for the pair of them.</p>
+      <p>Our games come from both places: the roads, forts and weather of the Russian Far East, and the
+        bushfire country around Sydney. They run in a browser, on a phone or a desk, and you can
+        play them all free on itch.io.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Golden Harbour Games &middot; Sydney, Australia</p>
+  <p><a href="https://vvofort.itch.io/">All our games on itch.io</a></p>
+</footer>
+
+</body>
+</html>
