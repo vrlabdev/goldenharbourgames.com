@@ -16,7 +16,11 @@
   --red: #e0533d;        /* Buoy Red: "new" */
   --paper: #f3eee2;
   --paper-text: #3a4452;
-  --pad: clamp(20px, 5.5vw, 80px);
+  /* Side padding of every full-width band. Past 1440px it grows instead, so the content stops at
+     --wrap and sits in the middle while the backgrounds (grid, strip, paper) still run edge to edge.
+     Without the second term a 2560px screen spread the page across 2400px. */
+  --wrap: 1280px;
+  --pad: max(clamp(20px, 5.5vw, 80px), calc((100% - var(--wrap)) / 2));
   --display: Unbounded, 'Arial Black', sans-serif;
   --body: 'Golos Text', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
