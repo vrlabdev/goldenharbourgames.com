@@ -28,6 +28,10 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 // Pages ask for style.css?v=<hash of its contents>. GitHub lets browsers keep a file for ten minutes,
 // and a new page on an old stylesheet looks wrecked; a new hash is a new address, so it cannot happen.
 const CSS_V = createHash('sha1').update(read('style.css')).digest('hex').slice(0, 8);
+// The same for the pictures a shared link shows. Chat apps (Telegram, WhatsApp, X, Discord) keep a
+// link preview by the image address and never look again, so a changed picture needs a new address.
+const imgV = (p) => createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 8);
+const shareImage = (p) => `${SITE}${p}?v=${imgV(p)}`;
 const games = JSON.parse(read('content/games.json'));
 const skyline = read('content/skyline.svg').trim();
 // English first: it is the default page and the x-default for search engines.
@@ -84,6 +88,7 @@ ${alternates}
   <meta property="og:locale" content="${t.og_locale}">
 ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale:alternate" content="${l.og_locale}">`).join('\n')}
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${ogImage}">
   <meta name="theme-color" content="#0b1626">
   <link rel="icon" href="${up}img/mark.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="${up}img/apple-touch-icon.png">
@@ -218,7 +223,7 @@ function page(t) {
     title: t.title,
     description: t.description,
     ogDescription: t.og_description,
-    ogImage: `${SITE}img/og-${t.lang}.jpg`,
+    ogImage: shareImage(`img/og-${t.lang}.jpg`),
     ogSize: [1200, 630],
     jsonld: org,
     main: () => `<section class="hero chart">
@@ -324,7 +329,7 @@ function playPage(t, g) {
     title: `${c.title} · Golden Harbour Games`,
     description: c.text,
     ogTitle: c.title,
-    ogImage: SITE + g.cover,
+    ogImage: shareImage(g.cover),
     ogSize: [630, 500],
     jsonld: game,
     main: (up, home) => `<main>
