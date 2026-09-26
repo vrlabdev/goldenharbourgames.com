@@ -1,7 +1,7 @@
 [
   {
     "id": "peregon",
-    "itch": "https://vvofort.itch.io/peregon",
+    "itch": "https://goldenharbourgames.itch.io/peregon",
     "cover": "img/peregon.jpg",
     "platforms": [
       "browser",
@@ -20,7 +20,7 @@
   },
   {
     "id": "punch-league",
-    "itch": "https://vvofort.itch.io/punch-league",
+    "itch": "https://goldenharbourgames.itch.io/punch-league",
     "cover": "img/punch-league.jpg",
     "platforms": [
       "browser",
@@ -38,7 +38,7 @@
   },
   {
     "id": "aerofire-command",
-    "itch": "https://vvofort.itch.io/aerofire-command",
+    "itch": "https://goldenharbourgames.itch.io/aerofire-command",
     "cover": "img/aerofire-command.jpg",
     "platforms": [
       "browser",
@@ -58,7 +58,7 @@
   },
   {
     "id": "vladivostok-fortress",
-    "itch": "https://vvofort.itch.io/vladivostok-fortress",
+    "itch": "https://goldenharbourgames.itch.io/vladivostok-fortress",
     "cover": "img/vladivostok-fortress.jpg",
     "platforms": [
       "browser",

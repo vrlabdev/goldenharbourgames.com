@@ -13,7 +13,7 @@ The pages are generated. Edit the sources, then rebuild:
 | Change | Edit |
 |---|---|
 | Any text on the page | `content/en.json`, `content/ru.json` |
-| A new game | one entry in `content/games.json` (itch link, 630x500 cover in `img/`, platforms, languages, `embed` = its itch html5 upload number from `butler status vvofort/<game>`, `frame` = [width, height] it is drawn for) and its text under `games` in every language file |
+| A new game | one entry in `content/games.json` (itch link, 630x500 cover in `img/`, platforms, languages, `embed` = its itch html5 upload number from `butler status goldenharbourgames/<game>`, `frame` = [width, height] it is drawn for) and its text under `games` in every language file |
 | A new language | copy `content/en.json` to `content/<code>.json`, translate it, give it `"path": "<code>/"` |
 | The two bridges in About | `content/skyline.svg` |
 | The logo | `img/logo.svg` (full, with the bridges; 64px and up), `img/mark.svg` (small: favicon, header) |

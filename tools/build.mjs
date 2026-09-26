@@ -15,7 +15,7 @@ import { createHash } from 'node:crypto';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://goldenharbourgames.com/';
 const EMAIL = 'contact@goldenharbourgames.com';
-const ITCH = 'https://vvofort.itch.io/';
+const ITCH = 'https://goldenharbourgames.itch.io/';
 
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const write = (p, s) => {
