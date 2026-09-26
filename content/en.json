@@ -38,6 +38,43 @@
       "tags": [
         "Roguelike",
         "Road trip"
+      ],
+      "seo_title": "Range Anxiety: Far East – EV road-trip roguelike, free to play",
+      "seo_description": "Buy a used electric car in Vladivostok and drive it west through the Far East winter. A browser roguelike about batteries, chargers and the cold.",
+      "intro": [
+        "You run a one-person drive-away business. Cars come off the boats from Japan cheap. Buyers live west, where the chargers don’t. Every run is one car, one buyer, one road, and one battery that heat, speed, hills and the cold all come out of."
+      ],
+      "sections": [
+        {
+          "title": "A run, in short",
+          "list": [
+            "Pick a car on the lot. Check the pack, the paint and the service book, or don’t, and find out on the road.",
+            "Plan each leg: route, speed, cabin heat. Every choice shows up as kWh before you commit.",
+            "Drive. The estimator gives you a number. Sometimes it apologises.",
+            "Stop at gas stations, cafés and dachas. The charger works, needs an app, takes cash only, has a Land Cruiser parked in front of it, or is a socket behind a counter.",
+            "Reach the buyer. He walks round the car twice. Own what’s wrong with it, talk it down or deny it, and get paid by how it arrived.",
+            "Or don’t reach him. The last screen tells you where, why, and what your last three decisions were."
+          ]
+        },
+        {
+          "title": "What’s in the game",
+          "list": [
+            "Cars from a 16 kWh i-MiEV to a Zeekr 001, each with its own pack, connector and habits.",
+            "Real roads: the Primorye loop around Vladivostok, the M60 to Khabarovsk with its 190 km gap after Bikin, and the Amur highway to Chita, 2,155 km of it.",
+            "A real map, traced from Natural Earth, on paper that changes with the season.",
+            "Road events written separately in Russian and English, not translated.",
+            "A garage between runs, a workshop, a bag of adapters, and rent due on the first of the month.",
+            "A market that reacts, and your own asking price on the cars you sell.",
+            "A driver who gets tired and hungry, and a 12 V battery that dies at −25 °C with 60% left in the pack."
+          ]
+        },
+        {
+          "title": "How to play",
+          "paragraphs": [
+            "Mouse or touch. On event cards the keys 1–3 pick an option, and any key skips the drive animation. On a phone, turn it sideways.",
+            "A run takes 10 to 20 minutes and the game saves on every step, so you can close the tab mid-leg and come back. English and Russian, switchable on the title screen."
+          ]
+        }
       ]
     },
     "punch-league": {
@@ -46,6 +83,42 @@
       "tags": [
         "Card battler",
         "Boxing"
+      ],
+      "seo_title": "Punch League – boxing card battler, free in your browser",
+      "seo_description": "A boxing card game where your opponent shows his next punch before he throws it, and sometimes lies. A full career, free in your browser.",
+      "intro": [
+        "Each turn you get a hand of punches, guards and slips, paid for with stamina. His move floats over his head: JAB, HOOK, HEAVY, GUARD. Block it, slip it, counter it, or hit him while he’s open.",
+        "Some fighters tell the truth nine times out of ten. Counter-punchers bluff all night. There are no dice in the damage, so when you get hit you misread him. It wasn’t bad luck."
+      ],
+      "sections": [
+        {
+          "title": "A session",
+          "list": [
+            "Suit up. Pick your fighter and his card colours.",
+            "Spend your purse on gloves, shoes and a headguard, or hire a coach.",
+            "Pick a fight: safe money, or a risky jump up the rankings.",
+            "Camp for a few weeks: sparring, cardio, technique, rest, or scouting him to learn how often he bluffs.",
+            "Fight night: three rounds of three turns, a tip from your corner between rounds, a win by knockout or on points.",
+            "Win, and add one of three new cards to your deck."
+          ]
+        },
+        {
+          "title": "What’s in it",
+          "list": [
+            "A career across eight divisions, from Local to Legend, with ranks, fans, rivals and events between fights.",
+            "Fighters with six fighting styles, each with his own deck, signature punch and habits.",
+            "Cards to collect, level up and branch into stronger versions.",
+            "Coaches, a gym, a skill tree, missions and a daily purse.",
+            "A short lesson that teaches you to read the tell."
+          ]
+        },
+        {
+          "title": "How to play",
+          "paragraphs": [
+            "Tap a card to pick it, then tap it again or drag it up to play. Press END TURN and his move lands. A fight takes about four minutes.",
+            "Touch or mouse. It plays landscape, so on a phone turn it sideways. Your career is saved in the browser. English and Russian."
+          ]
+        }
       ]
     },
     "aerofire-command": {
@@ -54,6 +127,42 @@
       "tags": [
         "Strategy",
         "Simulation"
+      ],
+      "seo_title": "AeroFire Command – wildfire strategy game, free in your browser",
+      "seo_description": "Command air tankers, helicopters and ground crews against a simulated wildfire. Read the wind and drop where the fire is going. Free in your browser.",
+      "intro": [
+        "A wildfire is running through the hills above a town, and you are the one on the radio. Everything you order takes time to get there, so every drop is a bet on where the front will be in thirty seconds."
+      ],
+      "sections": [
+        {
+          "title": "The fire is a simulation, not a script",
+          "paragraphs": [
+            "Every cell of the map has a fuel type, moisture and a slope. Fire spreads cell to cell, pushed by wind and terrain, throwing embers ahead of the front. Shift the wind and the whole thing turns and comes back at you. When a fire jumps a road, it is because it genuinely got across.",
+            "The coloured rings on the ground show how many seconds until the fire reaches each spot. Lay a retardant line and watch the rings bend back around it."
+          ]
+        },
+        {
+          "title": "What you command",
+          "list": [
+            "Helicopters from a light MD-500 on a bucket to heavy lifters, scooping water from the nearest lake or river.",
+            "Fixed-wing tankers, up to a 747 SuperTanker, reloading retardant at the airfield and laying it in lines.",
+            "Ground crews: smokejumpers dropped at the head of the fire, engine crews down the roads, dozers that cut a break where you draw one.",
+            "Water knocks fire down; retardant stops it coming back. Send two helicopters to one spot and they take turns on it."
+          ]
+        },
+        {
+          "title": "Contracts",
+          "paragraphs": [
+            "Six regions with their own fuels, terrain and weather: the Serra da Lousã, Los Monegros, Los Padres, Attica, Central Kalimantan and Central Siberia. Every map is generated, coastline, roads, villages and ignitions included, so no two runs are the same.",
+            "Pick a job on its difficulty and its fee, fly it, and get paid on what you saved. Buildings you lose come off the cheque. Spend the rest on aircraft, crews and the airfield."
+          ]
+        },
+        {
+          "title": "How to play",
+          "paragraphs": [
+            "Built for a phone held upright, one thumb, nothing to install. Drag a card from the strip at the bottom onto the map to send an aircraft; time slows while you aim. On a computer it plays in a tall frame with the mouse. English, Russian, Spanish and Indonesian."
+          ]
+        }
       ]
     },
     "vladivostok-fortress": {
@@ -63,6 +172,35 @@
         "Narrative",
         "Strategy",
         "History"
+      ],
+      "seo_title": "Vladivostok Fortress – narrative strategy game set in 1899",
+      "seo_description": "A junior engineer officer in Vladivostok, 1899, builds a fortress with money he doesn’t control. A historical narrative strategy game, free in your browser.",
+      "intro": [
+        "You land at Vladivostok in April 1899, forty-one days out of Odessa: a junior engineer officer with a commission, a modest salary and no authority worth the name.",
+        "Ahead of you is a ridge of forts, lunettes, batteries and redoubts, most of them still lines on a plan. Behind you is a council that sits every August, asks how much you delivered, and sets next year’s money on the answer. You will not build any of it yourself. You send other men, and find out which of them can be trusted with a work site."
+      ],
+      "sections": [
+        {
+          "title": "A month is a turn",
+          "paragraphs": [
+            "April to October the ground takes a spade: you commit crews, buy stone, set pay, and decide whether to stand over a foreman or trust him. November to March the bay ices over, the crews scatter, and nothing rises. That is when the letters get written and the dinners get held."
+          ]
+        },
+        {
+          "title": "Two purses, and many people who want something",
+          "paragraphs": [
+            "The crown’s money and your own are not the same money. One route is cheap virtue that everyone can see; the other is expensive vice that nobody can, until an auditor comes.",
+            "The army, the navy, the merchants and the contractors each keep their own book on you, and so do a labour contractor, a warehouse manager who is skimming, a widow from the ship out, and a staff officer who will one day be asked what happened here. Doors open by introduction, and they stay open."
+          ]
+        },
+        {
+          "title": "Good to know",
+          "list": [
+            "Plays in the browser, best on a computer or a tablet. Nothing to install.",
+            "English and Russian.",
+            "A development build: Book I’s machinery is complete and playable end to end; the story is being written chapter by chapter."
+          ]
+        }
       ]
     }
   },
@@ -109,5 +247,6 @@
     "itch": "This game on itch.io",
     "more": "More games",
     "frame_title": "{game}, playing in the page"
-  }
+  },
+  "seo_title": "Golden Harbour Games – free browser games from Vladivostok & Sydney"
 }

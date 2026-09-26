@@ -248,6 +248,14 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.08; m
 .stage-full[hidden] { display: none; }
 .game-info { max-width: 46em; margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
 .game-info .text { margin: 0; font-size: 19px; line-height: 1.55; color: var(--text-2); }
+.game-info .text.more { font-size: 17px; }
+/* the long read under a game: what it is, how a session goes, how to play */
+.game-story { max-width: 46em; margin-top: 48px; display: flex; flex-direction: column; gap: 36px; }
+.game-story h2 { font-size: clamp(20px, 2.2vw, 26px); margin: 0 0 14px; }
+.game-story p { margin: 0 0 12px; font-size: 17px; line-height: 1.6; color: var(--text-2); }
+.game-story ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.game-story li { position: relative; padding-left: 24px; font-size: 17px; line-height: 1.55; color: var(--text-2); }
+.game-story li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 10px; height: 2px; background: var(--gold); }
 
 .more-games { padding-top: clamp(48px, 6vw, 80px); border-top: 1px solid #1e3150; }
 .more-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }

@@ -33,6 +33,8 @@ const CSS_V = createHash('sha1').update(read('style.css')).digest('hex').slice(0
 const imgV = (p) => createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 8);
 const shareImage = (p) => `${SITE}${p}?v=${imgV(p)}`;
 const games = JSON.parse(read('content/games.json'));
+// The studio elsewhere: itch, X and the rest. Shown in the footer and given to search engines as sameAs.
+const links = JSON.parse(read('content/links.json'));
 const skyline = read('content/skyline.svg').trim();
 // English first: it is the default page and the x-default for search engines.
 const langs = fs.readdirSync(path.join(ROOT, 'content'))
@@ -128,7 +130,7 @@ ${main(up, home)}
 
 <footer>
   <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
-  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a> &middot; <a href="${ITCH}">itch.io</a></p>
+  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')}</p>
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
@@ -217,12 +219,13 @@ function page(t) {
     url: SITE,
     email: EMAIL,
     logo: SITE + 'img/apple-touch-icon.png',
-    sameAs: [ITCH],
+    sameAs: links.map((l) => l.url),
     address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressCountry: 'AU' },
   };
 
   return shell(t, '', {
-    title: t.title,
+    title: t.seo_title || t.title,
+    ogTitle: t.title,
     description: t.description,
     ogDescription: t.og_description,
     ogImage: shareImage(`img/og-${t.lang}.jpg`),
@@ -328,8 +331,9 @@ function playPage(t, g) {
   };
 
   return shell(t, sub, {
-    title: `${c.title} · Golden Harbour Games`,
-    description: c.text,
+    title: c.seo_title || `${c.title} · Golden Harbour Games`,
+    description: c.seo_description || c.text,
+    ogDescription: c.text,
     ogTitle: c.title,
     ogImage: shareImage(g.cover),
     ogSize: [630, 500],
@@ -365,12 +369,21 @@ function playPage(t, g) {
 
     <div class="game-info">
       <p class="text">${esc(c.text)}</p>
+${(c.intro || []).map((p) => `      <p class="text more">${esc(p)}</p>`).join('\n')}
       <dl class="facts">
         <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
         <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
       </dl>
     </div>
-  </section>
+${(c.sections || []).length ? `    <div class="game-story">
+${c.sections.map((s) => `      <section>
+        <h2>${esc(s.title)}</h2>
+${s.list ? `        <ul>
+${s.list.map((i) => `          <li>${esc(i)}</li>`).join('\n')}
+        </ul>` : s.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
+      </section>`).join('\n')}
+    </div>
+` : ''}  </section>
 
   <section class="section more-games">
     <p class="kicker">${esc(p.more)}</p>
