@@ -4,7 +4,7 @@
 //                        upload that plays on the site (embed) with the shape it is drawn for (frame)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
-// (play/<id>/, ru/play/<id>/), 404.html, sitemap.xml, robots.txt,
+// (play/<id>/, ru/play/<id>/), the privacy policy (privacy/, ru/privacy/), 404.html, sitemap.xml, robots.txt,
 // and .cache/ pages that tools/render_images.ps1 turns into the share images and the touch icon.
 // A new language is one more JSON file with a "path" of its own; nothing here changes.
 import fs from 'node:fs';
@@ -43,6 +43,7 @@ const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .sort((a, b) => (a.lang === 'en' ? -1 : b.lang === 'en' ? 1 : a.lang.localeCompare(b.lang)));
 
 for (const t of langs) {
+  if (!t.privacy) throw new Error(`content/${t.lang}.json has no "privacy" text`);
   for (const g of games) {
     if (!t.games[g.id]) throw new Error(`content/${t.lang}.json has no text for the game "${g.id}"`);
     if (!g.embed || !g.frame) throw new Error(`content/games.json: "${g.id}" needs "embed" (its itch html5 upload) and "frame" [w, h]`);
@@ -51,6 +52,8 @@ for (const t of langs) {
 
 // Where a game plays on this site, from the root of a language: "play/peregon/".
 const playPath = (g) => `play/${g.id}/`;
+// The privacy policy, from the root of a language.
+const PRIVACY = 'privacy/';
 // itch's own page for one upload: the newest build pushed to that channel, made to sit in a frame.
 const embedUrl = (g) => `https://itch.io/embed-upload/${g.embed}?color=0b1626`;
 
@@ -130,7 +133,7 @@ ${main(up, home)}
 
 <footer>
   <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
-  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')}</p>
+  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')} &middot; <a href="${up}${t.path}${PRIVACY}">${esc(t.privacy.link)}</a></p>
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
@@ -447,6 +450,57 @@ ${others.map((o) => `      <a class="more-card" href="${up}${t.path}${playPath(o
   });
 }
 
+// The privacy policy: one page per language at privacy/ below the language's root, in the same frame
+// as a game page. The words live under "privacy" in content/<lang>.json: an intro, then sections of
+// paragraphs or a list, each with optional links underneath and the studio email.
+function privacyPage(t) {
+  const p = t.privacy;
+  const webpage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: p.title,
+    description: p.description,
+    url: SITE + t.path + PRIVACY,
+    inLanguage: t.lang,
+    dateModified: p.date,
+    isPartOf: { '@type': 'WebSite', name: 'Golden Harbour Games', url: SITE },
+    publisher: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE, email: EMAIL },
+  };
+  const section = (s) => [
+    `      <section>`,
+    `        <h2>${esc(s.title)}</h2>`,
+    ...(s.paragraphs || []).map((x) => `        <p>${esc(x)}</p>`),
+    ...(s.list ? [`        <ul>`, ...s.list.map((i) => `          <li>${esc(i)}</li>`), `        </ul>`] : []),
+    ...(s.links ? [`        <p>${s.links.map((l) => `<a href="${l.url}">${esc(l.label)}</a>`).join(' &middot; ')}</p>`] : []),
+    ...(s.email ? [`        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>`] : []),
+    `      </section>`,
+  ].join('\n');
+
+  return shell(t, PRIVACY, {
+    title: p.seo_title,
+    ogTitle: p.title,
+    description: p.description,
+    ogImage: shareImage(`img/og-${t.lang}.jpg`),
+    ogSize: [1200, 630],
+    jsonld: webpage,
+    main: (up, home) => `<main>
+  <section class="section game-page chart">
+    <p class="crumbs"><a href="${home}"><span aria-hidden="true">←</span> ${esc(p.back)}</a></p>
+    <div class="game-head">
+      <p class="kicker"><time datetime="${p.date}">${esc(p.updated)}</time></p>
+      <h1>${esc(p.title)}</h1>
+    </div>
+    <div class="game-info">
+${p.intro.map((x) => `      <p class="text">${esc(x)}</p>`).join('\n')}
+    </div>
+    <div class="game-story">
+${p.sections.map(section).join('\n')}
+    </div>
+  </section>
+</main>`,
+  });
+}
+
 // Served by GitHub Pages for any address that does not exist, at that address - so every path in
 // it is absolute. Both languages at once: there is no telling which one the visitor came from.
 function notFound() {
@@ -515,10 +569,11 @@ img { display: block; width: 420px; height: 420px; margin: 50px 60px 70px; }
 
 for (const t of langs) write(t.path + 'index.html', page(t));
 for (const t of langs) for (const g of games) write(t.path + playPath(g) + 'index.html', playPage(t, g));
+for (const t of langs) write(t.path + PRIVACY + 'index.html', privacyPage(t));
 write('404.html', notFound());
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${['', ...games.map(playPath)].flatMap((sub) => langs.map((t) => `  <url>
+${['', ...games.map(playPath), PRIVACY].flatMap((sub) => langs.map((t) => `  <url>
     <loc>${SITE}${t.path}${sub}</loc>
 ${langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${SITE}${l.path}${sub}"/>`).join('\n')}
   </url>`)).join('\n')}

@@ -248,5 +248,76 @@
     "more": "More games",
     "frame_title": "{game}, playing in the page"
   },
-  "seo_title": "Golden Harbour Games – free browser games from Vladivostok & Sydney"
+  "seo_title": "Golden Harbour Games – free browser games from Vladivostok & Sydney",
+  "privacy": {
+    "link": "Privacy",
+    "title": "Privacy policy",
+    "seo_title": "Privacy Policy · Golden Harbour Games",
+    "description": "How Golden Harbour Games handles your data: our games collect none, and this website sets no cookies of its own.",
+    "date": "2026-10-12",
+    "updated": "Last updated: 12 October 2026",
+    "back": "Home",
+    "intro": [
+      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, itch.io, Steam or this website — and the website itself."
+    ],
+    "sections": [
+      {
+        "title": "Our games",
+        "list": [
+          "Our games need no account. There is nothing to sign up for or log in to.",
+          "They do not collect, store or transmit personal data. Nothing about you leaves your device.",
+          "They contain no ads, no analytics and no third-party tracking.",
+          "They sell nothing inside the game at this time: no in-app purchases, no currencies, no subscriptions.",
+          "Game progress is saved only on your own device. Delete the game and the save goes with it; we never had a copy."
+        ]
+      },
+      {
+        "title": "This website",
+        "paragraphs": [
+          "goldenharbourgames.com is a static site: plain pages, no sign-in, no forms. It sets no cookies of its own. If you pick a language, the page remembers that choice in your browser only; nothing is sent anywhere.",
+          "The site is hosted on GitHub Pages. GitHub's servers may log standard request data, such as your IP address and browser user agent, as described in GitHub's privacy statement. Our pages load their typefaces from Google Fonts, so your browser also requests those from Google's servers, under Google's privacy policy.",
+          "When you press Play on a game page, the game loads in a frame from itch.io. Inside that frame, itch.io's privacy policy applies."
+        ],
+        "links": [
+          {
+            "label": "GitHub privacy statement",
+            "url": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+          },
+          {
+            "label": "Google privacy policy",
+            "url": "https://policies.google.com/privacy"
+          },
+          {
+            "label": "itch.io privacy policy",
+            "url": "https://itch.io/docs/legal/privacy-policy"
+          }
+        ]
+      },
+      {
+        "title": "Stores",
+        "paragraphs": [
+          "Google Play, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us."
+        ]
+      },
+      {
+        "title": "Children",
+        "paragraphs": [
+          "Our games are not directed at children under 13. We knowingly collect no data from anyone, children included."
+        ]
+      },
+      {
+        "title": "If this changes",
+        "paragraphs": [
+          "If we ever add anything that touches your data — an account, online features, analytics, a store inside a game — we will update this page and the store listings before shipping it, and say what changed."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "Questions about this policy or about your data: write to us."
+        ],
+        "email": true
+      }
+    ]
+  }
 }

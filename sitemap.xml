@@ -50,4 +50,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/vladivostok-fortress/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/vladivostok-fortress/"/>
   </url>
+  <url>
+    <loc>https://goldenharbourgames.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/privacy/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/privacy/"/>
+  </url>
 </urlset>
