@@ -4,42 +4,211 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Земля у вас на парте — VRLABDV</title>
+<meta name="theme-color" content="#030a22">
+<title>Лаборатория в кармане — VRLABDV</title>
 <script type="module" src="model-viewer.min.js"></script>
 <style>
-  :root { --navy:#05174D; --teal:#00978F; --mint:#5BD1C9; }
-  html,body { margin:0; height:100%; background:radial-gradient(ellipse at 50% 35%, #0a2a5c 0%, #05174D 45%, #030817 100%); color:#fff; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .wrap { display:flex; flex-direction:column; min-height:100%; }
-  header { padding:20px 16px 4px; text-align:center; }
-  header h1 { margin:0; font-size:22px; line-height:1.25; }
-  header p { margin:8px 0 0; color:var(--mint); font-size:15px; }
-  model-viewer { flex:1; width:100%; min-height:58vh; background:transparent; --poster-color: transparent; }
-  .ar-btn { position:absolute; left:50%; bottom:18px; transform:translateX(-50%); border:0; border-radius:14px; padding:16px 26px; font-size:17px; font-weight:700; color:#fff; background:var(--teal); box-shadow:0 8px 28px rgba(0,0,0,.45); white-space:nowrap; }
-  .steps { padding:6px 16px 22px; max-width:520px; margin:0 auto; font-size:15px; line-height:1.45; color:#dbe7ff; }
-  .steps b { color:#fff; }
-  .steps li { margin:6px 0; }
-  .note { font-size:12px; color:#8fa3c8; text-align:center; padding:0 16px 22px; }
-  .tag { display:inline-block; margin-top:10px; font-size:12px; color:#8fa3c8; }
+  :root { --navy:#05174D; --deep:#030a22; --teal:#00978F; --mint:#5BD1C9; --orange:#FF9A3C; --ink:#dbe7ff; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; min-height:100%; background:var(--deep); color:#fff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+  #pcb { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+  .glow { position:fixed; inset:0; z-index:0; pointer-events:none; background: radial-gradient(ellipse at 50% 40%, rgba(10,42,92,.55) 0%, rgba(3,10,34,0) 65%); }
+  main { position:relative; z-index:1; max-width:760px; margin:0 auto; padding: 14px 16px 28px; }
+  header { display:flex; align-items:center; gap:12px; }
+  header .mark { font-weight:800; letter-spacing:2px; font-size:13px; color:var(--mint); border:1px solid rgba(91,209,201,.5); border-radius:8px; padding:6px 9px; background:rgba(3,10,34,.6); }
+  header h1 { margin:0; font-size:20px; line-height:1.2; }
+  header p { margin:3px 0 0; font-size:13px; color:#9fb3d6; }
+  .tabs { display:flex; gap:8px; margin:14px 0 10px; }
+  .tab { flex:1; border:1px solid rgba(91,209,201,.35); background:rgba(3,10,34,.72); color:#cfe0f7; border-radius:12px; padding:10px 6px; font-size:14px; font-weight:600; text-align:center; cursor:pointer; }
+  .tab small { display:block; font-size:11px; font-weight:500; color:#7f95bd; margin-top:2px; }
+  .tab.on { background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 6px 22px rgba(0,151,143,.35); }
+  .tab.on small { color:#d9fffb; }
+  .stage { position:relative; border-radius:18px; overflow:hidden; border:1px solid rgba(91,209,201,.25); background: radial-gradient(ellipse at 50% 45%, rgba(18,52,110,.65), rgba(3,10,34,.85)); box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+  model-viewer { width:100%; height:62vh; min-height:380px; max-height:640px; background:transparent; --poster-color: transparent; transition: opacity .45s ease; }
+  model-viewer.fade { opacity:0; }
+  .hs { border:0; background:rgba(3,10,34,.86); color:#fff; font-size:12px; font-weight:700; padding:6px 10px; border-radius:10px; border:1px solid rgba(91,209,201,.7); white-space:nowrap; transform: translateY(-22px); pointer-events:none; }
+  .hs::after { content:""; position:absolute; left:50%; bottom:-7px; width:10px; height:10px; margin-left:-5px; border-radius:50%; background:var(--mint); box-shadow:0 0 10px var(--mint); transform: translateY(14px); }
+  .hs.down { transform: translateY(22px); } .hs.down::after { bottom:auto; top:-7px; transform: translateY(-14px); }
+  .hs.left { transform: translate(-58%, -22px); } .hs.left::after { left:auto; right:6px; margin-left:0; }
+  .hs.right { transform: translate(58%, -22px); } .hs.right::after { left:6px; margin-left:0; }
+  .hs.me { border-color:var(--orange); }
+  .hs.me::after { background:var(--orange); box-shadow:0 0 12px var(--orange); }
+  .hs small { display:block; font-weight:500; font-size:10.5px; color:var(--mint); }
+  .hs.me small { color:#ffc98f; }
+  .ar-btn { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); border:0; border-radius:14px; padding:15px 24px; font-size:16px; font-weight:800; color:#fff; background:var(--teal); box-shadow:0 10px 30px rgba(0,0,0,.5); white-space:nowrap; }
+  .next { position:absolute; right:12px; top:12px; border:1px solid rgba(91,209,201,.6); background:rgba(3,10,34,.75); color:#fff; border-radius:12px; padding:9px 12px; font-size:13px; font-weight:700; }
+  .caption { margin:12px 2px 0; font-size:15px; line-height:1.45; color:var(--ink); min-height:66px; }
+  .caption b { color:#fff; }
+  .steps { margin:14px 0 0; padding:12px 14px; border-radius:14px; background:rgba(3,10,34,.72); border:1px solid rgba(91,209,201,.2); font-size:14px; line-height:1.45; color:#cfe0f7; }
+  .steps ol { margin:6px 0 0 18px; padding:0; }
+  .steps li { margin:4px 0; }
+  footer { margin-top:16px; font-size:11px; line-height:1.5; color:#7f95bd; }
+  footer a { color:#9fd8d3; }
+  @media (prefers-reduced-motion: reduce) { model-viewer { transition:none; } }
 </style>
 </head>
 <body>
-<div class="wrap">
+<canvas id="pcb"></canvas><div class="glow"></div>
+<main>
   <header>
-    <h1>Земля у вас на парте</h1>
-    <p>Владивосток → Норильск: дуга, по которой мы к вам прилетели</p>
+    <div class="mark">VRLABDV</div>
+    <div><h1>Лаборатория в кармане</h1><p>Покрутите пальцем — или поставьте на парту в AR</p></div>
   </header>
-  <model-viewer src="globe.glb" alt="3D-глобус с дугой от Владивостока до Норильска"
-    ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor"
-    camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="4000" rotation-per-second="7deg"
-    camera-orbit="112deg 40deg auto" exposure="1.05" shadow-intensity="0.6" environment-image="neutral">
-    <button slot="ar-button" class="ar-btn">Поставить на стол (AR)</button>
-  </model-viewer>
-  <ol class="steps">
-    <li><b>Покрутите глобус пальцем</b> — найдите Владивосток и Норильск.</li>
-    <li>Нажмите <b>«Поставить на стол»</b> и медленно поводите телефоном над столом.</li>
-    <li>Глобус встанет на парту — обойдите его, приблизьтесь, разведите пальцами.</li>
-  </ol>
-  <div class="note">Так выглядит урок географии в дополненной реальности.<br><span class="tag">VRLABDV · vrlabdv@gmail.com · +7 (950) 294-44-41</span></div>
-</div>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-i="0">Земля<small>шаг 1</small></button>
+    <button class="tab" data-i="1">Приморье<small>шаг 2</small></button>
+    <button class="tab" data-i="2">Владивосток<small>шаг 3</small></button>
+  </nav>
+
+  <div class="stage">
+    <model-viewer id="mv" src="deskglobe.glb" alt="3D-модель"
+      ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" ar-scale="auto"
+      camera-controls touch-action="pan-y" interaction-prompt="auto"
+      shadow-intensity="1" shadow-softness="0.8" exposure="1.05" environment-image="neutral"
+      camera-orbit="38deg 64deg 0.74m" min-camera-orbit="auto auto 0.25m" max-camera-orbit="auto auto 1.6m" auto-rotate auto-rotate-delay="5000" rotation-per-second="6deg">
+      <button slot="ar-button" class="ar-btn">Поставить на стол (AR)</button>
+    </model-viewer>
+    <button class="next" id="next">Ближе →</button>
+  </div>
+
+  <p class="caption" id="cap"></p>
+
+  <div class="steps">
+    <b>Как поставить на парту</b>
+    <ol>
+      <li>Нажмите «Поставить на стол».</li>
+      <li>Медленно поводите телефоном над столом, пока он не найдёт поверхность.</li>
+      <li>Модель встанет на стол — обойдите её, приблизьтесь, разведите пальцами.</li>
+    </ol>
+  </div>
+
+  <footer>
+    VRLABDV · Владивосток · vrlabdv@gmail.com · +7 (950) 294-44-41<br>
+    Снимки: <a href="https://s2maps.eu">Sentinel-2 cloudless 2016</a> © EOX IT Services GmbH (содержит модифицированные данные Copernicus Sentinel 2016), CC BY 4.0.
+    Рельеф: Terrain Tiles, AWS Open Data (Mapzen; SRTM, GMTED и др.). Текстура Земли: NASA Blue Marble.
+  </footer>
+</main>
+
+<script>
+// ---------- scenes ----------
+const SCENES = [
+  { src: 'deskglobe.glb', orbit: '38deg 64deg 0.74m', cap: '<b>Земля на подставке.</b> Светящаяся дуга — путь, которым мы прилетели к вам: из Владивостока в Норильск, около 3 800 км по прямой.',
+    hs: [ { name: 'Владивосток', sub: 'VRLABDV, с 2016', me: true, at: 'down', pos: '0.0606 0.2492 0.0834', nrm: '0.499 0.529 0.686' },
+          { name: 'Норильск', sub: 'форум «Лаборатория Роста»', at: 'left', pos: '0.0293 0.2962 0.0392', nrm: '0.241 0.915 0.323' } ] },
+  { src: 'primorye.glb', orbit: '-12deg 50deg 0.98m', cap: '<b>Приморский край</b> — настоящий рельеф по спутниковым данным. Горы Сихотэ-Алиня подняты по высоте в 9 раз, чтобы их было видно на парте.',
+    hs: [ { name: 'Владивосток', sub: 'мы здесь', me: true, at: 'down', pos: '-0.1367 0.022 0.1583' },
+          { name: 'Уссурийск', at: 'left', pos: '-0.1336 0.0221 0.1132' },
+          { name: 'Находка', at: 'right', pos: '-0.0891 0.0223 0.1777' },
+          { name: 'Дальнегорск', pos: '0.0389 0.0231 0.0629' } ] },
+  { src: 'vladivostok.glb', orbit: '-8deg 48deg 1.02m', cap: '<b>Владивосток</b>: Золотой Рог, Босфор Восточный и остров Русский. Рельеф поднят в 2,2 раза. Оранжевая метка — наша VR-площадка на Светланской, 127А.',
+    hs: [ { name: 'VRLAB.PLAY', sub: 'Светланская, 127А', me: true, at: 'right', pos: '0.0122 0.0234 -0.1356' },
+          { name: 'Золотой мост', at: 'left', pos: '-0.0382 0.02 -0.1193' },
+          { name: 'Русский мост', at: 'right', pos: '-0.0058 0.02 0.0564' },
+          { name: 'ДВФУ', sub: 'остров Русский', at: 'left', pos: '-0.0434 0.021 0.1893' } ] },
+];
+const mv = document.getElementById('mv'), cap = document.getElementById('cap'), tabs = [...document.querySelectorAll('.tab')], next = document.getElementById('next');
+let cur = 0;
+function hotspots(sc) {
+  mv.querySelectorAll('.hs').forEach(h => h.remove());
+  sc.hs.forEach((h, i) => {
+    const b = document.createElement('button');
+    b.className = 'hs' + (h.me ? ' me' : '') + (h.at ? ' ' + h.at : ''); b.slot = 'hotspot-' + i;
+    b.dataset.position = h.pos; if (h.nrm) b.dataset.normal = h.nrm; else b.dataset.normal = '0 1 0';
+    b.dataset.visibilityAttribute = 'visible';
+    b.innerHTML = h.name + (h.sub ? '<small>' + h.sub + '</small>' : '');
+    mv.appendChild(b);
+  });
+}
+function show(i) {
+  cur = i; const sc = SCENES[i];
+  tabs.forEach((t, k) => t.classList.toggle('on', k === i));
+  next.textContent = i < 2 ? 'Ближе →' : 'К Земле ↺';
+  mv.classList.add('fade');
+  setTimeout(() => {
+    mv.src = sc.src; mv.cameraOrbit = sc.orbit; mv.fieldOfView = 'auto';
+    hotspots(sc); cap.innerHTML = sc.cap;
+  }, 300);
+}
+mv.addEventListener('load', () => {
+  // fly-in: start a little further away and settle
+  const sc = SCENES[cur]; const [t, p] = sc.orbit.split(' ');
+  mv.cameraOrbit = `${parseFloat(t) - 35}deg ${parseFloat(p) + 8}deg 140%`; mv.jumpCameraToGoal();
+  requestAnimationFrame(() => { mv.cameraOrbit = sc.orbit; mv.classList.remove('fade'); });
+});
+tabs.forEach(t => t.addEventListener('click', () => show(+t.dataset.i)));
+next.addEventListener('click', () => show((cur + 1) % 3));
+hotspots(SCENES[0]); cap.innerHTML = SCENES[0].cap;
+
+// ---------- VRLABDV circuit-board background ----------
+(() => {
+  const cv = document.getElementById('pcb'), g = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, DPR, layer, traces = [], pulses = [];
+  const S = 14;                               // routing grid
+  let seed = 20160805; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const DIRS = [[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+  function build() {
+    DPR = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight;
+    cv.width = W * DPR; cv.height = H * DPR;
+    layer = document.createElement('canvas'); layer.width = cv.width; layer.height = cv.height;
+    const c = layer.getContext('2d'); c.scale(DPR, DPR); c.lineCap = 'round'; c.lineJoin = 'round';
+    seed = 20160805; traces = [];
+    const cols = Math.ceil(W / S) + 2, rows = Math.ceil(H / S) + 2, used = new Set();
+    const key = (x, y) => x + ',' + y;
+    const chips = [];
+    const nChips = Math.round(W * H / 52000);
+    for (let k = 0; k < nChips; k++) {
+      const w = 3 + Math.floor(rnd() * 5), h = 2 + Math.floor(rnd() * 4), x = Math.floor(rnd() * (cols - w)), y = Math.floor(rnd() * (rows - h));
+      chips.push({ x, y, w, h }); for (let i = -1; i <= w + 1; i++) for (let j = -1; j <= h + 1; j++) used.add(key(x + i, y + j));
+    }
+    const nTr = Math.round(W * H / 1500);
+    for (let k = 0; k < nTr; k++) {
+      let x = Math.floor(rnd() * cols), y = Math.floor(rnd() * rows); if (used.has(key(x, y))) continue;
+      let d = Math.floor(rnd() * 4) * 2; const pts = [[x, y]]; used.add(key(x, y));
+      const len = 4 + Math.floor(rnd() * 22);
+      for (let s = 0; s < len; s++) {
+        if (rnd() < 0.22) d = (d + (rnd() < 0.5 ? 1 : 7)) % 8;
+        const nx = x + DIRS[d][0], ny = y + DIRS[d][1];
+        if (nx < -1 || ny < -1 || nx > cols || ny > rows || used.has(key(nx, ny))) break;
+        x = nx; y = ny; used.add(key(x, y)); pts.push([x, y]);
+      }
+      if (pts.length > 2) traces.push(pts.map(([a, b]) => [a * S, b * S]));
+    }
+    for (const t of traces) {
+      c.strokeStyle = 'rgba(43,212,198,0.16)'; c.lineWidth = rnd() < 0.15 ? 2.4 : 1.3;
+      c.beginPath(); t.forEach(([a, b], i) => i ? c.lineTo(a, b) : c.moveTo(a, b)); c.stroke();
+      for (const e of [t[0], t[t.length - 1]]) { c.beginPath(); c.arc(e[0], e[1], 2.6, 0, 7); c.fillStyle = 'rgba(3,10,34,1)'; c.fill(); c.strokeStyle = 'rgba(91,209,201,0.32)'; c.lineWidth = 1.2; c.stroke(); }
+    }
+    for (const ch of chips) {
+      const x = ch.x * S, y = ch.y * S, w = ch.w * S, h = ch.h * S;
+      c.fillStyle = 'rgba(5,23,77,0.85)'; c.strokeStyle = 'rgba(91,209,201,0.35)'; c.lineWidth = 1.2;
+      c.beginPath(); c.roundRect ? c.roundRect(x, y, w, h, 3) : c.rect(x, y, w, h); c.fill(); c.stroke();
+      c.strokeStyle = 'rgba(91,209,201,0.28)';
+      for (let i = 1; i < ch.w; i++) { c.beginPath(); c.moveTo(x + i * S, y); c.lineTo(x + i * S, y - 6); c.moveTo(x + i * S, y + h); c.lineTo(x + i * S, y + h + 6); c.stroke(); }
+      for (let j = 1; j < ch.h; j++) { c.beginPath(); c.moveTo(x, y + j * S); c.lineTo(x - 6, y + j * S); c.moveTo(x + w, y + j * S); c.lineTo(x + w + 6, y + j * S); c.stroke(); }
+      c.beginPath(); c.arc(x + 6, y + 6, 1.8, 0, 7); c.fillStyle = 'rgba(91,209,201,0.45)'; c.fill();
+    }
+    pulses = [];
+  }
+  function frame() {
+    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cv.width, cv.height); g.drawImage(layer, 0, 0);
+    if (!reduce) {
+      g.setTransform(DPR, 0, 0, DPR, 0, 0);
+      while (pulses.length < Math.min(60, traces.length / 6)) { const t = traces[Math.floor(Math.random() * traces.length)]; pulses.push({ t, s: 0, v: 0.08 + Math.random() * 0.12, warm: Math.random() < 0.18 }); }
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i]; p.s += p.v; const n = p.t.length - 1; if (p.s >= n) { pulses.splice(i, 1); continue; }
+        const k = Math.floor(p.s), f = p.s - k, a = p.t[k], b = p.t[k + 1], x = a[0] + (b[0] - a[0]) * f, y = a[1] + (b[1] - a[1]) * f;
+        const col = p.warm ? '255,170,90' : '120,255,240';
+        const gr = g.createRadialGradient(x, y, 0, x, y, 9); gr.addColorStop(0, `rgba(${col},0.9)`); gr.addColorStop(1, `rgba(${col},0)`);
+        g.fillStyle = gr; g.beginPath(); g.arc(x, y, 9, 0, 7); g.fill();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  build(); addEventListener('resize', () => { clearTimeout(build.t); build.t = setTimeout(build, 200); });
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
