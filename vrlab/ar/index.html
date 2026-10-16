@@ -37,14 +37,31 @@
   .hs.me small { color:#ffc98f; }
   .ar-btn { position:absolute; left:50%; bottom:16px; transform:translateX(-50%); border:0; border-radius:14px; padding:15px 24px; font-size:16px; font-weight:800; color:#fff; background:var(--teal); box-shadow:0 10px 30px rgba(0,0,0,.5); white-space:nowrap; }
   .next { position:absolute; right:12px; top:12px; border:1px solid rgba(91,209,201,.6); background:rgba(3,10,34,.75); color:#fff; border-radius:12px; padding:9px 12px; font-size:13px; font-weight:700; }
-  .caption { margin:12px 2px 0; font-size:15px; line-height:1.45; color:var(--ink); min-height:66px; }
+  .caption { margin:12px 0 0; padding:10px 12px; border-radius:12px; background:rgba(3,10,34,.78); font-size:15px; line-height:1.45; color:var(--ink); min-height:66px; }
   .caption b { color:#fff; }
   .steps { margin:14px 0 0; padding:12px 14px; border-radius:14px; background:rgba(3,10,34,.72); border:1px solid rgba(91,209,201,.2); font-size:14px; line-height:1.45; color:#cfe0f7; }
   .steps ol { margin:6px 0 0 18px; padding:0; }
   .steps li { margin:4px 0; }
   footer { margin-top:16px; font-size:11px; line-height:1.5; color:#7f95bd; }
   footer a { color:#9fd8d3; }
-  @media (prefers-reduced-motion: reduce) { model-viewer { transition:none; } }
+  .hs { opacity:0; }
+  .hs.in { animation: pop .55s cubic-bezier(.2,1.5,.4,1) forwards; animation-delay: var(--d, 0s); }
+  @keyframes pop { 0% { opacity:0; scale:.3; } 70% { opacity:1; scale:1.12; } 100% { opacity:1; scale:1; } }
+  .hs::after { animation: beacon 1.8s ease-out infinite; }
+  .hs.me::after { animation-name: beaconMe; }
+  @keyframes beacon { 0% { box-shadow: 0 0 10px var(--mint), 0 0 0 0 rgba(91,209,201,.85); } 100% { box-shadow: 0 0 10px var(--mint), 0 0 0 16px rgba(91,209,201,0); } }
+  @keyframes beaconMe { 0% { box-shadow: 0 0 12px var(--orange), 0 0 0 0 rgba(255,154,60,.9); } 100% { box-shadow: 0 0 12px var(--orange), 0 0 0 20px rgba(255,154,60,0); } }
+  .tab.on { background: linear-gradient(110deg, #00978F 0%, #00978F 40%, #3fe0d2 50%, #00978F 60%, #00978F 100%); background-size: 250% 100%; animation: sheen 3.2s linear infinite; }
+  @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: -150% 0; } }
+  .caption .w { opacity:0; animation: wIn .5s ease forwards; }
+  @keyframes wIn { 0% { opacity:0; color:#5BD1C9; text-shadow:0 0 12px #5BD1C9; } 60% { opacity:1; } 100% { opacity:1; } }
+  header .mark { position:relative; overflow:hidden; }
+  header .mark::after { content:""; position:absolute; top:0; bottom:0; width:40%; left:-60%; background: linear-gradient(90deg, transparent, rgba(91,209,201,.45), transparent); animation: scan 3.5s ease-in-out infinite; }
+  @keyframes scan { 0%, 30% { left:-60%; } 70%, 100% { left:120%; } }
+  .stage::before { content:""; position:absolute; inset:-1px; border-radius:18px; pointer-events:none; z-index:2; background: conic-gradient(from var(--ang), transparent 0 70%, rgba(91,209,201,.9) 80%, transparent 90%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding:1.5px; animation: spinB 6s linear infinite; }
+  @property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+  @keyframes spinB { to { --ang: 360deg; } }
+  @media (prefers-reduced-motion: reduce) { model-viewer { transition:none; } .hs.in, .caption .w { animation-duration: .01s; } .hs::after, .tab.on, header .mark::after, .stage::before { animation: none; } }
 </style>
 </head>
 <body>
@@ -117,8 +134,14 @@ function hotspots(sc) {
     b.dataset.position = h.pos; if (h.nrm) b.dataset.normal = h.nrm; else b.dataset.normal = '0 1 0';
     b.dataset.visibilityAttribute = 'visible';
     b.innerHTML = h.name + (h.sub ? '<small>' + h.sub + '</small>' : '');
+    b.style.setProperty('--d', (0.7 + i * 0.22) + 's');
     mv.appendChild(b);
   });
+}
+function setCaption(html) {
+  cap.innerHTML = html; let k = 0;
+  const walk = node => { for (const ch of [...node.childNodes]) { if (ch.nodeType === 3) { const frag = document.createDocumentFragment(); ch.textContent.split(/(s+)/).forEach(w => { if (!w) return; if (/^s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; } const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = w; sp.style.animationDelay = (0.25 + k++ * 0.035) + 's'; frag.appendChild(sp); }); ch.replaceWith(frag); } else walk(ch); } };
+  walk(cap);
 }
 function show(i) {
   cur = i; const sc = SCENES[i];
@@ -127,18 +150,23 @@ function show(i) {
   mv.classList.add('fade');
   setTimeout(() => {
     mv.src = sc.src; mv.cameraOrbit = sc.orbit; mv.fieldOfView = 'auto';
-    hotspots(sc); cap.innerHTML = sc.cap;
+    hotspots(sc); setCaption(sc.cap);
   }, 300);
+  if (window.pcbBurst) window.pcbBurst(40);
 }
 mv.addEventListener('load', () => {
   // fly-in: start a little further away and settle
   const sc = SCENES[cur]; const [t, p] = sc.orbit.split(' ');
   mv.cameraOrbit = `${parseFloat(t) - 35}deg ${parseFloat(p) + 8}deg 140%`; mv.jumpCameraToGoal();
   requestAnimationFrame(() => { mv.cameraOrbit = sc.orbit; mv.classList.remove('fade'); });
+  const t0 = performance.now(), from = -75;
+  const spin = now => { const k = Math.min(1, (now - t0) / 1400), e = 1 - Math.pow(1 - k, 3); mv.orientation = `0deg 0deg ${from * (1 - e)}deg`; if (k < 1) requestAnimationFrame(spin); };
+  requestAnimationFrame(spin);
+  mv.querySelectorAll('.hs').forEach(h => { h.classList.remove('in'); void h.offsetWidth; h.classList.add('in'); });
 });
 tabs.forEach(t => t.addEventListener('click', () => show(+t.dataset.i)));
 next.addEventListener('click', () => show((cur + 1) % 3));
-hotspots(SCENES[0]); cap.innerHTML = SCENES[0].cap;
+hotspots(SCENES[0]); setCaption(SCENES[0].cap);
 
 // ---------- VRLABDV circuit-board background ----------
 (() => {
@@ -190,12 +218,36 @@ hotspots(SCENES[0]); cap.innerHTML = SCENES[0].cap;
       c.beginPath(); c.arc(x + 6, y + 6, 1.8, 0, 7); c.fillStyle = 'rgba(91,209,201,0.45)'; c.fill();
     }
     pulses = [];
+    full = layer; layer = document.createElement('canvas'); layer.width = full.width; layer.height = full.height; reveal0 = performance.now();
   }
+  let full, reveal0 = 0, ptr = null;
+  addEventListener('pointermove', e => { ptr = { x: e.clientX, y: e.clientY, t: performance.now() }; }, { passive: true });
+  addEventListener('pointerdown', e => { ptr = { x: e.clientX, y: e.clientY, t: performance.now() }; burst(18, e.clientX, e.clientY); }, { passive: true });
+  function burst(nb, x, y) {
+    let pool = traces;
+    if (x != null) pool = traces.filter(t => Math.hypot(t[0][0] - x, t[0][1] - y) < 220);
+    if (!pool.length) pool = traces;
+    for (let i = 0; i < nb; i++) { const t = pool[Math.floor(Math.random() * pool.length)]; pulses.push({ t, s: 0, v: 0.18 + Math.random() * 0.2, warm: Math.random() < 0.35 }); }
+  }
+  window.pcbBurst = n => burst(n);
   function frame() {
+    // draw-in: wipe the board in from the centre outward over 1.8 s
+    const rv = Math.min(1, (performance.now() - reveal0) / 1800);
+    if (full && rv <= 1 && !frame.done) {
+      const lc = layer.getContext('2d'); lc.clearRect(0, 0, layer.width, layer.height); lc.save();
+      lc.beginPath(); lc.arc(layer.width / 2, layer.height * 0.42, Math.hypot(layer.width, layer.height) * 0.62 * (1 - Math.pow(1 - rv, 3)), 0, 7); lc.clip(); lc.drawImage(full, 0, 0); lc.restore();
+      frame.done = rv >= 1;
+    }
     g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cv.width, cv.height); g.drawImage(layer, 0, 0);
+    if (ptr && performance.now() - ptr.t < 2500) {
+      const a = 1 - (performance.now() - ptr.t) / 2500, x = ptr.x * DPR, y = ptr.y * DPR, R = 170 * DPR;
+      g.save(); g.globalCompositeOperation = 'source-atop';
+      const gr = g.createRadialGradient(x, y, 0, x, y, R); gr.addColorStop(0, `rgba(140,255,245,${0.75 * a})`); gr.addColorStop(1, 'rgba(140,255,245,0)');
+      g.fillStyle = gr; g.fillRect(x - R, y - R, 2 * R, 2 * R); g.restore();
+    }
     if (!reduce) {
       g.setTransform(DPR, 0, 0, DPR, 0, 0);
-      while (pulses.length < Math.min(60, traces.length / 6)) { const t = traces[Math.floor(Math.random() * traces.length)]; pulses.push({ t, s: 0, v: 0.08 + Math.random() * 0.12, warm: Math.random() < 0.18 }); }
+      while (pulses.length < Math.min(90, traces.length / 4)) { const t = traces[Math.floor(Math.random() * traces.length)]; pulses.push({ t, s: 0, v: 0.08 + Math.random() * 0.12, warm: Math.random() < 0.18 }); }
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i]; p.s += p.v; const n = p.t.length - 1; if (p.s >= n) { pulses.splice(i, 1); continue; }
         const k = Math.floor(p.s), f = p.s - k, a = p.t[k], b = p.t[k + 1], x = a[0] + (b[0] - a[0]) * f, y = a[1] + (b[1] - a[1]) * f;
@@ -206,7 +258,7 @@ hotspots(SCENES[0]); cap.innerHTML = SCENES[0].cap;
     }
     requestAnimationFrame(frame);
   }
-  build(); addEventListener('resize', () => { clearTimeout(build.t); build.t = setTimeout(build, 200); });
+  build(); addEventListener('resize', () => { clearTimeout(build.t); build.t = setTimeout(() => { frame.done = false; build(); }, 200); });
   requestAnimationFrame(frame);
 })();
 </script>
