@@ -253,9 +253,9 @@
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
-    "description": "How Golden Harbour Games handles your data: our games collect none, and this website sets no cookies of its own.",
-    "date": "2026-10-12",
-    "updated": "Last updated: 12 October 2026",
+    "description": "How Golden Harbour Games handles your data: one game sends anonymous play data, the rest collect none, and this website sets no cookies of its own.",
+    "date": "2026-10-16",
+    "updated": "Last updated: 16 October 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, itch.io, Steam or this website — and the website itself."
@@ -265,10 +265,28 @@
         "title": "Our games",
         "list": [
           "Our games need no account. There is nothing to sign up for or log in to.",
-          "They do not collect, store or transmit personal data. Nothing about you leaves your device.",
-          "They contain no ads, no analytics and no third-party tracking.",
-          "They sell nothing inside the game at this time: no in-app purchases, no currencies, no subscriptions.",
+          "They contain no ads and no advertising tracking.",
+          "Most of our games collect no data at all. AeroFire Command: Fire Season on Android is the exception: it sends anonymous play data, described in the next section.",
           "Game progress is saved only on your own device. Delete the game and the save goes with it; we never had a copy."
+        ]
+      },
+      {
+        "title": "Anonymous play data in AeroFire Command: Fire Season",
+        "paragraphs": [
+          "To learn how the game plays - where new players get stuck, how long a fire takes, which cards people pick, how smoothly it runs - Fire Season sends anonymous play events to Google Analytics for Firebase. For example: a fire started or finished, the stars it earned, a card picked, a setting changed, the frame rate.",
+          "Each install gets a random ID that the game makes up on first launch. It is not linked to your name, email address, Google account or advertising ID, and the game does not collect the advertising ID. Firebase also records standard technical details: device model, Android version, country, language and app version.",
+          "Google processes this data for us under the Google Analytics terms and keeps it for up to 14 months. It is not used for advertising, and we do not sell or share it.",
+          "You can turn it off at any time in SETTINGS with \"Share anonymous play data\". From then on the game sends nothing."
+        ],
+        "links": [
+          {
+            "label": "How Firebase handles data",
+            "url": "https://firebase.google.com/support/privacy"
+          },
+          {
+            "label": "Google privacy policy",
+            "url": "https://policies.google.com/privacy"
+          }
         ]
       },
       {
@@ -296,7 +314,8 @@
       {
         "title": "Stores",
         "paragraphs": [
-          "Google Play, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us."
+          "Google Play, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
+          "Where a game offers an optional purchase, such as the Supporter edition of Fire Season, Google Play handles the payment. The game only learns whether the purchase is active, so it can unlock what you bought."
         ]
       },
       {
