@@ -253,9 +253,9 @@
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
-    "description": "How Golden Harbour Games handles your data: one game sends anonymous play data, the rest collect none, and this website sets no cookies of its own.",
-    "date": "2026-10-16",
-    "updated": "Last updated: 16 October 2026",
+    "description": "How Golden Harbour Games handles your data: one game sends anonymous play data and offers an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies of its own.",
+    "date": "2026-10-19",
+    "updated": "Last updated: 19 October 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, itch.io, Steam or this website — and the website itself."
@@ -264,10 +264,10 @@
       {
         "title": "Our games",
         "list": [
-          "Our games need no account. There is nothing to sign up for or log in to.",
+          "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season offers an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
           "Most of our games collect no data at all. AeroFire Command: Fire Season on Android is the exception: it sends anonymous play data, described in the next section.",
-          "Game progress is saved only on your own device. Delete the game and the save goes with it; we never had a copy."
+          "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
       },
       {
@@ -282,6 +282,25 @@
           {
             "label": "How Firebase handles data",
             "url": "https://firebase.google.com/support/privacy"
+          },
+          {
+            "label": "Google privacy policy",
+            "url": "https://policies.google.com/privacy"
+          }
+        ]
+      },
+      {
+        "title": "Google Play Games in AeroFire Command: Fire Season",
+        "paragraphs": [
+          "Fire Season can sign you in to Google Play Games, if you choose to, from SETTINGS. Signing in gives you achievements, leaderboards and a cloud copy of your career. You never have to sign in to play.",
+          "When you sign in, Google Play Games gives the game your Play Games player ID and the display name and avatar you chose for Play Games. The game uses them to show your name on the leaderboards and to tell which saved game is yours. It does not receive your email address or your Google account name.",
+          "Your achievements and scores are sent to Google Play Games, where they appear under your Play Games profile according to the visibility you chose there. Your saved career (the season, the fleet, the records and settings) is kept in your Google account's saved-games storage, not on any server of ours, and only this game can read it. Signing out, or clearing the game's data in Google Play Games, removes it.",
+          "Google processes this data under the Google Play Games terms and the Google privacy policy. We do not sell or share it, and we do not use it for advertising."
+        ],
+        "links": [
+          {
+            "label": "Google Play Games privacy",
+            "url": "https://support.google.com/googleplay/answer/9975713"
           },
           {
             "label": "Google privacy policy",
