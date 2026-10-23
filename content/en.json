@@ -27,7 +27,9 @@
   "platforms": {
     "browser": "Browser",
     "phone": "Phone",
-    "tablet": "Tablet"
+    "tablet": "Tablet",
+    "android": "Android",
+    "windows": "Windows"
   },
   "languages_label": "Languages",
   "games": {
@@ -79,88 +81,85 @@
     },
     "punch-league": {
       "title": "Punch League",
-      "text": "A boxing card game. Read his next move, spot the bluff, and knock him out. Quick fights, deep decisions.",
+      "text": "A boxing card battler. He shows you his next punch, and sometimes he's lying. Read him, build your combination, win three belts. Open beta on Android.",
       "tags": [
         "Card battler",
         "Boxing"
       ],
-      "seo_title": "Punch League – boxing card battler, free in your browser",
-      "seo_description": "A boxing card game where your opponent shows his next punch before he throws it, and sometimes lies. A full career, free in your browser.",
+      "seo_title": "Punch League – boxing card battler, open beta on Android and free in your browser",
+      "seo_description": "A boxing card battler: read the card he shows, build a three-card combination, fight a career to three belts. Open beta on Google Play, the first act free in your browser.",
       "intro": [
-        "Each turn you get a hand of punches, guards and slips, paid for with stamina. His move floats over his head: JAB, HOOK, HEAVY, GUARD. Block it, slip it, counter it, or hit him while he’s open.",
-        "Some fighters tell the truth nine times out of ten. Counter-punchers bluff all night. There are no dice in the damage, so when you get hit you misread him. It wasn’t bad luck."
+        "Every exchange you lay up to three cards in a chain: a setup, a punch, a finish. Your opponent has already locked his combination, and you can see the first card he is showing. Is that jab honest, or is he loading a counter? Read him, then throw."
       ],
       "sections": [
         {
-          "title": "A session",
+          "title": "Combinations that mean something",
           "list": [
-            "Suit up. Pick your fighter and his card colours.",
-            "Spend your purse on gloves, shoes and a headguard, or hire a coach.",
-            "Pick a fight: safe money, or a risky jump up the rankings.",
-            "Camp for a few weeks: sparring, cardio, technique, rest, or scouting him to learn how often he bluffs.",
-            "Fight night: three rounds of three turns, a tip from your corner between rounds, a win by knockout or on points.",
-            "Win, and add one of three new cards to your deck."
+            "A jab before a cross lands sharper. A body shot slows him down for the rest of the round. A block takes the initiative for your next punch.",
+            "Cards that work together light up in your hand, so you always know which combination is ready.",
+            "After the exchange the log shows what landed, what was blocked and who was first."
           ]
         },
         {
-          "title": "What’s in it",
+          "title": "A real career",
           "list": [
-            "A career across eight divisions, from Local to Legend, with ranks, fans, rivals and events between fights.",
-            "Fighters with six fighting styles, each with his own deck, signature punch and habits.",
-            "Cards to collect, level up and branch into stronger versions.",
-            "Coaches, a gym, a skill tree, missions and a daily purse.",
-            "A short lesson that teaches you to read the tell."
+            "Three acts: the local circuit, the regional ranking and the national title, a belt at the end of each.",
+            "Rivals remember you, injuries need the physio, and every night between fights is a choice: train, rest, add a card, cut a weak one, hire a coach.",
+            "Twenty-one fighters with their own decks, habits and signature punches.",
+            "Your fighter levels up and earns talents; 75 cards to collect, upgrade and merge."
           ]
         },
         {
-          "title": "How to play",
+          "title": "Where to play",
           "paragraphs": [
-            "Tap a card to pick it, then tap it again or drag it up to play. Press END TURN and his move lands. A fight takes about four minutes.",
-            "Touch or mouse. It plays landscape, so on a phone turn it sideways. Your career is saved in the browser. English and Russian."
+            "The whole career is in the open beta on Android, on Google Play. Here in the browser you can play the first act, the road to your first belt.",
+            "It plays landscape, so on a phone turn it sideways. No ads, no account. English and Russian."
           ]
         }
       ]
     },
     "aerofire-command": {
-      "title": "AeroFire Command",
-      "text": "Fight wildfires with air tankers, helicopters and ground crews. Read the wind, cut the line, and aim where the fire is going, not where it is.",
+      "title": "AeroFire Command: Fire Season",
+      "text": "A wildfire is heading for town. You don't fly the helicopters: you paint the map, and your fleet does the rest. Open beta on Android, free on PC and in your browser.",
       "tags": [
         "Strategy",
         "Simulation"
       ],
-      "seo_title": "AeroFire Command – wildfire strategy game, free in your browser",
-      "seo_description": "Command air tankers, helicopters and ground crews against a simulated wildfire. Read the wind and drop where the fire is going. Free in your browser.",
+      "seo_title": "AeroFire Command: Fire Season – wildfire strategy, open beta on Android, free on PC and in your browser",
+      "seo_description": "Paint water, retardant, firebreaks and backburns on the map and your firefighting fleet flies it. Eleven regions, seven fires a season. Open beta on Google Play, free on Windows and in the browser.",
       "intro": [
-        "A wildfire is running through the hills above a town, and you are the one on the radio. Everything you order takes time to get there, so every drop is a bet on where the front will be in thirty seconds."
+        "Paint WATER on the flames and the helicopters fill up at the nearest lake and drop where you painted. Paint RETARDANT ahead of the fire and a tanker lays the line. Paint a CUT and the dozers dig a firebreak. Paint a BURN and a crew lights the fuel before the fire gets there. Every pilot and crew makes their own call."
       ],
       "sections": [
         {
+          "title": "A world of fire seasons",
+          "list": [
+            "Eleven regions on a living globe, from Australia and California to Greece, Turkey, Canada and Indonesia.",
+            "A season is a route of seven fires from a base town to the big one, each with its own land, wind and dryness.",
+            "Towns from a hamlet to a city edge. The star is for the houses you hold.",
+            "Fire jumped your line? Drag the beacon onto it and every aircraft piles in."
+          ]
+        },
+        {
+          "title": "Every fire pays in cards",
+          "list": [
+            "Each star buys picks: helicopters, scoopers and tankers, hose crews, smokejumpers and dozers, parts, kits and buildings.",
+            "Sixty machines and 132 cards. The Workshop fits parts to every machine and turns one airframe into another with 98 conversions.",
+            "The Lab researches new types with the field data your fires bring in. Scores, ranks and a fire of the week.",
+            "You never lose a season: a rough fire just pays fewer cards, and your fleet comes with you."
+          ]
+        },
+        {
           "title": "The fire is a simulation, not a script",
           "paragraphs": [
-            "Every cell of the map has a fuel type, moisture and a slope. Fire spreads cell to cell, pushed by wind and terrain, throwing embers ahead of the front. Shift the wind and the whole thing turns and comes back at you. When a fire jumps a road, it is because it genuinely got across.",
-            "The coloured rings on the ground show how many seconds until the fire reaches each spot. Lay a retardant line and watch the rings bend back around it."
+            "The fire follows fuel, slope and wind. It throws embers ahead of the front, climbs ridges, crosses roads when the wind is up and turns when the wind turns. No two fires play the same."
           ]
         },
         {
-          "title": "What you command",
-          "list": [
-            "Helicopters from a light MD-500 on a bucket to heavy lifters, scooping water from the nearest lake or river.",
-            "Fixed-wing tankers, up to a 747 SuperTanker, reloading retardant at the airfield and laying it in lines.",
-            "Ground crews: smokejumpers dropped at the head of the fire, engine crews down the roads, dozers that cut a break where you draw one.",
-            "Water knocks fire down; retardant stops it coming back. Send two helicopters to one spot and they take turns on it."
-          ]
-        },
-        {
-          "title": "Contracts",
+          "title": "Where to play",
           "paragraphs": [
-            "Six regions with their own fuels, terrain and weather: the Serra da Lousã, Los Monegros, Los Padres, Attica, Central Kalimantan and Central Siberia. Every map is generated, coastline, roads, villages and ignitions included, so no two runs are the same.",
-            "Pick a job on its difficulty and its fee, fly it, and get paid on what you saved. Buildings you lose come off the cheque. Spend the rest on aircraft, crews and the airfield."
-          ]
-        },
-        {
-          "title": "How to play",
-          "paragraphs": [
-            "Built for a phone held upright, one thumb, nothing to install. Drag a card from the strip at the bottom onto the map to send an aircraft; time slows while you aim. On a computer it plays in a tall frame with the mouse. English, Russian, Spanish and Indonesian."
+            "On Android it is in open beta on Google Play, with achievements, leaderboards and cloud save. On a computer it plays right here in the browser, or as one Windows exe from itch.io.",
+            "With a mouse: A, Z, S and X pick water, retardant, cut and burn, D is look, and holding the left button opens a wheel of the four paints. English, Russian, Spanish, Indonesian, Chinese, Turkish and Thai."
           ]
         }
       ]
@@ -246,7 +245,8 @@
     "back": "All games",
     "itch": "This game on itch.io",
     "more": "More games",
-    "frame_title": "{game}, playing in the page"
+    "frame_title": "{game}, playing in the page",
+    "google_play": "Open beta on Google Play"
   },
   "seo_title": "Golden Harbour Games – free browser games from Vladivostok & Sydney",
   "privacy": {
@@ -357,5 +357,6 @@
         "email": true
       }
     ]
-  }
+  },
+  "google_play": "Google Play"
 }

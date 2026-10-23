@@ -23,6 +23,7 @@
     "itch": "https://goldenharbourgames.itch.io/punch-league",
     "cover": "img/punch-league.jpg",
     "platforms": [
+      "android",
       "browser",
       "phone"
     ],
@@ -34,27 +35,33 @@
     "frame": [
       960,
       540
-    ]
+    ],
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague"
   },
   {
     "id": "aerofire-command",
     "itch": "https://goldenharbourgames.itch.io/aerofire-command",
     "cover": "img/aerofire-command.jpg",
     "platforms": [
-      "browser",
-      "phone"
+      "android",
+      "windows",
+      "browser"
     ],
     "languages": [
       "EN",
       "RU",
       "ES",
-      "ID"
+      "ID",
+      "ZH",
+      "TR",
+      "TH"
     ],
     "embed": 19389548,
     "frame": [
-      540,
-      960
-    ]
+      1280,
+      720
+    ],
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw"
   },
   {
     "id": "vladivostok-fortress",

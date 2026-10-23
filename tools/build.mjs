@@ -1,6 +1,6 @@
 // Writes the site from content/:  node tools/build.mjs
 //   content/<lang>.json  every word on the page, one file per language
-//   content/games.json   the games, in order: itch link, cover, platforms, languages, and the itch
+//   content/games.json   the games, in order: itch link, google_play (optional store page), cover, platforms, languages, and the itch
 //                        upload that plays on the site (embed) with the shape it is drawn for (frame)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
@@ -198,7 +198,8 @@ function page(t) {
           </dl>
           <p class="card-actions">
             <a class="play${featured ? ' button' : ''}" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
-            <a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>
+            ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
+            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>
           </p>
         </div>
       </article>`;
@@ -325,12 +326,12 @@ function playPage(t, g) {
     image: SITE + g.cover,
     genre: c.tags,
     inLanguage: g.languages.map((l) => l.toLowerCase()),
-    gamePlatform: 'Web browser',
+    gamePlatform: g.platforms.map((x) => ({ browser: 'Web browser', phone: 'Web browser', tablet: 'Web browser', android: 'Android', windows: 'Windows' })[x]).filter((v, i, a) => a.indexOf(v) === i),
     applicationCategory: 'Game',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     author: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE },
-    sameAs: [g.itch],
+    sameAs: g.google_play ? [g.itch, g.google_play] : [g.itch],
   };
 
   return shell(t, sub, {
@@ -366,7 +367,8 @@ function playPage(t, g) {
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           ${esc(p.fullscreen)}
         </button>
-        <a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>
+        ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(p.google_play)} <span aria-hidden="true">↗</span></a>
+        ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>
       </p>
     </div>
 
