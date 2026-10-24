@@ -253,9 +253,9 @@
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
-    "description": "How Golden Harbour Games handles your data: one game sends anonymous play data and offers an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies of its own.",
-    "date": "2026-10-19",
-    "updated": "Last updated: 19 October 2026",
+    "description": "How Golden Harbour Games handles your data: two games send anonymous play data and offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies of its own.",
+    "date": "2026-10-25",
+    "updated": "Last updated: 25 October 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, itch.io, Steam or this website — and the website itself."
@@ -264,19 +264,19 @@
       {
         "title": "Our games",
         "list": [
-          "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season offers an optional Google Play Games sign-in, described below; you can play the whole game without it.",
+          "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
-          "Most of our games collect no data at all. AeroFire Command: Fire Season on Android is the exception: it sends anonymous play data, described in the next section.",
-          "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
+          "Most of our games collect no data at all. AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play) are the exceptions: they send anonymous play data, described in the next section.",
+          "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
       },
       {
-        "title": "Anonymous play data in AeroFire Command: Fire Season",
+        "title": "Anonymous play data in AeroFire Command: Fire Season and Punch League",
         "paragraphs": [
-          "To learn how the game plays - where new players get stuck, how long a fire takes, which cards people pick, how smoothly it runs - Fire Season sends anonymous play events to Google Analytics for Firebase. For example: a fire started or finished, the stars it earned, a card picked, a setting changed, the frame rate.",
-          "Each install gets a random ID that the game makes up on first launch. It is not linked to your name, email address, Google account or advertising ID, and the game does not collect the advertising ID. Firebase also records standard technical details: device model, Android version, country, language and app version.",
+          "To learn how our games play - where new players get stuck, how long a fire or a fight takes, which cards people pick, how smoothly the game runs - Fire Season and Punch League send anonymous play events to Google Analytics for Firebase. For example: a fire or a fight started or finished and its result, a tutorial step reached, a card picked, a belt won, a look in the shop viewed or bought, a setting changed, the frame rate.",
+          "Each install gets a random ID that the game makes up on first launch. It is not linked to your name, email address, Google account, Play Games profile or advertising ID, and the games do not collect the advertising ID. Nothing you type is sent. Firebase also records standard technical details: device model, Android version, country, language and app version.",
           "Google processes this data for us under the Google Analytics terms and keeps it for up to 14 months. It is not used for advertising, and we do not sell or share it.",
-          "You can turn it off at any time in SETTINGS with \"Share anonymous play data\". From then on the game sends nothing."
+          "You can turn it off at any time in the game's SETTINGS: \"Share anonymous play data\" in Fire Season, \"SHARE PLAY DATA\" in Punch League. From then on the game sends nothing."
         ],
         "links": [
           {
@@ -290,11 +290,11 @@
         ]
       },
       {
-        "title": "Google Play Games in AeroFire Command: Fire Season",
+        "title": "Google Play Games in AeroFire Command: Fire Season and Punch League",
         "paragraphs": [
-          "Fire Season can sign you in to Google Play Games, if you choose to, from SETTINGS. Signing in gives you achievements, leaderboards and a cloud copy of your career. You never have to sign in to play.",
-          "When you sign in, Google Play Games gives the game your Play Games player ID and the display name and avatar you chose for Play Games. The game uses them to show your name on the leaderboards and to tell which saved game is yours. It does not receive your email address or your Google account name.",
-          "Your achievements and scores are sent to Google Play Games, where they appear under your Play Games profile according to the visibility you chose there. Your saved career (the season, the fleet, the records and settings) is kept in your Google account's saved-games storage, not on any server of ours, and only this game can read it. Signing out, or clearing the game's data in Google Play Games, removes it.",
+          "Fire Season and Punch League can sign you in to Google Play Games, if you choose to, from SETTINGS. Signing in gives you achievements, leaderboards and a cloud copy of your career. You never have to sign in to play.",
+          "When you sign in, Google Play Games gives the game your Play Games player ID and the display name and avatar you chose for Play Games. The game uses them to show your name on the leaderboards and to tell which saved game is yours. It does not receive your email address or your Google account name, and it never puts your Play Games name or ID in the anonymous play data.",
+          "Your achievements and scores are sent to Google Play Games, where they appear under your Play Games profile according to the visibility you chose there. Your saved career (in Fire Season the season, the fleet, the records and settings; in Punch League your fighters, record, belts, deck and the looks you own) is kept in your Google account's saved-games storage, not on any server of ours, and only that game can read it. Signing out, or clearing the game's data in Google Play Games, removes it.",
           "Google processes this data under the Google Play Games terms and the Google privacy policy. We do not sell or share it, and we do not use it for advertising."
         ],
         "links": [
@@ -334,7 +334,7 @@
         "title": "Stores",
         "paragraphs": [
           "Google Play, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
-          "Where a game offers an optional purchase, such as the Supporter edition of Fire Season, Google Play handles the payment. The game only learns whether the purchase is active, so it can unlock what you bought."
+          "Where a game offers an optional purchase, Google Play handles the payment: the Supporter edition of Fire Season, and the shop's looks in Punch League (outfits and card backs that change nothing in a fight; the Full Career purchase sold from 13 to 24 October 2026 is still restored for those who bought it). The game only learns whether a purchase is active, so it can unlock what you bought. Your payment details never reach us."
         ]
       },
       {
