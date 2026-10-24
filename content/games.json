@@ -1,44 +1,5 @@
 [
   {
-    "id": "peregon",
-    "itch": "https://goldenharbourgames.itch.io/peregon",
-    "cover": "img/peregon.jpg",
-    "platforms": [
-      "browser",
-      "phone"
-    ],
-    "languages": [
-      "EN",
-      "RU"
-    ],
-    "new": true,
-    "embed": 19389537,
-    "frame": [
-      1280,
-      720
-    ]
-  },
-  {
-    "id": "punch-league",
-    "itch": "https://goldenharbourgames.itch.io/punch-league",
-    "cover": "img/punch-league.jpg",
-    "platforms": [
-      "android",
-      "browser",
-      "phone"
-    ],
-    "languages": [
-      "EN",
-      "RU"
-    ],
-    "embed": 19389540,
-    "frame": [
-      960,
-      540
-    ],
-    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague"
-  },
-  {
     "id": "aerofire-command",
     "itch": "https://goldenharbourgames.itch.io/aerofire-command",
     "cover": "img/aerofire-command.jpg",
@@ -61,7 +22,50 @@
       1280,
       720
     ],
-    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw"
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw",
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=5c9urndqa8E",
+    "shorts": "https://www.youtube.com/playlist?list=PLBSqnmgdfS_8"
+  },
+  {
+    "id": "punch-league",
+    "itch": "https://goldenharbourgames.itch.io/punch-league",
+    "cover": "img/punch-league.jpg",
+    "platforms": [
+      "android",
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 19389540,
+    "frame": [
+      960,
+      540
+    ],
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague",
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c"
+  },
+  {
+    "id": "peregon",
+    "itch": "https://goldenharbourgames.itch.io/peregon",
+    "cover": "img/peregon.jpg",
+    "platforms": [
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 19389537,
+    "frame": [
+      1280,
+      720
+    ]
   },
   {
     "id": "vladivostok-fortress",

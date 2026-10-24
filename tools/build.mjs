@@ -1,7 +1,8 @@
 // Writes the site from content/:  node tools/build.mjs
 //   content/<lang>.json  every word on the page, one file per language
 //   content/games.json   the games, in order: itch link, google_play (optional store page), cover, platforms, languages, and the itch
-//                        upload that plays on the site (embed) with the shape it is drawn for (frame)
+//                        upload that plays on the site (embed) with the shape it is drawn for (frame); optional
+//                        trailer (a video link) and shorts (a playlist, shown on the play page only)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
 // (play/<id>/, ru/play/<id>/), the privacy policy (privacy/, ru/privacy/), 404.html, sitemap.xml, robots.txt,
@@ -199,7 +200,8 @@ function page(t) {
           <p class="card-actions">
             <a class="play${featured ? ' button' : ''}" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
             ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
-            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>
+            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
+            <a class="itch-link" href="${g.trailer}">${esc(t.trailer)} <span aria-hidden="true">↗</span></a>` : ''}
           </p>
         </div>
       </article>`;
@@ -368,7 +370,9 @@ function playPage(t, g) {
           ${esc(p.fullscreen)}
         </button>
         ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(p.google_play)} <span aria-hidden="true">↗</span></a>
-        ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>
+        ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
+        <a class="itch-link" href="${g.trailer}">${esc(t.trailer)} <span aria-hidden="true">↗</span></a>` : ''}${g.shorts ? `
+        <a class="itch-link" href="${g.shorts}">${esc(t.shorts)} <span aria-hidden="true">↗</span></a>` : ''}
       </p>
     </div>
 
