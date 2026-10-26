@@ -201,6 +201,50 @@
           ]
         }
       ]
+    },
+    "gull-chorus": {
+      "title": "Gull Chorus",
+      "text": "Every seagull you send flies again with the next one. Lead the flock down a real beach, steal the chips, smash everything, and the whole beach plays the song.",
+      "tags": [
+        "Arcade",
+        "Music"
+      ],
+      "seo_title": "Gull Chorus – a seagull flock that plays the song, free in your browser",
+      "seo_description": "Send a seagull down Bondi or a Vladivostok beach after a snack. Every gull you send flies again with the next, smashing umbrellas and bins, and the beach plays the tune. Free in your browser.",
+      "intro": [
+        "Send a gull down the beach after a snack. Then send another, and the first one flies again right beside it, exactly as before. Then another. Soon you’re leading a flock of thirty gulls through umbrellas, kites, wheelie bins and very annoyed picnickers, and every bump, bounce and burp is a note of the song."
+      ],
+      "sections": [
+        {
+          "title": "How it plays",
+          "list": [
+            "Your gull chases a waving sandwich: point where to fly, down to dive and pick up speed, up to climb. Classic tap-to-flap controls are in the settings.",
+            "Skim a snack fast to snatch it in flight, or come in slow and land on the blanket.",
+            "Everything on the beach breaks. Knock a bin over and its food spills out. Bonk something sturdy and you bounce off a heart down.",
+            "Cross the finish line to end the beach for up to five stars, or keep going for more food, more smashing and more bubbles."
+          ]
+        },
+        {
+          "title": "Six beaches, six songs",
+          "list": [
+            "Bondi, Manly and Coogee in Sydney; Shamora, Glass Beach and Tokarevsky Lighthouse in Vladivostok, each with its own gulls and its own snacks.",
+            "Every beach plays a classic tune on real instruments: Waltzing Matilda at Bondi, the Wellerman at Manly, Kalinka at Shamora and more.",
+            "Finish a beach and the whole flock comes back as a gull tsunami that smashes the melody out of whatever is still standing."
+          ]
+        },
+        {
+          "title": "Special gulls",
+          "paragraphs": [
+            "Stars buy special gulls: Fatso with extra hearts, the Gobbler who swallows two snacks in one gulp, the Phantom who flies straight through things, Kaboom, the Seagull King and more. Each has a few goes per beach, so pick your moment."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "Free in your browser, here or on itch.io, and as a Windows download. Mouse, keyboard or touch: on a phone, drag to steer. In English."
+          ]
+        }
+      ]
     }
   },
   "about": {

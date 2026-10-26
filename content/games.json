@@ -50,6 +50,25 @@
     "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c"
   },
   {
+    "id": "gull-chorus",
+    "itch": "https://goldenharbourgames.itch.io/gull-chorus",
+    "cover": "img/gull-chorus.jpg",
+    "platforms": [
+      "browser",
+      "windows",
+      "phone"
+    ],
+    "languages": [
+      "EN"
+    ],
+    "embed": 20014737,
+    "frame": [
+      1280,
+      720
+    ],
+    "new": true
+  },
+  {
     "id": "peregon",
     "itch": "https://goldenharbourgames.itch.io/peregon",
     "cover": "img/peregon.jpg",
