@@ -245,6 +245,43 @@
           ]
         }
       ]
+    },
+    "souls-and-estates": {
+      "title": "Souls & Estates",
+      "text": "Head a Russian noble house from 1762 to 1861. Set what each serf village owes, hear the elders, winter in Moscow and climb the Table of Ranks.",
+      "tags": [
+        "Strategy",
+        "History"
+      ],
+      "seo_title": "Souls & Estates – run a Russian noble estate, 1762–1861, free in your browser",
+      "seo_description": "A strategy game about a Russian noble house: set obrok or barshchina for each serf village, plough the land, hear the village elders, marry well and climb the Table of Ranks until serfdom ends in 1861. Free in your browser and on Windows.",
+      "intro": [
+        "You don’t chop the wood. You own the people who chop the wood, and the Crown counts your wealth in souls. Run a country estate the way a landowner did, through a steward, bailiffs, village elders and letters, season after season until serfdom is abolished on 19 February 1861."
+      ],
+      "sections": [
+        {
+          "title": "What you do",
+          "list": [
+            "Set each village’s terms: rent in money (obrok) or days of work on the manor’s fields (barshchina). Every option shows the rubles a year and how the village will take it before you choose.",
+            "Plough, plant and found new villages. Fields grow in rings of strips round each village and reach only as far as people can walk.",
+            "Hear the village elders: seed loans, a feldsher looking for a place, passes for winter work in town.",
+            "Pay the poll tax on every name on the census list, living or dead, until the next count.",
+            "Send sons into the Guards or the civil service, marry daughters well, winter in Moscow or Petersburg, and build the family nest."
+          ]
+        },
+        {
+          "title": "The art book",
+          "paragraphs": [
+            "A free 30-page art book is on the itch page: the estate in four seasons, the model kit, the interface’s six seasonal inks and three typefaces, every screen, the history behind the numbers and the looks we threw away."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "In your browser right here, or download the Windows build from itch.io. Desktop only, mouse and keyboard. The game is in development (version 0.15)."
+          ]
+        }
+      ]
     }
   },
   "about": {

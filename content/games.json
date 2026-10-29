@@ -50,6 +50,26 @@
     "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c"
   },
   {
+    "id": "souls-and-estates",
+    "itch": "https://goldenharbourgames.itch.io/souls-and-estates",
+    "cover": "img/souls-and-estates.jpg",
+    "platforms": [
+      "browser",
+      "windows"
+    ],
+    "languages": [
+      "EN"
+    ],
+    "embed": 20067608,
+    "frame": [
+      1280,
+      720
+    ],
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=putoA2mV2NE",
+    "shorts": "https://www.youtube.com/playlist?list=PLezIkZAKjsKI"
+  },
+  {
     "id": "gull-chorus",
     "itch": "https://goldenharbourgames.itch.io/gull-chorus",
     "cover": "img/gull-chorus.jpg",

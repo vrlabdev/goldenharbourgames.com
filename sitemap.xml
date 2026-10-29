@@ -31,6 +31,16 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/punch-league/"/>
   </url>
   <url>
+    <loc>https://goldenharbourgames.com/play/souls-and-estates/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/souls-and-estates/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/souls-and-estates/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/play/souls-and-estates/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/souls-and-estates/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/souls-and-estates/"/>
+  </url>
+  <url>
     <loc>https://goldenharbourgames.com/play/gull-chorus/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/play/gull-chorus/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/gull-chorus/"/>
