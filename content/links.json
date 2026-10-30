@@ -1,6 +1,7 @@
 [
-  { "label": "itch.io", "url": "https://goldenharbourgames.itch.io/" },
-  { "label": "YouTube", "url": "https://www.youtube.com/@goldenharbourgames" },
-  { "label": "TikTok", "url": "https://www.tiktok.com/@goldenharbourgames" },
-  { "label": "X", "url": "https://x.com/GoldenHrbrGames" }
+  {"label": "itch.io", "url": "https://goldenharbourgames.itch.io/"},
+  {"label": "Google Play", "url": "https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD"},
+  {"label": "YouTube", "url": "https://www.youtube.com/@goldenharbourgames"},
+  {"label": "TikTok", "url": "https://www.tiktok.com/@goldenharbourgames"},
+  {"label": "X", "url": "https://x.com/GoldenHrbrGames"}
 ]
