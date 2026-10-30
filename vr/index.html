@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Only reached from the VRLAB.PLAY poster QR: not linked from the site, not in the sitemap, not indexed. -->
+<meta name="robots" content="noindex, nofollow">
+<title>15 минут VR в подарок — Punch League и AeroFire Command</title>
+<meta name="description" content="Скачай две игры Golden Harbour Games, сыграй в каждую и получи 15 минут виртуальной реальности бесплатно в VRLAB.PLAY во Владивостоке.">
+<meta property="og:title" content="15 минут VR в подарок">
+<meta property="og:description" content="Скачай Punch League и AeroFire Command, сыграй — и приходи в VRLAB.PLAY за бесплатной VR-сессией.">
+<meta property="og:image" content="https://goldenharbourgames.com/vr/img/og.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#0b1626">
+<link rel="icon" href="../img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Oswald:wght@600;700&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b1626;--ink2:#13243b;--line:#22385a;--text:#f3eee2;--text2:#c9d3df;--muted:#9fb0c4;--gold:#e8b04b;--gold2:#f6cd7a;--red:#e0533d;--pl:#d4202e;--plb:#2f6bff;--af:#ef5f2c;--vr:#1b9bb5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:500 17px/1.55 "Golos Text",system-ui,sans-serif}
+a{color:var(--gold2)}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1040px;margin:0 auto}
+header.top a.home{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:700 14px/1 "Unbounded",sans-serif;letter-spacing:.02em}
+header.top a.home img{width:34px;height:34px}
+header.top .site{font-size:14px;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:999px}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:26px 0 40px;text-align:center;
+  background:radial-gradient(120% 70% at 50% 0%,#1d3557 0%,rgba(11,22,38,0) 60%),var(--ink)}
+.partners{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;color:var(--muted);font-size:14px}
+.partners .vr{background:#fff;border-radius:10px;padding:4px 8px;height:44px;width:auto}
+.partners .x{font:700 18px "Unbounded",sans-serif;color:var(--gold)}
+.partners .ghg{display:flex;align-items:center;gap:6px;color:var(--text);font:700 13px "Unbounded",sans-serif}
+.partners .ghg img{width:30px}
+.kicker{display:inline-block;background:var(--red);color:#fff;font:800 13px/1 "Unbounded",sans-serif;letter-spacing:.08em;padding:9px 14px;border-radius:999px;text-transform:uppercase}
+h1{margin:16px 0 6px;font:900 clamp(48px,13vw,112px)/.92 "Unbounded",sans-serif;letter-spacing:-.02em;
+  background:linear-gradient(180deg,#fff3cf 0%,var(--gold2) 35%,var(--gold) 70%,#b97d1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 24px rgba(232,176,75,.35))}
+.h1sub{font:800 clamp(20px,5.2vw,40px)/1.1 "Unbounded",sans-serif;margin:0 0 14px}
+.lede{max-width:640px;margin:0 auto;color:var(--text2);font-size:18px}
+/* the two games */
+.games{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.game{position:relative;border-radius:22px;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;isolation:isolate;border:1px solid rgba(255,255,255,.08)}
+.game .bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
+.game::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,6,13,.1) 0%,rgba(5,6,13,.25) 45%,rgba(5,6,13,.92) 100%)}
+.game.pl .bg{background-image:url(img/pl_arena.jpg)}
+.game.pl .f{position:absolute;bottom:96px;width:50%;mix-blend-mode:screen;z-index:-1}
+.game.pl .f.kane{left:-4%}
+.game.pl .f.kai{right:-4%}
+.game.pl .logo{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:56%;filter:drop-shadow(0 6px 18px rgba(0,0,0,.7))}
+.game.af .bg{background-image:url(img/af_scoop.jpg);background-position:center 30%}
+.game.af .t{position:absolute;top:18px;left:0;right:0;text-align:center}
+.game.af .t b{display:block;font:900 clamp(20px,6vw,34px)/1 "Unbounded",sans-serif;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6)}
+.game.af .t span{display:inline-block;margin-top:8px;background:var(--af);color:#fff;font:800 13px/1 "Unbounded",sans-serif;padding:7px 12px;border-radius:6px;letter-spacing:.06em}
+.game .body{padding:18px 18px 20px}
+.game .body p{margin:0 0 12px;color:var(--text);font-size:16px;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.badge img{height:56px;width:auto}
+/* steps */
+section{padding:44px 0 8px}
+h2{font:800 clamp(24px,5vw,36px)/1.15 "Unbounded",sans-serif;margin:0 0 20px;color:var(--text)}
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{position:relative;background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:20px 20px 20px 88px;min-height:96px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:18px;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;
+  font:900 28px/1 "Unbounded",sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--gold2),var(--gold))}
+.step h3{margin:0 0 6px;font:800 20px/1.2 "Unbounded",sans-serif}
+.step p{margin:0;color:var(--text2)}
+.step .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.store{display:flex;align-items:center;gap:10px;background:#000;border:1px solid #3c4043;border-radius:12px;padding:8px 14px 8px 8px;color:#fff;text-decoration:none;font-weight:600}
+.store img{width:40px;height:40px;border-radius:10px}
+.store small{display:block;color:#bbb;font-weight:500;font-size:12px;line-height:1.1}
+.gift{margin-top:16px;border-radius:18px;padding:18px 20px;background:linear-gradient(90deg,rgba(27,155,181,.22),rgba(232,176,75,.18));border:1px solid rgba(232,176,75,.4);font-weight:600}
+/* about the games */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.card img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.card .in{padding:16px 18px 18px}
+.card h3{margin:0 0 8px;font:800 19px/1.2 "Unbounded",sans-serif}
+.card p{margin:0;color:var(--text2);font-size:16px}
+/* place */
+.place{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+.place .info{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:20px}
+.place .info h3{margin:0 0 4px;font:800 22px/1.2 "Unbounded",sans-serif}
+.place .info .sub{color:var(--muted);margin:0 0 14px}
+.place dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+.place dt{color:var(--muted)}
+.place dd{margin:0;font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;background:var(--gold);color:var(--ink)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.place .photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000}
+.place .photo img{width:100%;height:100%;object-fit:cover}
+/* rules, review, pc */
+.rules{margin:0;padding-left:20px;color:var(--text2)}
+.rules li{margin:6px 0}
+.review{background:linear-gradient(135deg,#2a1a10,#13243b);border:1px solid rgba(239,95,44,.4);border-radius:18px;padding:20px}
+.review p{margin:0 0 12px;color:var(--text2)}
+.pc{color:var(--text2)}
+footer{margin-top:48px;border-top:1px solid var(--line);padding:26px 20px 40px;text-align:center;color:var(--muted);font-size:15px}
+footer a.big{display:inline-block;margin:10px 0 14px;padding:14px 20px;border-radius:14px;background:var(--ink2);border:1px solid var(--line);color:var(--text);text-decoration:none;font:700 15px "Unbounded",sans-serif}
+@media (max-width:720px){
+  .games,.about,.place{grid-template-columns:1fr}
+  .game{min-height:440px}
+  .step{padding:18px 16px 18px 80px}
+  .step::before{left:14px;width:50px;height:50px;font-size:24px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="home" href="../ru/"><img src="../img/mark.svg" alt="">Golden Harbour Games</a>
+  <a class="site" href="../ru/">Все игры →</a>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="partners">
+      <span class="ghg"><img src="../img/mark.svg" alt="">Golden Harbour Games</span>
+      <span class="x">×</span>
+      <img class="vr" src="img/vrlab_play.jpg" alt="VRLAB.PLAY">
+    </div>
+    <span class="kicker">Акция во Владивостоке</span>
+    <h1>15 минут VR</h1>
+    <p class="h1sub">в подарок за две наши игры</p>
+    <p class="lede">Скачай Punch League и AeroFire Command, сыграй в каждую — и приходи в&nbsp;VRLAB.PLAY. Покажешь игры на телефоне — получишь 15&nbsp;минут в&nbsp;виртуальной реальности бесплатно.</p>
+
+    <div class="games">
+      <article class="game pl">
+        <div class="bg"></div>
+        <img class="f kane" src="img/pl_kane.jpg" alt="">
+        <img class="f kai" src="img/pl_kai.jpg" alt="">
+        <img class="logo" src="img/pl_logo.webp" alt="Punch League">
+        <div class="body">
+          <p><b>Боксёрская карточная игра.</b> Он показывает свой следующий удар. Иногда врёт.</p>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague&amp;referrer=utm_source%3Dvr_page"><img src="img/gp_badge_ru.png" alt="Доступно в Google Play"></a>
+        </div>
+      </article>
+      <article class="game af">
+        <div class="bg"></div>
+        <div class="t"><b>AEROFIRE COMMAND</b><span>FIRE SEASON</span></div>
+        <div class="body">
+          <p><b>Стратегия о лесных пожарах.</b> Рисуй на карте — пожарный флот делает остальное.</p>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw&amp;referrer=utm_source%3Dvr_page"><img src="img/gp_badge_ru.png" alt="Доступно в Google Play"></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <h2>Как получить подарок</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>Скачай обе игры</h3>
+        <p>Они бесплатные и есть в Google Play для Android.</p>
+        <div class="row">
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague&amp;referrer=utm_source%3Dvr_page"><img src="img/pl_icon.png" alt=""><span><small>Google Play</small>Punch League</span></a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw&amp;referrer=utm_source%3Dvr_page"><img src="img/af_icon.png" alt=""><span><small>Google Play</small>AeroFire Command</span></a>
+        </div>
+      </div>
+      <div class="step">
+        <h3>Сыграй в каждую</h3>
+        <p>Проведи хотя бы один бой в Punch League и потуши хотя бы один пожар в AeroFire Command. Это займёт минут десять, а дальше — как пойдёт.</p>
+      </div>
+      <div class="step">
+        <h3>Приходи в VRLAB.PLAY</h3>
+        <p>Покажи администратору обе игры на своём телефоне — и получи 15 минут в виртуальной реальности бесплатно.</p>
+      </div>
+    </div>
+    <div class="gift">🎁 Подарок — 15 минут игры в VR-шлеме в клубе VRLAB.PLAY, Владивосток, ул. Светланская, 127а.</div>
+  </section>
+
+  <section>
+    <h2>Что за игры</h2>
+    <div class="about">
+      <div class="card">
+        <img src="img/pl_shot.jpg" alt="Бой в Punch League">
+        <div class="in">
+          <h3>Punch League</h3>
+          <p>В каждом размене ты собираешь связку из трёх ударов. Соперник уже выбрал свою комбинацию и показывает первую карту. Это честный джеб или он готовит контру? Прочитай его — и бей. Настоящая карьера: три акта и три пояса, от зала маленького города до национального титула. Вся карьера бесплатна.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/af_shot.jpg" alt="Пожар в AeroFire Command">
+        <div class="in">
+          <h3>AeroFire Command: Fire Season</h3>
+          <p>Пожар идёт на город. Ты не управляешь вертолётами: ты рисуешь на карте воду, ретардант, просеки и отжиг, а пилоты и бригады выполняют план сами. Шестьдесят машин в коллекции — от лёгких вертолётов до гигантского самолёта-танкера, одиннадцать регионов мира, семь пожаров за сезон.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Где получить</h2>
+    <div class="place">
+      <div class="info">
+        <h3>VRLAB.PLAY</h3>
+        <p class="sub">Лаборатория виртуальной реальности</p>
+        <dl>
+          <dt>Адрес</dt><dd>Владивосток, ул. Светланская, 127а</dd>
+          <dt>ПН–ЧТ</dt><dd>11:00–22:00</dd>
+          <dt>ПТ–ВС</dt><dd>11:00–23:00</dd>
+          <dt>Телефон</dt><dd><a href="tel:+79502944441">+7 (950) 294-44-41</a></dd>
+        </dl>
+        <p class="sub" style="margin-top:12px">Время в клубе лучше забронировать заранее.</p>
+        <div class="btns">
+          <a class="btn" href="tel:+79502944441">Позвонить и забронировать</a>
+          <a class="btn ghost" href="https://yandex.ru/maps/?pt=131.91437,43.11342&amp;z=17&amp;l=map">На карте</a>
+          <a class="btn ghost" href="https://vk.com/vrlabdv">ВКонтакте</a>
+          <a class="btn ghost" href="https://www.vrlabdv.com/">Сайт клуба</a>
+        </div>
+      </div>
+      <div class="photo"><img src="img/vrlab_front.jpg" alt="Вход в Лабораторию виртуальной реальности на Светланской"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Условия</h2>
+    <ul class="rules">
+      <li>Один подарок на одного человека.</li>
+      <li>Нужны обе игры на твоём телефоне, и в каждую нужно сыграть: бой в Punch League и пожар в AeroFire Command.</li>
+      <li>Игры пока есть только для Android. Версия для iPhone и iPad скоро появится в App Store.</li>
+      <li>Отзыв в Google Play для подарка не нужен.</li>
+      <li>Сроки акции и свободное время уточняй у администратора клуба.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="review">
+      <h2 style="margin-bottom:10px">Понравилось?</h2>
+      <p>Если игра зацепила — поставь ей честную оценку и напиши пару слов в Google Play. Это совсем необязательно и на подарок не влияет. Но для маленькой студии каждый отзыв очень важен: так игру находят другие.</p>
+      <div class="btns">
+        <a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague&amp;referrer=utm_source%3Dvr_page">Punch League в Google Play</a>
+        <a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw&amp;referrer=utm_source%3Dvr_page">AeroFire Command в Google Play</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pc">
+    <h2>А на компьютере?</h2>
+    <p>Обе игры бесплатно на itch.io: <a href="https://goldenharbourgames.itch.io/aerofire-command">AeroFire Command</a> — в браузере и для Windows, <a href="https://goldenharbourgames.itch.io/punch-league">Punch League</a> — в браузере. Версия для ПК в активной разработке и скоро выйдет в Steam.</p>
+  </section>
+</main>
+
+<footer>
+  <div>Golden Harbour Games — игры из двух гаваней: Владивостока и Сиднея.</div>
+  <a class="big" href="../ru/">Все игры студии →</a>
+  <div><a href="../ru/privacy/">Конфиденциальность</a> · <a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a></div>
+</footer>
+</body>
+</html>
