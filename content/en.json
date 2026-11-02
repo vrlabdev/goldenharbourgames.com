@@ -212,16 +212,19 @@
       "seo_title": "Gull Chorus – a seagull flock that plays the song, free in your browser",
       "seo_description": "Send a seagull down Bondi or a Vladivostok beach after a snack. Every gull you send flies again with the next, smashing umbrellas and bins, and the beach plays the tune. Free in your browser.",
       "intro": [
-        "Send a gull down the beach after a snack. Then send another, and the first one flies again right beside it, exactly as before. Then another. Soon you’re leading a flock of thirty gulls through umbrellas, kites, wheelie bins and very annoyed picnickers, and every bump, bounce and burp is a note of the song."
+        "Send a gull down the beach after a snack. Then send another, and the first one flies again right beside it, exactly as before. Then another. Soon you’re leading a flock of forty gulls through umbrellas, kites, wheelie bins and very annoyed picnickers, and every bump, bounce and burp is a note of the song."
       ],
       "sections": [
         {
           "title": "How it plays",
           "list": [
             "Your gull chases a waving sandwich: point where to fly, down to dive and pick up speed, up to climb. Classic tap-to-flap controls are in the settings.",
+            "Let go and your gull glides down and skims along the sand. The camera keeps the beach in view and pulls back when you climb.",
             "Skim a snack fast to snatch it in flight, or come in slow and land on the blanket.",
             "Everything on the beach breaks. Knock a bin over and its food spills out. Bonk something sturdy and you bounce off a heart down.",
-            "Cross the finish line to end the beach for up to five stars, or keep going for more food, more smashing and more bubbles."
+            "Cross the finish line to end the beach for up to five stars, or keep going for more food, more smashing and more bubbles.",
+            "Every gull’s run gets a grade for its smashes, splats, near misses and high snatches. Beat the best gull of the beach.",
+            "Hold fast-forward to watch the flock go at triple speed."
           ]
         },
         {
@@ -229,6 +232,9 @@
           "list": [
             "Bondi, Manly and Coogee in Sydney; Shamora, Glass Beach and Tokarevsky Lighthouse in Vladivostok, each with its own gulls and its own snacks.",
             "Every beach plays a classic tune on real instruments: Waltzing Matilda at Bondi, the Wellerman at Manly, Kalinka at Shamora and more.",
+            "The song grows with the flock: new sections, more instruments, a key change, so gull twenty-five never sounds like gull five.",
+            "Every few gulls something turns up on the beach: an ice-cream van, a wedding party, a fishing boat unloading, a lifeguard. More food, and more to smash.",
+            "The whole beach bobs to the beat, and the sky and the sea change colour with the song.",
             "Finish a beach and the whole flock comes back as a gull tsunami that smashes the melody out of whatever is still standing."
           ]
         },
@@ -248,13 +254,13 @@
     },
     "souls-and-estates": {
       "title": "Souls & Estates",
-      "text": "Head a Russian noble house from 1762 to 1861. Set what each serf village owes, hear the elders, winter in Moscow and climb the Table of Ranks.",
+      "text": "Head a Russian noble house until serfdom ends in 1861. Set what each serf village owes, lay out the land, hear the elders, winter in Moscow and climb the Table of Ranks.",
       "tags": [
         "Strategy",
         "History"
       ],
-      "seo_title": "Souls & Estates – run a Russian noble estate, 1762–1861, free in your browser",
-      "seo_description": "A strategy game about a Russian noble house: set obrok or barshchina for each serf village, plough the land, hear the village elders, marry well and climb the Table of Ranks until serfdom ends in 1861. Free in your browser and on Windows.",
+      "seo_title": "Souls & Estates – run a Russian noble estate until 1861, free in your browser",
+      "seo_description": "A strategy game about a Russian noble house: set obrok or barshchina for each serf village, place the mill and the smithy, hear the village elders, marry well and climb the Table of Ranks until serfdom ends in 1861. In English and Russian, free in your browser and on Windows.",
       "intro": [
         "You don’t chop the wood. You own the people who chop the wood, and the Crown counts your wealth in souls. Run a country estate the way a landowner did, through a steward, bailiffs, village elders and letters, season after season until serfdom is abolished on 19 February 1861."
       ],
@@ -262,8 +268,10 @@
         {
           "title": "What you do",
           "list": [
+            "Start in 1670, 1700 or 1762, each with the prices, laws and history of its day, and play on to 1861.",
             "Set each village’s terms: rent in money (obrok) or days of work on the manor’s fields (barshchina). Every option shows the rubles a year and how the village will take it before you choose.",
-            "Plough, plant and found new villages. Fields grow in rings of strips round each village and reach only as far as people can walk.",
+            "Plough, plant, set out orchards and found new villages. Fields grow in rings of strips round each village and reach only as far as people can walk.",
+            "Lay out the land yourself: put the mill on the river, the smithy by the road and the barns where you like, inside each village’s bounds. Out of room? Move a house.",
             "Hear the village elders: seed loans, a feldsher looking for a place, passes for winter work in town.",
             "Pay the poll tax on every name on the census list, living or dead, until the next count.",
             "Send sons into the Guards or the civil service, marry daughters well, winter in Moscow or Petersburg, and build the family nest."
@@ -278,7 +286,45 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "In your browser right here, or download the Windows build from itch.io. Desktop only, mouse and keyboard. The game is in development (version 0.15)."
+            "In your browser right here, or download the Windows build from itch.io. Desktop only, mouse and keyboard. English and Russian, switchable in the settings. The game is in development (version 0.30)."
+          ]
+        }
+      ]
+    },
+    "orbital-jump": {
+      "title": "Orbital Jump",
+      "text": "A one-button space runner from 2021, back in your browser. Jump from planet to planet and stay ahead of the sun, which burns everything behind you.",
+      "tags": [
+        "Arcade",
+        "Space"
+      ],
+      "seo_title": "Orbital Jump – one-button space runner, free in your browser",
+      "seo_description": "Run around a planet, jump to the next one and outrun the sun. Black holes, wormholes, asteroids and alien ships in a one-button arcade runner made in Vladivostok in 2021. Free in your browser.",
+      "intro": [
+        "Your astronaut runs around a planet. Click, tap or press Space to jump off it and fly to the next one. Land, run, jump again. Keep moving right, because the sun is coming."
+      ],
+      "sections": [
+        {
+          "title": "What’s out there",
+          "list": [
+            "The sun chases you and burns every planet it reaches. Some of them explode.",
+            "Black holes pull you in on a spiral. Giant planets do the same, but fling you out faster.",
+            "Wormholes skip you ahead. Asteroids knock you off course. Alien ships get in the way.",
+            "Drift too far from the planets and the cold gets you.",
+            "One point per new planet, three lives, extra lives on lucky planets and a top ten to beat. Fifteen astronaut skins and a short comic intro."
+          ]
+        },
+        {
+          "title": "Orbital Jump Reloaded",
+          "paragraphs": [
+            "We are rebuilding it: a hangar of gadgets to earn (jetpack, grappling hook, shields, phase drive and more), new hazards with a counter for each, an endless galaxy and a living wall of fire behind you."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "Free in your browser, here or on itch.io. Left mouse button, Space, W or the up arrow jumps; Esc or P pauses; on a phone, tap. English and Russian.",
+            "Made by the VRLab team in Vladivostok in 2021: Aleksei Rezepov (idea, design, art, effects), Alexandr Krivobokov (code), Maxim Moskalenko (music and sound), Evgeny Andreev (planets and illustrations), Igor Matievskii and Daniil Zimenkov. Brought back to the browser by Golden Harbour Games in 2026."
           ]
         }
       ]
@@ -335,11 +381,11 @@
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
     "description": "How Golden Harbour Games handles your data: two games send anonymous play data and offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies of its own.",
-    "date": "2026-10-25",
-    "updated": "Last updated: 25 October 2026",
+    "date": "2026-10-31",
+    "updated": "Last updated: 31 October 2026",
     "back": "Home",
     "intro": [
-      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, itch.io, Steam or this website — and the website itself."
+      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, the App Store, itch.io, Steam or this website — and the website itself."
     ],
     "sections": [
       {
@@ -347,7 +393,7 @@
         "list": [
           "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
-          "Most of our games collect no data at all. AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play) are the exceptions: they send anonymous play data, described in the next section.",
+          "Most of our games collect no data at all. AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play) are the exceptions: they send anonymous play data, described in the next section. Their iPhone versions from the App Store send nothing and have no Google sign-in.",
           "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
       },
@@ -414,7 +460,7 @@
       {
         "title": "Stores",
         "paragraphs": [
-          "Google Play, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
+          "Google Play, the App Store, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
           "Where a game offers an optional purchase, Google Play handles the payment: the Supporter edition of Fire Season, and the shop's looks in Punch League (outfits and card backs that change nothing in a fight; the Full Career purchase sold from 13 to 24 October 2026 is still restored for those who bought it). The game only learns whether a purchase is active, so it can unlock what you bought. Your payment details never reach us."
         ]
       },

@@ -47,7 +47,28 @@
     ],
     "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague",
     "new": true,
-    "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c"
+    "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c",
+    "rustore": "https://www.rustore.ru/catalog/app/com.vrlabdv.punchleague"
+  },
+  {
+    "id": "orbital-jump",
+    "itch": "https://goldenharbourgames.itch.io/orbital-jump",
+    "cover": "img/orbital-jump.jpg",
+    "platforms": [
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 20224998,
+    "frame": [
+      1280,
+      760
+    ],
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=8ZdjVx0XtEA"
   },
   {
     "id": "souls-and-estates",
@@ -58,7 +79,8 @@
       "windows"
     ],
     "languages": [
-      "EN"
+      "EN",
+      "RU"
     ],
     "embed": 20067608,
     "frame": [
@@ -86,7 +108,8 @@
       1280,
       720
     ],
-    "new": true
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=SQ3M_coqleY"
   },
   {
     "id": "peregon",
