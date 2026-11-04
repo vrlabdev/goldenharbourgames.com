@@ -485,6 +485,96 @@
       }
     ]
   },
+  "terms": {
+    "link": "Terms",
+    "title": "Terms of service",
+    "seo_title": "Terms of Service · Golden Harbour Games",
+    "description": "The terms for playing Golden Harbour Games games and buying their optional extras: what you may do with them, how purchases and refunds work, and your rights under consumer law.",
+    "date": "2026-11-05",
+    "updated": "Last updated: 5 November 2026",
+    "back": "Home",
+    "intro": [
+      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. These terms apply when you play any of our games or apps, wherever you got them (Google Play, the App Store, itch.io, Steam or this website), and when you buy something inside them. By playing, you agree to them. The short version: the games are yours to enjoy, purchases are handled by the store you use, and nothing here takes away your rights under consumer law."
+    ],
+    "sections": [
+      {
+        "title": "Who we are",
+        "paragraphs": [
+          "The games are made and published by Golden Harbour Games Pty Ltd, Sydney, New South Wales, Australia. We make games as a business, so we are a trader under consumer law."
+        ],
+        "email": true
+      },
+      {
+        "title": "Playing our games",
+        "list": [
+          "We give you a personal, non-exclusive, non-transferable licence to install and play our games on your own devices for your own enjoyment. The games, their art, music, words and code remain ours or our licensors’.",
+          "Please don’t copy, resell or redistribute the games, take them apart to reuse their parts, or cheat in ways that affect other players (for example on leaderboards).",
+          "You are welcome to stream our games and post videos and screenshots of them, including on channels that earn money. A link back to the game is appreciated but not required.",
+          "If you are under 18, please ask a parent or guardian before buying anything in a game."
+        ]
+      },
+      {
+        "title": "Optional purchases",
+        "paragraphs": [
+          "Our games are free to play in full. Some offer optional purchases: the Supporter edition of AeroFire Command: Fire Season, and the shop’s looks in Punch League (outfits and card backs). They change how things look and support the studio; they never make you stronger in play. There is no in-game currency to buy.",
+          "Purchases are sold and processed by the store you play through, such as Google Play or the App Store, under that store’s terms. The price is shown in the store’s own payment sheet before you pay, in your local currency and including any taxes the store must charge.",
+          "A purchase is linked to your store account. If you reinstall the game, or play on another device signed in to the same account, the game restores what you bought. Items you bought stay yours across updates."
+        ]
+      },
+      {
+        "title": "Refunds and your consumer rights",
+        "paragraphs": [
+          "Refunds are handled by the store you bought from, under its refund policy; ask them first, as they hold the payment. If something you bought does not work, write to us too and we will help.",
+          "Nothing in these terms limits rights you have under the law where you live. If you are in Australia, our games come with guarantees under the Australian Consumer Law that cannot be excluded. If you are in the European Union or the United Kingdom, you keep your statutory rights for digital content; when you buy digital content that is delivered straight away, the store will ask you to agree to immediate delivery, which ends the 14-day right of withdrawal once the content is delivered."
+        ]
+      },
+      {
+        "title": "Updates and changes",
+        "paragraphs": [
+          "We keep improving our games, so updates may add, change or remove features. We may stop offering a game in a store in the future. If we change these terms, we will update this page and its date; changes apply from that date and never take away something you already bought."
+        ]
+      },
+      {
+        "title": "Other services",
+        "paragraphs": [
+          "Some games use services run by others: Google Play Games for the optional sign-in, achievements, leaderboards and cloud saves, and the stores for purchases. Their own terms apply to those parts. On the App Store, Apple’s standard Licensed Application End User License Agreement also applies; where it and these terms differ, these terms apply between you and us. How our games handle data is set out in our privacy policy."
+        ],
+        "links": [
+          {
+            "label": "Privacy policy",
+            "url": "/privacy/"
+          },
+          {
+            "label": "Google Play Terms of Service",
+            "url": "https://play.google.com/about/play-terms/"
+          },
+          {
+            "label": "Apple standard EULA",
+            "url": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }
+        ]
+      },
+      {
+        "title": "Warranty and liability",
+        "paragraphs": [
+          "We work hard to make our games run well, but we cannot promise they will be free of every bug or work on every device. To the extent the law allows, the games are provided as they are, and we are not liable for indirect or consequential loss. Where the law does not allow us to exclude a guarantee or limit our liability, these terms do not try to."
+        ]
+      },
+      {
+        "title": "Governing law",
+        "paragraphs": [
+          "These terms are governed by the laws of New South Wales, Australia. If you are a consumer living elsewhere, you also keep the protection of the mandatory laws of your own country, and you can bring a claim in your local courts."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "Questions about these terms, a purchase, or anything else: write to us."
+        ],
+        "email": true
+      }
+    ]
+  },
   "google_play": "Google Play",
   "trailer": "Trailer",
   "shorts": "Shorts on YouTube"
