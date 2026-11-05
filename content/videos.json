@@ -2,9 +2,15 @@
   "updated": "2026-11-05",
   "videos": [
     {
+      "id": "tV7DBofNtgg",
+      "title": "Zoom out: from one serf family's yard to Moscow, 1762",
+      "views": 0,
+      "short": true
+    },
+    {
       "id": "h92jJNWMzQU",
       "title": "Every fifth gull, something new arrives on the beach",
-      "views": 1,
+      "views": 2,
       "short": true
     },
     {
@@ -41,12 +47,6 @@
       "id": "3sjazEeUbiU",
       "title": "Did the Leaf make money? Selling a used EV at the far end of Siberia",
       "views": 41,
-      "short": true
-    },
-    {
-      "id": "TidOU0pUQmg",
-      "title": "Why do boxers get hurt the moment they rest?",
-      "views": 33,
       "short": true
     }
   ]

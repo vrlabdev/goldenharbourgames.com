@@ -241,78 +241,52 @@ ${script}
 function page(t) {
   const up = t.path ? '../'.repeat(t.path.split('/').filter(Boolean).length) : '';
 
-  // The first game is the featured one: a wide card at the top of the list.
-  const card = (g, featured) => {
-    const c = t.games[g.id];
-    const cover = up + g.cover;
-    const aka = c.aka ? `\n          <p class="aka">${esc(c.aka)}</p>` : '';
-    const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
-    const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
-    return `      <article class="card reveal${featured ? ' featured' : ''}" data-platforms="${g.platforms.join(' ')}">
-        <a class="cover" href="${playPath(g)}" tabindex="-1"><img src="${cover}" alt="${esc(c.title)}" width="630" height="500"${featured ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}></a>
-        <div class="card-body">
-          <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
-          <h3>${esc(c.title)}</h3>${aka}
-          <p class="text">${esc(c.text)}</p>
-          <dl class="facts">
-            <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
-            <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
-          </dl>
-          <p class="card-actions">
-            <a class="play${featured ? ' button' : ''}" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
-            ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
-            ` : ''}${g.rustore && t.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(t.rustore)} <span aria-hidden="true">↗</span></a>
-            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-            <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
-          </p>
-        </div>
-      </article>`;
-  };
-  // The showcase: every cover on a ring over the water, the front one named underneath. The grid
-  // below is the same games as plain cards (the filters work on those; search engines read those).
-  const cards = games.map((g) => card(g, false)).join('\n\n');
+  // The showcase: every game as a full card on a ring that turns. The front card is the readable
+  // one (cover, what it is, the buttons); the others fan out behind it, tilted and dimmed. The
+  // chips above choose which games are on the ring. Without scripting it is a row that scrolls.
   const ringCards = games.map((g, i) => {
     const c = t.games[g.id];
-    return `        <figure class="ring-card" style="--i: ${i}" data-index="${i}">
-          <a href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ''}></a>
-          <span class="ring-reflect" aria-hidden="true"><img src="${up}${g.cover}" alt="" width="630" height="500" draggable="false"></span>
-        </figure>`;
-  }).join('\n');
-  const ringCaptions = games.map((g, i) => {
-    const c = t.games[g.id];
     const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
-    return `        <div class="ring-caption${i === 0 ? ' is-on' : ''}" data-index="${i}"${i === 0 ? '' : ' hidden'}>
-          <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
-          <h3>${esc(c.title)}</h3>
-          <p class="text">${esc(c.text)}</p>
-          <p class="card-actions">
-            <a class="play button" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
-            ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
-            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-            <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
-          </p>
-        </div>`;
+    const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
+    return `        <article class="ring-card" data-index="${i}" data-platforms="${g.platforms.join(' ')}">
+          <a class="ring-cover" href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ' decoding="async"'}></a>
+          <div class="ring-body">
+            <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
+            <h3>${esc(c.title)}</h3>${c.aka ? `\n            <p class="aka">${esc(c.aka)}</p>` : ''}
+            <p class="text">${esc(c.text)}</p>
+            <dl class="facts">
+              <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
+              <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
+            </dl>
+            <p class="card-actions">
+              <a class="play button" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
+              ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
+              ` : ''}${g.rustore && t.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(t.rustore)} <span aria-hidden="true">↗</span></a>
+              ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
+              <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
+            </p>
+          </div>
+          <span class="ring-shade" aria-hidden="true"></span>
+        </article>`;
   }).join('\n');
-  const showcase = `    <div class="ring-stage" style="--n: ${games.length}" aria-roledescription="carousel" aria-label="${esc(t.games_title)}">
-      <div class="ring-sweep" aria-hidden="true"></div>
-      <div class="ring-horizon" aria-hidden="true"></div>
+  const arrow = (dir, label, d) => `<button type="button" class="ring-arrow ${dir}" aria-label="${esc(label)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`;
+  const showcase = () => `    <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
+      <span class="chips-label">${esc(t.filter.label)}</span>
+      <button type="button" class="chip" aria-pressed="true" data-platform="">${esc(t.filter.all)} <small>${games.length}</small></button>
+${chips}
+    </div>
+    <div class="ring-stage" aria-roledescription="carousel" aria-label="${esc(t.games_title)}">
       <div class="ring-scene">
-        <div class="ring">
 ${ringCards}
-        </div>
+        ${arrow('prev', t.ring.prev, 'M15 5l-7 7 7 7')}
+        ${arrow('next', t.ring.next, 'M9 5l7 7-7 7')}
       </div>
-      <div class="ring-under">
-        <button type="button" class="ring-arrow prev" aria-label="${esc(t.ring.prev)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="ring-captions" aria-live="polite">
-${ringCaptions}
-        </div>
-        <button type="button" class="ring-arrow next" aria-label="${esc(t.ring.next)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-      <div class="ring-dots" role="tablist">
-${games.map((g, i) => `        <button type="button" role="tab" aria-selected="${i === 0}" aria-label="${esc(t.games[g.id].title)}" data-index="${i}"></button>`).join('\n')}
+      <div class="ring-dots">
+${games.map((g, i) => `        <button type="button" aria-label="${esc(t.games[g.id].title)}" aria-current="${i === 0}" data-index="${i}"></button>`).join('\n')}
       </div>
       <p class="ring-hint">${esc(t.ring.hint)}</p>
     </div>
+    <p class="chips-none" hidden>${esc(t.filter.none)}</p>
 `;
 
   // Section numbers in the kickers, in the order the sections are written.
@@ -377,7 +351,7 @@ ${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
   const viewsFmt = new Intl.NumberFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU');
   const videoItems = videos.map((v) => `      <article class="video reveal${v.short ? ' short' : ''}" data-id="${v.id}">
         <button type="button" class="video-play" aria-label="${esc(t.videos.play)}: ${esc(v.title)}">
-          <img src="https://i.ytimg.com/vi/${v.id}/${v.short ? 'oar2' : 'hqdefault'}.jpg" alt="" width="${v.short ? 1080 : 480}" height="${v.short ? 1920 : 360}" loading="lazy" decoding="async">
+          <img src="${fs.existsSync(path.join(ROOT, 'img/v/' + v.id + '.jpg')) ? up + 'img/v/' + v.id + '.jpg' : 'https://i.ytimg.com/vi/' + v.id + '/' + (v.short ? 'oar2' : 'hqdefault') + '.jpg'}" alt="" width="${v.short ? 360 : 480}" height="${v.short ? 640 : 360}" loading="lazy" decoding="async">
           <span class="video-badge"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg></span>
         </button>
         <p class="video-title">${esc(v.title)}</p>
@@ -385,113 +359,140 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
       </article>`).join('\n');
 
   const homeScript = `<script>
-// The ring of covers. One number, the angle, drives everything: each cover sits at its slot on a
-// circle and the circle turns. A target angle pulls the ring with a spring, so a step, a fling or
-// a snap all end with the same settle. Dragging moves the ring with the pointer and the release
-// speed carries it on, then it snaps to the nearest slot. Left alone, it advances one game every
-// few seconds, but not while the pointer rests on it or a caption button has focus.
+// The ring. One number, pos, says which card is in front (2.5 = halfway from the third to the
+// fourth). Every card sits at its offset from pos: in front, fanned out to the sides, tilted,
+// dimmed and pushed back. A spring pulls pos to a whole number, so a step, a fling and a snap all
+// settle the same way. Only transform and opacity change from frame to frame, the loop sleeps as
+// soon as the ring is still, and it does not advance on its own while off screen or looked at.
 (function () {
   var stage = document.querySelector('.ring-stage');
   if (!stage) return;
-  var ring = stage.querySelector('.ring');
-  var cards = Array.prototype.slice.call(stage.querySelectorAll('.ring-card'));
-  var captions = Array.prototype.slice.call(stage.querySelectorAll('.ring-caption'));
+  var scene = stage.querySelector('.ring-scene');
+  var all = Array.prototype.slice.call(scene.querySelectorAll('.ring-card'));
   var dots = Array.prototype.slice.call(stage.querySelectorAll('.ring-dots button'));
-  var n = cards.length, step = 360 / n;
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-platform]'));
+  var none = document.querySelector('.chips-none');
+  var prev = stage.querySelector('.ring-arrow.prev'), next = stage.querySelector('.ring-arrow.next');
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var angle = 0, target = 0, vel = 0, dragging = false, startX = 0, startAngle = 0, lastX = 0, lastT = 0, flingV = 0;
-  var current = 0, idleTimer = null, resting = false, radius = 0;
+  var cards = all.slice();
+  var pos = 0, target = 0, vel = 0, fling = 0, running = false;
+  var pressed = false, dragging = false, moved = false, sx = 0, spos = 0, lx = 0, lt = 0;
+  var w = 1, front = -1, seen = true, resting = false, timer = null;
+  all.forEach(function (c) { c._shade = c.querySelector('.ring-shade'); });
 
-  function measure() {
-    var w = cards[0].offsetWidth;
-    // The slots sit around a circle whose circumference holds every card with a gap of a third.
-    radius = Math.max(w * 1.5, (w * 1.3 * n) / (2 * Math.PI));
-    stage.style.setProperty('--r', radius + 'px');
+  function wrap(d) { var m = cards.length; d = ((d % m) + m) % m; return d > m / 2 ? d - m : d; }
+  function place(c, d) {
+    var a = Math.abs(d), s = d < 0 ? -1 : 1;
+    var x = a <= 1 ? d * w * 0.62 : s * (0.62 + (a - 1) * 0.3) * w;
+    var op = a < 2.4 ? 1 : Math.max(0, 1 - (a - 2.4) / 0.7);
+    c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,' + (-Math.min(a, 3) * w * 0.5).toFixed(1) + 'px) rotateY(' +
+      (-s * Math.min(a, 1) * 34).toFixed(2) + 'deg) scale(' + (1 - Math.min(a, 3) * 0.06).toFixed(3) + ')';
+    c.style.opacity = op.toFixed(3);
+    c._shade.style.opacity = Math.min(a * 0.32, 0.72).toFixed(3);
+    var z = 100 - Math.round(a * 10);
+    if (c._z !== z) { c.style.zIndex = z; c._z = z; }
+    var gone = op <= 0;
+    if (c._gone !== gone) { c.style.visibility = gone ? 'hidden' : ''; c._gone = gone; }
   }
-  function mod(a) { return ((a % 360) + 360) % 360; }
-  function show(i) {
-    if (i === current) return;
-    current = i;
-    captions.forEach(function (c, k) { c.hidden = k !== i; c.classList.toggle('is-on', k === i); });
-    dots.forEach(function (d, k) { d.setAttribute('aria-selected', String(k === i)); });
+  function setFront(i) {
+    front = i;
+    cards.forEach(function (c, k) {
+      var on = k === i;
+      c.classList.toggle('is-front', on);
+      c.setAttribute('aria-hidden', on ? 'false' : 'true');
+      c.querySelectorAll('a, button').forEach(function (a) { a.tabIndex = on ? 0 : -1; });
+    });
+    var id = cards[i] && cards[i].getAttribute('data-index');
+    dots.forEach(function (d) { d.setAttribute('aria-current', String(d.getAttribute('data-index') === id)); });
   }
   function render() {
-    for (var k = 0; k < n; k++) {
-      var a = mod(k * step + angle);              // 0 = facing the viewer
-      var facing = Math.cos(a * Math.PI / 180);   // 1 in front, -1 at the back
-      var c = cards[k];
-      c.style.transform = 'rotateY(' + a + 'deg) translateZ(' + radius + 'px) rotateY(' + (-a) + 'deg) scale(' + (0.74 + 0.3 * ((facing + 1) / 2)).toFixed(3) + ')';
-      c.style.setProperty('--f', ((facing + 1) / 2).toFixed(3));
-      c.style.zIndex = String(Math.round((facing + 1) * 50));
-      c.classList.toggle('is-front', facing > 0.92);
-    }
-    // The slot nearest the front names the game underneath.
-    var front = mod(Math.round(-angle / step) * step) / step;
-    show(Math.round(front) % n);
+    var m = cards.length;
+    for (var k = 0; k < m; k++) place(cards[k], wrap(k - pos));
+    var f = ((Math.round(pos) % m) + m) % m;
+    if (f !== front) setFront(f);
   }
-  function tick() {
+  function frame() {
     if (!dragging) {
-      if (Math.abs(flingV) > 0.02) {              // carried by the release speed
-        angle += flingV; flingV *= 0.94;
-        if (Math.abs(flingV) <= 0.5) { target = Math.round(angle / step) * step; flingV = 0; }
+      if (fling) {
+        pos += fling; fling *= 0.9;
+        if (Math.abs(fling) < 0.015) { fling = 0; target = Math.round(pos); }
       } else {
-        var d = target - angle;
-        vel = vel * 0.82 + d * 0.06;              // a spring with a little overshoot
-        angle += vel;
-        if (Math.abs(d) < 0.02 && Math.abs(vel) < 0.02) { angle = target; vel = 0; }
+        var d = target - pos;
+        vel = vel * 0.74 + d * 0.1;
+        pos += vel;
+        if (Math.abs(d) < 0.001 && Math.abs(vel) < 0.001) { pos = target; vel = 0; }
       }
     }
     render();
-    requestAnimationFrame(tick);
+    if (dragging || fling || vel || pos !== target) requestAnimationFrame(frame); else running = false;
   }
-  function go(delta) { flingV = 0; target = Math.round(target / step) * step - delta * step; arm(); }
-  function to(i) {                                 // the short way round to slot i
-    var want = -i * step, cur = Math.round(target / step) * step;
-    var diff = ((want - cur) % 360 + 540) % 360 - 180;
-    flingV = 0; target = cur + diff; arm();
+  function kick() {
+    if (still) { pos = target; fling = vel = 0; render(); return; }
+    if (!running) { running = true; requestAnimationFrame(frame); }
   }
-  function arm() {                                 // the next automatic step, a while from now
-    clearTimeout(idleTimer);
+  function go(step) { fling = 0; target = Math.round(target) + step; kick(); arm(); }
+  function to(k) { fling = 0; target = Math.round(target) + wrap(k - Math.round(target)); kick(); arm(); }
+  function arm() {
+    clearTimeout(timer);
     if (still) return;
-    idleTimer = setTimeout(function () { if (!resting && !dragging && !document.hidden) go(1); arm(); }, 5200);
+    timer = setTimeout(function () {
+      if (seen && !resting && !pressed && !document.hidden && cards.length > 1) go(1);
+      arm();
+    }, 5200);
+  }
+  function measure() {
+    w = all[0].offsetWidth || 1;
+    var h = 0;
+    cards.forEach(function (c) { h = Math.max(h, c.offsetHeight); });
+    scene.style.height = (h + 24) + 'px';
+    render();
   }
 
-  stage.addEventListener('pointerdown', function (e) {
-    if (e.button !== 0 || !e.target.closest('.ring-scene')) return;
-    dragging = true; startX = lastX = e.clientX; startAngle = angle; lastT = e.timeStamp; flingV = 0; vel = 0;
-    stage.classList.add('is-dragging');
-    stage.setPointerCapture(e.pointerId);
+  // Dragging: nothing is captured until the pointer has moved, so a plain click on a link works.
+  scene.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0 || e.target.closest('.ring-arrow')) return;
+    pressed = true; moved = false; sx = lx = e.clientX; spos = pos; lt = e.timeStamp; fling = 0; vel = 0;
   });
-  stage.addEventListener('pointermove', function (e) {
+  scene.addEventListener('pointermove', function (e) {
+    if (!pressed) return;
+    var dx = e.clientX - sx;
+    if (!dragging && Math.abs(dx) > 6) {
+      dragging = moved = true;
+      try { scene.setPointerCapture(e.pointerId); } catch (err) {}
+      stage.classList.add('is-dragging');
+      kick();
+    }
     if (!dragging) return;
-    angle = startAngle + (e.clientX - startX) * 0.28;
-    var dt = Math.max(1, e.timeStamp - lastT);
-    flingV = (e.clientX - lastX) * 0.28 / dt * 16;
-    lastX = e.clientX; lastT = e.timeStamp;
+    var span = w * 0.62;
+    pos = spos - dx / span;
+    fling = -(e.clientX - lx) / span / Math.max(1, e.timeStamp - lt) * 16;
+    lx = e.clientX; lt = e.timeStamp;
   });
-  function release(e) {
+  function release() {
+    pressed = false;
     if (!dragging) return;
     dragging = false;
     stage.classList.remove('is-dragging');
-    var moved = Math.abs(e.clientX - startX) > 6;
-    if (!moved) {                                   // a tap: the front card opens, another turns to the front
-      var card = e.target.closest('.ring-card');
-      if (card) {
-        var i = Number(card.getAttribute('data-index'));
-        if (i === current) { var a = card.querySelector('a'); if (a) location.href = a.href; }
-        else to(i);
-      }
-      return;
-    }
-    if (Math.abs(flingV) < 0.5) { flingV = 0; target = Math.round(angle / step) * step; }
-    arm();
+    fling = Math.abs(fling) < 0.02 ? 0 : Math.max(-0.45, Math.min(0.45, fling));
+    if (!fling) target = Math.round(pos);
+    kick(); arm();
   }
-  stage.addEventListener('pointerup', release);
-  stage.addEventListener('pointercancel', release);
-  stage.addEventListener('click', function (e) { if (e.target.closest('.ring-card')) e.preventDefault(); });
-  stage.querySelector('.ring-arrow.prev').addEventListener('click', function () { go(-1); });
-  stage.querySelector('.ring-arrow.next').addEventListener('click', function () { go(1); });
-  dots.forEach(function (d) { d.addEventListener('click', function () { to(Number(d.getAttribute('data-index'))); }); });
+  scene.addEventListener('pointerup', release);
+  scene.addEventListener('pointercancel', release);
+  // A click after a drag does nothing; a click on a card at the side turns it to the front.
+  scene.addEventListener('click', function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; return; }
+    var c = e.target.closest('.ring-card');
+    if (c && !c.classList.contains('is-front')) { e.preventDefault(); e.stopPropagation(); to(cards.indexOf(c)); }
+  }, true);
+  prev.addEventListener('click', function () { go(-1); });
+  next.addEventListener('click', function () { go(1); });
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () {
+      var c = all[Number(d.getAttribute('data-index'))];
+      if (cards.indexOf(c) >= 0) to(cards.indexOf(c));
+    });
+  });
   stage.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
     if (e.key === 'ArrowRight') { go(1); e.preventDefault(); }
@@ -500,20 +501,38 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   stage.addEventListener('pointerleave', function () { resting = false; });
   stage.addEventListener('focusin', function () { resting = true; });
   stage.addEventListener('focusout', function () { resting = false; });
-  window.addEventListener('resize', measure);
-
-  measure();
-  stage.classList.add('is-live');
-  if (!still) {                                     // the covers sail in from the horizon, one after another
-    cards.forEach(function (c, k) { c.style.transitionDelay = (k * 90) + 'ms'; });
-    setTimeout(function () { stage.classList.add('is-in'); }, 60);
-    setTimeout(function () { cards.forEach(function (c) { c.style.transitionDelay = ''; }); }, 2000);
-    angle = -step * 2; target = 0;                 // and the ring swings round to the first game
-  } else {
-    stage.classList.add('is-in');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(stage);
   }
+  var queued = false;
+  window.addEventListener('resize', function () {
+    if (queued) return; queued = true;
+    requestAnimationFrame(function () { queued = false; measure(); });
+  });
+
+  // The chips: only the games that play on one platform stay on the ring.
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var want = chip.getAttribute('data-platform');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      cards = all.filter(function (c) { return !want || (' ' + c.getAttribute('data-platforms') + ' ').indexOf(' ' + want + ' ') >= 0; });
+      all.forEach(function (c) { c.hidden = cards.indexOf(c) < 0; c._z = c._gone = undefined; });
+      dots.forEach(function (d) { d.hidden = cards.indexOf(all[Number(d.getAttribute('data-index'))]) < 0; });
+      none.hidden = cards.length > 0;
+      stage.hidden = !cards.length;
+      prev.hidden = next.hidden = cards.length < 2;
+      if (!cards.length) return;
+      front = -1; vel = fling = 0; pos = still ? 0 : -1.2; target = 0;
+      measure(); kick(); arm();
+    });
+  });
+
+  stage.classList.add('is-live');
+  measure();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  if (!still) { pos = -2.2; target = 0; }
   render();
-  requestAnimationFrame(tick);
+  requestAnimationFrame(function () { stage.classList.add('is-in'); kick(); });
   arm();
 })();
 
@@ -521,27 +540,6 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
 (function () {
   document.querySelectorAll('.man-row').forEach(function (r) {
     r.addEventListener('click', function () { r.classList.toggle('is-open'); });
-  });
-})();
-
-// Show only the games that play on one platform; "All" brings them back.
-(function () {
-  var chips = document.querySelectorAll('.chip[data-platform]');
-  var cards = document.querySelectorAll('.card[data-platforms]');
-  var none = document.querySelector('.chips-none');
-  if (!chips.length) return;
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      var want = chip.getAttribute('data-platform');
-      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
-      var shown = 0;
-      cards.forEach(function (card) {
-        var ok = !want || (' ' + card.getAttribute('data-platforms') + ' ').indexOf(' ' + want + ' ') >= 0;
-        card.hidden = !ok;
-        if (ok) { shown++; card.classList.add('is-in'); }
-      });
-      none.hidden = shown > 0;
-    });
   });
 })();
 
@@ -632,20 +630,7 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
       <p>${esc(t.games_lede)}</p>
     </div>
 
-${showcase}
-    <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
-      <span class="chips-label">${esc(t.filter.label)}</span>
-      <button type="button" class="chip" aria-pressed="true" data-platform="">${esc(t.filter.all)} <small>${games.length}</small></button>
-${chips}
-    </div>
-
-    <div class="grid">
-
-${cards}
-
-    </div>
-    <p class="chips-none" hidden>${esc(t.filter.none)}</p>
-  </section>
+${showcase()}  </section>
 
 ${manifest()}
 
