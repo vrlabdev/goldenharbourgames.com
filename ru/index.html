@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=eb561abf">
+  <link rel="stylesheet" href="../style.css?v=cdc09882">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD","https://www.youtube.com/@goldenharbourgames","https://www.tiktok.com/@goldenharbourgames","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
 </head>
@@ -51,6 +51,7 @@
     <nav>
       <a href="#games">Игры</a>
       <a href="#about">О нас</a>
+      <a href="#crew">Команда</a>
       <a href="#contact">Контакты</a>
     </nav>
     <div class="langs" role="group" aria-label="Язык"><a href=".././" hreflang="en" lang="en" data-lang="en">EN</a><a href="../ru/" hreflang="ru" lang="ru" aria-current="true" data-lang="ru">RU</a></div>
@@ -76,49 +77,6 @@
 </section>
 
 <div class="strip"><span>Две игры уже в Google Play</span><i aria-hidden="true">◆</i><span>Бесплатно в браузере</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>Игр в порту: 7</span></div>
-
-<section class="board reveal" aria-label="Сейчас в двух гаванях">
-  <p class="kicker">Сейчас в двух гаванях</p>
-  <div class="board-grid">
-    <article class="instrument" data-tz="Asia/Vladivostok" data-lat="43.117" data-lon="131.9">
-      <header>
-        <h3>Владивосток</h3>
-        <p class="coord">бухта Золотой Рог · 43°06′N 131°53′E</p>
-      </header>
-      <p class="clock"><time class="clock-time" aria-label="Местное время">--:--</time><span class="clock-part"></span></p>
-      <div class="sunarc" aria-hidden="true">
-        <svg viewBox="0 0 120 64"><path class="sunarc-track" d="M8 58 A52 52 0 0 1 112 58"/><path class="sunarc-done" d="M8 58 A52 52 0 0 1 112 58"/><circle class="sunarc-sun" cx="8" cy="58" r="5"/></svg>
-        <span class="sunarc-rise"></span><span class="sunarc-set"></span>
-      </div>
-      <p class="wx">
-        <span class="wx-icon" aria-hidden="true"></span>
-        <span class="wx-temp"></span>
-        <span class="wx-text">Читаем приборы…</span>
-      </p>
-    </article>
-    <div class="board-mid" aria-hidden="true">
-      <svg class="compass" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36"/><circle cx="40" cy="40" r="2" fill="currentColor"/><path class="needle" d="M40 8 L45 40 L40 72 L35 40 Z"/><path d="M40 2v8M40 70v8M2 40h8M70 40h8"/></svg>
-      <span class="board-km">8 782 км воды между ними</span>
-    </div>
-    <article class="instrument" data-tz="Australia/Sydney" data-lat="-33.868" data-lon="151.209">
-      <header>
-        <h3>Сидней</h3>
-        <p class="coord">Порт-Джексон · 33°51′S 151°13′E</p>
-      </header>
-      <p class="clock"><time class="clock-time" aria-label="Местное время">--:--</time><span class="clock-part"></span></p>
-      <div class="sunarc" aria-hidden="true">
-        <svg viewBox="0 0 120 64"><path class="sunarc-track" d="M8 58 A52 52 0 0 1 112 58"/><path class="sunarc-done" d="M8 58 A52 52 0 0 1 112 58"/><circle class="sunarc-sun" cx="8" cy="58" r="5"/></svg>
-        <span class="sunarc-rise"></span><span class="sunarc-set"></span>
-      </div>
-      <p class="wx">
-        <span class="wx-icon" aria-hidden="true"></span>
-        <span class="wx-temp"></span>
-        <span class="wx-text">Читаем приборы…</span>
-      </p>
-    </article>
-  </div>
-  <p class="board-credit">Погода: Open-Meteo</p>
-</section>
 
 <main>
   <section id="games" class="section games">
@@ -398,10 +356,83 @@
     <p class="chips-none" hidden>Для этого пока ничего нет.</p>
   </section>
 
+<section id="build" class="section build chart">
+  <div class="section-head">
+    <div>
+      <p class="kicker">02 / Как мы строим</p>
+      <h2>Собрано с ИИ. Управляется людьми.</h2>
+    </div>
+    <p>Говорим прямо: почти всё, что вы здесь видите, сделано с помощью ИИ студией из двух человек, которая иначе не сделала бы ничего. Вот кто именно что делает.</p>
+  </div>
+  <div class="build-grid">
+    <div class="manifest reveal">
+      <div class="man-head">
+        <h3>Судовая роль</h3>
+        <p class="man-key"><span><i class="man-human"></i>Люди</span><span><i class="man-ai"></i>ИИ</span></p>
+      </div>
+      <ol class="man-list">
+      <li class="man-row" style="--h: 90" tabindex="0">
+        <span class="man-name">Дизайн и правила</span>
+        <span class="man-bar" aria-label="Люди 90%, ИИ 10%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>90%</b><em>10%</em></span>
+        <span class="man-note">Каждую механику спорим за кухонным столом и с телефоном в автобусе. ИИ предлагает варианты; мы выбираем, режем и настраиваем. Ощущение от игры — наше.</span>
+      </li>
+      <li class="man-row" style="--h: 100" tabindex="0">
+        <span class="man-name">Плейтесты</span>
+        <span class="man-bar" aria-label="Люди 100%, ИИ 0%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>100%</b><em>0%</em></span>
+        <span class="man-note">Телефон в руке, сотни безголовых симуляций и друзья, которые говорят правду. Ни одна модель не играет в игру ради удовольствия.</span>
+      </li>
+      <li class="man-row" style="--h: 55" tabindex="0">
+        <span class="man-name">Тексты</span>
+        <span class="man-bar" aria-label="Люди 55%, ИИ 45%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>55%</b><em>45%</em></span>
+        <span class="man-note">Брифы, шутки и история за играми — от нас; ИИ пишет черновики длинных текстов и семь языков, а мы читаем каждую строку.</span>
+      </li>
+      <li class="man-row" style="--h: 20" tabindex="0">
+        <span class="man-name">Код</span>
+        <span class="man-bar" aria-label="Люди 20%, ИИ 80%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>20%</b><em>80%</em></span>
+        <span class="man-note">Большую часть пишет Claude; мы читаем, тестируем, ломаем и решаем, что выходит. Перед каждой сборкой идут тысячи автоматических проверок.</span>
+      </li>
+      <li class="man-row" style="--h: 15" tabindex="0">
+        <span class="man-name">Арт и обложки</span>
+        <span class="man-bar" aria-label="Люди 15%, ИИ 85%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>15%</b><em>85%</em></span>
+        <span class="man-note">Gemini и правка руками. Чем-то гордимся; что-то, знаем, ещё не дотягивает. См. обещание ниже.</span>
+      </li>
+      <li class="man-row" style="--h: 10" tabindex="0">
+        <span class="man-name">Музыка и звук</span>
+        <span class="man-bar" aria-label="Люди 10%, ИИ 90%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>10%</b><em>90%</em></span>
+        <span class="man-note">ElevenLabs делает музыку и эффекты по нашим брифам. Мы выбираем, режем и сводим.</span>
+      </li>
+      <li class="man-row" style="--h: 5" tabindex="0">
+        <span class="man-name">Голоса</span>
+        <span class="man-bar" aria-label="Люди 5%, ИИ 95%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>5%</b><em>95%</em></span>
+        <span class="man-note">Радиопереговоры на семи языках, угол ринга, деревенские старики: сгенерированы, а потом прослушаны носителем языка там, где он у нас есть.</span>
+      </li>
+      </ol>
+      <p class="man-note-foot">Примерно так сегодня делится работа над нашими играми. Наведите или нажмите на строку, чтобы прочитать подробнее.</p>
+      <p class="man-tools"><span class="kicker">Инструменты на борту</span><span class="tool">Godot 4</span><span class="tool">Unity</span><span class="tool">Claude</span><span class="tool">Gemini</span><span class="tool">ElevenLabs</span><span class="tool">Blender</span><span class="tool">GitHub</span></p>
+    </div>
+    <div class="build-text reveal">
+      <p>Почему так много ИИ? Потому что альтернативой было не делать игр вовсе. Два человека, ноль бюджета и список игр, которые мы хотели видеть на свете. С этими инструментами сезон пожаров, боксёрская карьера, крепостная деревня за сто лет и дорога через Сибирь строятся, играются и выходят командой, которая помещается в одну машину.</p>
+      <p>Что ИИ умеет: первый черновик чего угодно — и тысячный. Код, тысячу реплик по радио, обложку за час вместо недели. Чего не умеет: понимать, что весело, понимать, когда остановиться, и переживать. Это остаётся нам. Каждая механика играется, пока не заслужит своё место. Каждое предложение, которое вы читаете, сначала прочитал человек.</p>
+      <p>Мы ничего из этого не прячем в титрах и никогда не будем. Если часть игры сгенерирована — так и написано. Спросите, какая именно, — ответим.</p>
+      <div class="promise">
+        <p class="kicker">Обещание</p>
+        <p>Когда игра заработает достаточно, мы пересоберём её сгенерированные части с людьми: художниками для обложек и миров, композиторами для музыки, актёрами для голосов, авторами для текстов. Их имена будут на игре. Первая игра, которая себя окупит, первой получит свою команду.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
   <section id="log" class="section log">
     <div class="section-head">
       <div>
-        <p class="kicker">02 / Журнал</p>
+        <p class="kicker">03 / Журнал</p>
         <h2>Судовой журнал</h2>
       </div>
       <p>Что менялось в последнее время, новое сверху. Каждая игра на сайте — живая сборка.</p>
@@ -466,7 +497,7 @@
   <section id="channel" class="section channel">
     <div class="section-head">
       <div>
-        <p class="kicker">03 / Канал</p>
+        <p class="kicker">04 / Канал</p>
         <h2>С нашего канала</h2>
       </div>
       <p>Короткие фильмы из игр: физика, история и бои, которые за ними стоят.</p>
@@ -543,7 +574,7 @@
   <section id="about" class="section about">
     <div class="section-head">
       <div>
-        <p class="kicker">04 / О нас</p>
+        <p class="kicker">05 / О нас</p>
         <h2>Две гавани</h2>
       </div>
       <div class="about-text">
@@ -575,10 +606,72 @@
         <span>Сидней · Порт-Джексон <em>33°51′S 151°13′E</em></span>
       </figcaption>
     </figure>
+    <div class="about-more">
+      <div class="about-col">
+        <h3>Миссия</h3>
+        <p class="big">Делать небольшие точные игры о настоящих вещах и относиться к тем, кто в них играет, как к взрослым людям.</p>
+        <h3>Видение</h3>
+        <p>Студия, где идея двух человек за месяцы становится законченной, отполированной игрой; где в каждую игру можно бесплатно играть в браузере откуда угодно; и где деньги, которые игра заработала, возвращаются в то, чтобы сделать её лучше и человечнее.</p>
+        <h3>Что мы обещаем игрокам</h3>
+        <ul class="promises">
+          <li>В каждую игру можно бесплатно играть в браузере. Без аккаунта, без установки, без карты.</li>
+          <li>Никаких таймеров энергии, лутбоксов и тёмных паттернов. Покупка, где она есть, — это «спасибо» или косметика, но никогда не стена поперёк сюжета.</li>
+          <li>Ваши данные — не товар. Игры не собирают ничего лишнего; на странице конфиденциальности сказано, что именно, простыми словами.</li>
+          <li>Когда вы говорите, что что-то не так, мы чиним. В судовом журнале выше это видно.</li>
+          <li>Мы говорим, что сделано машиной, а что человеком. Всегда.</li>
+        </ul>
+      </div>
+      <div class="about-col letter">
+        <h3>Как идут дела (5 ноября 2026)</h3>
+        <p>Честно? Лучше, чем выглядит, и хуже, чем хотелось бы. В порту семь игр. Две из них, Fire Season и Punch League, вышли в Google Play и RuStore и ждут Apple. У Souls &amp; Estates появилось русское издание и первый год с подсказками. Gull Chorus поёт. Orbital Jump, наша телефонная игра 2021 года, вернулась в браузер, и готовится пересобранная версия.</p>
+        <p>Цифры маленькие. У нашего канала на YouTube девятнадцать подписчиков и около тридцати тысяч просмотров, в основном с горстки Shorts про пожарные вертолёты и русских крепостных, которые нашли аудиторию, которой мы не ждали. Загрузки считаются сотнями, не тысячами. Никто не уволился с работы. И это нормально. Плавание долгое, лодка держится на воде.</p>
+        <p>Что работает: выпускать. Сборка выходит почти каждый день. Игра, которая в сентябре была заметкой в телефоне, сейчас — то, во что можно играть. Инструменты позволяют двоим делать работу небольшой команды, а всё, что приходит от игроков, каждый баг и каждое «вот тут скучно», идёт прямо в следующую сборку.</p>
+        <p>Что пока не работает: быть найденными. Семь хороших маленьких игр, о которых никто не слышал, — это всё ещё семь игр, о которых никто не слышал. Поэтому мы публикуем каждый день, отвечаем на каждый комментарий и пишем эту страницу, чтобы те, кому важно, как делаются игры, видели, как делаются наши.</p>
+        <p>Дальше: у Souls &amp; Estates появятся рынки и второй город; у Fire Season — обучение, которому не нужна инструкция; у Punch League — второй сезон бойцов; а первый художник будет нанят в тот месяц, когда какая-нибудь игра на него заработает.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="crew" class="section crew">
+    <div class="section-head">
+      <div>
+        <p class="kicker">06 / Команда</p>
+        <h2>Возьмите весло</h2>
+      </div>
+      <p>Открытая программа для команды. Сделайте часть одной из наших игр, получите своё имя в её титрах, а если игра заработает — долю.</p>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-col reveal">
+        <h3>Как это устроено</h3>
+        <ol class="crew-steps">
+          <li>Выберите игру и ту её часть, которую хотите сделать лучше: карту, сезон, саундтрек, язык, бойца, деревню, то, что вы заметили неправильным.</li>
+          <li>Напишите нам. Расскажите, что бы вы сделали, и покажите что-нибудь из того, что делали раньше, законченное или нет. Отвечаем в течение нескольких дней.</li>
+          <li>Договариваемся письменно до начала: что это, что считается готовым и что вы получаете. Потом вы получаете исходники, инструменты, включая ИИ, и нас на другом конце чата.</li>
+          <li>Когда ваша часть выходит, ваше имя попадает в титры этой игры и на эту страницу.</li>
+          <li>Если игра зарабатывает деньги, доля идёт тем, кто её строил, в той пропорции, о которой договорились. Если не зарабатывает ничего — мы будем честны об этом с первого письма. Никому не платят вперёд. И никого не просят платить.</li>
+        </ol>
+        <h3>Кого мы ищем</h3>
+        <p>Студентов, моддеров, художников, композиторов, актёров озвучки, переводчиков, историков, пилотов, боксёров, тестировщиков с телефоном и мнением. Портфолио не нужно. Нужно, чтобы одна из этих игр была вам дорога настолько, чтобы сделать одну её часть лучше.</p>
+      </div>
+      <div class="crew-col reveal">
+        <h3>Свободные вёсла прямо сейчас</h3>
+        <ul class="oars">
+          <li><a class="oar-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><span>Новый регион на глобусе со своими деревьями, ветром и пожарами.</span></li>
+          <li><a class="oar-game" href="play/punch-league/">Punch League</a><span>Портреты для второго сезона бойцов и голос угла для каждого.</span></li>
+          <li><a class="oar-game" href="play/souls-and-estates/">Souls &amp; Estates</a><span>Деревенские песни и церковный колокол; вычитка русского издания.</span></li>
+          <li><a class="oar-game" href="play/gull-chorus/">Gull Chorus</a><span>Новый пляж со своей мелодией.</span></li>
+          <li><a class="oar-game" href="play/peregon/">Перегон</a><span>Дорожное событие, которое вы пережили на настоящей дороге.</span></li>
+          <li><a class="oar-game" href="play/orbital-jump/">Orbital Jump</a><span>Плейтест пересобранной версии на вашем телефоне и рассказ, где вам стало скучно.</span></li>
+          <li><span class="oar-game">Любая игра</span><span>Любой язык, которого у нас ещё нет, для любой игры.</span></li>
+        </ul>
+        <p class="crew-cta"><a class="button" href="mailto:contact@goldenharbourgames.com?subject=%D0%92%D0%B5%D1%81%D0%BB%D0%BE%3A%20">Написать нам про весло <span aria-hidden="true">→</span></a></p>
+        <p class="crew-closing">Мы гребём в одной лодке. Игры — наши и ваши, заслуги общие, как и всё, что вернётся с моря.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="section contact chart">
-    <p class="kicker">05 / Контакты</p>
+    <p class="kicker">07 / Контакты</p>
     <h2>Напишите нам</h2>
     <p class="contact-text">Пресса, игроки, издатели — или тот, кто проехал М-60 на «Лифе»: мы читаем всё.</p>
     <a class="email" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
@@ -670,108 +763,6 @@
 })();
 </script>
 <script>
-// The harbour board: each instrument keeps its harbour's clock, and asks Open-Meteo for the weather,
-// sunrise and sunset once an hour (the answer is kept in this browser between visits).
-(function () {
-  var lang = "ru";
-  var words = {"codes":{"0":"Ясно","1":"Малооблачно","2":"Переменная облачность","3":"Пасмурно","45":"Туман","48":"Туман","51":"Морось","53":"Морось","55":"Морось","56":"Ледяная морось","57":"Ледяная морось","61":"Небольшой дождь","63":"Дождь","65":"Сильный дождь","66":"Ледяной дождь","67":"Ледяной дождь","71":"Небольшой снег","73":"Снег","75":"Сильный снег","77":"Снежная крупа","80":"Ливень","81":"Ливень","82":"Сильный ливень","85":"Снегопад","86":"Снегопад","95":"Гроза","96":"Гроза с градом","99":"Гроза с градом"},"day":"день","night":"ночь","wind":"ветер","offline":"Сводки нет"};
-  var items = document.querySelectorAll('.instrument');
-  if (!items.length) return;
-  var ICONS = {
-    sun: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>',
-    moon: '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
-    cloud: '<svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/></svg>',
-    sunCloud: '<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M8 2v1.5M2 8h1.5M3.8 3.8l1 1M9 18h8a3.5 3.5 0 0 0 .5-7A5 5 0 0 0 8 12a3 3 0 0 0 1 6z"/></svg>',
-    rain: '<svg viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7zM8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg>',
-    snow: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM8 18v.1M12 19v.1M16 18v.1M10 21v.1M14 21v.1"/></svg>',
-    fog: '<svg viewBox="0 0 24 24"><path d="M7 13h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 6a3.5 3.5 0 0 0 1 7zM5 17h14M7 21h10"/></svg>',
-    storm: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM13 13l-2.5 4.5H14L11 23"/></svg>'
-  };
-  function icon(code, day) {
-    if (code === 0 || code === 1) return day ? ICONS.sun : ICONS.moon;
-    if (code === 2) return day ? ICONS.sunCloud : ICONS.cloud;
-    if (code === 3) return ICONS.cloud;
-    if (code === 45 || code === 48) return ICONS.fog;
-    if (code >= 95) return ICONS.storm;
-    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return ICONS.snow;
-    return ICONS.rain;
-  }
-  function hm(iso) { return iso.slice(11, 16); }
-  function minutes(iso) { return Number(iso.slice(11, 13)) * 60 + Number(iso.slice(14, 16)); }
-  function tick(el, tz) {
-    var now = new Date();
-    var f = new Intl.DateTimeFormat(lang, { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
-    var parts = f.format(now).replace(/^24/, '00');
-    el.querySelector('.clock-time').textContent = parts;
-    el.querySelector('.clock-time').setAttribute('datetime', now.toISOString());
-    var d = el._day;
-    if (d) {
-      var hmNow = new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false }).format(now).replace(/^24/, '00');
-      var m = Number(hmNow.slice(0, 2)) * 60 + Number(hmNow.slice(3, 5));
-      var day = m >= d.rise && m <= d.set;
-      el.querySelector('.clock-part').textContent = day ? words.day : words.night;
-      el.classList.toggle('is-night', !day);
-      var p = Math.max(0, Math.min(1, (m - d.rise) / (d.set - d.rise)));
-      var a = Math.PI * (1 - p);
-      var sun = el.querySelector('.sunarc-sun');
-      sun.setAttribute('cx', (60 + 52 * Math.cos(a)).toFixed(1));
-      sun.setAttribute('cy', (58 - 52 * Math.sin(a)).toFixed(1));
-      sun.style.opacity = day ? 1 : 0.25;
-      el.querySelector('.sunarc-done').style.strokeDashoffset = String(164 * (1 - (day ? p : (m < d.rise ? 0 : 1))));
-    }
-  }
-  function show(el, w) {
-    var c = w.current;
-    el._day = { rise: minutes(w.daily.sunrise[0]), set: minutes(w.daily.sunset[0]) };
-    el.querySelector('.sunarc-rise').textContent = hm(w.daily.sunrise[0]);
-    el.querySelector('.sunarc-set').textContent = hm(w.daily.sunset[0]);
-    el.querySelector('.wx-icon').innerHTML = icon(c.weather_code, c.is_day === 1);
-    el.querySelector('.wx-temp').textContent = Math.round(c.temperature_2m) + '°';
-    el.querySelector('.wx-text').textContent = (words.codes[c.weather_code] || '') + ' · ' + words.wind + ' ' + Math.round(c.wind_speed_10m) + ' km/h';
-    tick(el, el.getAttribute('data-tz'));
-  }
-  function load() {
-    var key = 'ghg-board';
-    try {
-      var kept = JSON.parse(localStorage.getItem(key) || 'null');
-      if (kept && Date.now() - kept.at < 3600e3) { kept.data.forEach(function (w, i) { show(items[i], w); }); return; }
-    } catch (e) {}
-    var lat = [], lon = [];
-    items.forEach(function (el) { lat.push(el.getAttribute('data-lat')); lon.push(el.getAttribute('data-lon')); });
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat.join(',') + '&longitude=' + lon.join(',') + '&current=temperature_2m,weather_code,wind_speed_10m,is_day&daily=sunrise,sunset&timezone=auto&forecast_days=1')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (!Array.isArray(data)) throw new Error('shape');
-        data.forEach(function (w, i) { show(items[i], w); });
-        try { localStorage.setItem(key, JSON.stringify({ at: Date.now(), data: data })); } catch (e) {}
-      })
-      .catch(function () { items.forEach(function (el) { el.querySelector('.wx-text').textContent = words.offline; }); });
-  }
-  items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); });
-  setInterval(function () { items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); }); }, 1000);
-  load();
-  setInterval(load, 3600e3);
-
-  // The compass needle points from the first harbour to the second (the initial bearing, roughly
-  // south-east), and then drifts with the mouse a little, as a needle would.
-  var needle = document.querySelector('.compass .needle');
-  if (needle) {
-    var base = 140;
-    needle.setAttribute('transform', 'rotate(' + base + ' 40 40)');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
-      document.addEventListener('mousemove', function (e) {
-        var r = needle.getBoundingClientRect();
-        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-        var want = Math.atan2(dy, dx) * 180 / Math.PI + 90;
-        var dist = Math.hypot(dx, dy);
-        var pull = Math.max(0, 1 - dist / 700);
-        var diff = ((want - base + 540) % 360) - 180;
-        needle.setAttribute('transform', 'rotate(' + (base + diff * pull * 0.5) + ' 40 40)');
-      }, { passive: true });
-    }
-  }
-})();
-
 // The ring of covers. One number, the angle, drives everything: each cover sits at its slot on a
 // circle and the circle turns. A target angle pulls the ring with a spring, so a step, a fling or
 // a snap all end with the same settle. Dragging moves the ring with the pointer and the release
@@ -902,6 +893,13 @@
   render();
   requestAnimationFrame(tick);
   arm();
+})();
+
+// The manifest: a tap on a line (phones have no hover) opens its note.
+(function () {
+  document.querySelectorAll('.man-row').forEach(function (r) {
+    r.addEventListener('click', function () { r.classList.toggle('is-open'); });
+  });
 })();
 
 // Show only the games that play on one platform; "All" brings them back.

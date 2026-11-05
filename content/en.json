@@ -10,6 +10,7 @@
   "nav": {
     "games": "Games",
     "about": "About",
+    "crew": "Crew",
     "contact": "Contact"
   },
   "switch_label": "Language",
@@ -337,7 +338,27 @@
       "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run on Android, on Windows and in a browser, and you can play them all free, right here, on Google Play or on itch.io."
     ],
     "north": "Vladivostok · Golden Horn",
-    "south": "Sydney · Port Jackson"
+    "south": "Sydney · Port Jackson",
+    "mission_title": "Mission",
+    "mission": "Make small, sharp games about real things, and treat the people who play them as grown-ups.",
+    "vision_title": "Vision",
+    "vision": "A studio where a two-person idea can become a finished, polished game in months, where every game plays free in a browser for anyone, anywhere, and where the money a game earns goes back into making that game better and more human.",
+    "promises_title": "What we promise players",
+    "promises": [
+      "Every game plays free in your browser. No account, no install, no card.",
+      "No energy timers, no loot boxes, no dark patterns. A purchase, where there is one, is a thank-you or a cosmetic, never a wall across the story.",
+      "Your data is not the product. The games collect nothing they do not need; the privacy page says exactly what, in plain words.",
+      "When you tell us something is wrong, we fix it. The harbour log above is where you can see it happen.",
+      "We tell you what is made by a machine and what is made by a person. Always."
+    ],
+    "letter_title": "How it is going (5 November 2026)",
+    "letter": [
+      "Honestly? Better than it looks and worse than we would like. Seven games are in port. Two of them, Fire Season and Punch League, are out on Google Play and RuStore, and both are waiting on Apple. Souls & Estates got its Russian edition and a guided first year. Gull Chorus sings. Orbital Jump, our 2021 phone game, is back in the browser and a rebuilt version is in the works.",
+      "The numbers are small. Our YouTube channel has nineteen subscribers and about thirty thousand views, mostly from a handful of Shorts about firefighting helicopters and Russian serfs that found an audience we did not expect. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
+      "What is working: shipping. A build goes out most days. A game that was a note on a phone in September is a thing you can play now. The tools let two people do the work of a small team, and the work that comes back from players, every bug report, every \"this bit is boring\", goes straight into the next build.",
+      "What is not working yet: being found. Seven good small games nobody has heard of are still seven games nobody has heard of. So we post every day, we answer every comment, and we are writing this page so that people who care about how games get made can see how ours are.",
+      "Next: Souls & Estates gets its markets and a second city; Fire Season gets a tutorial that does not need a manual; Punch League gets a second season of fighters; and the first human artist gets hired the month a game pays for one."
+    ]
   },
   "contact": {
     "title": "Say hello",
@@ -578,53 +599,6 @@
   "google_play": "Google Play",
   "trailer": "Trailer",
   "shorts": "Shorts on YouTube",
-  "board": {
-    "title": "Now in the two harbours",
-    "north": "Vladivostok",
-    "north_sub": "Golden Horn Bay",
-    "south": "Sydney",
-    "south_sub": "Port Jackson",
-    "local_time": "Local time",
-    "weather": "Weather",
-    "sun": "Sun",
-    "wind": "wind",
-    "distance": "{km} km of water between them",
-    "loading": "Reading the instruments…",
-    "offline": "No weather report",
-    "credit": "Weather: Open-Meteo",
-    "night": "night",
-    "day": "day",
-    "codes": {
-      "0": "Clear",
-      "1": "Mostly clear",
-      "2": "Partly cloudy",
-      "3": "Overcast",
-      "45": "Fog",
-      "48": "Fog",
-      "51": "Drizzle",
-      "53": "Drizzle",
-      "55": "Drizzle",
-      "56": "Freezing drizzle",
-      "57": "Freezing drizzle",
-      "61": "Light rain",
-      "63": "Rain",
-      "65": "Heavy rain",
-      "66": "Freezing rain",
-      "67": "Freezing rain",
-      "71": "Light snow",
-      "73": "Snow",
-      "75": "Heavy snow",
-      "77": "Snow grains",
-      "80": "Showers",
-      "81": "Showers",
-      "82": "Heavy showers",
-      "85": "Snow showers",
-      "86": "Snow showers",
-      "95": "Thunderstorm",
-      "96": "Thunderstorm with hail",
-      "99": "Thunderstorm with hail"
-    }
-  },
   "filter": {
     "label": "Show",
     "all": "All",
@@ -730,5 +704,117 @@
     "prev": "Previous game",
     "next": "Next game",
     "hint": "Drag to spin · arrows to step"
+  },
+  "build": {
+    "nav": "How we build",
+    "title": "Built with AI. Steered by people.",
+    "lede": "We say it out loud: most of what you see here was made with AI tools, by a studio of two that could not have made it any other way. Here is exactly who does what.",
+    "manifest_title": "The crew manifest",
+    "manifest_note": "Roughly how the work splits across our games today. Hover or tap a line for the detail.",
+    "human": "People",
+    "ai": "AI",
+    "rows": [
+      {
+        "name": "Design and rules",
+        "human": 90,
+        "note": "Every mechanic is argued over at a kitchen table and on a phone in a bus. AI drafts options; we pick, cut and tune. The feel is ours."
+      },
+      {
+        "name": "Play-testing",
+        "human": 100,
+        "note": "A phone in a hand, headless simulations by the hundred, and friends who tell us the truth. No model plays a game for fun."
+      },
+      {
+        "name": "Writing",
+        "human": 55,
+        "note": "Briefs, jokes and the history behind the games come from us; AI drafts the long text and the seven languages, and we read every line."
+      },
+      {
+        "name": "Code",
+        "human": 20,
+        "note": "Claude writes most of it; we read it, test it, break it, and decide what ships. Thousands of automated checks run before a build goes out."
+      },
+      {
+        "name": "Art and covers",
+        "human": 15,
+        "note": "Gemini and hand fixes. Some pieces we are proud of; some we know are not there yet. See the promise below."
+      },
+      {
+        "name": "Music and sound",
+        "human": 10,
+        "note": "ElevenLabs makes the scores and the effects to our briefs. We pick, cut and mix."
+      },
+      {
+        "name": "Voices",
+        "human": 5,
+        "note": "Radio chatter in seven languages, boxing corners, village elders: generated, then listened to by a native speaker where we have one."
+      }
+    ],
+    "tools_title": "The tools on board",
+    "tools": [
+      "Godot 4",
+      "Unity",
+      "Claude",
+      "Gemini",
+      "ElevenLabs",
+      "Blender",
+      "GitHub"
+    ],
+    "paragraphs": [
+      "Why so much AI? Because the alternative was no games at all. Two people, no budget and a list of games we wanted to exist. With these tools a season of wildfires, a boxing career, a serf village over a hundred years and a road across Siberia could be built, played and shipped by a crew that fits in one car.",
+      "What AI is good at: the first draft of anything, and the thousandth. Code, a thousand radio lines, a cover in an hour instead of a week. What it is bad at: knowing what is fun, knowing when to stop, and caring. Those stay with us. Every mechanic is played until it earns its place. Every sentence you read was read by a person first.",
+      "We do not hide any of this in the credits and we never will. If a part of a game was generated, it says so. If you ask which part, we will tell you."
+    ],
+    "promise_title": "The promise",
+    "promise": "When a game earns enough, we rebuild its generated parts with people: artists for the covers and the worlds, composers for the scores, actors for the voices, writers for the words. Their names go on the game. The first game to pay for itself will be the first to get its crew."
+  },
+  "crew": {
+    "title": "Take an oar",
+    "lede": "An open crew programme. Work on a part of one of our games, get your name in its credits, and if the game earns, share in it.",
+    "how_title": "How it works",
+    "how": [
+      "Pick a game and a part of it you want to make better: a map, a season, a soundtrack, a language, a fighter, a village, the thing you noticed was wrong.",
+      "Write to us. Tell us what you would do and show us anything you have made before, finished or not. We answer within a few days.",
+      "We agree the piece in writing before you start: what it is, what done looks like, and what you get. Then you get the source, the tools, including the AI ones, and us on the other end of a chat.",
+      "When your piece ships, your name goes in the credits of that game and on this page.",
+      "If the game earns money, a share of it goes to the people who built it, in the proportion we agreed. If it earns nothing, we will have been honest about that from the first email. No one is paid up front. No one is asked to pay anything either."
+    ],
+    "who_title": "Who we are looking for",
+    "who": "Students, modders, artists, composers, voice actors, translators, historians, pilots, boxers, testers with a phone and an opinion. You do not need a portfolio. You need to care about one of these games enough to make one part of it better.",
+    "oars_title": "Oars open right now",
+    "oars": [
+      {
+        "game": "aerofire-command",
+        "text": "A new region on the globe, with its own trees, wind and fires."
+      },
+      {
+        "game": "punch-league",
+        "text": "Portraits for a second season of fighters, and a corner voice for each."
+      },
+      {
+        "game": "souls-and-estates",
+        "text": "Village songs and a church bell; proofreading of the Russian edition."
+      },
+      {
+        "game": "gull-chorus",
+        "text": "A new beach with its own tune."
+      },
+      {
+        "game": "peregon",
+        "text": "A road event you have lived through on a real road."
+      },
+      {
+        "game": "orbital-jump",
+        "text": "Play-testing the rebuilt version on your phone and telling us where it bores you."
+      },
+      {
+        "game": null,
+        "text": "Any language we do not have yet, for any game."
+      }
+    ],
+    "cta": "Write to us about an oar",
+    "cta_subject": "Oar: ",
+    "closing": "We row in one boat. The games are ours and yours, the credit is shared, and so is whatever comes back from the sea.",
+    "any_game": "Any game"
   }
 }

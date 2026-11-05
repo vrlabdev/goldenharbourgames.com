@@ -44,12 +44,6 @@ const skyline = read('content/skyline.svg').trim();
 // The harbour log, newest first, and the channel's newest videos (an empty list hides the section).
 const log = JSON.parse(read('content/log.json')).sort((a, b) => b.date.localeCompare(a.date));
 const videos = fs.existsSync(path.join(ROOT, 'content/videos.json')) ? JSON.parse(read('content/videos.json')).videos : [];
-// The two harbours the live board reads: where they are, and whose clock they keep.
-const HARBOURS = [
-  { key: 'north', tz: 'Asia/Vladivostok', lat: 43.117, lon: 131.9, coord: '43°06′N 131°53′E' },
-  { key: 'south', tz: 'Australia/Sydney', lat: -33.868, lon: 151.209, coord: '33°51′S 151°13′E' },
-];
-const HARBOUR_KM = 8782;
 // A YouTube link's video id, so a trailer can open in the page instead of leaving it.
 const ytId = (url) => (String(url || '').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/) || [])[1] || '';
 // English first: it is the default page and the x-default for search engines.
@@ -59,7 +53,7 @@ const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .sort((a, b) => (a.lang === 'en' ? -1 : b.lang === 'en' ? 1 : a.lang.localeCompare(b.lang)));
 
 for (const t of langs) {
-  for (const k of ['privacy', 'terms', 'press', 'ring', 'board', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const k of ['privacy', 'terms', 'press', 'ring', 'build', 'crew', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
   for (const e of log) if (!e[t.lang]) throw new Error(`content/log.json: the entry of ${e.date} has no "${t.lang}" text`);
   for (const g of games) {
     if (!t.games[g.id]) throw new Error(`content/${t.lang}.json has no text for the game "${g.id}"`);
@@ -145,6 +139,7 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
     <nav>
       <a href="${anchor('games')}">${esc(t.nav.games)}</a>
       <a href="${anchor('about')}">${esc(t.nav.about)}</a>
+      <a href="${anchor('crew')}">${esc(t.nav.crew)}</a>
       <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
     </nav>
     <div class="langs" role="group" aria-label="${esc(t.switch_label)}">${switcher}</div>
@@ -324,35 +319,42 @@ ${games.map((g, i) => `        <button type="button" role="tab" aria-selected="$
   let n = 0;
   const num = () => String(++n).padStart(2, '0');
 
-  // The live board under the strip: a clock, the weather and the sun for each harbour, read in the
-  // browser (Open-Meteo, no key). Until the script runs it shows the names and the distance.
-  const instrument = (h) => `    <article class="instrument" data-tz="${h.tz}" data-lat="${h.lat}" data-lon="${h.lon}">
-      <header>
-        <h3>${esc(t.board[h.key])}</h3>
-        <p class="coord">${esc(t.board[h.key + '_sub'])} · ${h.coord}</p>
-      </header>
-      <p class="clock"><time class="clock-time" aria-label="${esc(t.board.local_time)}">--:--</time><span class="clock-part"></span></p>
-      <div class="sunarc" aria-hidden="true">
-        <svg viewBox="0 0 120 64"><path class="sunarc-track" d="M8 58 A52 52 0 0 1 112 58"/><path class="sunarc-done" d="M8 58 A52 52 0 0 1 112 58"/><circle class="sunarc-sun" cx="8" cy="58" r="5"/></svg>
-        <span class="sunarc-rise"></span><span class="sunarc-set"></span>
-      </div>
-      <p class="wx">
-        <span class="wx-icon" aria-hidden="true"></span>
-        <span class="wx-temp"></span>
-        <span class="wx-text">${esc(t.board.loading)}</span>
-      </p>
-    </article>`;
-  const board = `<section class="board reveal" aria-label="${esc(t.board.title)}">
-  <p class="kicker">${esc(t.board.title)}</p>
-  <div class="board-grid">
-${instrument(HARBOURS[0])}
-    <div class="board-mid" aria-hidden="true">
-      <svg class="compass" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36"/><circle cx="40" cy="40" r="2" fill="currentColor"/><path class="needle" d="M40 8 L45 40 L40 72 L35 40 Z"/><path d="M40 2v8M40 70v8M2 40h8M70 40h8"/></svg>
-      <span class="board-km">${esc(t.board.distance.replace('{km}', HARBOUR_KM.toLocaleString(t.lang === 'ru' ? 'ru-RU' : 'en-AU')))}</span>
+  // "How we build": the crew manifest, one bar per kind of work split between people and AI,
+  // the tools, the stance, the promise. The bars fill when they come into view.
+  const manifestRows = t.build.rows.map((r, i) => `      <li class="man-row" style="--h: ${r.human}" tabindex="0">
+        <span class="man-name">${esc(r.name)}</span>
+        <span class="man-bar" aria-label="${esc(t.build.human)} ${r.human}%, ${esc(t.build.ai)} ${100 - r.human}%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>${r.human}%</b><em>${100 - r.human}%</em></span>
+        <span class="man-note">${esc(r.note)}</span>
+      </li>`).join('\n');
+  const manifest = () => `<section id="build" class="section build chart">
+  <div class="section-head">
+    <div>
+      <p class="kicker">${num()} / ${esc(t.build.nav)}</p>
+      <h2>${esc(t.build.title)}</h2>
     </div>
-${instrument(HARBOURS[1])}
+    <p>${esc(t.build.lede)}</p>
   </div>
-  <p class="board-credit">${esc(t.board.credit)}</p>
+  <div class="build-grid">
+    <div class="manifest reveal">
+      <div class="man-head">
+        <h3>${esc(t.build.manifest_title)}</h3>
+        <p class="man-key"><span><i class="man-human"></i>${esc(t.build.human)}</span><span><i class="man-ai"></i>${esc(t.build.ai)}</span></p>
+      </div>
+      <ol class="man-list">
+${manifestRows}
+      </ol>
+      <p class="man-note-foot">${esc(t.build.manifest_note)}</p>
+      <p class="man-tools"><span class="kicker">${esc(t.build.tools_title)}</span>${t.build.tools.map((x) => `<span class="tool">${esc(x)}</span>`).join('')}</p>
+    </div>
+    <div class="build-text reveal">
+${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
+      <div class="promise">
+        <p class="kicker">${esc(t.build.promise_title)}</p>
+        <p>${esc(t.build.promise)}</p>
+      </div>
+    </div>
+  </div>
 </section>`;
 
   // One chip per platform any game plays on, with how many.
@@ -383,108 +385,6 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
       </article>`).join('\n');
 
   const homeScript = `<script>
-// The harbour board: each instrument keeps its harbour's clock, and asks Open-Meteo for the weather,
-// sunrise and sunset once an hour (the answer is kept in this browser between visits).
-(function () {
-  var lang = ${JSON.stringify(t.lang)};
-  var words = ${JSON.stringify({ codes: t.board.codes, day: t.board.day, night: t.board.night, wind: t.board.wind, offline: t.board.offline })};
-  var items = document.querySelectorAll('.instrument');
-  if (!items.length) return;
-  var ICONS = {
-    sun: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>',
-    moon: '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
-    cloud: '<svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/></svg>',
-    sunCloud: '<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M8 2v1.5M2 8h1.5M3.8 3.8l1 1M9 18h8a3.5 3.5 0 0 0 .5-7A5 5 0 0 0 8 12a3 3 0 0 0 1 6z"/></svg>',
-    rain: '<svg viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7zM8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg>',
-    snow: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM8 18v.1M12 19v.1M16 18v.1M10 21v.1M14 21v.1"/></svg>',
-    fog: '<svg viewBox="0 0 24 24"><path d="M7 13h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 6a3.5 3.5 0 0 0 1 7zM5 17h14M7 21h10"/></svg>',
-    storm: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM13 13l-2.5 4.5H14L11 23"/></svg>'
-  };
-  function icon(code, day) {
-    if (code === 0 || code === 1) return day ? ICONS.sun : ICONS.moon;
-    if (code === 2) return day ? ICONS.sunCloud : ICONS.cloud;
-    if (code === 3) return ICONS.cloud;
-    if (code === 45 || code === 48) return ICONS.fog;
-    if (code >= 95) return ICONS.storm;
-    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return ICONS.snow;
-    return ICONS.rain;
-  }
-  function hm(iso) { return iso.slice(11, 16); }
-  function minutes(iso) { return Number(iso.slice(11, 13)) * 60 + Number(iso.slice(14, 16)); }
-  function tick(el, tz) {
-    var now = new Date();
-    var f = new Intl.DateTimeFormat(lang, { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
-    var parts = f.format(now).replace(/^24/, '00');
-    el.querySelector('.clock-time').textContent = parts;
-    el.querySelector('.clock-time').setAttribute('datetime', now.toISOString());
-    var d = el._day;
-    if (d) {
-      var hmNow = new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false }).format(now).replace(/^24/, '00');
-      var m = Number(hmNow.slice(0, 2)) * 60 + Number(hmNow.slice(3, 5));
-      var day = m >= d.rise && m <= d.set;
-      el.querySelector('.clock-part').textContent = day ? words.day : words.night;
-      el.classList.toggle('is-night', !day);
-      var p = Math.max(0, Math.min(1, (m - d.rise) / (d.set - d.rise)));
-      var a = Math.PI * (1 - p);
-      var sun = el.querySelector('.sunarc-sun');
-      sun.setAttribute('cx', (60 + 52 * Math.cos(a)).toFixed(1));
-      sun.setAttribute('cy', (58 - 52 * Math.sin(a)).toFixed(1));
-      sun.style.opacity = day ? 1 : 0.25;
-      el.querySelector('.sunarc-done').style.strokeDashoffset = String(164 * (1 - (day ? p : (m < d.rise ? 0 : 1))));
-    }
-  }
-  function show(el, w) {
-    var c = w.current;
-    el._day = { rise: minutes(w.daily.sunrise[0]), set: minutes(w.daily.sunset[0]) };
-    el.querySelector('.sunarc-rise').textContent = hm(w.daily.sunrise[0]);
-    el.querySelector('.sunarc-set').textContent = hm(w.daily.sunset[0]);
-    el.querySelector('.wx-icon').innerHTML = icon(c.weather_code, c.is_day === 1);
-    el.querySelector('.wx-temp').textContent = Math.round(c.temperature_2m) + '°';
-    el.querySelector('.wx-text').textContent = (words.codes[c.weather_code] || '') + ' · ' + words.wind + ' ' + Math.round(c.wind_speed_10m) + ' km/h';
-    tick(el, el.getAttribute('data-tz'));
-  }
-  function load() {
-    var key = 'ghg-board';
-    try {
-      var kept = JSON.parse(localStorage.getItem(key) || 'null');
-      if (kept && Date.now() - kept.at < 3600e3) { kept.data.forEach(function (w, i) { show(items[i], w); }); return; }
-    } catch (e) {}
-    var lat = [], lon = [];
-    items.forEach(function (el) { lat.push(el.getAttribute('data-lat')); lon.push(el.getAttribute('data-lon')); });
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat.join(',') + '&longitude=' + lon.join(',') + '&current=temperature_2m,weather_code,wind_speed_10m,is_day&daily=sunrise,sunset&timezone=auto&forecast_days=1')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (!Array.isArray(data)) throw new Error('shape');
-        data.forEach(function (w, i) { show(items[i], w); });
-        try { localStorage.setItem(key, JSON.stringify({ at: Date.now(), data: data })); } catch (e) {}
-      })
-      .catch(function () { items.forEach(function (el) { el.querySelector('.wx-text').textContent = words.offline; }); });
-  }
-  items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); });
-  setInterval(function () { items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); }); }, 1000);
-  load();
-  setInterval(load, 3600e3);
-
-  // The compass needle points from the first harbour to the second (the initial bearing, roughly
-  // south-east), and then drifts with the mouse a little, as a needle would.
-  var needle = document.querySelector('.compass .needle');
-  if (needle) {
-    var base = 140;
-    needle.setAttribute('transform', 'rotate(' + base + ' 40 40)');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
-      document.addEventListener('mousemove', function (e) {
-        var r = needle.getBoundingClientRect();
-        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-        var want = Math.atan2(dy, dx) * 180 / Math.PI + 90;
-        var dist = Math.hypot(dx, dy);
-        var pull = Math.max(0, 1 - dist / 700);
-        var diff = ((want - base + 540) % 360) - 180;
-        needle.setAttribute('transform', 'rotate(' + (base + diff * pull * 0.5) + ' 40 40)');
-      }, { passive: true });
-    }
-  }
-})();
-
 // The ring of covers. One number, the angle, drives everything: each cover sits at its slot on a
 // circle and the circle turns. A target angle pulls the ring with a spring, so a step, a fling or
 // a snap all end with the same settle. Dragging moves the ring with the pointer and the release
@@ -617,6 +517,13 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   arm();
 })();
 
+// The manifest: a tap on a line (phones have no hover) opens its note.
+(function () {
+  document.querySelectorAll('.man-row').forEach(function (r) {
+    r.addEventListener('click', function () { r.classList.toggle('is-open'); });
+  });
+})();
+
 // Show only the games that play on one platform; "All" brings them back.
 (function () {
   var chips = document.querySelectorAll('.chip[data-platform]');
@@ -715,8 +622,6 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
 
 <div class="strip">${strip}</div>
 
-${board}
-
 <main>
   <section id="games" class="section games">
     <div class="section-head">
@@ -741,6 +646,8 @@ ${cards}
     </div>
     <p class="chips-none" hidden>${esc(t.filter.none)}</p>
   </section>
+
+${manifest()}
 
   <section id="log" class="section log">
     <div class="section-head">
@@ -787,6 +694,50 @@ ${t.about.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
         <span>${esc(t.about.south)} <em>33°51′S 151°13′E</em></span>
       </figcaption>
     </figure>
+    <div class="about-more">
+      <div class="about-col">
+        <h3>${esc(t.about.mission_title)}</h3>
+        <p class="big">${esc(t.about.mission)}</p>
+        <h3>${esc(t.about.vision_title)}</h3>
+        <p>${esc(t.about.vision)}</p>
+        <h3>${esc(t.about.promises_title)}</h3>
+        <ul class="promises">
+${t.about.promises.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
+        </ul>
+      </div>
+      <div class="about-col letter">
+        <h3>${esc(t.about.letter_title)}</h3>
+${t.about.letter.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
+      </div>
+    </div>
+  </section>
+
+  <section id="crew" class="section crew">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${num()} / ${esc(t.nav.crew)}</p>
+        <h2>${esc(t.crew.title)}</h2>
+      </div>
+      <p>${esc(t.crew.lede)}</p>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-col reveal">
+        <h3>${esc(t.crew.how_title)}</h3>
+        <ol class="crew-steps">
+${t.crew.how.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
+        </ol>
+        <h3>${esc(t.crew.who_title)}</h3>
+        <p>${esc(t.crew.who)}</p>
+      </div>
+      <div class="crew-col reveal">
+        <h3>${esc(t.crew.oars_title)}</h3>
+        <ul class="oars">
+${t.crew.oars.map((o) => { const g = o.game ? games.find((x) => x.id === o.game) : null; return `          <li>${g ? `<a class="oar-game" href="${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="oar-game">${esc(t.crew.any_game)}</span>`}<span>${esc(o.text)}</span></li>`; }).join('\n')}
+        </ul>
+        <p class="crew-cta"><a class="button" href="mailto:${EMAIL}?subject=${encodeURIComponent(t.crew.cta_subject)}">${esc(t.crew.cta)} <span aria-hidden="true">→</span></a></p>
+        <p class="crew-closing">${esc(t.crew.closing)}</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="section contact chart">
