@@ -16,7 +16,7 @@ The pages are generated. Edit the sources, then rebuild:
 | A new game | one entry in `content/games.json` (itch link, 630x500 cover in `img/`, platforms, languages, `embed` = its itch html5 upload number from `butler status goldenharbourgames/<game>`, `frame` = [width, height] it is drawn for) and its text under `games` in every language file |
 | A new language | copy `content/en.json` to `content/<code>.json`, translate it, give it `"path": "<code>/"` |
 | The two bridges in About | `content/skyline.svg` |
-| The manifest, mission, letter, crew programme | , ,  blocks in  and  |
+| The manifest, mission, letter, crew programme | `build`, `about`, `crew` blocks in `content/en.json` and `content/ru.json` |
 | The harbour log (dated one-liners under the games) | `content/log.json`: date, optional game id, `en` + `ru` text; newest first on the page, six open, the rest behind a button |
 | The videos in "From the channel" | `node tools/videos.mjs` rewrites `content/videos.json` from the channel (newest public uploads, via C:/GODOT/youtube/yt.mjs), then rebuild |
 | The press kit page | `press` block in the language files; the files served from `press/kit/` (logos, brand kit zip) |
