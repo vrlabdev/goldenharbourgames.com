@@ -5,8 +5,11 @@
 //                        trailer (a video link) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
 //                        shown only in languages whose JSON has a "rustore" label, i.e. Russian)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
+//   content/log.json     the harbour log: dated one-liners (en + ru) with an optional game id, newest first
+//   content/videos.json  the newest public videos on the channel, written by tools/videos.mjs
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
-// (play/<id>/, ru/play/<id>/), the privacy policy (privacy/, ru/privacy/), the terms of service (terms/, ru/terms/), 404.html, sitemap.xml, robots.txt,
+// (play/<id>/, ru/play/<id>/), the privacy policy (privacy/, ru/privacy/), the terms of service (terms/, ru/terms/),
+// the press kit (press/, ru/press/; its files live in press/kit/), 404.html, sitemap.xml, robots.txt,
 // and .cache/ pages that tools/render_images.ps1 turns into the share images and the touch icon.
 // A new language is one more JSON file with a "path" of its own; nothing here changes.
 import fs from 'node:fs';
@@ -38,6 +41,17 @@ const games = JSON.parse(read('content/games.json'));
 // The studio elsewhere: itch, X and the rest. Shown in the footer and given to search engines as sameAs.
 const links = JSON.parse(read('content/links.json'));
 const skyline = read('content/skyline.svg').trim();
+// The harbour log, newest first, and the channel's newest videos (an empty list hides the section).
+const log = JSON.parse(read('content/log.json')).sort((a, b) => b.date.localeCompare(a.date));
+const videos = fs.existsSync(path.join(ROOT, 'content/videos.json')) ? JSON.parse(read('content/videos.json')).videos : [];
+// The two harbours the live board reads: where they are, and whose clock they keep.
+const HARBOURS = [
+  { key: 'north', tz: 'Asia/Vladivostok', lat: 43.117, lon: 131.9, coord: '43°06′N 131°53′E' },
+  { key: 'south', tz: 'Australia/Sydney', lat: -33.868, lon: 151.209, coord: '33°51′S 151°13′E' },
+];
+const HARBOUR_KM = 8782;
+// A YouTube link's video id, so a trailer can open in the page instead of leaving it.
+const ytId = (url) => (String(url || '').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/) || [])[1] || '';
 // English first: it is the default page and the x-default for search engines.
 const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .filter((f) => /^[a-z]{2}\.json$/.test(f))
@@ -45,7 +59,8 @@ const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .sort((a, b) => (a.lang === 'en' ? -1 : b.lang === 'en' ? 1 : a.lang.localeCompare(b.lang)));
 
 for (const t of langs) {
-  for (const k of ['privacy', 'terms']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const k of ['privacy', 'terms', 'press', 'board', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const e of log) if (!e[t.lang]) throw new Error(`content/log.json: the entry of ${e.date} has no "${t.lang}" text`);
   for (const g of games) {
     if (!t.games[g.id]) throw new Error(`content/${t.lang}.json has no text for the game "${g.id}"`);
     if (!g.embed || !g.frame) throw new Error(`content/games.json: "${g.id}" needs "embed" (its itch html5 upload) and "frame" [w, h]`);
@@ -58,6 +73,8 @@ const playPath = (g) => `play/${g.id}/`;
 const PRIVACY = 'privacy/';
 // The terms of service, from the root of a language.
 const TERMS = 'terms/';
+// The press kit, from the root of a language. Its files are at /press/kit/ for every language.
+const PRESS = 'press/';
 // itch's own page for one upload: the newest build pushed to that channel, made to sit in a frame.
 const embedUrl = (g) => `https://itch.io/embed-upload/${g.embed}?color=0b1626`;
 
@@ -107,6 +124,7 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${up}style.css?v=${CSS_V}">
+  <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
 <body>
@@ -137,9 +155,54 @@ ${main(up, home)}
 
 <footer>
   <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
-  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')} &middot; <a href="${up}${t.path}${PRIVACY}">${esc(t.privacy.link)}</a> &middot; <a href="${up}${t.path}${TERMS}">${esc(t.terms.link)}</a></p>
+  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')} &middot; <a href="${up}${t.path}${PRESS}">${esc(t.press.link)}</a> &middot; <a href="${up}${t.path}${PRIVACY}">${esc(t.privacy.link)}</a> &middot; <a href="${up}${t.path}${TERMS}">${esc(t.terms.link)}</a></p>
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
+
+<dialog class="trailer" id="trailer" aria-label="${esc(t.trailer)}">
+  <button type="button" class="trailer-close" aria-label="${esc(t.trailer_dialog.close)}">&times;</button>
+  <div class="trailer-frame"></div>
+</dialog>
+
+<script>
+// The page's small moving parts: the header darkens once the page scrolls under it; cards and
+// sections fade up as they arrive (only when the visitor is fine with motion); a Trailer link
+// opens the film in a dialog instead of leaving for YouTube (middle-click and no-JS still leave).
+(function () {
+  var top = document.querySelector('.top');
+  function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (!still && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  var dialog = document.getElementById('trailer');
+  if (!dialog || !dialog.showModal) return;
+  var frame = dialog.querySelector('.trailer-frame');
+  function open(id) {
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    dialog.showModal();
+  }
+  function close() { dialog.close(); }
+  dialog.addEventListener('close', function () { frame.innerHTML = ''; });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) close(); });
+  dialog.querySelector('.trailer-close').addEventListener('click', close);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-video]');
+    if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    open(a.getAttribute('data-video'));
+  });
+})();
+</script>
 
 <script>
 // Offer the page in the visitor's own language, once; never switch it for them. Picking a
@@ -190,8 +253,8 @@ function page(t) {
     const aka = c.aka ? `\n          <p class="aka">${esc(c.aka)}</p>` : '';
     const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
     const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
-    return `      <article class="card${featured ? ' featured' : ''}">
-        <a class="cover" href="${playPath(g)}" tabindex="-1"><img src="${cover}" alt="${esc(c.title)}" width="630" height="500"${featured ? '' : ' loading="lazy"'}></a>
+    return `      <article class="card reveal${featured ? ' featured' : ''}" data-platforms="${g.platforms.join(' ')}">
+        <a class="cover" href="${playPath(g)}" tabindex="-1"><img src="${cover}" alt="${esc(c.title)}" width="630" height="500"${featured ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}></a>
         <div class="card-body">
           <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
           <h3>${esc(c.title)}</h3>${aka}
@@ -205,13 +268,227 @@ function page(t) {
             ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
             ` : ''}${g.rustore && t.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(t.rustore)} <span aria-hidden="true">↗</span></a>
             ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-            <a class="itch-link" href="${g.trailer}">${esc(t.trailer)} <span aria-hidden="true">↗</span></a>` : ''}
+            <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
           </p>
         </div>
       </article>`;
   };
   const featured = card(games[0], true);
   const cards = games.slice(1).map((g) => card(g, false)).join('\n\n');
+
+  // Section numbers in the kickers, in the order the sections are written.
+  let n = 0;
+  const num = () => String(++n).padStart(2, '0');
+
+  // The live board under the strip: a clock, the weather and the sun for each harbour, read in the
+  // browser (Open-Meteo, no key). Until the script runs it shows the names and the distance.
+  const instrument = (h) => `    <article class="instrument" data-tz="${h.tz}" data-lat="${h.lat}" data-lon="${h.lon}">
+      <header>
+        <h3>${esc(t.board[h.key])}</h3>
+        <p class="coord">${esc(t.board[h.key + '_sub'])} · ${h.coord}</p>
+      </header>
+      <p class="clock"><time class="clock-time" aria-label="${esc(t.board.local_time)}">--:--</time><span class="clock-part"></span></p>
+      <div class="sunarc" aria-hidden="true">
+        <svg viewBox="0 0 120 64"><path class="sunarc-track" d="M8 58 A52 52 0 0 1 112 58"/><path class="sunarc-done" d="M8 58 A52 52 0 0 1 112 58"/><circle class="sunarc-sun" cx="8" cy="58" r="5"/></svg>
+        <span class="sunarc-rise"></span><span class="sunarc-set"></span>
+      </div>
+      <p class="wx">
+        <span class="wx-icon" aria-hidden="true"></span>
+        <span class="wx-temp"></span>
+        <span class="wx-text">${esc(t.board.loading)}</span>
+      </p>
+    </article>`;
+  const board = `<section class="board reveal" aria-label="${esc(t.board.title)}">
+  <p class="kicker">${esc(t.board.title)}</p>
+  <div class="board-grid">
+${instrument(HARBOURS[0])}
+    <div class="board-mid" aria-hidden="true">
+      <svg class="compass" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36"/><circle cx="40" cy="40" r="2" fill="currentColor"/><path class="needle" d="M40 8 L45 40 L40 72 L35 40 Z"/><path d="M40 2v8M40 70v8M2 40h8M70 40h8"/></svg>
+      <span class="board-km">${esc(t.board.distance.replace('{km}', HARBOUR_KM.toLocaleString(t.lang === 'ru' ? 'ru-RU' : 'en-AU')))}</span>
+    </div>
+${instrument(HARBOURS[1])}
+  </div>
+  <p class="board-credit">${esc(t.board.credit)}</p>
+</section>`;
+
+  // One chip per platform any game plays on, with how many.
+  const platformsInPort = Object.keys(t.platforms).filter((p) => games.some((g) => g.platforms.includes(p)));
+  const chips = platformsInPort.map((p) => `      <button type="button" class="chip" aria-pressed="false" data-platform="${p}">${esc(t.platforms[p])} <small>${games.filter((g) => g.platforms.includes(p)).length}</small></button>`).join('\n');
+
+  // The harbour log: the newest entries open, the rest behind a button.
+  const LOG_SHOWN = 6;
+  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  const logItems = log.map((e, i) => {
+    const g = e.game ? games.find((x) => x.id === e.game) : null;
+    const who = g ? `<a class="log-game" href="${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="log-game">goldenharbourgames.com</span>`;
+    return `      <li class="log-item reveal${i >= LOG_SHOWN ? ' log-hidden' : ''}"${i >= LOG_SHOWN ? ' hidden' : ''}>
+        <time datetime="${e.date}">${esc(dateFmt.format(new Date(e.date + 'T00:00:00')))}</time>
+        <div>${who}<p>${esc(e[t.lang])}</p></div>
+      </li>`;
+  }).join('\n');
+
+  // The newest videos: a poster each, playing in place when pressed. Shorts posters are upright.
+  const viewsFmt = new Intl.NumberFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU');
+  const videoItems = videos.map((v) => `      <article class="video reveal${v.short ? ' short' : ''}" data-id="${v.id}">
+        <button type="button" class="video-play" aria-label="${esc(t.videos.play)}: ${esc(v.title)}">
+          <img src="https://i.ytimg.com/vi/${v.id}/${v.short ? 'oar2' : 'hqdefault'}.jpg" alt="" width="${v.short ? 1080 : 480}" height="${v.short ? 1920 : 360}" loading="lazy" decoding="async">
+          <span class="video-badge"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg></span>
+        </button>
+        <p class="video-title">${esc(v.title)}</p>
+${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace("{n}", viewsFmt.format(v.views)))}</p>` : ""}
+      </article>`).join('\n');
+
+  const homeScript = `<script>
+// The harbour board: each instrument keeps its harbour's clock, and asks Open-Meteo for the weather,
+// sunrise and sunset once an hour (the answer is kept in this browser between visits).
+(function () {
+  var lang = ${JSON.stringify(t.lang)};
+  var words = ${JSON.stringify({ codes: t.board.codes, day: t.board.day, night: t.board.night, wind: t.board.wind, offline: t.board.offline })};
+  var items = document.querySelectorAll('.instrument');
+  if (!items.length) return;
+  var ICONS = {
+    sun: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>',
+    moon: '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
+    cloud: '<svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/></svg>',
+    sunCloud: '<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M8 2v1.5M2 8h1.5M3.8 3.8l1 1M9 18h8a3.5 3.5 0 0 0 .5-7A5 5 0 0 0 8 12a3 3 0 0 0 1 6z"/></svg>',
+    rain: '<svg viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7zM8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg>',
+    snow: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM8 18v.1M12 19v.1M16 18v.1M10 21v.1M14 21v.1"/></svg>',
+    fog: '<svg viewBox="0 0 24 24"><path d="M7 13h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 6a3.5 3.5 0 0 0 1 7zM5 17h14M7 21h10"/></svg>',
+    storm: '<svg viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7zM13 13l-2.5 4.5H14L11 23"/></svg>'
+  };
+  function icon(code, day) {
+    if (code === 0 || code === 1) return day ? ICONS.sun : ICONS.moon;
+    if (code === 2) return day ? ICONS.sunCloud : ICONS.cloud;
+    if (code === 3) return ICONS.cloud;
+    if (code === 45 || code === 48) return ICONS.fog;
+    if (code >= 95) return ICONS.storm;
+    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return ICONS.snow;
+    return ICONS.rain;
+  }
+  function hm(iso) { return iso.slice(11, 16); }
+  function minutes(iso) { return Number(iso.slice(11, 13)) * 60 + Number(iso.slice(14, 16)); }
+  function tick(el, tz) {
+    var now = new Date();
+    var f = new Intl.DateTimeFormat(lang, { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
+    var parts = f.format(now).replace(/^24/, '00');
+    el.querySelector('.clock-time').textContent = parts;
+    el.querySelector('.clock-time').setAttribute('datetime', now.toISOString());
+    var d = el._day;
+    if (d) {
+      var hmNow = new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false }).format(now).replace(/^24/, '00');
+      var m = Number(hmNow.slice(0, 2)) * 60 + Number(hmNow.slice(3, 5));
+      var day = m >= d.rise && m <= d.set;
+      el.querySelector('.clock-part').textContent = day ? words.day : words.night;
+      el.classList.toggle('is-night', !day);
+      var p = Math.max(0, Math.min(1, (m - d.rise) / (d.set - d.rise)));
+      var a = Math.PI * (1 - p);
+      var sun = el.querySelector('.sunarc-sun');
+      sun.setAttribute('cx', (60 + 52 * Math.cos(a)).toFixed(1));
+      sun.setAttribute('cy', (58 - 52 * Math.sin(a)).toFixed(1));
+      sun.style.opacity = day ? 1 : 0.25;
+      el.querySelector('.sunarc-done').style.strokeDashoffset = String(164 * (1 - (day ? p : (m < d.rise ? 0 : 1))));
+    }
+  }
+  function show(el, w) {
+    var c = w.current;
+    el._day = { rise: minutes(w.daily.sunrise[0]), set: minutes(w.daily.sunset[0]) };
+    el.querySelector('.sunarc-rise').textContent = hm(w.daily.sunrise[0]);
+    el.querySelector('.sunarc-set').textContent = hm(w.daily.sunset[0]);
+    el.querySelector('.wx-icon').innerHTML = icon(c.weather_code, c.is_day === 1);
+    el.querySelector('.wx-temp').textContent = Math.round(c.temperature_2m) + '°';
+    el.querySelector('.wx-text').textContent = (words.codes[c.weather_code] || '') + ' · ' + words.wind + ' ' + Math.round(c.wind_speed_10m) + ' km/h';
+    tick(el, el.getAttribute('data-tz'));
+  }
+  function load() {
+    var key = 'ghg-board';
+    try {
+      var kept = JSON.parse(localStorage.getItem(key) || 'null');
+      if (kept && Date.now() - kept.at < 3600e3) { kept.data.forEach(function (w, i) { show(items[i], w); }); return; }
+    } catch (e) {}
+    var lat = [], lon = [];
+    items.forEach(function (el) { lat.push(el.getAttribute('data-lat')); lon.push(el.getAttribute('data-lon')); });
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat.join(',') + '&longitude=' + lon.join(',') + '&current=temperature_2m,weather_code,wind_speed_10m,is_day&daily=sunrise,sunset&timezone=auto&forecast_days=1')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (!Array.isArray(data)) throw new Error('shape');
+        data.forEach(function (w, i) { show(items[i], w); });
+        try { localStorage.setItem(key, JSON.stringify({ at: Date.now(), data: data })); } catch (e) {}
+      })
+      .catch(function () { items.forEach(function (el) { el.querySelector('.wx-text').textContent = words.offline; }); });
+  }
+  items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); });
+  setInterval(function () { items.forEach(function (el) { tick(el, el.getAttribute('data-tz')); }); }, 1000);
+  load();
+  setInterval(load, 3600e3);
+
+  // The compass needle points from the first harbour to the second (the initial bearing, roughly
+  // south-east), and then drifts with the mouse a little, as a needle would.
+  var needle = document.querySelector('.compass .needle');
+  if (needle) {
+    var base = 140;
+    needle.setAttribute('transform', 'rotate(' + base + ' 40 40)');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mousemove', function (e) {
+        var r = needle.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        var want = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+        var dist = Math.hypot(dx, dy);
+        var pull = Math.max(0, 1 - dist / 700);
+        var diff = ((want - base + 540) % 360) - 180;
+        needle.setAttribute('transform', 'rotate(' + (base + diff * pull * 0.5) + ' 40 40)');
+      }, { passive: true });
+    }
+  }
+})();
+
+// Show only the games that play on one platform; "All" brings them back.
+(function () {
+  var chips = document.querySelectorAll('.chip[data-platform]');
+  var cards = document.querySelectorAll('.card[data-platforms]');
+  var none = document.querySelector('.chips-none');
+  if (!chips.length) return;
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var want = chip.getAttribute('data-platform');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      var shown = 0;
+      cards.forEach(function (card) {
+        var ok = !want || (' ' + card.getAttribute('data-platforms') + ' ').indexOf(' ' + want + ' ') >= 0;
+        card.hidden = !ok;
+        if (ok) { shown++; card.classList.add('is-in'); }
+      });
+      none.hidden = shown > 0;
+    });
+  });
+})();
+
+// The older log entries, and the videos playing in place.
+(function () {
+  var more = document.querySelector('.log-more-btn');
+  if (more) {
+    var all = more.textContent, less = more.getAttribute('data-less');
+    more.addEventListener('click', function () {
+      var open = more.getAttribute('aria-expanded') !== 'true';
+      more.setAttribute('aria-expanded', String(open));
+      document.querySelectorAll('.log-hidden').forEach(function (li) { li.hidden = !open; li.classList.add('is-in'); });
+      more.textContent = open ? less : all;
+    });
+  }
+  document.querySelectorAll('.video').forEach(function (v) {
+    v.querySelector('.video-play').addEventListener('click', function () {
+      var id = v.getAttribute('data-id');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+      f.title = v.querySelector('.video-title').textContent;
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      var play = v.querySelector('.video-play');
+      play.replaceWith(f);
+      v.classList.add('is-playing');
+    });
+  });
+})();
+</script>`;
 
   // "Games from two harbours" -> the last word in brass, with a full stop.
   const words = t.hero.title.split(' ');
@@ -241,6 +518,7 @@ function page(t) {
     ogImage: shareImage(`img/og-${t.lang}.jpg`),
     ogSize: [1200, 630],
     jsonld: org,
+    script: homeScript,
     main: () => `<section class="hero chart">
   <div class="hero-text">
     <p class="kicker">${esc(t.hero.eyebrow)} · ${esc(t.hero.route)}</p>
@@ -261,14 +539,22 @@ function page(t) {
 
 <div class="strip">${strip}</div>
 
+${board}
+
 <main>
   <section id="games" class="section games">
     <div class="section-head">
       <div>
-        <p class="kicker">01 / ${esc(t.nav.games)}</p>
+        <p class="kicker">${num()} / ${esc(t.nav.games)}</p>
         <h2>${esc(t.games_title)}</h2>
       </div>
       <p>${esc(t.games_lede)}</p>
+    </div>
+
+    <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
+      <span class="chips-label">${esc(t.filter.label)}</span>
+      <button type="button" class="chip" aria-pressed="true" data-platform="">${esc(t.filter.all)} <small>${games.length}</small></button>
+${chips}
     </div>
 
 ${featured}
@@ -278,12 +564,41 @@ ${featured}
 ${cards}
 
     </div>
+    <p class="chips-none" hidden>${esc(t.filter.none)}</p>
   </section>
 
+  <section id="log" class="section log">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${num()} / ${esc(t.log.nav)}</p>
+        <h2>${esc(t.log.title)}</h2>
+      </div>
+      <p>${esc(t.log.lede)}</p>
+    </div>
+    <ol class="log-list">
+${logItems}
+    </ol>${log.length > LOG_SHOWN ? `
+    <p><button type="button" class="chip log-more-btn" aria-expanded="false" data-less="${esc(t.log.less)}">${esc(t.log.all)} <small>${log.length - LOG_SHOWN}</small></button></p>` : ''}
+  </section>
+${videos.length ? `
+  <section id="channel" class="section channel">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${num()} / ${esc(t.videos.nav)}</p>
+        <h2>${esc(t.videos.title)}</h2>
+      </div>
+      <p>${esc(t.videos.lede)}</p>
+    </div>
+    <div class="video-grid">
+${videoItems}
+    </div>
+    <p class="channel-all"><a class="button ghost" href="${links.find((l) => /youtube/i.test(l.url))?.url || 'https://www.youtube.com/@goldenharbourgames'}">${esc(t.videos.channel)} <span aria-hidden="true">↗</span></a></p>
+  </section>
+` : ''}
   <section id="about" class="section about">
     <div class="section-head">
       <div>
-        <p class="kicker">02 / ${esc(t.nav.about)}</p>
+        <p class="kicker">${num()} / ${esc(t.nav.about)}</p>
         <h2>${esc(t.about.title)}</h2>
       </div>
       <div class="about-text">
@@ -300,7 +615,7 @@ ${t.about.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
   </section>
 
   <section id="contact" class="section contact chart">
-    <p class="kicker">03 / ${esc(t.nav.contact)}</p>
+    <p class="kicker">${num()} / ${esc(t.nav.contact)}</p>
     <h2>${esc(t.contact.title)}</h2>
     <p class="contact-text">${esc(t.contact.text)}</p>
     <a class="email" href="mailto:${EMAIL}">${EMAIL}</a>
@@ -376,8 +691,12 @@ function playPage(t, g) {
         ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(p.google_play)} <span aria-hidden="true">↗</span></a>
         ` : ''}${g.rustore && p.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(p.rustore)} <span aria-hidden="true">↗</span></a>
         ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-        <a class="itch-link" href="${g.trailer}">${esc(t.trailer)} <span aria-hidden="true">↗</span></a>` : ''}${g.shorts ? `
+        <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}${g.shorts ? `
         <a class="itch-link" href="${g.shorts}">${esc(t.shorts)} <span aria-hidden="true">↗</span></a>` : ''}
+        <button type="button" class="share-btn" data-text="${esc(t.share.text.replace('{game}', c.title))}" data-copied="${esc(t.share.copied)}">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6h14v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>${esc(t.share.button)}</span>
+        </button>
       </p>
     </div>
 
@@ -456,6 +775,18 @@ ${others.map((o) => `      <a class="more-card" href="${up}${t.path}${playPath(o
   full.addEventListener('click', function () {
     (stage.requestFullscreen || stage.webkitRequestFullscreen).call(stage);
   });
+
+  // Share: the phone's own share sheet where there is one, otherwise the link goes to the clipboard.
+  var share = document.querySelector('.share-btn');
+  if (share) share.addEventListener('click', function () {
+    var data = { title: document.title, text: share.getAttribute('data-text'), url: location.href };
+    if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+    var label = share.querySelector('span'), was = label.textContent;
+    (navigator.clipboard ? navigator.clipboard.writeText(location.href) : Promise.reject()).then(function () {
+      label.textContent = share.getAttribute('data-copied');
+      setTimeout(function () { label.textContent = was; }, 1800);
+    }, function () { window.prompt('', location.href); });
+  });
 })();
 </script>`,
   });
@@ -507,6 +838,100 @@ ${p.intro.map((x) => `      <p class="text">${esc(x)}</p>`).join('\n')}
     </div>
     <div class="game-story">
 ${p.sections.map(section).join('\n')}
+    </div>
+  </section>
+</main>`,
+  });
+}
+
+// The press kit: facts, the studio in two paragraphs, logos, the game covers, the colours and the
+// whole kit as one archive. The files sit at /press/kit/ once, for every language.
+function pressPage(t) {
+  const p = t.press;
+  const sub = PRESS;
+  const kit = (up) => `${up}press/kit/`;
+  const webpage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: p.title,
+    description: p.description,
+    url: SITE + t.path + sub,
+    inLanguage: t.lang,
+    isPartOf: { '@type': 'WebSite', name: 'Golden Harbour Games', url: SITE },
+    publisher: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE, email: EMAIL },
+  };
+  const logos = [
+    ['ghg-horizontal-on-dark', 'ghg-horizontal-on-dark-1200w.png', 'dark'],
+    ['ghg-horizontal-on-light', 'ghg-horizontal-on-light-1200w.png', 'light'],
+    ['ghg-mark-on-dark', 'ghg-mark-on-dark-1024.png', 'dark'],
+    ['ghg-mark-on-light', 'ghg-mark-on-light-1024.png', 'light'],
+  ];
+  return shell(t, sub, {
+    title: p.seo_title,
+    ogTitle: p.title,
+    description: p.description,
+    ogImage: shareImage(`img/og-${t.lang}.jpg`),
+    ogSize: [1200, 630],
+    jsonld: webpage,
+    main: (up, home) => `<main>
+  <section class="section game-page chart">
+    <p class="crumbs"><a href="${home}"><span aria-hidden="true">←</span> ${esc(p.back)}</a></p>
+    <div class="game-head">
+      <h1>${esc(p.title)}</h1>
+    </div>
+    <div class="game-info">
+${p.intro.map((x) => `      <p class="text">${esc(x)}</p>`).join('\n')}
+      <p><a class="button" href="${kit(up)}golden-harbour-games-brand-kit.zip" download>${esc(p.download)} <span aria-hidden="true">↓</span></a></p>
+    </div>
+
+    <div class="press">
+      <section class="press-block">
+        <h2>${esc(p.facts_title)}</h2>
+        <dl class="press-facts">
+${p.facts.map(([k, v]) => `          <div><dt>${esc(k)}</dt><dd>${/@/.test(v) ? `<a href="mailto:${esc(v)}">${esc(v)}</a>` : esc(v)}</dd></div>`).join('\n')}
+        </dl>
+      </section>
+
+      <section class="press-block">
+        <h2>${esc(p.boilerplate_title)}</h2>
+${p.boilerplate.map((x) => `        <p>${esc(x)}</p>`).join('\n')}
+      </section>
+
+      <section class="press-block">
+        <h2>${esc(p.logos_title)}</h2>
+        <p>${esc(p.logos_text)}</p>
+        <div class="press-logos">
+${logos.map(([base, png, bg]) => `          <figure class="press-logo ${bg}">
+            <img src="${kit(up)}${png}" alt="${base}" loading="lazy" decoding="async">
+            <figcaption><a href="${kit(up)}${base}.svg" download>SVG</a> · <a href="${kit(up)}${png}" download>PNG</a></figcaption>
+          </figure>`).join('\n')}
+        </div>
+      </section>
+
+      <section class="press-block">
+        <h2>${esc(p.covers_title)}</h2>
+        <p>${esc(p.covers_text)}</p>
+        <div class="press-covers">
+${games.map((g) => `          <figure class="press-cover">
+            <img src="${up}${g.cover}" alt="${esc(t.games[g.id].title)}" width="630" height="500" loading="lazy" decoding="async">
+            <figcaption><a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · <a href="${up}${g.cover}" download>JPG</a>${g.trailer ? ` · <a href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)}</a>` : ''}</figcaption>
+          </figure>`).join('\n')}
+        </div>
+      </section>
+
+      <section class="press-block">
+        <h2>${esc(p.colours_title)}</h2>
+        <div class="press-colours">
+${p.colours.map(([name, hex]) => `          <div class="swatch" style="--c: ${hex}"><i></i><b>${esc(name)}</b><code>${hex}</code></div>`).join('\n')}
+        </div>
+      </section>
+
+      <section class="press-block">
+        <h2>${esc(p.kit_title)}</h2>
+        <p>${esc(p.kit_text)}</p>
+        <p><a class="button" href="${kit(up)}golden-harbour-games-brand-kit.zip" download>${esc(p.download)} <span aria-hidden="true">↓</span></a></p>
+        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+      </section>
     </div>
   </section>
 </main>`,
@@ -583,10 +1008,11 @@ for (const t of langs) write(t.path + 'index.html', page(t));
 for (const t of langs) for (const g of games) write(t.path + playPath(g) + 'index.html', playPage(t, g));
 for (const t of langs) write(t.path + PRIVACY + 'index.html', legalPage(t, 'privacy', PRIVACY));
 for (const t of langs) write(t.path + TERMS + 'index.html', legalPage(t, 'terms', TERMS));
+for (const t of langs) write(t.path + PRESS + 'index.html', pressPage(t));
 write('404.html', notFound());
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${['', ...games.map(playPath), PRIVACY, TERMS].flatMap((sub) => langs.map((t) => `  <url>
+${['', ...games.map(playPath), PRIVACY, TERMS, PRESS].flatMap((sub) => langs.map((t) => `  <url>
     <loc>${SITE}${t.path}${sub}</loc>
 ${langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${SITE}${l.path}${sub}"/>`).join('\n')}
   </url>`)).join('\n')}

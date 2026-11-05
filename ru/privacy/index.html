@@ -29,7 +29,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=881ee77f">
+  <link rel="stylesheet" href="../../style.css?v=cac95d6d">
+  <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Политика конфиденциальности","description":"Как Golden Harbour Games обращается с вашими данными: две игры отправляют анонимные игровые данные и предлагают необязательный вход через Google Play Игры, остальные не собирают ничего, а сайт не ставит собственных cookie.","url":"https://goldenharbourgames.com/ru/privacy/","inLanguage":"ru","dateModified":"2026-10-31","isPartOf":{"@type":"WebSite","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"publisher":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com"}}</script>
 </head>
 <body>
@@ -123,9 +124,54 @@
 
 <footer>
   <p class="foot-brand"><img src="../../img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; Сидней, Австралия</p>
-  <p class="foot-links"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> &middot; <a href="https://goldenharbourgames.itch.io/" rel="me">itch.io</a> &middot; <a href="https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD" rel="me">Google Play</a> &middot; <a href="https://www.youtube.com/@goldenharbourgames" rel="me">YouTube</a> &middot; <a href="https://www.tiktok.com/@goldenharbourgames" rel="me">TikTok</a> &middot; <a href="https://x.com/GoldenHrbrGames" rel="me">X</a> &middot; <a href="../../ru/privacy/">Конфиденциальность</a> &middot; <a href="../../ru/terms/">Условия</a></p>
+  <p class="foot-links"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> &middot; <a href="https://goldenharbourgames.itch.io/" rel="me">itch.io</a> &middot; <a href="https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD" rel="me">Google Play</a> &middot; <a href="https://www.youtube.com/@goldenharbourgames" rel="me">YouTube</a> &middot; <a href="https://www.tiktok.com/@goldenharbourgames" rel="me">TikTok</a> &middot; <a href="https://x.com/GoldenHrbrGames" rel="me">X</a> &middot; <a href="../../ru/press/">Для прессы</a> &middot; <a href="../../ru/privacy/">Конфиденциальность</a> &middot; <a href="../../ru/terms/">Условия</a></p>
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
+
+<dialog class="trailer" id="trailer" aria-label="Трейлер">
+  <button type="button" class="trailer-close" aria-label="Закрыть трейлер">&times;</button>
+  <div class="trailer-frame"></div>
+</dialog>
+
+<script>
+// The page's small moving parts: the header darkens once the page scrolls under it; cards and
+// sections fade up as they arrive (only when the visitor is fine with motion); a Trailer link
+// opens the film in a dialog instead of leaving for YouTube (middle-click and no-JS still leave).
+(function () {
+  var top = document.querySelector('.top');
+  function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (!still && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  var dialog = document.getElementById('trailer');
+  if (!dialog || !dialog.showModal) return;
+  var frame = dialog.querySelector('.trailer-frame');
+  function open(id) {
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    dialog.showModal();
+  }
+  function close() { dialog.close(); }
+  dialog.addEventListener('close', function () { frame.innerHTML = ''; });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) close(); });
+  dialog.querySelector('.trailer-close').addEventListener('click', close);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-video]');
+    if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    open(a.getAttribute('data-video'));
+  });
+})();
+</script>
 
 <script>
 // Offer the page in the visitor's own language, once; never switch it for them. Picking a

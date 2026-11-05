@@ -577,5 +577,153 @@
   },
   "google_play": "Google Play",
   "trailer": "Trailer",
-  "shorts": "Shorts on YouTube"
+  "shorts": "Shorts on YouTube",
+  "board": {
+    "title": "Now in the two harbours",
+    "north": "Vladivostok",
+    "north_sub": "Golden Horn Bay",
+    "south": "Sydney",
+    "south_sub": "Port Jackson",
+    "local_time": "Local time",
+    "weather": "Weather",
+    "sun": "Sun",
+    "wind": "wind",
+    "distance": "{km} km of water between them",
+    "loading": "Reading the instruments…",
+    "offline": "No weather report",
+    "credit": "Weather: Open-Meteo",
+    "night": "night",
+    "day": "day",
+    "codes": {
+      "0": "Clear",
+      "1": "Mostly clear",
+      "2": "Partly cloudy",
+      "3": "Overcast",
+      "45": "Fog",
+      "48": "Fog",
+      "51": "Drizzle",
+      "53": "Drizzle",
+      "55": "Drizzle",
+      "56": "Freezing drizzle",
+      "57": "Freezing drizzle",
+      "61": "Light rain",
+      "63": "Rain",
+      "65": "Heavy rain",
+      "66": "Freezing rain",
+      "67": "Freezing rain",
+      "71": "Light snow",
+      "73": "Snow",
+      "75": "Heavy snow",
+      "77": "Snow grains",
+      "80": "Showers",
+      "81": "Showers",
+      "82": "Heavy showers",
+      "85": "Snow showers",
+      "86": "Snow showers",
+      "95": "Thunderstorm",
+      "96": "Thunderstorm with hail",
+      "99": "Thunderstorm with hail"
+    }
+  },
+  "filter": {
+    "label": "Show",
+    "all": "All",
+    "none": "Nothing plays there yet."
+  },
+  "log": {
+    "nav": "Log",
+    "title": "Harbour log",
+    "lede": "What changed lately, newest first. Every game on this site is a living build.",
+    "all": "Older entries",
+    "less": "Fewer"
+  },
+  "videos": {
+    "nav": "Channel",
+    "title": "From the channel",
+    "lede": "Short films from the games: the physics, the history and the fights behind them.",
+    "channel": "All videos on YouTube",
+    "play": "Play",
+    "views": "{n} views"
+  },
+  "trailer_dialog": {
+    "close": "Close the trailer"
+  },
+  "share": {
+    "button": "Share",
+    "copied": "Link copied",
+    "text": "Play {game} free in your browser"
+  },
+  "press": {
+    "link": "Press kit",
+    "title": "Press kit",
+    "seo_title": "Press kit · Golden Harbour Games",
+    "back": "Home",
+    "description": "Logos, covers, colours and the studio story for press and creators. Everything here may be used in coverage of Golden Harbour Games.",
+    "intro": [
+      "Everything on this page may be used in articles, videos and streams about our games. Monetised videos are fine too.",
+      "If you need anything else, a build key or a quote, write to us: we answer within a day."
+    ],
+    "facts_title": "Facts",
+    "facts": [
+      [
+        "Studio",
+        "Golden Harbour Games Pty Ltd"
+      ],
+      [
+        "Based in",
+        "Sydney, Australia; roots in Vladivostok, Russia"
+      ],
+      [
+        "Founded",
+        "2026"
+      ],
+      [
+        "Engines",
+        "Godot 4, Unity"
+      ],
+      [
+        "Platforms",
+        "Android (Google Play, RuStore), Windows, browser"
+      ],
+      [
+        "Contact",
+        "contact@goldenharbourgames.com"
+      ]
+    ],
+    "boilerplate_title": "About the studio",
+    "boilerplate": [
+      "Golden Harbour Games is an independent studio between two harbours: the Golden Horn in Vladivostok, where its founders grew up, and Sydney Harbour, where it makes games now. It makes small, sharp games with a real subject behind each one: wildfire aviation, boxing, the Russian serf estate, a used electric car across Siberia.",
+      "Every game plays free in the browser; the phone games are on Google Play. The studio writes and voices its games in English and Russian, and some in five more languages."
+    ],
+    "logos_title": "Logos",
+    "logos_text": "The mark alone for small sizes, the full logo with the bridges from 64 px up. Brass on navy, or navy on paper; never stretched, never recoloured.",
+    "covers_title": "Game covers",
+    "covers_text": "630×500 covers as they appear on this site and on itch.io. Each game page also has a trailer.",
+    "colours_title": "Colours",
+    "colours": [
+      [
+        "Night Water",
+        "#0b1626"
+      ],
+      [
+        "Deep Channel",
+        "#13243b"
+      ],
+      [
+        "Harbour Brass",
+        "#e8b04b"
+      ],
+      [
+        "Sea Foam",
+        "#f3eee2"
+      ],
+      [
+        "Buoy Red",
+        "#e0533d"
+      ]
+    ],
+    "kit_title": "The whole kit",
+    "kit_text": "Logos in SVG and PNG, favicons, social covers, the fonts (OFL) and a short brand guide, in one archive.",
+    "download": "Download the brand kit (4 MB)"
+  }
 }

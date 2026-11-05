@@ -100,4 +100,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/terms/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/terms/"/>
   </url>
+  <url>
+    <loc>https://goldenharbourgames.com/press/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/press/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/press/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/press/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/press/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/press/"/>
+  </url>
 </urlset>
