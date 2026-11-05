@@ -249,7 +249,7 @@ function page(t) {
     const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
     const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
     return `        <article class="ring-card" data-index="${i}" data-platforms="${g.platforms.join(' ')}">
-          <a class="ring-cover" href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ' decoding="async"'}></a>
+          <a class="ring-cover" href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ' decoding="async"'}>${g.clip ? `<video class="ring-clip" data-src="${up}${g.clip}" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>` : ''}</a>
           <div class="ring-body">
             <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
             <h3>${esc(c.title)}</h3>${c.aka ? `\n            <p class="aka">${esc(c.aka)}</p>` : ''}
@@ -377,7 +377,7 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   var cards = all.slice();
   var pos = 0, target = 0, vel = 0, fling = 0, running = false;
   var pressed = false, dragging = false, moved = false, sx = 0, spos = 0, lx = 0, lt = 0;
-  var w = 1, front = -1, seen = true, resting = false, timer = null;
+  var w = 1, front = -1, seen = !('IntersectionObserver' in window), resting = false, timer = null;
   all.forEach(function (c) { c._shade = c.querySelector('.ring-shade'); });
 
   function wrap(d) { var m = cards.length; d = ((d % m) + m) % m; return d > m / 2 ? d - m : d; }
@@ -404,6 +404,29 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     });
     var id = cards[i] && cards[i].getAttribute('data-index');
     dots.forEach(function (d) { d.setAttribute('aria-current', String(d.getAttribute('data-index') === id)); });
+    clips();
+  }
+  // The front card plays its gameplay loop over the cover; every other one pauses and shows its
+  // cover again. Nothing loads until a card first comes to the front, and nothing plays off screen,
+  // for those who asked for less motion, or with Data Saver on.
+  var calm = still || !!(navigator.connection && navigator.connection.saveData);
+  all.forEach(function (c) {
+    var v = c.querySelector('.ring-clip');
+    if (!v) return;
+    c._clip = v;
+    v.addEventListener('playing', function () { v.classList.add('is-on'); });
+    v.addEventListener('pause', function () { v.classList.remove('is-on'); });
+  });
+  function clips() {
+    all.forEach(function (c) {
+      var v = c._clip;
+      if (!v) return;
+      var front = !calm && seen && !c.hidden && c.classList.contains('is-front');
+      if (front && !running) {
+        if (!v.getAttribute('src')) v.src = v.getAttribute('data-src');
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      } else if (!front && !v.paused) v.pause();
+    });
   }
   function render() {
     var m = cards.length;
@@ -424,10 +447,10 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
       }
     }
     render();
-    if (dragging || fling || vel || pos !== target) requestAnimationFrame(frame); else running = false;
+    if (dragging || fling || vel || pos !== target) requestAnimationFrame(frame); else { running = false; clips(); }
   }
   function kick() {
-    if (still) { pos = target; fling = vel = 0; render(); return; }
+    if (still) { pos = target; fling = vel = 0; render(); clips(); return; }
     if (!running) { running = true; requestAnimationFrame(frame); }
   }
   function go(step) { fling = 0; target = Math.round(target) + step; kick(); arm(); }
@@ -502,7 +525,7 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   stage.addEventListener('focusin', function () { resting = true; });
   stage.addEventListener('focusout', function () { resting = false; });
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(stage);
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; clips(); }).observe(stage);
   }
   var queued = false;
   window.addEventListener('resize', function () {
@@ -783,7 +806,8 @@ function playPage(t, g) {
     </div>
 
     <div class="stage${portrait ? ' portrait' : ''}" style="--fw: ${fw}; --fh: ${fh}" data-embed="${embedUrl(g)}" data-title="${esc(p.frame_title.replace('{game}', c.title))}">
-      <img class="stage-cover" src="${up}${g.cover}" alt="" width="630" height="500">
+      <img class="stage-cover" src="${up}${g.cover}" alt="" width="630" height="500">${g.clip ? `
+      <video class="stage-cover stage-clip" data-src="${up}${g.clip}" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>` : ''}
       <button type="button" class="stage-start">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>
         ${esc(p.start)}
@@ -876,11 +900,20 @@ ${others.map((o) => `      <a class="more-card" href="${up}${t.path}${playPath(o
   function stop() {
     holder.innerHTML = '';
     stage.classList.remove('is-playing', 'is-layer');
+    if (clip && !calm) { var p1 = clip.play(); if (p1 && p1.catch) p1.catch(function () {}); }
     document.documentElement.classList.remove('no-scroll');
     close.hidden = true;
     full.hidden = true;
     start.focus();
   }
+  var clip = stage.querySelector('.stage-clip');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches || !!(navigator.connection && navigator.connection.saveData);
+  if (clip && !calm) {
+    clip.addEventListener('playing', function () { clip.classList.add('is-on'); stage.classList.add('has-clip'); });
+    clip.src = clip.getAttribute('data-src');
+    var p0 = clip.play(); if (p0 && p0.catch) p0.catch(function () {});
+  }
+  start.addEventListener('click', function () { if (clip) clip.pause(); });
   start.addEventListener('click', play);
   close.addEventListener('click', stop);
   full.addEventListener('click', function () {

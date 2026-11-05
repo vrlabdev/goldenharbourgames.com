@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../style.css?v=a5e0e599">
+  <link rel="stylesheet" href="../../../style.css?v=aa0ec6b4">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Gull Chorus","description":"Каждая чайка, которую ты отправляешь, снова летит вместе со следующей. Веди стаю по настоящему пляжу, воруй картошку фри, круши всё подряд, и весь пляж играет песню.","url":"https://goldenharbourgames.com/ru/play/gull-chorus/","image":"https://goldenharbourgames.com/img/gull-chorus.jpg","genre":["Аркада","Музыка"],"inLanguage":["en"],"gamePlatform":["Web browser","Windows"],"applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"sameAs":["https://goldenharbourgames.itch.io/gull-chorus"]}</script>
 </head>
@@ -68,6 +68,7 @@
 
     <div class="stage" style="--fw: 1280; --fh: 720" data-embed="https://itch.io/embed-upload/20014737?color=0b1626" data-title="Gull Chorus — игра на странице">
       <img class="stage-cover" src="../../../img/gull-chorus.jpg" alt="" width="630" height="500">
+      <video class="stage-cover stage-clip" data-src="../../../img/clips/gull-chorus.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>
       <button type="button" class="stage-start">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>
         Играть
@@ -292,11 +293,20 @@
   function stop() {
     holder.innerHTML = '';
     stage.classList.remove('is-playing', 'is-layer');
+    if (clip && !calm) { var p1 = clip.play(); if (p1 && p1.catch) p1.catch(function () {}); }
     document.documentElement.classList.remove('no-scroll');
     close.hidden = true;
     full.hidden = true;
     start.focus();
   }
+  var clip = stage.querySelector('.stage-clip');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches || !!(navigator.connection && navigator.connection.saveData);
+  if (clip && !calm) {
+    clip.addEventListener('playing', function () { clip.classList.add('is-on'); stage.classList.add('has-clip'); });
+    clip.src = clip.getAttribute('data-src');
+    var p0 = clip.play(); if (p0 && p0.catch) p0.catch(function () {});
+  }
+  start.addEventListener('click', function () { if (clip) clip.pause(); });
   start.addEventListener('click', play);
   close.addEventListener('click', stop);
   full.addEventListener('click', function () {

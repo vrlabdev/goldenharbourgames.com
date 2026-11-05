@@ -25,7 +25,8 @@
     "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw",
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=5c9urndqa8E",
-    "shorts": "https://www.youtube.com/playlist?list=PLBSqnmgdfS_8"
+    "shorts": "https://www.youtube.com/playlist?list=PLBSqnmgdfS_8",
+    "clip": "img/clips/aerofire-command.mp4"
   },
   {
     "id": "punch-league",
@@ -48,7 +49,8 @@
     "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague",
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c",
-    "rustore": "https://www.rustore.ru/catalog/app/com.vrlabdv.punchleague"
+    "rustore": "https://www.rustore.ru/catalog/app/com.vrlabdv.punchleague",
+    "clip": "img/clips/punch-league.mp4"
   },
   {
     "id": "orbital-jump",
@@ -68,7 +70,8 @@
       760
     ],
     "new": true,
-    "trailer": "https://www.youtube.com/watch?v=8ZdjVx0XtEA"
+    "trailer": "https://www.youtube.com/watch?v=8ZdjVx0XtEA",
+    "clip": "img/clips/orbital-jump.mp4"
   },
   {
     "id": "souls-and-estates",
@@ -89,7 +92,8 @@
     ],
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=hayVkhYTo9s",
-    "shorts": "https://www.youtube.com/playlist?list=PLezIkZAKjsKI"
+    "shorts": "https://www.youtube.com/playlist?list=PLezIkZAKjsKI",
+    "clip": "img/clips/souls-and-estates.mp4"
   },
   {
     "id": "gull-chorus",
@@ -109,7 +113,8 @@
       720
     ],
     "new": true,
-    "trailer": "https://www.youtube.com/watch?v=SQ3M_coqleY"
+    "trailer": "https://www.youtube.com/watch?v=SQ3M_coqleY",
+    "clip": "img/clips/gull-chorus.mp4"
   },
   {
     "id": "peregon",
@@ -127,7 +132,8 @@
     "frame": [
       1280,
       720
-    ]
+    ],
+    "clip": "img/clips/peregon.mp4"
   },
   {
     "id": "vladivostok-fortress",
