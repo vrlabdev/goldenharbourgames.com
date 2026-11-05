@@ -534,3 +534,102 @@ a.log-game:hover { color: var(--gold-hi); }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .video-play, .compass .needle, .sunarc-sun, .sunarc-done { transition: none; }
 }
+
+/* ---- the ring: every cover on a turning circle over the water, the front one named below ---- */
+.ring-stage {
+  position: relative; margin: 0 calc(-1 * var(--pad)) 40px; padding: 24px var(--pad) 28px;
+  overflow: hidden; isolation: isolate;
+  background: radial-gradient(ellipse 70% 55% at 50% 42%, #142a46 0%, var(--ink) 70%);
+  user-select: none; -webkit-user-select: none; touch-action: pan-y;
+}
+.ring-stage:focus { outline: none; }
+.ring-stage:focus-visible { box-shadow: inset 0 0 0 2px var(--gold); }
+/* no scripting: the ring is a plain row of covers */
+.ring-scene { position: relative; height: clamp(380px, 44vw, 600px); perspective: 2600px; perspective-origin: 50% 36%; cursor: grab; }
+.ring-stage.is-dragging .ring-scene { cursor: grabbing; }
+.ring { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(-7deg); }
+.ring-card {
+  --w: clamp(190px, 24vw, 330px);
+  --f: 0.5;
+  position: absolute; left: 50%; top: 36%; width: var(--w); margin: 0;
+  transform-style: preserve-3d; transform-origin: 50% 50%;
+  margin-left: calc(var(--w) / -2); margin-top: calc(var(--w) * -0.4);
+  will-change: transform;
+  filter: brightness(calc(0.45 + 0.6 * var(--f))) saturate(calc(0.7 + 0.4 * var(--f)));
+  transition: opacity 0.9s ease, filter 0.3s;
+}
+.ring-card a { display: block; cursor: pointer; }
+.ring-card img {
+  display: block; width: 100%; aspect-ratio: 630 / 500; object-fit: cover;
+  border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 0 rgba(232, 176, 75, 0);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.ring-card.is-front img { border-color: rgba(232, 176, 75, 0.7); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(232, 176, 75, 0.25), 0 0 60px rgba(232, 176, 75, 0.18); }
+/* the reflection: the cover again, flipped, melting into the water */
+.ring-reflect {
+  position: absolute; left: 0; top: 100%; width: 100%; margin-top: 10px; pointer-events: none;
+  transform: scaleY(-1); opacity: calc(0.12 + 0.3 * var(--f));
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 38%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 38%);
+  filter: blur(1.5px);
+}
+.ring-reflect img { box-shadow: none; border-color: transparent; }
+/* the water line and the radar sweep behind the ring */
+.ring-horizon {
+  position: absolute; left: 0; right: 0; top: calc(36% + 150px); height: 1px; z-index: -1;
+  background: linear-gradient(90deg, transparent, var(--line-2) 20%, var(--line-2) 80%, transparent);
+}
+.ring-sweep {
+  position: absolute; left: 50%; top: 34%; width: min(120vw, 1100px); aspect-ratio: 1; z-index: -1;
+  transform: translate(-50%, -50%) rotateX(72deg); transform-style: preserve-3d;
+  border-radius: 50%; border: 1px dashed var(--line-2);
+  background:
+    radial-gradient(circle, transparent 58%, rgba(43, 65, 102, 0.35) 59%, transparent 60%),
+    conic-gradient(from 0deg, rgba(232, 176, 75, 0.0) 0deg, rgba(232, 176, 75, 0.0) 300deg, rgba(232, 176, 75, 0.22) 360deg);
+  animation: sweep 9s linear infinite;
+  opacity: 0.8;
+}
+@keyframes sweep { to { transform: translate(-50%, -50%) rotateX(72deg) rotate(360deg); } }
+/* the covers sail in from the horizon */
+.js .ring-stage:not(.is-in) .ring-card { opacity: 0; }
+.ring-stage.is-in .ring-card { opacity: 1; }
+
+.ring-under { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 20px; align-items: center; margin-top: 36px; position: relative; z-index: 2; }
+.ring-captions { min-height: 180px; position: relative; }
+.ring-caption { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; max-width: 44em; margin: 0 auto; }
+.ring-caption[hidden] { display: none; }
+.ring-caption.is-on { animation: caption-in 0.5s ease both; }
+@keyframes caption-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.ring-caption .kind { justify-content: center; }
+.ring-caption h3 { font-size: clamp(26px, 3vw, 40px); text-wrap: balance; }
+.ring-caption .text { margin: 0; color: var(--text-2); font-size: 17px; line-height: 1.55; }
+.ring-caption .card-actions { justify-content: center; margin-top: 4px; }
+.ring-arrow {
+  display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
+  border: 1.5px solid var(--line-2); background: rgba(11, 22, 38, 0.6); color: var(--text); cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.ring-arrow:hover { border-color: var(--gold); color: var(--gold-hi); background: rgba(232, 176, 75, 0.08); }
+.ring-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.ring-dots button {
+  width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1px solid var(--line-2);
+  background: transparent; cursor: pointer; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.ring-dots button:hover { border-color: var(--gold); }
+.ring-dots button[aria-selected="true"] { background: var(--gold); border-color: var(--gold); transform: scale(1.3); }
+.ring-hint { margin: 14px 0 0; text-align: center; font: 400 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: #5f7290; }
+
+@media (max-width: 860px) {
+  .ring-scene { height: clamp(320px, 78vw, 460px); }
+  .ring-card { --w: clamp(170px, 46vw, 260px); }
+  .ring-under { grid-template-columns: 1fr; }
+  .ring-arrow { display: none; }
+  .ring-captions { min-height: 0; }
+  .ring-hint { display: none; }
+}
+@media (hover: none) { .ring-hint { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ring-sweep { animation: none; }
+  .ring-caption.is-on { animation: none; }
+}

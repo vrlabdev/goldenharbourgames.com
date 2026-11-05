@@ -725,5 +725,10 @@
     "kit_title": "The whole kit",
     "kit_text": "Logos in SVG and PNG, favicons, social covers, the fonts (OFL) and a short brand guide, in one archive.",
     "download": "Download the brand kit (4 MB)"
+  },
+  "ring": {
+    "prev": "Previous game",
+    "next": "Next game",
+    "hint": "Drag to spin · arrows to step"
   }
 }

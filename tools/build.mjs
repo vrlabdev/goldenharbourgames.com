@@ -59,7 +59,7 @@ const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .sort((a, b) => (a.lang === 'en' ? -1 : b.lang === 'en' ? 1 : a.lang.localeCompare(b.lang)));
 
 for (const t of langs) {
-  for (const k of ['privacy', 'terms', 'press', 'board', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const k of ['privacy', 'terms', 'press', 'ring', 'board', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
   for (const e of log) if (!e[t.lang]) throw new Error(`content/log.json: the entry of ${e.date} has no "${t.lang}" text`);
   for (const g of games) {
     if (!t.games[g.id]) throw new Error(`content/${t.lang}.json has no text for the game "${g.id}"`);
@@ -273,8 +273,52 @@ function page(t) {
         </div>
       </article>`;
   };
-  const featured = card(games[0], true);
-  const cards = games.slice(1).map((g) => card(g, false)).join('\n\n');
+  // The showcase: every cover on a ring over the water, the front one named underneath. The grid
+  // below is the same games as plain cards (the filters work on those; search engines read those).
+  const cards = games.map((g) => card(g, false)).join('\n\n');
+  const ringCards = games.map((g, i) => {
+    const c = t.games[g.id];
+    return `        <figure class="ring-card" style="--i: ${i}" data-index="${i}">
+          <a href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ''}></a>
+          <span class="ring-reflect" aria-hidden="true"><img src="${up}${g.cover}" alt="" width="630" height="500" draggable="false"></span>
+        </figure>`;
+  }).join('\n');
+  const ringCaptions = games.map((g, i) => {
+    const c = t.games[g.id];
+    const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
+    return `        <div class="ring-caption${i === 0 ? ' is-on' : ''}" data-index="${i}"${i === 0 ? '' : ' hidden'}>
+          <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
+          <h3>${esc(c.title)}</h3>
+          <p class="text">${esc(c.text)}</p>
+          <p class="card-actions">
+            <a class="play button" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
+            ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
+            ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
+            <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
+          </p>
+        </div>`;
+  }).join('\n');
+  const showcase = `    <div class="ring-stage" style="--n: ${games.length}" aria-roledescription="carousel" aria-label="${esc(t.games_title)}">
+      <div class="ring-sweep" aria-hidden="true"></div>
+      <div class="ring-horizon" aria-hidden="true"></div>
+      <div class="ring-scene">
+        <div class="ring">
+${ringCards}
+        </div>
+      </div>
+      <div class="ring-under">
+        <button type="button" class="ring-arrow prev" aria-label="${esc(t.ring.prev)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="ring-captions" aria-live="polite">
+${ringCaptions}
+        </div>
+        <button type="button" class="ring-arrow next" aria-label="${esc(t.ring.next)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="ring-dots" role="tablist">
+${games.map((g, i) => `        <button type="button" role="tab" aria-selected="${i === 0}" aria-label="${esc(t.games[g.id].title)}" data-index="${i}"></button>`).join('\n')}
+      </div>
+      <p class="ring-hint">${esc(t.ring.hint)}</p>
+    </div>
+`;
 
   // Section numbers in the kickers, in the order the sections are written.
   let n = 0;
@@ -441,6 +485,138 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   }
 })();
 
+// The ring of covers. One number, the angle, drives everything: each cover sits at its slot on a
+// circle and the circle turns. A target angle pulls the ring with a spring, so a step, a fling or
+// a snap all end with the same settle. Dragging moves the ring with the pointer and the release
+// speed carries it on, then it snaps to the nearest slot. Left alone, it advances one game every
+// few seconds, but not while the pointer rests on it or a caption button has focus.
+(function () {
+  var stage = document.querySelector('.ring-stage');
+  if (!stage) return;
+  var ring = stage.querySelector('.ring');
+  var cards = Array.prototype.slice.call(stage.querySelectorAll('.ring-card'));
+  var captions = Array.prototype.slice.call(stage.querySelectorAll('.ring-caption'));
+  var dots = Array.prototype.slice.call(stage.querySelectorAll('.ring-dots button'));
+  var n = cards.length, step = 360 / n;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var angle = 0, target = 0, vel = 0, dragging = false, startX = 0, startAngle = 0, lastX = 0, lastT = 0, flingV = 0;
+  var current = 0, idleTimer = null, resting = false, radius = 0;
+
+  function measure() {
+    var w = cards[0].offsetWidth;
+    // The slots sit around a circle whose circumference holds every card with a gap of a third.
+    radius = Math.max(w * 1.5, (w * 1.3 * n) / (2 * Math.PI));
+    stage.style.setProperty('--r', radius + 'px');
+  }
+  function mod(a) { return ((a % 360) + 360) % 360; }
+  function show(i) {
+    if (i === current) return;
+    current = i;
+    captions.forEach(function (c, k) { c.hidden = k !== i; c.classList.toggle('is-on', k === i); });
+    dots.forEach(function (d, k) { d.setAttribute('aria-selected', String(k === i)); });
+  }
+  function render() {
+    for (var k = 0; k < n; k++) {
+      var a = mod(k * step + angle);              // 0 = facing the viewer
+      var facing = Math.cos(a * Math.PI / 180);   // 1 in front, -1 at the back
+      var c = cards[k];
+      c.style.transform = 'rotateY(' + a + 'deg) translateZ(' + radius + 'px) rotateY(' + (-a) + 'deg) scale(' + (0.74 + 0.3 * ((facing + 1) / 2)).toFixed(3) + ')';
+      c.style.setProperty('--f', ((facing + 1) / 2).toFixed(3));
+      c.style.zIndex = String(Math.round((facing + 1) * 50));
+      c.classList.toggle('is-front', facing > 0.92);
+    }
+    // The slot nearest the front names the game underneath.
+    var front = mod(Math.round(-angle / step) * step) / step;
+    show(Math.round(front) % n);
+  }
+  function tick() {
+    if (!dragging) {
+      if (Math.abs(flingV) > 0.02) {              // carried by the release speed
+        angle += flingV; flingV *= 0.94;
+        if (Math.abs(flingV) <= 0.5) { target = Math.round(angle / step) * step; flingV = 0; }
+      } else {
+        var d = target - angle;
+        vel = vel * 0.82 + d * 0.06;              // a spring with a little overshoot
+        angle += vel;
+        if (Math.abs(d) < 0.02 && Math.abs(vel) < 0.02) { angle = target; vel = 0; }
+      }
+    }
+    render();
+    requestAnimationFrame(tick);
+  }
+  function go(delta) { flingV = 0; target = Math.round(target / step) * step - delta * step; arm(); }
+  function to(i) {                                 // the short way round to slot i
+    var want = -i * step, cur = Math.round(target / step) * step;
+    var diff = ((want - cur) % 360 + 540) % 360 - 180;
+    flingV = 0; target = cur + diff; arm();
+  }
+  function arm() {                                 // the next automatic step, a while from now
+    clearTimeout(idleTimer);
+    if (still) return;
+    idleTimer = setTimeout(function () { if (!resting && !dragging && !document.hidden) go(1); arm(); }, 5200);
+  }
+
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0 || !e.target.closest('.ring-scene')) return;
+    dragging = true; startX = lastX = e.clientX; startAngle = angle; lastT = e.timeStamp; flingV = 0; vel = 0;
+    stage.classList.add('is-dragging');
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    angle = startAngle + (e.clientX - startX) * 0.28;
+    var dt = Math.max(1, e.timeStamp - lastT);
+    flingV = (e.clientX - lastX) * 0.28 / dt * 16;
+    lastX = e.clientX; lastT = e.timeStamp;
+  });
+  function release(e) {
+    if (!dragging) return;
+    dragging = false;
+    stage.classList.remove('is-dragging');
+    var moved = Math.abs(e.clientX - startX) > 6;
+    if (!moved) {                                   // a tap: the front card opens, another turns to the front
+      var card = e.target.closest('.ring-card');
+      if (card) {
+        var i = Number(card.getAttribute('data-index'));
+        if (i === current) { var a = card.querySelector('a'); if (a) location.href = a.href; }
+        else to(i);
+      }
+      return;
+    }
+    if (Math.abs(flingV) < 0.5) { flingV = 0; target = Math.round(angle / step) * step; }
+    arm();
+  }
+  stage.addEventListener('pointerup', release);
+  stage.addEventListener('pointercancel', release);
+  stage.addEventListener('click', function (e) { if (e.target.closest('.ring-card')) e.preventDefault(); });
+  stage.querySelector('.ring-arrow.prev').addEventListener('click', function () { go(-1); });
+  stage.querySelector('.ring-arrow.next').addEventListener('click', function () { go(1); });
+  dots.forEach(function (d) { d.addEventListener('click', function () { to(Number(d.getAttribute('data-index'))); }); });
+  stage.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { go(1); e.preventDefault(); }
+  });
+  stage.addEventListener('pointerenter', function () { resting = true; });
+  stage.addEventListener('pointerleave', function () { resting = false; });
+  stage.addEventListener('focusin', function () { resting = true; });
+  stage.addEventListener('focusout', function () { resting = false; });
+  window.addEventListener('resize', measure);
+
+  measure();
+  stage.classList.add('is-live');
+  if (!still) {                                     // the covers sail in from the horizon, one after another
+    cards.forEach(function (c, k) { c.style.transitionDelay = (k * 90) + 'ms'; });
+    setTimeout(function () { stage.classList.add('is-in'); }, 60);
+    setTimeout(function () { cards.forEach(function (c) { c.style.transitionDelay = ''; }); }, 2000);
+    angle = -step * 2; target = 0;                 // and the ring swings round to the first game
+  } else {
+    stage.classList.add('is-in');
+  }
+  render();
+  requestAnimationFrame(tick);
+  arm();
+})();
+
 // Show only the games that play on one platform; "All" brings them back.
 (function () {
   var chips = document.querySelectorAll('.chip[data-platform]');
@@ -551,13 +727,12 @@ ${board}
       <p>${esc(t.games_lede)}</p>
     </div>
 
+${showcase}
     <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
       <span class="chips-label">${esc(t.filter.label)}</span>
       <button type="button" class="chip" aria-pressed="true" data-platform="">${esc(t.filter.all)} <small>${games.length}</small></button>
 ${chips}
     </div>
-
-${featured}
 
     <div class="grid">
 
