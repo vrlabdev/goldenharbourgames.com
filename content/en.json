@@ -5,8 +5,8 @@
   "path": "",
   "og_locale": "en_AU",
   "title": "Golden Harbour Games",
-  "description": "An independent game studio between two harbours: Vladivostok’s Golden Horn and Sydney Harbour. Games for Android, Windows and the browser, free to play.",
-  "og_description": "Games from two harbours. Free on Android, PC and in your browser.",
+  "description": "An independent game studio between two harbours: Vladivostok’s Golden Horn and Sydney Harbour. Games for Android, iPhone, Windows and the browser, free to play.",
+  "og_description": "Games from two harbours. Free on Android, iPhone, PC and in your browser.",
   "nav": {
     "games": "Games",
     "about": "About",
@@ -30,7 +30,8 @@
     "phone": "Phone",
     "tablet": "Tablet",
     "android": "Android",
-    "windows": "Windows"
+    "windows": "Windows",
+    "ios": "iPhone"
   },
   "languages_label": "Languages",
   "games": {
@@ -82,13 +83,13 @@
     },
     "punch-league": {
       "title": "Punch League",
-      "text": "A boxing card battler. He shows you his next punch, and sometimes he's lying. Read him, build your combination, win three belts. Out now on Android.",
+      "text": "A boxing card battler. He shows you his next punch, and sometimes he's lying. Read him, build your combination, win three belts. Out now on Android and iPhone.",
       "tags": [
         "Card battler",
         "Boxing"
       ],
-      "seo_title": "Punch League – boxing card battler, out now on Android and free in your browser",
-      "seo_description": "A boxing card battler: read the card he shows, build a three-card combination, fight a career to three belts. Out now on Google Play, the first act free in your browser.",
+      "seo_title": "Punch League – boxing card battler, out now on Android, iPhone and free in your browser",
+      "seo_description": "A boxing card battler: read the card he shows, build a three-card combination, fight a career to three belts. Out now on Google Play and the App Store, the first act free in your browser.",
       "intro": [
         "Every exchange you lay up to three cards in a chain: a setup, a punch, a finish. Your opponent has already locked his combination, and you can see the first card he is showing. Is that jab honest, or is he loading a counter? Read him, then throw."
       ],
@@ -113,7 +114,7 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "The whole career is on Android, on Google Play. Here in the browser you can play the first act, the road to your first belt.",
+            "The whole career is on Android, on Google Play, and on iPhone, on the App Store. Here in the browser you can play the first act, the road to your first belt.",
             "It plays landscape, so on a phone turn it sideways. No ads, no account. English and Russian."
           ]
         }
@@ -121,13 +122,13 @@
     },
     "aerofire-command": {
       "title": "AeroFire Command: Fire Season",
-      "text": "A wildfire is heading for town. You don't fly the helicopters: you paint the map, and your fleet does the rest. Out now on Android, free on PC and in your browser.",
+      "text": "A wildfire is heading for town. You don't fly the helicopters: you paint the map, and your fleet does the rest. Out now on Android and iPhone, free on PC and in your browser.",
       "tags": [
         "Strategy",
         "Simulation"
       ],
-      "seo_title": "AeroFire Command: Fire Season – wildfire strategy, out now on Android, free on PC and in your browser",
-      "seo_description": "Paint water, retardant, firebreaks and backburns on the map and your firefighting fleet flies it. Eleven regions, seven fires a season. Out now on Google Play, free on Windows and in the browser.",
+      "seo_title": "AeroFire Command: Fire Season – wildfire strategy, out now on Android and iPhone, free on PC and in your browser",
+      "seo_description": "Paint water, retardant, firebreaks and backburns on the map and your firefighting fleet flies it. Eleven regions, seven fires a season. Out now on Google Play and the App Store, free on Windows and in the browser.",
       "intro": [
         "Paint WATER on the flames and the helicopters fill up at the nearest lake and drop where you painted. Paint RETARDANT ahead of the fire and a tanker lays the line. Paint a CUT and the dozers dig a firebreak. Paint a BURN and a crew lights the fuel before the fire gets there. Every pilot and crew makes their own call."
       ],
@@ -159,7 +160,7 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "On Android it is on Google Play, with achievements, leaderboards and cloud save. On a computer it plays right here in the browser, or as one Windows exe from itch.io.",
+            "On Android it is on Google Play, with achievements, leaderboards and cloud save; on iPhone it is on the App Store. On a computer it plays right here in the browser, or as one Windows exe from itch.io.",
             "With a mouse: A, Z, S and X pick water, retardant, cut and burn, D is look, and holding the left button opens a wheel of the four paints. English, Russian, Spanish, Indonesian, Chinese, Turkish and Thai."
           ]
         }
@@ -812,5 +813,6 @@
     "cta_subject": "Oar: ",
     "closing": "We row in one boat. The games are ours and yours, the credit is shared, and so is whatever comes back from the sea.",
     "any_game": "Any game"
-  }
+  },
+  "app_store": "App Store"
 }

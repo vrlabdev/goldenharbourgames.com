@@ -1,6 +1,6 @@
 // Writes the site from content/:  node tools/build.mjs
 //   content/<lang>.json  every word on the page, one file per language
-//   content/games.json   the games, in order: itch link, google_play (optional store page), cover, platforms, languages, and the itch
+//   content/games.json   the games, in order: itch link, google_play (optional store page), app_store (optional App Store page), cover, platforms, languages, and the itch
 //                        upload that plays on the site (embed) with the shape it is drawn for (frame); optional
 //                        trailer (a video link) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
 //                        shown only in languages whose JSON has a "rustore" label, i.e. Russian)
@@ -261,6 +261,7 @@ function page(t) {
             <p class="card-actions">
               <a class="play button" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
               ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
+              ` : ''}${g.app_store ? `<a class="itch-link" href="${g.app_store}">${esc(t.app_store)} <span aria-hidden="true">↗</span></a>
               ` : ''}${g.rustore && t.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(t.rustore)} <span aria-hidden="true">↗</span></a>
               ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
               <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
@@ -781,12 +782,12 @@ function playPage(t, g) {
     image: SITE + g.cover,
     genre: c.tags,
     inLanguage: g.languages.map((l) => l.toLowerCase()),
-    gamePlatform: g.platforms.map((x) => ({ browser: 'Web browser', phone: 'Web browser', tablet: 'Web browser', android: 'Android', windows: 'Windows' })[x]).filter((v, i, a) => a.indexOf(v) === i),
+    gamePlatform: g.platforms.map((x) => ({ browser: 'Web browser', phone: 'Web browser', tablet: 'Web browser', android: 'Android', ios: 'iOS', windows: 'Windows' })[x]).filter((v, i, a) => a.indexOf(v) === i),
     applicationCategory: 'Game',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     author: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE },
-    sameAs: g.google_play ? [g.itch, g.google_play] : [g.itch],
+    sameAs: [g.itch, g.google_play, g.app_store].filter(Boolean),
   };
 
   return shell(t, sub, {
@@ -824,6 +825,7 @@ function playPage(t, g) {
           ${esc(p.fullscreen)}
         </button>
         ${g.google_play ? `<a class="itch-link" href="${g.google_play}">${esc(p.google_play)} <span aria-hidden="true">↗</span></a>
+        ` : ''}${g.app_store ? `<a class="itch-link" href="${g.app_store}">${esc(p.app_store)} <span aria-hidden="true">↗</span></a>
         ` : ''}${g.rustore && p.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(p.rustore)} <span aria-hidden="true">↗</span></a>
         ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
         <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}${g.shorts ? `

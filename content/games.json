@@ -5,6 +5,7 @@
     "cover": "img/aerofire-command.jpg",
     "platforms": [
       "android",
+      "ios",
       "windows",
       "browser"
     ],
@@ -26,7 +27,8 @@
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=5c9urndqa8E",
     "shorts": "https://www.youtube.com/playlist?list=PLBSqnmgdfS_8",
-    "clip": "img/clips/aerofire-command.mp4"
+    "clip": "img/clips/aerofire-command.mp4",
+    "app_store": "https://apps.apple.com/app/aerofire-command-fire-season/id6829015573"
   },
   {
     "id": "punch-league",
@@ -34,6 +36,7 @@
     "cover": "img/punch-league.jpg",
     "platforms": [
       "android",
+      "ios",
       "browser",
       "phone"
     ],
@@ -50,7 +53,8 @@
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=EMJKUC5606c",
     "rustore": "https://www.rustore.ru/catalog/app/com.vrlabdv.punchleague",
-    "clip": "img/clips/punch-league.mp4"
+    "clip": "img/clips/punch-league.mp4",
+    "app_store": "https://apps.apple.com/app/punch-league/id6827402540"
   },
   {
     "id": "orbital-jump",
