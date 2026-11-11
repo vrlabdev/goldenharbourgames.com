@@ -1,6 +1,12 @@
 [
   {
     "date": "2026-11-11",
+    "game": "roach-invasion",
+    "en": "Roach Invasion joins the port: one small cockroach, a huge kitchen and a slipper. An early build, made with VR Lab in Vladivostok.",
+    "ru": "В порту «Тараканье нашествие»: один маленький таракан, огромная кухня и тапок. Ранняя сборка, сделана вместе с VR Lab во Владивостоке."
+  },
+  {
+    "date": "2026-11-11",
     "game": null,
     "en": "The site gets a workshop: an Experiments page for our VR, AR and robot work, with a forum. The long read about the studio moved to a page of its own.",
     "ru": "На сайте появилась мастерская: страница «Эксперименты» с нашими VR, AR и роботами, и форум. Длинный рассказ о студии переехал на отдельную страницу."

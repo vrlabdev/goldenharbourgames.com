@@ -328,6 +328,48 @@
           ]
         }
       ]
+    },
+    "roach-invasion": {
+      "title": "Roach Invasion",
+      "aka": "Тараканье нашествие",
+      "text": "You are one small cockroach in a huge kitchen. Grab the crumbs, run them home to the colony, and don’t be under the slipper when it comes down.",
+      "tags": [
+        "Arcade",
+        "Stealth"
+      ],
+      "seo_title": "Roach Invasion – a cockroach’s kitchen raid, free in your browser",
+      "seo_description": "One small cockroach, a huge kitchen and giant humans who don’t want you there. Grab the food, dodge the slipper, the vacuum and the cat, and grow the colony. An early build, free in your browser and as an Android APK.",
+      "intro": [
+        "There are crumbs on the floor, a colony waiting under the floorboards, and giant humans who really don’t want you here. Grab the food, run it home, and stay out from under the slipper."
+      ],
+      "sections": [
+        {
+          "title": "How it plays",
+          "list": [
+            "Danger shows on the floor first. A red ring marks where a foot, a slipper or a mop is about to land. Step out of it and you’re fine.",
+            "A full bag is a slow bag. The more you carry, the slower you run. Drop it off at the nest, or push your luck for one more crumb.",
+            "Holes save lives. Duck into a shelter and wait for the vacuum or the torch to pass.",
+            "Grow the colony. Spend the food on bigger bags, a running track and a faster dash, then dig the tunnel into the apartment."
+          ]
+        },
+        {
+          "title": "What’s in it",
+          "list": [
+            "Six kitchen raids: some against the clock, one with two nests to fill, and one that ends with an escape through the vent.",
+            "Two apartment rooms: the canyon under the sofa, and a night corridor with a torch sweeping the floor.",
+            "The Big Cookie: drag home a cookie bigger than you, with Pip pulling alongside.",
+            "The Cat Woke Up: a huge cat wakes mid-raid. Freeze, hide, or rustle a bag to make it look away. If it spots you, run for a hole.",
+            "Pip, the colony’s first little one, who joins your raids and carries a crumb in his backpack."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "Here in the browser, or as an Android APK from itch.io. On a phone the left thumb runs and the right button dashes; on a computer use WASD or the arrow keys, Space to dash, E for the action button and Esc to pause.",
+            "An early build that is still growing: new rooms are on the way. In English and Russian, switchable in the settings. Made by Golden Harbour Games in Sydney together with VR Lab in Vladivostok."
+          ]
+        }
+      ]
     }
   },
   "about": {
@@ -352,10 +394,10 @@
     ],
     "letter_title": "How it is going (11 November 2026)",
     "letter": [
-      "Honestly? Better than a week ago, and still worse than we would like. Seven games are in port, and three of them are now on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game. Apple sent Punch League back with questions the first time and passed it the second.",
+      "Honestly? Better than a week ago, and still worse than we would like. Eight games are in port, and three of them are now on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game. Apple sent Punch League back with questions the first time and passed it the second.",
       "The numbers are small. Our YouTube channel has passed thirty-six thousand views across a hundred or so short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
       "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. The same week the game learned to zoom from one village yard out to a map table of central Russia.",
-      "What is not working yet: being found. Seven good small games nobody has heard of are still seven games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
+      "What is not working yet: being found. Eight good small games nobody has heard of are still eight games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
       "Next: Souls & Estates gets a tutorial that opens its menus one step at a time; Fire Season gets a tutorial that does not need a manual; Punch League is learning to fight in 3D; the experiments get a page and a forum of their own; and the first human artist gets hired the month a game pays for one."
     ]
   },
@@ -857,6 +899,10 @@
       {
         "game": "orbital-jump",
         "text": "Testing: play the game on your phone and tell us where it bores you."
+      },
+      {
+        "game": "roach-invasion",
+        "text": "Level design and art: a new apartment room with a danger of its own."
       },
       {
         "game": null,

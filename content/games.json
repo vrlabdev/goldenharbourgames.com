@@ -124,6 +124,25 @@
     "clip": "img/clips/gull-chorus.mp4"
   },
   {
+    "id": "roach-invasion",
+    "itch": "https://goldenharbourgames.itch.io/roach-invasion",
+    "cover": "img/roach-invasion.jpg",
+    "platforms": [
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 20334692,
+    "frame": [
+      540,
+      960
+    ],
+    "new": true
+  },
+  {
     "id": "peregon",
     "itch": "https://goldenharbourgames.itch.io/peregon",
     "cover": "img/peregon.jpg",
