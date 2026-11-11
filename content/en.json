@@ -5,11 +5,12 @@
   "path": "",
   "og_locale": "en_AU",
   "title": "Golden Harbour Games",
-  "description": "An independent game studio between two harbours: Vladivostok’s Golden Horn and Sydney Harbour. Games for Android, iPhone, Windows and the browser, free to play.",
+  "description": "An independent game studio between two harbours: Vladivostok’s Golden Horn and Sydney Harbour. We make the games we love to play, for Android, iPhone, Windows and the browser, and we experiment with VR, AR and robots.",
   "og_description": "Games from two harbours. Free on Android, iPhone, PC and in your browser.",
   "nav": {
     "games": "Games",
-    "about": "About",
+    "experiments": "Experiments",
+    "about": "Studio",
     "crew": "Crew",
     "contact": "Contact"
   },
@@ -17,7 +18,7 @@
   "hero": {
     "eyebrow": "Independent game studio",
     "title": "Games from two harbours",
-    "lede": "We grew up by the Golden Horn in Vladivostok and make games by Sydney Harbour. Two of them are out now on Google Play, and every one of them plays free in your browser.",
+    "lede": "We love games, so we make the ones we want to play: small, polished and easy to pick up, whoever you are. Three are out on Android and iPhone, and every one of them plays free in your browser.",
     "button": "See the games",
     "route": "Vladivostok ⇄ Sydney",
     "play": "Play Fire Season"
@@ -262,7 +263,7 @@
         "History"
       ],
       "seo_title": "Souls & Estates – run a Russian noble estate until 1861, free in your browser",
-      "seo_description": "A strategy game about a Russian noble house: set obrok or barshchina for each serf village, place the mill and the smithy, hear the village elders, marry well and climb the Table of Ranks until serfdom ends in 1861. In English and Russian, free in your browser and on Windows.",
+      "seo_description": "A strategy game about a Russian noble house: set rent or labour for each serf village, place the mill and the smithy, hear the village elders, marry well and climb the Table of Ranks until serfdom ends in 1861. In English and Russian, free in your browser and on Windows.",
       "intro": [
         "You don’t chop the wood. You own the people who chop the wood, and the Crown counts your wealth in souls. Run a country estate the way a landowner did, through a steward, bailiffs, village elders and letters, season after season until serfdom is abolished on 19 February 1861."
       ],
@@ -271,10 +272,11 @@
           "title": "What you do",
           "list": [
             "Start in 1670, 1700 or 1762, each with the prices, laws and history of its day, and play on to 1861.",
-            "Set each village’s terms: rent in money (obrok) or days of work on the manor’s fields (barshchina). Every option shows the rubles a year and how the village will take it before you choose.",
+            "Set each village’s terms: rent in money, or days of labour on the manor’s fields. Every option shows the rubles a year and how the village will take it before you choose.",
             "Plough, plant, set out orchards and found new villages. Fields grow in rings of strips round each village and reach only as far as people can walk.",
             "Lay out the land yourself: put the mill on the river, the smithy by the road and the barns where you like, inside each village’s bounds. Out of room? Move a house.",
-            "Hear the village elders: seed loans, a feldsher looking for a place, passes for winter work in town.",
+            "Turn the mouse wheel to go from one family’s yard to the whole estate, then the district as a table of miniatures, then a map table of central Russia.",
+            "Hear the village elders: seed loans, a medic looking for a place, passes for winter work in town.",
             "Pay the poll tax on every name on the census list, living or dead, until the next count.",
             "Send sons into the Guards or the civil service, marry daughters well, winter in Moscow or Petersburg, and build the family nest."
           ]
@@ -288,20 +290,20 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "In your browser right here, or download the Windows build from itch.io. Desktop only, mouse and keyboard. English and Russian, switchable in the settings. The game is in development (version 0.30)."
+            "In your browser right here, or download the Windows build from itch.io. Desktop only, mouse and keyboard. English and Russian, switchable in the settings. The game is in development (version 0.104)."
           ]
         }
       ]
     },
     "orbital-jump": {
       "title": "Orbital Jump Reloaded",
-      "text": "The 2021 planet-hopper rebuilt: ten worlds, a wall of fire behind you, items for a bad moment, five suits and the classic endless run. Out now on Android, free in your browser.",
+      "text": "The 2021 planet-hopper rebuilt: ten worlds, a wall of fire behind you, items for a bad moment, five suits and the classic endless run. Out now on Android and iPhone, free in your browser.",
       "tags": [
         "Arcade",
         "Space"
       ],
-      "seo_title": "Orbital Jump Reloaded – one-button space runner, out on Android and free in your browser",
-      "seo_description": "Run around a planet, jump to the next one and stay ahead of the burning Sun. Ten worlds, black holes, wormholes, predator planets, five suits and an endless mode. Free on Google Play and in your browser, no ads.",
+      "seo_title": "Orbital Jump Reloaded – one-button space runner, out on Android and iPhone, free in your browser",
+      "seo_description": "Run around a planet, jump to the next one and stay ahead of the burning Sun. Ten worlds, black holes, wormholes, predator planets, five suits and an endless mode. Free on Google Play, the App Store and in your browser, no ads.",
       "intro": [
         "Your astronaut runs around a planet. Click, tap or press Space to jump off it, fly to the next one, land, and go again. Keep moving: the Sun behind you has caught fire, and it is coming."
       ],
@@ -320,7 +322,7 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "The whole game is on Android, on Google Play: free, no ads, no timers. You earn Space Coins by playing; coin packs are there for a head start and never needed to finish a world.",
+            "The whole game is on Android, on Google Play, and on iPhone, on the App Store: free, no ads, no timers. You earn Space Coins by playing; coin packs are there for a head start and never needed to finish a world.",
             "Here in the browser it is the same game with a test shop. Left mouse button, Space, W or the up arrow jumps; 1, 2, 3 use the items; Esc or P pauses; on a phone, tap. English and Russian.",
             "Made by the VRLab team in Vladivostok in 2021: Aleksei Rezepov (idea, design, art, effects), Alexandr Krivobokov (code), Maxim Moskalenko (music and sound), Evgeny Andreev (planets and illustrations), Igor Matievskii and Daniil Zimenkov. Rebuilt by Golden Harbour Games in 2026. The original is still playable on itch.io."
           ]
@@ -332,7 +334,7 @@
     "title": "Two harbours",
     "paragraphs": [
       "Vladivostok sits on the Golden Horn, a bay named after Istanbul's. Sydney sits on Port Jackson. Both are harbour cities with a famous bridge across the water, and the studio is named for the pair of them.",
-      "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run on Android, on Windows and in a browser, and you can play them all free, right here, on Google Play or on itch.io."
+      "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run on Android, iPhone, Windows and in a browser, and you can play them all free: right here, on Google Play, on the App Store or on itch.io."
     ],
     "north": "Vladivostok · Golden Horn",
     "south": "Sydney · Port Jackson",
@@ -343,18 +345,18 @@
     "promises_title": "What we promise players",
     "promises": [
       "Every game plays free in your browser. No account, no install, no card.",
-      "No energy timers, no loot boxes, no dark patterns. A purchase, where there is one, is a thank-you or a cosmetic, never a wall across the story.",
+      "No energy timers, no loot boxes, no dark patterns. A purchase, where there is one, is a thank-you, a cosmetic or a head start, never a wall across the story.",
       "Your data is not the product. The games collect nothing they do not need; the privacy page says exactly what, in plain words.",
-      "When you tell us something is wrong, we fix it. The harbour log above is where you can see it happen.",
+      "When you tell us something is wrong, we fix it. The harbour log on the home page is where you can see it happen.",
       "We tell you what is made by a machine and what is made by a person. Always."
     ],
-    "letter_title": "How it is going (5 November 2026)",
+    "letter_title": "How it is going (11 November 2026)",
     "letter": [
-      "Honestly? Better than it looks and worse than we would like. Seven games are in port. Two of them, Fire Season and Punch League, are out on Google Play and RuStore, and both are waiting on Apple. Souls & Estates got its Russian edition and a guided first year. Gull Chorus sings. Orbital Jump, our 2021 phone game, is back in the browser and a rebuilt version is in the works.",
-      "The numbers are small. Our YouTube channel has nineteen subscribers and about thirty thousand views, mostly from a handful of Shorts about firefighting helicopters and Russian serfs that found an audience we did not expect. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
-      "What is working: shipping. A build goes out most days. A game that was a note on a phone in September is a thing you can play now. The tools let two people do the work of a small team, and the work that comes back from players, every bug report, every \"this bit is boring\", goes straight into the next build.",
-      "What is not working yet: being found. Seven good small games nobody has heard of are still seven games nobody has heard of. So we post every day, we answer every comment, and we are writing this page so that people who care about how games get made can see how ours are.",
-      "Next: Souls & Estates gets its markets and a second city; Fire Season gets a tutorial that does not need a manual; Punch League gets a second season of fighters; and the first human artist gets hired the month a game pays for one."
+      "Honestly? Better than a week ago, and still worse than we would like. Seven games are in port, and three of them are now on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game. Apple sent Punch League back with questions the first time and passed it the second.",
+      "The numbers are small. Our YouTube channel has passed thirty-six thousand views across a hundred or so short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
+      "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. The same week the game learned to zoom from one village yard out to a map table of central Russia.",
+      "What is not working yet: being found. Seven good small games nobody has heard of are still seven games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
+      "Next: Souls & Estates gets a tutorial that opens its menus one step at a time; Fire Season gets a tutorial that does not need a manual; Punch League is learning to fight in 3D; the experiments get a page and a forum of their own; and the first human artist gets hired the month a game pays for one."
     ]
   },
   "contact": {
@@ -372,10 +374,10 @@
     "text": "This page has driven off somewhere colder.",
     "home": "Back to the harbour"
   },
-  "games_lede": "Small, sharp games: on your phone from Google Play, or in a browser tab.",
+  "games_lede": "Small, sharp games: on your phone from Google Play or the App Store, or in a browser tab.",
   "new": "New",
   "strip": [
-    "Two games out now on Google Play",
+    "Three games on Google Play and the App Store",
     "Free in your browser"
   ],
   "strip_games": "{n} games in port",
@@ -391,16 +393,17 @@
     "itch": "This game on itch.io",
     "more": "More games",
     "frame_title": "{game}, playing in the page",
-    "google_play": "Get it on Google Play"
+    "google_play": "Get it on Google Play",
+    "app_store": "Download on the App Store"
   },
-  "seo_title": "Golden Harbour Games – indie games from Vladivostok & Sydney: Android games and free browser games",
+  "seo_title": "Golden Harbour Games – indie games from Vladivostok & Sydney: Android and iPhone games, free browser games",
   "privacy": {
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
     "description": "How Golden Harbour Games handles your data: two games send anonymous play data and offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies of its own.",
-    "date": "2026-10-31",
-    "updated": "Last updated: 31 October 2026",
+    "date": "2026-11-11",
+    "updated": "Last updated: 11 November 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, the App Store, itch.io, Steam or this website — and the website itself."
@@ -411,7 +414,8 @@
         "list": [
           "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
-          "Most of our games collect no data at all. AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play) are the exceptions: they send anonymous play data, described in the next section. Their iPhone versions from the App Store send nothing and have no Google sign-in.",
+          "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play) are the exceptions: they send anonymous play data, described in the next section. Their iPhone versions from the App Store send us nothing and have no Google sign-in.",
+          "On iPhone, Fire Season and Orbital Jump Reloaded can post your scores and achievements to Apple’s Game Center, if you are signed in to Game Center on your device. That goes to Apple, under your own Game Center settings; nothing comes to us.",
           "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
       },
@@ -458,7 +462,8 @@
         "paragraphs": [
           "goldenharbourgames.com is a static site: plain pages, no sign-in, no forms. It sets no cookies of its own. If you pick a language, the page remembers that choice in your browser only; nothing is sent anywhere.",
           "The site is hosted on GitHub Pages. GitHub's servers may log standard request data, such as your IP address and browser user agent, as described in GitHub's privacy statement. Our pages load their typefaces from Google Fonts, so your browser also requests those from Google's servers, under Google's privacy policy.",
-          "When you press Play on a game page, the game loads in a frame from itch.io. Inside that frame, itch.io's privacy policy applies."
+          "When you press Play on a game page, the game loads in a frame from itch.io. Inside that frame, itch.io's privacy policy applies.",
+          "The forum linked from the Experiments pages is GitHub Discussions. It lives on github.com, and reading or posting there falls under GitHub’s privacy statement. Where a page offers to show a thread’s comments in place, pressing that button loads them through giscus (giscus.app), an open-source comment widget; nothing is requested from giscus or GitHub until you press it."
         ],
         "links": [
           {
@@ -472,14 +477,18 @@
           {
             "label": "itch.io privacy policy",
             "url": "https://itch.io/docs/legal/privacy-policy"
+          },
+          {
+            "label": "giscus privacy policy",
+            "url": "https://github.com/giscus/giscus/blob/main/PRIVACY-POLICY.md"
           }
         ]
       },
       {
         "title": "Stores",
         "paragraphs": [
-          "Google Play, the App Store, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
-          "Where a game offers an optional purchase, Google Play handles the payment: the Supporter edition of Fire Season, and the shop's looks in Punch League (outfits and card backs that change nothing in a fight; the Full Career purchase sold from 13 to 24 October 2026 is still restored for those who bought it). The game only learns whether a purchase is active, so it can unlock what you bought. Your payment details never reach us."
+          "Google Play, the App Store, RuStore, itch.io and Steam handle purchases, downloads and installs. What they collect when you buy or install a game is governed by their own privacy policies, not by us.",
+          "Where a game offers an optional purchase, the store you play through handles the payment: the Supporter edition of Fire Season; the shop’s looks in Punch League (outfits and card backs that change nothing in a fight; the Full Career purchase sold from 13 to 24 October 2026 is still restored for those who bought it); and the Space Coin packs and the Welcome Bundle in Orbital Jump Reloaded. The game only learns whether a purchase went through, so it can give you what you bought. Your payment details never reach us."
         ]
       },
       {
@@ -508,8 +517,8 @@
     "title": "Terms of service",
     "seo_title": "Terms of Service · Golden Harbour Games",
     "description": "The terms for playing Golden Harbour Games games and buying their optional extras: what you may do with them, how purchases and refunds work, and your rights under consumer law.",
-    "date": "2026-11-05",
-    "updated": "Last updated: 5 November 2026",
+    "date": "2026-11-11",
+    "updated": "Last updated: 11 November 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. These terms apply when you play any of our games or apps, wherever you got them (Google Play, the App Store, itch.io, Steam or this website), and when you buy something inside them. By playing, you agree to them. The short version: the games are yours to enjoy, purchases are handled by the store you use, and nothing here takes away your rights under consumer law."
@@ -534,9 +543,9 @@
       {
         "title": "Optional purchases",
         "paragraphs": [
-          "Our games are free to play in full. Some offer optional purchases: the Supporter edition of AeroFire Command: Fire Season, and the shop’s looks in Punch League (outfits and card backs). They change how things look and support the studio; they never make you stronger in play. There is no in-game currency to buy.",
+          "Our games are free to play in full. Some offer optional purchases. In AeroFire Command: Fire Season it is the Supporter edition, and in Punch League the shop’s looks (outfits and card backs): they change how things look and support the studio, and never make you stronger in play. Orbital Jump Reloaded sells packs of Space Coins, its in-game currency, and a one-time Welcome Bundle. Space Coins are also earned by playing; they buy suits and helper items, and every world can be finished without buying any. Space Coins have no cash value and cannot be exchanged or transferred.",
           "Purchases are sold and processed by the store you play through, such as Google Play or the App Store, under that store’s terms. The price is shown in the store’s own payment sheet before you pay, in your local currency and including any taxes the store must charge.",
-          "A purchase is linked to your store account. If you reinstall the game, or play on another device signed in to the same account, the game restores what you bought. Items you bought stay yours across updates."
+          "A one-time purchase (the Supporter edition, a look in Punch League) is linked to your store account: if you reinstall the game, or play on another device signed in to the same account, the game restores it. Space Coins and what you buy with them in Orbital Jump Reloaded are kept in the game’s save on your device and do not move to a new install. Items you bought stay yours across updates."
         ]
       },
       {
@@ -555,7 +564,7 @@
       {
         "title": "Other services",
         "paragraphs": [
-          "Some games use services run by others: Google Play Games for the optional sign-in, achievements, leaderboards and cloud saves, and the stores for purchases. Their own terms apply to those parts. On the App Store, Apple’s standard Licensed Application End User License Agreement also applies; where it and these terms differ, these terms apply between you and us. How our games handle data is set out in our privacy policy."
+          "Some games use services run by others: Google Play Games and Apple’s Game Center for the optional sign-in, achievements, leaderboards and cloud saves, and the stores for purchases. Their own terms apply to those parts. The forum linked from this site is GitHub Discussions, under GitHub’s terms. On the App Store, Apple’s standard Licensed Application End User License Agreement also applies; where it and these terms differ, these terms apply between you and us. How our games handle data is set out in our privacy policy."
         ],
         "links": [
           {
@@ -654,7 +663,7 @@
       ],
       [
         "Platforms",
-        "Android (Google Play, RuStore), Windows, browser"
+        "Android (Google Play, RuStore), iPhone (App Store), Windows, browser"
       ],
       [
         "Contact",
@@ -664,7 +673,7 @@
     "boilerplate_title": "About the studio",
     "boilerplate": [
       "Golden Harbour Games is an independent studio between two harbours: the Golden Horn in Vladivostok, where its founders grew up, and Sydney Harbour, where it makes games now. It makes small, sharp games with a real subject behind each one: wildfire aviation, boxing, the Russian serf estate, a used electric car across Siberia.",
-      "Every game plays free in the browser; the phone games are on Google Play. The studio writes and voices its games in English and Russian, and some in five more languages."
+      "Every game plays free in the browser; the phone games are on Google Play and the App Store. The studio writes and voices its games in English and Russian, and some in five more languages. It also experiments in the open with VR, AR and robots."
     ],
     "logos_title": "Logos",
     "logos_text": "The mark alone for small sizes, the full logo with the bridges from 64 px up. Brass on navy, or navy on paper; never stretched, never recoloured.",
@@ -806,13 +815,84 @@
       },
       {
         "game": null,
+        "text": "An experiment of your own: a VR idea, an AR toy, something for the robot to do."
+      },
+      {
+        "game": null,
         "text": "Any language we do not have yet, for any game."
       }
     ],
     "cta": "Write to us about an oar",
     "cta_subject": "Oar: ",
     "closing": "We row in one boat. The games are ours and yours, the credit is shared, and so is whatever comes back from the sea.",
-    "any_game": "Any game"
+    "any_game": "Any game",
+    "seo_title": "Take an oar: the open crew programme · Golden Harbour Games"
   },
-  "app_store": "App Store"
+  "app_store": "App Store",
+  "creed": {
+    "nav": "What we care about",
+    "title": "Games first",
+    "lede": "We were players long before we were a studio. Four things we hold ourselves to.",
+    "items": [
+      {
+        "title": "We make games we love",
+        "text": "Every game here began as something one of us wanted to play and could not find. If we would not play it on our own phone on the train home, it does not ship."
+      },
+      {
+        "title": "Good for everyone",
+        "text": "No manual, no account, no wall across the story. A child, a parent and someone with thirty years of strategy games behind them should all find their way in within a minute."
+      },
+      {
+        "title": "We stay with our games",
+        "text": "A release is a start, not a finish. New builds go out most weeks, the log below shows what changed, and what players tell us goes into the next one."
+      },
+      {
+        "title": "We experiment",
+        "text": "VR, AR, a robot on the desk, a game inside a Reddit post. We try new hardware and odd ideas to find ways of playing that do not exist yet, and we show the results, good or not."
+      }
+    ],
+    "more": "More about the studio"
+  },
+  "studio": {
+    "title": "The studio",
+    "seo_title": "The studio · Golden Harbour Games",
+    "description": "Who makes Golden Harbour Games: two harbours, what we promise players, how the games are built by people and AI, and an honest note on how it is going.",
+    "next": "Where to next"
+  },
+  "experiments": {
+    "nav": "Experiments",
+    "home_title": "From the workshop",
+    "home_lede": "VR, AR, robots and odd ideas. Not all of them become games. All of them teach us something about play.",
+    "all": "All {n} experiments",
+    "title": "Experiments",
+    "seo_title": "Experiments: VR, AR, robots and game ideas · Golden Harbour Games",
+    "description": "What Golden Harbour Games tries outside its shipped games: a VR storm at sea, a wildfire on a table, AR models, humanoid robots and new places for a game to live. Write-ups, pictures and an open forum.",
+    "lede": "This is the workshop. We use VR, AR and whatever else turns up to look for new ways to play. Each experiment has a write-up, pictures and a thread where you can tell us what you think.",
+    "tags": {
+      "vr": "VR",
+      "ar": "AR",
+      "robots": "Robots",
+      "look": "Art direction",
+      "platform": "New platform",
+      "tools": "Tools"
+    },
+    "status": {
+      "live": "You can try it",
+      "prototype": "Prototype",
+      "building": "In progress",
+      "shelved": "On the shelf"
+    },
+    "back": "All experiments",
+    "more": "More experiments",
+    "gallery": "Pictures",
+    "facts": "In short",
+    "talk_title": "Talk about this one",
+    "talk_text": "Questions, ideas, “you should try this instead”: the thread for this experiment is open to anyone.",
+    "thread_open": "Open the thread",
+    "thread_load": "Show the comments here",
+    "forum_title": "The forum",
+    "forum_text": "One place to talk to us and to each other: ideas for the games, bugs, your own experiments, anything at all. Every experiment has a thread of its own, and you can start a new one.",
+    "forum_open": "Go to the forum",
+    "forum_note": "The forum runs on GitHub Discussions. Reading is open to all; posting needs a free GitHub account."
+  }
 }

@@ -61,9 +61,10 @@
     "itch": "https://goldenharbourgames.itch.io/orbital-jump-reloaded",
     "cover": "img/orbital-jump.jpg",
     "platforms": [
+      "android",
+      "ios",
       "browser",
-      "phone",
-      "android"
+      "phone"
     ],
     "languages": [
       "EN",
@@ -76,7 +77,8 @@
     ],
     "new": true,
     "clip": "img/clips/orbital-jump.mp4",
-    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump"
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump",
+    "app_store": "https://apps.apple.com/app/orbital-jump-reloaded/id6832806224"
   },
   {
     "id": "souls-and-estates",

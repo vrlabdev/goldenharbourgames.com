@@ -7,8 +7,10 @@
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 //   content/log.json     the harbour log: dated one-liners (en + ru) with an optional game id, newest first
 //   content/videos.json  the newest public videos on the channel, written by tools/videos.mjs
+//   content/experiments.json  the experiments (pictures, tags, status, the words in each language) and the forum
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
-// (play/<id>/, ru/play/<id>/), the privacy policy (privacy/, ru/privacy/), the terms of service (terms/, ru/terms/),
+// (play/<id>/, ru/play/<id>/), the studio page (studio/), the crew programme (crew/), the experiments
+// (experiments/ and experiments/<id>/), the privacy policy (privacy/, ru/privacy/), the terms of service (terms/, ru/terms/),
 // the press kit (press/, ru/press/; its files live in press/kit/), 404.html, sitemap.xml, robots.txt,
 // and .cache/ pages that tools/render_images.ps1 turns into the share images and the touch icon.
 // A new language is one more JSON file with a "path" of its own; nothing here changes.
@@ -52,8 +54,22 @@ const langs = fs.readdirSync(path.join(ROOT, 'content'))
   .map((f) => JSON.parse(read('content/' + f)))
   .sort((a, b) => (a.lang === 'en' ? -1 : b.lang === 'en' ? 1 : a.lang.localeCompare(b.lang)));
 
+// The experiments: things tried outside the shipped games (robots, VR, AR, looks, platforms). Each has
+// a page of its own with a write-up, pictures and a thread on the forum. The words of one experiment
+// sit beside its pictures, under a key per language; the labels around them are in content/<lang>.json.
+const lab = JSON.parse(read('content/experiments.json'));
+const labItems = lab.items.slice().sort((a, b) => b.date.localeCompare(a.date));
+// The three shown on the home page: the ones named in "home", or else the newest.
+const labHome = (lab.home || []).map((id) => lab.items.find((x) => x.id === id)).filter(Boolean);
+while (labHome.length < 3 && labHome.length < labItems.length) labHome.push(labItems.find((x) => !labHome.includes(x)));
+
 for (const t of langs) {
-  for (const k of ['privacy', 'terms', 'press', 'ring', 'build', 'crew', 'filter', 'log', 'videos', 'share', 'trailer_dialog']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const k of ['privacy', 'terms', 'press', 'ring', 'build', 'crew', 'filter', 'log', 'videos', 'share', 'trailer_dialog', 'creed', 'studio', 'experiments']) if (!t[k]) throw new Error(`content/${t.lang}.json has no "${k}" text`);
+  for (const x of lab.items) {
+    if (!x[t.lang]) throw new Error(`content/experiments.json: "${x.id}" has no "${t.lang}" text`);
+    for (const s of x.shots || []) if (!s[t.lang]) throw new Error(`content/experiments.json: a picture of "${x.id}" has no "${t.lang}" caption`);
+    for (const f of [x.cover, x.thumb, ...(x.shots || []).map((s) => s.src)]) if (!fs.existsSync(path.join(ROOT, f))) throw new Error(`content/experiments.json: "${x.id}" names ${f}, which is not there`);
+  }
   for (const e of log) if (!e[t.lang]) throw new Error(`content/log.json: the entry of ${e.date} has no "${t.lang}" text`);
   for (const g of games) {
     if (!t.games[g.id]) throw new Error(`content/${t.lang}.json has no text for the game "${g.id}"`);
@@ -69,6 +85,14 @@ const PRIVACY = 'privacy/';
 const TERMS = 'terms/';
 // The press kit, from the root of a language. Its files are at /press/kit/ for every language.
 const PRESS = 'press/';
+// The studio page (two harbours, mission, the letter, how we build), the crew programme and the
+// experiments, from the root of a language.
+const STUDIO = 'studio/';
+const CREW = 'crew/';
+const LAB = 'experiments/';
+const labPath = (x) => `${LAB}${x.id}/`;
+// An experiment's thread on the forum (GitHub Discussions), or the forum itself until it has one.
+const threadUrl = (x) => (x.thread ? `${lab.forum.url}/${x.thread}` : lab.forum.url);
 // itch's own page for one upload: the newest build pushed to that channel, made to sit in a frame.
 const embedUrl = (g) => `https://itch.io/embed-upload/${g.embed}?color=0b1626`;
 
@@ -86,6 +110,8 @@ function shell(t, sub, { title, description, ogTitle, ogDescription, ogImage, og
   const others = langs.filter((l) => l.lang !== t.lang)
     .map((l) => ({ lang: l.lang, href: up + (l.path + sub || './'), text: l.hint.text, go: l.hint.go, close: l.hint.close }));
   const anchor = (id) => (sub === '' ? '#' : home + '#') + id;
+  // The header's links: two places on the home page, three pages of their own. The one you are in is marked.
+  const navLink = (p, label) => `<a href="${up}${t.path}${p}"${sub.startsWith(p) ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
 
   return `<!doctype html>
 <html lang="${t.lang}">
@@ -138,8 +164,9 @@ ${langs.filter((l) => l.lang !== t.lang).map((l) => `  <meta property="og:locale
   <div class="top-right">
     <nav>
       <a href="${anchor('games')}">${esc(t.nav.games)}</a>
-      <a href="${anchor('about')}">${esc(t.nav.about)}</a>
-      <a href="${anchor('crew')}">${esc(t.nav.crew)}</a>
+      ${navLink(LAB, t.nav.experiments)}
+      ${navLink(STUDIO, t.nav.about)}
+      ${navLink(CREW, t.nav.crew)}
       <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
     </nav>
     <div class="langs" role="group" aria-label="${esc(t.switch_label)}">${switcher}</div>
@@ -183,18 +210,29 @@ ${main(up, home)}
   if (!dialog || !dialog.showModal) return;
   var frame = dialog.querySelector('.trailer-frame');
   function open(id) {
+    dialog.classList.remove('is-image');
     frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    dialog.showModal();
+  }
+  // A picture in a gallery opens large in the same dialog; a press anywhere on it closes it.
+  function zoom(a) {
+    dialog.classList.add('is-image');
+    frame.innerHTML = '';
+    var img = document.createElement('img');
+    img.src = a.getAttribute('href');
+    img.alt = (a.querySelector('img') || {}).alt || '';
+    frame.appendChild(img);
     dialog.showModal();
   }
   function close() { dialog.close(); }
   dialog.addEventListener('close', function () { frame.innerHTML = ''; });
-  dialog.addEventListener('click', function (e) { if (e.target === dialog) close(); });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog || e.target.tagName === 'IMG') close(); });
   dialog.querySelector('.trailer-close').addEventListener('click', close);
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[data-video]');
+    var a = e.target.closest && e.target.closest('a[data-video], a[data-zoom]');
     if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
-    open(a.getAttribute('data-video'));
+    if (a.hasAttribute('data-zoom')) zoom(a); else open(a.getAttribute('data-video'));
   });
 })();
 </script>
@@ -236,6 +274,131 @@ ${script}
 </body>
 </html>
 `;
+}
+
+// The blocks the studio and crew pages are made of. `kicker` is the small label over the heading,
+// `h` the heading's tag (h1 when the block opens a page), `base` the way to the language's root.
+
+// "How we build": the crew manifest, one bar per kind of work split between people and AI,
+// the tools, the stance, the promise. The bars fill when they come into view.
+function manifestBlock(t, kicker, h = 'h2') {
+  const rows = t.build.rows.map((r) => `      <li class="man-row" style="--h: ${r.human}" tabindex="0">
+        <span class="man-name">${esc(r.name)}</span>
+        <span class="man-bar" aria-label="${esc(t.build.human)} ${r.human}%, ${esc(t.build.ai)} ${100 - r.human}%"><i class="man-human"></i><i class="man-ai"></i></span>
+        <span class="man-pct"><b>${r.human}%</b><em>${100 - r.human}%</em></span>
+        <span class="man-note">${esc(r.note)}</span>
+      </li>`).join('\n');
+  return `<section id="build" class="section build chart">
+  <div class="section-head">
+    <div>
+      <p class="kicker">${esc(kicker)}</p>
+      <${h}>${esc(t.build.title)}</${h}>
+    </div>
+    <p>${esc(t.build.lede)}</p>
+  </div>
+  <div class="build-grid">
+    <div class="manifest reveal">
+      <div class="man-head">
+        <h3>${esc(t.build.manifest_title)}</h3>
+        <p class="man-key"><span><i class="man-human"></i>${esc(t.build.human)}</span><span><i class="man-ai"></i>${esc(t.build.ai)}</span></p>
+      </div>
+      <ol class="man-list">
+${rows}
+      </ol>
+      <p class="man-note-foot">${esc(t.build.manifest_note)}</p>
+      <p class="man-tools"><span class="kicker">${esc(t.build.tools_title)}</span>${t.build.tools.map((x) => `<span class="tool">${esc(x)}</span>`).join('')}</p>
+    </div>
+    <div class="build-text reveal">
+${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
+      <div class="promise">
+        <p class="kicker">${esc(t.build.promise_title)}</p>
+        <p>${esc(t.build.promise)}</p>
+      </div>
+    </div>
+  </div>
+</section>`;
+}
+
+// Two harbours: the name, the bridges, the mission, the promises and the dated letter, on paper.
+function aboutBlock(t, kicker, h = 'h2') {
+  return `<section id="about" class="section about">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${esc(kicker)}</p>
+        <${h}>${esc(t.about.title)}</${h}>
+      </div>
+      <div class="about-text">
+${t.about.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
+      </div>
+    </div>
+    <figure class="bridges-figure">
+      ${skyline.replace(/\n/g, '\n      ')}
+      <figcaption>
+        <span>${esc(t.about.north)} <em>43°06′N 131°53′E</em></span>
+        <span>${esc(t.about.south)} <em>33°51′S 151°13′E</em></span>
+      </figcaption>
+    </figure>
+    <div class="about-more">
+      <div class="about-col">
+        <h3>${esc(t.about.mission_title)}</h3>
+        <p class="big">${esc(t.about.mission)}</p>
+        <h3>${esc(t.about.vision_title)}</h3>
+        <p>${esc(t.about.vision)}</p>
+        <h3>${esc(t.about.promises_title)}</h3>
+        <ul class="promises">
+${t.about.promises.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
+        </ul>
+      </div>
+      <div class="about-col letter">
+        <h3>${esc(t.about.letter_title)}</h3>
+${t.about.letter.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
+      </div>
+    </div>
+  </section>`;
+}
+
+// "Take an oar": the open crew programme.
+function crewBlock(t, kicker, base, h = 'h2') {
+  return `<section id="crew" class="section crew chart">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${esc(kicker)}</p>
+        <${h}>${esc(t.crew.title)}</${h}>
+      </div>
+      <p>${esc(t.crew.lede)}</p>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-col reveal">
+        <h3>${esc(t.crew.how_title)}</h3>
+        <ol class="crew-steps">
+${t.crew.how.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
+        </ol>
+        <h3>${esc(t.crew.who_title)}</h3>
+        <p>${esc(t.crew.who)}</p>
+      </div>
+      <div class="crew-col reveal">
+        <h3>${esc(t.crew.oars_title)}</h3>
+        <ul class="oars">
+${t.crew.oars.map((o) => { const g = o.game ? games.find((x) => x.id === o.game) : null; return `          <li>${g ? `<a class="oar-game" href="${base}${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="oar-game">${esc(t.crew.any_game)}</span>`}<span>${esc(o.text)}</span></li>`; }).join('\n')}
+        </ul>
+        <p class="crew-cta"><a class="button" href="mailto:${EMAIL}?subject=${encodeURIComponent(t.crew.cta_subject)}">${esc(t.crew.cta)} <span aria-hidden="true">→</span></a></p>
+        <p class="crew-closing">${esc(t.crew.closing)}</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+// One experiment as a card: its picture, what kind of thing it is, the name, a line about it, how far it got.
+function labCard(t, x, up, base) {
+  const c = x[t.lang];
+  const L = t.experiments;
+  return `      <a class="lab-card reveal" href="${base}${labPath(x)}">
+        <img src="${up}${x.thumb}" alt="" width="800" height="500" loading="lazy" decoding="async">
+        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')}</span>
+        <span class="lab-title">${esc(c.title)}</span>
+        <span class="lab-text">${esc(c.text)}</span>
+        <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span>
+      </a>`;
 }
 
 function page(t) {
@@ -294,50 +457,12 @@ ${games.map((g, i) => `        <button type="button" aria-label="${esc(t.games[g
   let n = 0;
   const num = () => String(++n).padStart(2, '0');
 
-  // "How we build": the crew manifest, one bar per kind of work split between people and AI,
-  // the tools, the stance, the promise. The bars fill when they come into view.
-  const manifestRows = t.build.rows.map((r, i) => `      <li class="man-row" style="--h: ${r.human}" tabindex="0">
-        <span class="man-name">${esc(r.name)}</span>
-        <span class="man-bar" aria-label="${esc(t.build.human)} ${r.human}%, ${esc(t.build.ai)} ${100 - r.human}%"><i class="man-human"></i><i class="man-ai"></i></span>
-        <span class="man-pct"><b>${r.human}%</b><em>${100 - r.human}%</em></span>
-        <span class="man-note">${esc(r.note)}</span>
-      </li>`).join('\n');
-  const manifest = () => `<section id="build" class="section build chart">
-  <div class="section-head">
-    <div>
-      <p class="kicker">${num()} / ${esc(t.build.nav)}</p>
-      <h2>${esc(t.build.title)}</h2>
-    </div>
-    <p>${esc(t.build.lede)}</p>
-  </div>
-  <div class="build-grid">
-    <div class="manifest reveal">
-      <div class="man-head">
-        <h3>${esc(t.build.manifest_title)}</h3>
-        <p class="man-key"><span><i class="man-human"></i>${esc(t.build.human)}</span><span><i class="man-ai"></i>${esc(t.build.ai)}</span></p>
-      </div>
-      <ol class="man-list">
-${manifestRows}
-      </ol>
-      <p class="man-note-foot">${esc(t.build.manifest_note)}</p>
-      <p class="man-tools"><span class="kicker">${esc(t.build.tools_title)}</span>${t.build.tools.map((x) => `<span class="tool">${esc(x)}</span>`).join('')}</p>
-    </div>
-    <div class="build-text reveal">
-${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
-      <div class="promise">
-        <p class="kicker">${esc(t.build.promise_title)}</p>
-        <p>${esc(t.build.promise)}</p>
-      </div>
-    </div>
-  </div>
-</section>`;
-
   // One chip per platform any game plays on, with how many.
   const platformsInPort = Object.keys(t.platforms).filter((p) => games.some((g) => g.platforms.includes(p)));
   const chips = platformsInPort.map((p) => `      <button type="button" class="chip" aria-pressed="false" data-platform="${p}">${esc(t.platforms[p])} <small>${games.filter((g) => g.platforms.includes(p)).length}</small></button>`).join('\n');
 
   // The harbour log: the newest entries open, the rest behind a button.
-  const LOG_SHOWN = 6;
+  const LOG_SHOWN = 4;
   const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
   const logItems = log.map((e, i) => {
     const g = e.game ? games.find((x) => x.id === e.game) : null;
@@ -350,7 +475,7 @@ ${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
 
   // The newest videos: a poster each, playing in place when pressed. Shorts posters are upright.
   const viewsFmt = new Intl.NumberFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU');
-  const videoItems = videos.map((v) => `      <article class="video reveal${v.short ? ' short' : ''}" data-id="${v.id}">
+  const videoItems = videos.slice(0, 4).map((v) => `      <article class="video reveal${v.short ? ' short' : ''}" data-id="${v.id}">
         <button type="button" class="video-play" aria-label="${esc(t.videos.play)}: ${esc(v.title)}">
           <img src="${fs.existsSync(path.join(ROOT, 'img/v/' + v.id + '.jpg')) ? up + 'img/v/' + v.id + '.jpg' : 'https://i.ytimg.com/vi/' + v.id + '/' + (v.short ? 'oar2' : 'hqdefault') + '.jpg'}" alt="" width="${v.short ? 360 : 480}" height="${v.short ? 640 : 360}" loading="lazy" decoding="async">
           <span class="video-badge"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg></span>
@@ -560,11 +685,10 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   arm();
 })();
 
-// The manifest: a tap on a line (phones have no hover) opens its note.
+// Old links to parts of this page that now have pages of their own still arrive.
 (function () {
-  document.querySelectorAll('.man-row').forEach(function (r) {
-    r.addEventListener('click', function () { r.classList.toggle('is-open'); });
-  });
+  var moved = { '#about': '${STUDIO}', '#build': '${STUDIO}#build', '#crew': '${CREW}' };
+  if (moved[location.hash]) location.replace(moved[location.hash]);
 })();
 
 // The older log entries, and the videos playing in place.
@@ -656,7 +780,36 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
 
 ${showcase()}  </section>
 
-${manifest()}
+  <section id="creed" class="section creed chart">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${num()} / ${esc(t.creed.nav)}</p>
+        <h2>${esc(t.creed.title)}</h2>
+      </div>
+      <p>${esc(t.creed.lede)}</p>
+    </div>
+    <ol class="creed-grid">
+${t.creed.items.map((i) => `      <li class="creed-item reveal">
+        <h3>${esc(i.title)}</h3>
+        <p>${esc(i.text)}</p>
+      </li>`).join('\n')}
+    </ol>
+    <p class="section-more"><a class="button ghost" href="${STUDIO}">${esc(t.creed.more)} <span aria-hidden="true">→</span></a></p>
+  </section>
+
+  <section id="experiments" class="section lab">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${num()} / ${esc(t.experiments.nav)}</p>
+        <h2>${esc(t.experiments.home_title)}</h2>
+      </div>
+      <p>${esc(t.experiments.home_lede)}</p>
+    </div>
+    <div class="lab-grid">
+${labHome.slice(0, 3).map((x) => labCard(t, x, up, '')).join('\n')}
+    </div>
+    <p class="section-more"><a class="button" href="${LAB}">${esc(t.experiments.all.replace('{n}', labItems.length))} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${lab.forum.url}">${esc(t.experiments.forum_open)} <span aria-hidden="true">↗</span></a></p>
+  </section>
 
   <section id="log" class="section log">
     <div class="section-head">
@@ -686,69 +839,6 @@ ${videoItems}
     <p class="channel-all"><a class="button ghost" href="${links.find((l) => /youtube/i.test(l.url))?.url || 'https://www.youtube.com/@goldenharbourgames'}">${esc(t.videos.channel)} <span aria-hidden="true">↗</span></a></p>
   </section>
 ` : ''}
-  <section id="about" class="section about">
-    <div class="section-head">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.nav.about)}</p>
-        <h2>${esc(t.about.title)}</h2>
-      </div>
-      <div class="about-text">
-${t.about.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
-      </div>
-    </div>
-    <figure class="bridges-figure">
-      ${skyline.replace(/\n/g, '\n      ')}
-      <figcaption>
-        <span>${esc(t.about.north)} <em>43°06′N 131°53′E</em></span>
-        <span>${esc(t.about.south)} <em>33°51′S 151°13′E</em></span>
-      </figcaption>
-    </figure>
-    <div class="about-more">
-      <div class="about-col">
-        <h3>${esc(t.about.mission_title)}</h3>
-        <p class="big">${esc(t.about.mission)}</p>
-        <h3>${esc(t.about.vision_title)}</h3>
-        <p>${esc(t.about.vision)}</p>
-        <h3>${esc(t.about.promises_title)}</h3>
-        <ul class="promises">
-${t.about.promises.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
-        </ul>
-      </div>
-      <div class="about-col letter">
-        <h3>${esc(t.about.letter_title)}</h3>
-${t.about.letter.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
-      </div>
-    </div>
-  </section>
-
-  <section id="crew" class="section crew">
-    <div class="section-head">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.nav.crew)}</p>
-        <h2>${esc(t.crew.title)}</h2>
-      </div>
-      <p>${esc(t.crew.lede)}</p>
-    </div>
-    <div class="crew-grid">
-      <div class="crew-col reveal">
-        <h3>${esc(t.crew.how_title)}</h3>
-        <ol class="crew-steps">
-${t.crew.how.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
-        </ol>
-        <h3>${esc(t.crew.who_title)}</h3>
-        <p>${esc(t.crew.who)}</p>
-      </div>
-      <div class="crew-col reveal">
-        <h3>${esc(t.crew.oars_title)}</h3>
-        <ul class="oars">
-${t.crew.oars.map((o) => { const g = o.game ? games.find((x) => x.id === o.game) : null; return `          <li>${g ? `<a class="oar-game" href="${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="oar-game">${esc(t.crew.any_game)}</span>`}<span>${esc(o.text)}</span></li>`; }).join('\n')}
-        </ul>
-        <p class="crew-cta"><a class="button" href="mailto:${EMAIL}?subject=${encodeURIComponent(t.crew.cta_subject)}">${esc(t.crew.cta)} <span aria-hidden="true">→</span></a></p>
-        <p class="crew-closing">${esc(t.crew.closing)}</p>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="section contact chart">
     <p class="kicker">${num()} / ${esc(t.nav.contact)}</p>
     <h2>${esc(t.contact.title)}</h2>
@@ -935,6 +1025,211 @@ ${others.map((o) => `      <a class="more-card" href="${up}${t.path}${playPath(o
   });
 })();
 </script>`,
+  });
+}
+
+const webPage = (t, sub, name, description) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name,
+  description,
+  url: SITE + t.path + sub,
+  inLanguage: t.lang,
+  isPartOf: { '@type': 'WebSite', name: 'Golden Harbour Games', url: SITE },
+  publisher: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE, email: EMAIL },
+});
+
+// The studio page: who we are and how the games get made. The long read that used to be the
+// second half of the home page.
+function studioPage(t) {
+  const s = t.studio;
+  return shell(t, STUDIO, {
+    title: s.seo_title,
+    ogTitle: s.title,
+    description: s.description,
+    ogImage: shareImage(`img/og-${t.lang}.jpg`),
+    ogSize: [1200, 630],
+    jsonld: webPage(t, STUDIO, s.title, s.description),
+    main: (up) => `<main>
+  ${aboutBlock(t, t.nav.about, 'h1')}
+
+${manifestBlock(t, t.build.nav)}
+
+  <section class="section next-up">
+    <p class="kicker">${esc(s.next)}</p>
+    <p class="section-more"><a class="button" href="${up}${t.path}${LAB}">${esc(t.nav.experiments)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${CREW}">${esc(t.crew.title)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${PRESS}">${esc(t.press.link)} <span aria-hidden="true">→</span></a></p>
+  </section>
+</main>`,
+    script: `<script>
+// The manifest: a tap on a line (phones have no hover) opens its note.
+(function () {
+  document.querySelectorAll('.man-row').forEach(function (r) {
+    r.addEventListener('click', function () { r.classList.toggle('is-open'); });
+  });
+})();
+</script>`,
+  });
+}
+
+// The crew programme on a page of its own.
+function crewPage(t) {
+  return shell(t, CREW, {
+    title: t.crew.seo_title,
+    ogTitle: t.crew.title,
+    description: t.crew.lede,
+    ogImage: shareImage(`img/og-${t.lang}.jpg`),
+    ogSize: [1200, 630],
+    jsonld: webPage(t, CREW, t.crew.title, t.crew.lede),
+    main: (up) => `<main>
+  ${crewBlock(t, t.nav.crew, up + t.path, 'h1')}
+</main>`,
+  });
+}
+
+// The talk under an experiment (or under the list of them): a link to its thread on the forum, and,
+// once the forum's comment box is switched on (forum.embed in content/experiments.json), a button
+// that loads the thread into the page. Nothing is fetched from anyone until that button is pressed.
+function talkBlock(t, x) {
+  const L = t.experiments;
+  const f = lab.forum;
+  const thread = x ? x.thread : f.general;
+  const canEmbed = f.embed && f.repoId && thread;
+  return `<section class="lab-talk" id="talk">
+      <h2>${esc(x ? L.talk_title : L.forum_title)}</h2>
+      <p>${esc(x ? L.talk_text : L.forum_text)}</p>
+      <p class="lab-talk-actions">
+        <a class="button" href="${x ? threadUrl(x) : f.url}">${esc(x ? L.thread_open : L.forum_open)} <span aria-hidden="true">↗</span></a>${canEmbed ? `
+        <button type="button" class="button ghost talk-load" data-repo="${esc(f.repo)}" data-repo-id="${esc(f.repoId)}" data-thread="${thread}" data-lang="${t.lang}">${esc(L.thread_load)}</button>` : ''}
+      </p>
+      <p class="lab-talk-note">${esc(L.forum_note)}</p>
+      <div class="talk-frame"></div>
+    </section>`;
+}
+const talkScript = `<script>
+// The thread loads into the page only when asked for: the comment box is giscus, over GitHub Discussions.
+(function () {
+  var b = document.querySelector('.talk-load');
+  if (!b) return;
+  b.addEventListener('click', function () {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.async = true; s.crossOrigin = 'anonymous';
+    var d = { repo: b.getAttribute('data-repo'), 'repo-id': b.getAttribute('data-repo-id'), mapping: 'number', term: b.getAttribute('data-thread'),
+      'reactions-enabled': '1', 'emit-metadata': '0', 'input-position': 'top', theme: 'dark_dimmed', lang: b.getAttribute('data-lang') };
+    for (var k in d) s.setAttribute('data-' + k, d[k]);
+    document.querySelector('.talk-frame').appendChild(s);
+    b.hidden = true;
+  });
+})();
+</script>`;
+
+// All the experiments, newest first, and the way into the forum.
+function labIndex(t) {
+  const L = t.experiments;
+  return shell(t, LAB, {
+    title: L.seo_title,
+    ogTitle: L.title,
+    description: L.description,
+    ogImage: shareImage(labItems[0].cover),
+    ogSize: [1600, 1000],
+    jsonld: webPage(t, LAB, L.title, L.description),
+    script: talkScript,
+    main: (up) => `<main>
+  <section class="section lab lab-index chart">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${esc(L.nav)} · ${labItems.length}</p>
+        <h1>${esc(L.title)}</h1>
+      </div>
+      <p>${esc(L.lede)}</p>
+    </div>
+    <div class="lab-grid">
+${labItems.map((x) => labCard(t, x, up, up + t.path)).join('\n')}
+    </div>
+    ${talkBlock(t, null)}
+  </section>
+</main>`,
+  });
+}
+
+// One experiment: what it is, the pictures, what we learned, and its thread.
+function labPage(t, x) {
+  const c = x[t.lang];
+  const L = t.experiments;
+  const sub = labPath(x);
+  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { month: 'long', year: 'numeric' });
+  const others = labItems.filter((o) => o.id !== x.id).slice(0, 3);
+  const article = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: c.title,
+    description: c.text,
+    url: SITE + t.path + sub,
+    image: SITE + x.cover,
+    inLanguage: t.lang,
+    datePublished: x.date,
+    author: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE },
+    publisher: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE },
+    discussionUrl: threadUrl(x),
+  };
+  return shell(t, sub, {
+    title: `${c.title} · ${L.nav} · Golden Harbour Games`,
+    ogTitle: c.title,
+    description: c.text,
+    ogImage: shareImage(x.cover),
+    ogSize: [1600, 1000],
+    jsonld: article,
+    script: talkScript,
+    main: (up) => `<main>
+  <section class="section game-page lab-page chart">
+    <p class="crumbs"><a href="${up}${t.path}${LAB}"><span aria-hidden="true">←</span> ${esc(L.back)}</a></p>
+    <div class="game-head">
+      <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span> <time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
+      <h1>${esc(c.title)}</h1>
+    </div>
+    <figure class="lab-hero"><a href="${up}${x.cover}" data-zoom><img src="${up}${x.cover}" alt="${esc(c.cover_alt || c.title)}" width="1600" height="1000" fetchpriority="high"></a></figure>
+
+    <div class="lab-columns">
+      <div class="lab-read">
+        <div class="game-info">
+          <p class="text">${esc(c.text)}</p>
+${(c.intro || []).map((p) => `          <p class="text more">${esc(p)}</p>`).join('\n')}
+        </div>
+        <div class="game-story">
+${c.sections.map((s) => `          <section>
+            <h2>${esc(s.title)}</h2>
+${s.list ? `            <ul>
+${s.list.map((i) => `              <li>${esc(i)}</li>`).join('\n')}
+            </ul>` : s.paragraphs.map((p) => `            <p>${esc(p)}</p>`).join('\n')}
+          </section>`).join('\n')}
+        </div>${(x.links || []).length ? `
+        <p class="lab-links">${x.links.map((l) => `<a class="button ghost" href="${/^https?:/.test(l.url) ? l.url : up + l.url}">${esc(l[t.lang])} <span aria-hidden="true">${/^https?:/.test(l.url) ? '↗' : '→'}</span></a>`).join(' ')}</p>` : ''}
+      </div>
+      <aside class="lab-facts">
+        <dl>
+${c.facts.map(([k, v]) => `          <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n')}
+        </dl>
+      </aside>
+    </div>
+${(x.shots || []).length ? `
+    <h2 class="lab-h">${esc(L.gallery)}</h2>
+    <div class="lab-gallery">
+${x.shots.map((s) => `      <figure class="reveal">
+        <a href="${up}${s.src}" data-zoom><img src="${up}${s.src}" alt="${esc(s[t.lang])}" width="1600" height="1000" loading="lazy" decoding="async"></a>
+        <figcaption>${esc(s[t.lang])}</figcaption>
+      </figure>`).join('\n')}
+    </div>` : ''}
+
+    ${talkBlock(t, x)}
+  </section>
+
+  <section class="section more-games">
+    <p class="kicker">${esc(L.more)}</p>
+    <div class="lab-grid">
+${others.map((o) => labCard(t, o, up, up + t.path)).join('\n')}
+    </div>
+  </section>
+</main>`,
   });
 }
 
@@ -1155,10 +1450,14 @@ for (const t of langs) for (const g of games) write(t.path + playPath(g) + 'inde
 for (const t of langs) write(t.path + PRIVACY + 'index.html', legalPage(t, 'privacy', PRIVACY));
 for (const t of langs) write(t.path + TERMS + 'index.html', legalPage(t, 'terms', TERMS));
 for (const t of langs) write(t.path + PRESS + 'index.html', pressPage(t));
+for (const t of langs) write(t.path + STUDIO + 'index.html', studioPage(t));
+for (const t of langs) write(t.path + CREW + 'index.html', crewPage(t));
+for (const t of langs) write(t.path + LAB + 'index.html', labIndex(t));
+for (const t of langs) for (const x of lab.items) write(t.path + labPath(x) + 'index.html', labPage(t, x));
 write('404.html', notFound());
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${['', ...games.map(playPath), PRIVACY, TERMS, PRESS].flatMap((sub) => langs.map((t) => `  <url>
+${['', ...games.map(playPath), LAB, ...labItems.map(labPath), STUDIO, CREW, PRIVACY, TERMS, PRESS].flatMap((sub) => langs.map((t) => `  <url>
     <loc>${SITE}${t.path}${sub}</loc>
 ${langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${SITE}${l.path}${sub}"/>`).join('\n')}
   </url>`)).join('\n')}

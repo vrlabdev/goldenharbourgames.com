@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-11-11",
+    "game": null,
+    "en": "The site gets a workshop: an Experiments page for our VR, AR and robot work, with a forum. The long read about the studio moved to a page of its own.",
+    "ru": "На сайте появилась мастерская: страница «Эксперименты» с нашими VR, AR и роботами, и форум. Длинный рассказ о студии переехал на отдельную страницу."
+  },
+  {
+    "date": "2026-11-11",
+    "game": "souls-and-estates",
+    "en": "0.104: icons on every screen and plain English in place of the old Russian terms, after a meetup told us there was too much to read.",
+    "ru": "0.104: значки на каждом экране, а в английской версии простые слова вместо русских терминов. На встрече разработчиков нам сказали, что читать приходится слишком много."
+  },
+  {
+    "date": "2026-11-10",
+    "game": "orbital-jump",
+    "en": "Orbital Jump Reloaded is on the App Store for iPhone, with Game Center leaderboards and achievements.",
+    "ru": "Orbital Jump Reloaded вышла в App Store для iPhone, с таблицами рекордов и достижениями Game Center."
+  },
+  {
+    "date": "2026-11-10",
+    "game": "souls-and-estates",
+    "en": "0.100: one mouse wheel now zooms from a village yard to the whole estate, the district as a table of miniatures, and a map table of central Russia.",
+    "ru": "0.100: одно колесо мыши теперь ведёт от деревенского двора к целому имению, уезду в виде стола с миниатюрами и столу-карте центральной России."
+  },
+  {
+    "date": "2026-11-10",
+    "game": "aerofire-command",
+    "en": "1.0.2 on the App Store: Game Center, and a loading card on the first start, so the map is ready when you arrive.",
+    "ru": "1.0.2 в App Store: Game Center и экран загрузки при первом запуске, чтобы карта была готова к вашему приходу."
+  },
+  {
     "date": "2026-11-07",
     "game": null,
     "en": "Punch League and AeroFire Command: Fire Season are on the App Store for iPhone. Same games, no data sent.",

@@ -81,6 +81,96 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/vladivostok-fortress/"/>
   </url>
   <url>
+    <loc>https://goldenharbourgames.com/experiments/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/robots/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/robots/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/robots/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/robots/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/robots/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/robots/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/tabletop-ladder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/tabletop-ladder/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/tabletop-ladder/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/tabletop-ladder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/tabletop-ladder/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/tabletop-ladder/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/gull-reddit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/gull-reddit/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/gull-reddit/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/gull-reddit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/gull-reddit/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/gull-reddit/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/pocket-ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/pocket-ar/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/pocket-ar/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/pocket-ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/pocket-ar/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/pocket-ar/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/greybeard/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/greybeard/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/greybeard/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/greybeard/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/greybeard/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/greybeard/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/experiments/aerofire-vr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/aerofire-vr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/aerofire-vr/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/aerofire-vr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/aerofire-vr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/aerofire-vr/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/studio/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/studio/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/crew/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/crew/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/crew/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/crew/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/crew/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/crew/"/>
+  </url>
+  <url>
     <loc>https://goldenharbourgames.com/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/privacy/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/privacy/"/>

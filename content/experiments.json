@@ -1,0 +1,937 @@
+{
+  "forum": {
+    "url": "https://github.com/vrlabdev/goldenharbourgames.com/discussions",
+    "repo": "vrlabdev/goldenharbourgames.com",
+    "repoId": "R_kgDOUrBxKQ",
+    "embed": false,
+    "general": 1
+  },
+  "home": [
+    "robots",
+    "greybeard",
+    "tabletop-ladder"
+  ],
+  "items": [
+    {
+      "id": "robots",
+      "date": "2026-11-11",
+      "tags": [
+        "robots",
+        "tools"
+      ],
+      "status": "building",
+      "thread": 2,
+      "cover": "img/x/robots/cover.jpg",
+      "thumb": "img/x/robots/thumb.jpg",
+      "shots": [
+        {
+          "src": "img/x/robots/01.jpg",
+          "en": "Eva in one piece, eyes on.",
+          "ru": "Ева в сборе, глаза включены."
+        },
+        {
+          "src": "img/x/robots/02.jpg",
+          "en": "Eva exploded, from the other side: every part named, every wire coloured by what it carries.",
+          "ru": "Ева в разобранном виде с другой стороны: каждая деталь подписана, каждый провод окрашен по назначению."
+        },
+        {
+          "src": "img/x/robots/03.jpg",
+          "en": "The build guide, step 20 of 48: the shoulder servos come out. The card lists the screws and the cables to unplug.",
+          "ru": "Руководство по сборке, шаг 20 из 48: вынимаем сервоприводы плеч. На карточке винты и кабели, которые нужно отключить."
+        },
+        {
+          "src": "img/x/robots/06.jpg",
+          "en": "Reach a part: click the eye board and only what has to come off to get to it moves.",
+          "ru": "«Добраться до детали»: щёлкните по плате глаз, и сдвинется только то, что мешает до неё дойти."
+        },
+        {
+          "src": "img/x/robots/04.jpg",
+          "en": "Adam taken apart: 110 parts, 44 wires.",
+          "ru": "Адам в разобранном виде: 110 деталей, 44 провода."
+        },
+        {
+          "src": "img/x/robots/05.jpg",
+          "en": "Adam by system: only what moves him. Servos, waist gears, wheel motors and the four mecanum wheels.",
+          "ru": "Адам по системам: только то, что его двигает. Сервоприводы, шестерни пояса, моторы и четыре меканум-колеса."
+        },
+        {
+          "src": "img/x/robots/eyes.jpg",
+          "en": "Eva's eyes are two round screens. Twelve of her moods, from three of the sets we drew for her.",
+          "ru": "Глаза Евы — два круглых экрана. Двенадцать её настроений из трёх наборов, которые мы для неё нарисовали."
+        }
+      ],
+      "en": {
+        "title": "Eva and Adam, taken apart",
+        "text": "Two humanoid robots live in our workshop. We write the software that makes one of them see, listen and pull faces, and we built a 3D guide that takes both of them apart screw by screw.",
+        "intro": [
+          "Eva is a desk-sized robot assistant: eight servos, two round screens for eyes, a camera between them and a Raspberry Pi where a person would keep their lunch. Adam is her big brother, ten kilos on four mecanum wheels. Both are built by the robotics company ROBOT. What we add is software, and a habit of asking what a game studio can do with a body."
+        ],
+        "sections": [
+          {
+            "title": "The exploded view",
+            "paragraphs": [
+              "The page loads the maker's own CAD, every part a real piece of geometry, and lets you pull the robot apart with a slider. Parts leave layer by layer, outer shells first, and each wire is drawn in the colour of what it carries: power, data, the servo bus, sensors, motors.",
+              "It has four ways of looking. Everything is the slider. Build guide walks a student through taking the robot apart or putting it together, one step at a time, with the screws to undo and the cables to unplug. By system pulls out only the motion, the senses, the power or the brain. Reach a part answers the question you actually have with a screwdriver in your hand: what do I need to take off to get to this?"
+            ]
+          },
+          {
+            "title": "What Eva does",
+            "list": [
+              "She listens for her name, answers in a voice, and her replies carry a mood that moves her eyes and her body.",
+              "Her eyes are animations we generate: lizard, alien and the classic ring of LEDs, nineteen named reactions each, plus a crazy pack with a radar, a fire and Pac-Man.",
+              "She sees: faces she knows, and what is in front of her.",
+              "She can be driven by an AI assistant over MCP, the same way an assistant uses any other tool. Everything runs on the robot itself. Nothing of Eva lives on a laptop."
+            ]
+          },
+          {
+            "title": "What we are honest about",
+            "paragraphs": [
+              "The parts and the screws come from the maker's CAD. The order of the steps and the route of every cable are our reading: the CAD has no wiring harness in it, so we drew the cables by hand, and for Eva we checked them against the robot on our desk. Fourteen of her thirty-seven wires are confirmed; the rest are drawn dashed. Adam we have never opened. His manual says not to without the maker's consent, so his guide is a study, not an instruction.",
+              "The viewer itself is not public yet. We would like to open it once the maker has checked the steps."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Eva",
+            "64 parts · 37 wires · 48 steps · 8 servos · about 3 kg"
+          ],
+          [
+            "Adam",
+            "110 parts · 44 wires · 52 steps · 10 servos · about 10 kg"
+          ],
+          [
+            "Built with",
+            "Three.js, the maker's CAD converted part by part"
+          ],
+          [
+            "Languages",
+            "English and Russian"
+          ],
+          [
+            "Why",
+            "A robot is a character with a body. We want to know what play looks like with one in the room."
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Ева и Адам в разобранном виде",
+        "text": "В нашей мастерской живут два человекоподобных робота. Мы пишем программы, благодаря которым один из них видит, слушает и строит рожицы, и сделали 3D-руководство, которое разбирает обоих до винтика.",
+        "intro": [
+          "Ева — настольный робот-ассистент: восемь сервоприводов, два круглых экрана вместо глаз, камера между ними и Raspberry Pi там, где у человека был бы обед. Адам — её старший брат, десять килограммов на четырёх меканум-колёсах. Обоих делает робототехническая компания «Робот». Наш вклад — программы и привычка спрашивать, что игровая студия может сделать с телом."
+        ],
+        "sections": [
+          {
+            "title": "Разобранный вид",
+            "paragraphs": [
+              "Страница загружает CAD-модель производителя, где каждая деталь — настоящая геометрия, и позволяет разобрать робота ползунком. Детали уходят слой за слоем, сначала внешние корпуса, а каждый провод окрашен по тому, что он несёт: питание, данные, шина сервоприводов, датчики, моторы.",
+              "Смотреть можно четырьмя способами. «Всё» — это ползунок. «Руководство по сборке» ведёт ученика через разборку или сборку робота шаг за шагом, с винтами, которые нужно открутить, и кабелями, которые нужно отключить. «По системам» вынимает только движение, чувства, питание или мозг. «Добраться до детали» отвечает на вопрос, который возникает с отвёрткой в руке: что нужно снять, чтобы достать вот это?"
+            ]
+          },
+          {
+            "title": "Что умеет Ева",
+            "list": [
+              "Она слышит своё имя, отвечает голосом, а в её ответах есть настроение, которое двигает её глаза и тело.",
+              "Её глаза — анимации, которые мы генерируем: ящерица, пришелец и классическое кольцо светодиодов, по девятнадцать именованных реакций, плюс безумный набор с радаром, огнём и Пакманом.",
+              "Она видит: знакомые лица и то, что перед ней.",
+              "Ею может управлять ИИ-ассистент через MCP, так же как любым другим инструментом. Всё работает на самом роботе. Ничего от Евы не живёт на ноутбуке."
+            ]
+          },
+          {
+            "title": "О чём мы говорим честно",
+            "paragraphs": [
+              "Детали и винты взяты из CAD-модели производителя. Порядок шагов и трасса каждого кабеля — наше прочтение: жгута проводов в модели нет, кабели мы нарисовали вручную, а у Евы сверили с роботом, который стоит у нас на столе. Из её тридцати семи проводов подтверждены четырнадцать; остальные нарисованы пунктиром. Адама мы не вскрывали ни разу. В его инструкции сказано не делать этого без согласия производителя, так что его руководство — исследование, а не инструкция.",
+              "Сам просмотрщик пока не опубликован. Мы хотим открыть его, когда производитель проверит шаги."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Ева",
+            "64 детали · 37 проводов · 48 шагов · 8 сервоприводов · около 3 кг"
+          ],
+          [
+            "Адам",
+            "110 деталей · 44 провода · 52 шага · 10 сервоприводов · около 10 кг"
+          ],
+          [
+            "Сделано на",
+            "Three.js, CAD производителя, переведённый деталь за деталью"
+          ],
+          [
+            "Языки",
+            "Русский и английский"
+          ],
+          [
+            "Зачем",
+            "Робот — это персонаж с телом. Мы хотим понять, как выглядит игра, когда он в комнате."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "tabletop-ladder",
+      "date": "2026-11-10",
+      "tags": [
+        "look"
+      ],
+      "status": "live",
+      "thread": 3,
+      "cover": "img/x/tabletop-ladder/cover.jpg",
+      "thumb": "img/x/tabletop-ladder/thumb.jpg",
+      "links": [
+        {
+          "url": "play/souls-and-estates/",
+          "en": "Play Souls & Estates",
+          "ru": "Играть в Souls & Estates"
+        }
+      ],
+      "shots": [
+        {
+          "src": "img/x/tabletop-ladder/01.jpg",
+          "en": "Rung one, the village: true scale, real blades of grass, people on the lane.",
+          "ru": "Первая ступень, деревня: настоящий масштаб, настоящие травинки, люди на улице."
+        },
+        {
+          "src": "img/x/tabletop-ladder/02.jpg",
+          "en": "Rung two, the estate: the same land as a miniature. The manor and four villages, each building swollen so it reads from up here.",
+          "ru": "Вторая ступень, имение: та же земля как миниатюра. Усадьба и четыре деревни, каждая постройка увеличена, чтобы читаться с высоты."
+        },
+        {
+          "src": "img/x/tabletop-ladder/03.jpg",
+          "en": "Rung three, the governorate: a model on a table, with a candlestick, books and an inkwell. Towns are name cards on brass pins.",
+          "ru": "Третья ступень, губерния: макет на столе, с подсвечником, книгами и чернильницей. Города — карточки с названиями на латунных булавках."
+        },
+        {
+          "src": "img/x/tabletop-ladder/04.jpg",
+          "en": "Rung four, central Russia: the eight governorates you can start in, Moscow, Petersburg, the rivers and the post roads.",
+          "ru": "Четвёртая ступень, центральная Россия: восемь губерний, где можно начать, Москва, Петербург, реки и почтовые тракты."
+        },
+        {
+          "src": "img/x/tabletop-ladder/05.jpg",
+          "en": "The building kit. Every one of these comes out of a Blender script, not a modelling session.",
+          "ru": "Набор построек. Каждая из них получается из скрипта для Blender, а не из сеанса моделирования."
+        }
+      ],
+      "en": {
+        "title": "One wheel, four tables",
+        "text": "In Souls & Estates one mouse wheel now takes you from a single peasant yard to a table map of central Russia, through four dioramas of the same place.",
+        "intro": [
+          "The game is about a Russian noble estate, and its land is big: about nineteen kilometres across, at true distances, because walking time matters to the people who live on it. From a far camera that honesty looked like an even green carpet with dots on it. We tried ten passes at the ground and every one came back \"still bad\". So we stopped fixing the ground and changed the idea."
+        ],
+        "sections": [
+          {
+            "title": "The idea",
+            "paragraphs": [
+              "The world never changes scale. The zoom exaggerates instead. Close in, the village is true size and lush. Pull back and the estate becomes a miniature: every building swells round its own foot, up to 1.8 times, so a hut still reads from a kilometre up. Pull back again and you are no longer over the land at all. You are looking at a model of the governorate on a waxed table, with banners on brass poles for the estates. One more step and the table is central Russia.",
+              "A tabletop is not a paper map. It is a lit 3D model with cut earth sides, in a room. That was the ruling, and it is what made the far views feel like part of the same game."
+            ]
+          },
+          {
+            "title": "One wheel",
+            "paragraphs": [
+              "There is no button for changing level. When a view reaches the end of its zoom, it counts further notches of the wheel, and the third one inside 0.7 seconds carries you to the next table. One stray notch does nothing.",
+              "While you are placing a building, the swell eases back to true scale, so a click lands where it looks like it lands."
+            ]
+          },
+          {
+            "title": "What we measured, and what we threw out",
+            "list": [
+              "Kept: a filmic tonemap, one warm sun with the sky as fill light, bounce light close in only, depth haze, and a tilt-shift blur that does most of the \"miniature\" work.",
+              "Thrown out: full global illumination (up to 1.9 ms a frame, and it leaked light under thin roofs) and volumetric fog (up to 1.4 ms for a haze the cheap fog gives free).",
+              "The governorate table lost two thirds of its pieces in its second version: 92 name cards became 27, and villages became patches of field. It was too crowded to read.",
+              "In the browser the game is allowed to look plainer than on Windows: no bounce light, no blur, no grass blades."
+            ]
+          },
+          {
+            "title": "Still weak",
+            "paragraphs": [
+              "Trees are faceted at mid zoom. The swell puts some huts off their painted streets. From the whole board, woods read as dark moss. The Russia table is more map than model from its highest view. We know, and we would like to hear which of these bothers you most."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Where",
+            "Souls & Estates, since build 0.100"
+          ],
+          [
+            "Looked at",
+            "Tiny Glade and Foundation close in, tabletop strategy games far out, Dorfromantik for trees"
+          ],
+          [
+            "Scale",
+            "1 unit = 36 m; it never changes"
+          ],
+          [
+            "Cost",
+            "6 to 16 ms of GPU a frame at 1440p on a laptop RTX 4070"
+          ],
+          [
+            "Engine",
+            "Godot 4"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Одно колесо, четыре стола",
+        "text": "В Souls & Estates одно колесо мыши теперь ведёт от единственного крестьянского двора до стола с картой центральной России, через четыре диорамы одного и того же места.",
+        "intro": [
+          "Игра — о русском дворянском имении, и земля в ней большая: около девятнадцати километров в поперечнике, с настоящими расстояниями, потому что тем, кто на ней живёт, важно, сколько идти пешком. С дальней камеры эта честность выглядела как ровный зелёный ковёр с точками. Мы десять раз переделывали землю, и каждый раз приговор был «всё ещё плохо». Тогда мы перестали чинить землю и поменяли идею."
+        ],
+        "sections": [
+          {
+            "title": "Идея",
+            "paragraphs": [
+              "Мир никогда не меняет масштаб. Вместо этого преувеличивает зум. Вблизи деревня в натуральную величину и вся в зелени. Отъезжаешь — и имение становится миниатюрой: каждая постройка разбухает вокруг своего основания, до 1,8 раза, и изба читается с километровой высоты. Отъезжаешь ещё — и ты уже не над землёй. Ты смотришь на макет губернии на вощёном столе, где имения отмечены флажками на латунных древках. Ещё шаг — и на столе центральная Россия.",
+              "Стол — это не бумажная карта. Это освещённая 3D-модель со срезами земли по бокам, в комнате. Так было решено, и именно из-за этого дальние виды стали частью той же игры."
+            ]
+          },
+          {
+            "title": "Одно колесо",
+            "paragraphs": [
+              "Кнопки для смены уровня нет. Когда вид доходит до конца своего зума, он считает дальнейшие щелчки колеса, и третий в пределах 0,7 секунды переносит на следующий стол. Один случайный щелчок ничего не делает.",
+              "Пока ставишь постройку, увеличение плавно возвращается к настоящему масштабу, чтобы щелчок попадал туда, куда кажется."
+            ]
+          },
+          {
+            "title": "Что мы измерили и что выбросили",
+            "list": [
+              "Оставили: киношную тональную кривую, одно тёплое солнце с небом в роли заполняющего света, отражённый свет только вблизи, дымку по глубине и размытие «тилт-шифт», которое и делает большую часть работы миниатюры.",
+              "Выбросили: полное глобальное освещение (до 1,9 мс на кадр, и свет протекал под тонкие крыши) и объёмный туман (до 1,4 мс за дымку, которую дешёвый туман даёт даром).",
+              "Стол губернии во второй версии потерял две трети фигур: 92 карточки с названиями превратились в 27, а деревни — в лоскуты полей. Было слишком тесно, чтобы читать.",
+              "В браузере игре разрешено выглядеть проще, чем на Windows: без отражённого света, без размытия, без травинок."
+            ]
+          },
+          {
+            "title": "Что пока слабо",
+            "paragraphs": [
+              "Деревья на среднем зуме гранёные. Из-за увеличения некоторые избы съезжают с нарисованных улиц. С высоты всей доски леса читаются как тёмный мох. Стол России с самого дальнего вида больше карта, чем макет. Мы это знаем и хотим услышать, что из этого мешает вам сильнее всего."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Где",
+            "Souls & Estates, начиная со сборки 0.100"
+          ],
+          [
+            "На что смотрели",
+            "Tiny Glade и Foundation вблизи, настольные стратегии вдали, Dorfromantik для деревьев"
+          ],
+          [
+            "Масштаб",
+            "1 единица = 36 м; он не меняется никогда"
+          ],
+          [
+            "Цена",
+            "от 6 до 16 мс видеокарты на кадр в 1440p на ноутбучной RTX 4070"
+          ],
+          [
+            "Движок",
+            "Godot 4"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "gull-reddit",
+      "date": "2026-11-09",
+      "tags": [
+        "platform"
+      ],
+      "status": "building",
+      "thread": 4,
+      "cover": "img/x/gull-reddit/cover.jpg",
+      "thumb": "img/x/gull-reddit/thumb.jpg",
+      "links": [
+        {
+          "url": "play/gull-chorus/",
+          "en": "Play Gull Chorus in the browser",
+          "ru": "Играть в Gull Chorus в браузере"
+        }
+      ],
+      "shots": [
+        {
+          "src": "img/x/gull-reddit/01.jpg",
+          "en": "The post as it sits in the feed: the beach of the day, the board and a Play button. Rendered from the app's own page, not a screenshot of Reddit.",
+          "ru": "Пост в ленте: пляж дня, таблица и кнопка Play. Это рендер страницы самого приложения, а не снимок Reddit."
+        },
+        {
+          "src": "img/x/gull-reddit/02.jpg",
+          "en": "The game itself, here from the browser build: gull forty-two at Tokarevsky Lighthouse.",
+          "ru": "Сама игра, здесь из браузерной сборки: сорок вторая чайка у Токаревского маяка."
+        },
+        {
+          "src": "img/x/gull-reddit/03.jpg",
+          "en": "Six beaches, three in Sydney and three in Vladivostok. On Reddit each one is a post.",
+          "ru": "Шесть пляжей, три в Сиднее и три во Владивостоке. На Reddit каждый из них — пост."
+        }
+      ],
+      "en": {
+        "title": "A game inside a Reddit post",
+        "text": "What if you did not have to leave the feed to play? We put Gull Chorus, our seagull flock game, inside a Reddit post: one post is one beach, with a leaderboard under it.",
+        "intro": [
+          "Reddit lets developers build apps that live inside posts. Most are small web toys. We wanted to know whether a whole Godot game could sit there, load fast enough that nobody scrolls past, and use what a post already has: a community, a comment thread, a new one every day."
+        ],
+        "sections": [
+          {
+            "title": "How a post becomes a game",
+            "paragraphs": [
+              "In the feed the post is a light page with no game engine in it: the colours of today's beach, the top five on the board, and Play. Press it and the post opens full screen and starts the real game.",
+              "Every day at nine in the morning Sydney time the app posts the next beach. The leaderboard belongs to the post: most stars first, then fewest gulls. You can play without an account. Log in and you get a place on the board and a save that follows you between devices. \"Comment my best\" posts your score to the thread, once, and only when you tap it."
+            ]
+          },
+          {
+            "title": "What got in the way",
+            "list": [
+              "Reddit's pages forbid inline scripts, so the game needed its own loading page and a single-threaded build.",
+              "The game may talk only to its own small server, and each request is capped in size and time. The whole flock's recorded steering has to fit in one save.",
+              "The engine files ship compressed and the page unpacks them as they arrive. On the live site Reddit already unpacks them for you, which we found out when the game tried to unpack them twice.",
+              "Every change goes through review again, a day or two each time."
+            ]
+          },
+          {
+            "title": "Where it is",
+            "paragraphs": [
+              "It plays on Reddit in our test community, saves and all. The first load takes about twelve seconds, about two and a half after that. The version for everyone is in Reddit's review as we write this. When it passes, r/GullChorus opens with a beach a day.",
+              "Twelve seconds is too long for a feed. That is the next thing to fix."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Game",
+            "Gull Chorus"
+          ],
+          [
+            "Platform",
+            "Reddit's developer platform (Devvit)"
+          ],
+          [
+            "Load",
+            "About 12 s the first time, 2.5 s after"
+          ],
+          [
+            "State",
+            "In review at Reddit"
+          ],
+          [
+            "Why",
+            "A game that arrives where people already are, with a reason to come back tomorrow"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Игра внутри поста на Reddit",
+        "text": "А что если не нужно уходить из ленты, чтобы поиграть? Мы поместили Gull Chorus, нашу игру про стаю чаек, внутрь поста на Reddit: один пост — один пляж, а под ним таблица рекордов.",
+        "intro": [
+          "Reddit позволяет разработчикам делать приложения, которые живут внутри постов. Чаще всего это маленькие веб-игрушки. Мы хотели узнать, может ли там поместиться целая игра на Godot, загрузиться так быстро, чтобы её не пролистали, и использовать то, что у поста уже есть: сообщество, ветку комментариев и новый пост каждый день."
+        ],
+        "sections": [
+          {
+            "title": "Как пост становится игрой",
+            "paragraphs": [
+              "В ленте пост — это лёгкая страница без игрового движка: цвета сегодняшнего пляжа, первая пятёрка таблицы и кнопка Play. Нажимаешь — пост раскрывается на весь экран и запускает настоящую игру.",
+              "Каждый день в девять утра по Сиднею приложение публикует следующий пляж. Таблица рекордов принадлежит посту: сначала больше звёзд, потом меньше чаек. Играть можно без аккаунта. Если войти, появится место в таблице и сохранение, которое переходит с устройства на устройство. Кнопка «Comment my best» отправляет ваш результат в ветку, один раз и только по нажатию."
+            ]
+          },
+          {
+            "title": "Что мешало",
+            "list": [
+              "Страницы Reddit запрещают встроенные скрипты, поэтому игре понадобилась своя страница загрузки и однопоточная сборка.",
+              "Игра может обращаться только к своему маленькому серверу, а каждый запрос ограничен по размеру и времени. Записанное управление всей стаей должно уместиться в одно сохранение.",
+              "Файлы движка идут сжатыми, и страница распаковывает их по мере загрузки. На живом сайте Reddit уже распаковывает их сам; мы узнали об этом, когда игра попыталась распаковать их дважды.",
+              "Каждое изменение заново проходит проверку, день или два каждый раз."
+            ]
+          },
+          {
+            "title": "Что сейчас",
+            "paragraphs": [
+              "Игра работает на Reddit в нашем тестовом сообществе, вместе с сохранениями. Первая загрузка занимает около двенадцати секунд, следующие — около двух с половиной. Версия для всех сейчас на проверке у Reddit. Когда она пройдёт, r/GullChorus откроется с новым пляжем каждый день.",
+              "Двенадцать секунд для ленты — слишком долго. Это следующее, что нужно исправить."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Игра",
+            "Gull Chorus"
+          ],
+          [
+            "Платформа",
+            "Платформа Reddit для разработчиков (Devvit)"
+          ],
+          [
+            "Загрузка",
+            "Около 12 с в первый раз, 2,5 с потом"
+          ],
+          [
+            "Состояние",
+            "На проверке у Reddit"
+          ],
+          [
+            "Зачем",
+            "Игра, которая приходит туда, где люди уже есть, и даёт повод вернуться завтра"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pocket-ar",
+      "date": "2026-10-17",
+      "tags": [
+        "ar"
+      ],
+      "status": "live",
+      "thread": 5,
+      "cover": "img/x/pocket-ar/cover.jpg",
+      "thumb": "img/x/pocket-ar/thumb.jpg",
+      "links": [
+        {
+          "url": "vrlab/ar/",
+          "en": "Try it on your phone (page in Russian)",
+          "ru": "Попробовать на телефоне"
+        }
+      ],
+      "shots": [
+        {
+          "src": "img/x/pocket-ar/01.jpg",
+          "en": "Step one, the Earth on a stand. The glowing arc is the flight from Vladivostok to Norilsk, about 3,800 km.",
+          "ru": "Шаг первый, Земля на подставке. Светящаяся дуга — перелёт из Владивостока в Норильск, около 3 800 км."
+        },
+        {
+          "src": "img/x/pocket-ar/02.jpg",
+          "en": "Step two, Primorye: real relief from satellite data, with the mountains nine times taller than life so they show on a desk.",
+          "ru": "Шаг второй, Приморье: настоящий рельеф по спутниковым данным, горы в девять раз выше, чем в жизни, чтобы их было видно на парте."
+        },
+        {
+          "src": "img/x/pocket-ar/03.jpg",
+          "en": "Step three, Vladivostok: the Golden Horn, the two bridges and Russky Island.",
+          "ru": "Шаг третий, Владивосток: Золотой Рог, два моста и остров Русский."
+        },
+        {
+          "src": "img/x/pocket-ar/04.jpg",
+          "en": "On a phone the page gets one big button: put it on the table.",
+          "ru": "На телефоне у страницы одна большая кнопка: поставить на стол."
+        }
+      ],
+      "en": {
+        "title": "A lab in your pocket",
+        "text": "A web page that puts a relief model of the Earth, then our region, then our city on the desk in front of you, through your phone's camera. No app to install.",
+        "intro": [
+          "We made it for a room full of teachers in Norilsk, at a forum on how VR and AI can be used in a classroom. Talking about augmented reality to people who have never held it is useless. So the plan was simple: everyone in the room gets a link, points a phone at the desk, and a mountain range appears on it."
+        ],
+        "sections": [
+          {
+            "title": "Three steps down",
+            "paragraphs": [
+              "It starts with a desk globe. A glowing arc on it shows the flight we took to get to the room. Press \"Closer\" and the globe becomes Primorye, our corner of the Russian Far East, built from real satellite relief. Press again and it is Vladivostok, with the Golden Horn, the bridges and the island.",
+              "On a phone, one button puts the model on the table. Move the phone slowly until it finds the surface, and then walk around it, lean in, or pinch to make it bigger. On a computer it is a model you turn with the mouse."
+            ]
+          },
+          {
+            "title": "What we learned",
+            "list": [
+              "Mountains at true height are invisible on a desk. Primorye's are stretched nine times, the city's a little over two, and it still reads as the real place.",
+              "A link beats an app. Nobody in a forum hall will install anything, but everyone will tap a link.",
+              "The phone already knows how to do this. Android and iPhone both have a built-in AR viewer; the page only has to hand them a model.",
+              "Three steps is a story. One model is a demo."
+            ]
+          },
+          {
+            "title": "Where this goes",
+            "paragraphs": [
+              "The fire maps of AeroFire Command and the estates of Souls & Estates are already small landscapes. Both would sit well on a kitchen table. That is the experiment after this one."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Made for",
+            "The \"Laboratory of Growth\" teachers' forum, Norilsk"
+          ],
+          [
+            "Works on",
+            "Android and iPhone, in the browser"
+          ],
+          [
+            "Built with",
+            "model-viewer, three glTF models"
+          ],
+          [
+            "Data",
+            "Sentinel-2 cloudless by EOX (CC BY 4.0), Terrain Tiles relief, NASA Blue Marble"
+          ],
+          [
+            "Language",
+            "Russian"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Лаборатория в кармане",
+        "text": "Веб-страница, которая через камеру телефона ставит на парту перед вами рельефную модель Земли, потом нашего края, потом нашего города. Устанавливать ничего не нужно.",
+        "intro": [
+          "Мы сделали её для зала учителей в Норильске, на форуме о том, как VR и ИИ можно использовать на уроке. Рассказывать о дополненной реальности людям, которые ни разу не держали её в руках, бесполезно. Поэтому план был простой: каждый в зале получает ссылку, наводит телефон на парту, и на ней вырастает горный хребет."
+        ],
+        "sections": [
+          {
+            "title": "Три шага вниз",
+            "paragraphs": [
+              "Всё начинается с настольного глобуса. Светящаяся дуга на нём — перелёт, которым мы добрались до зала. Нажимаете «Ближе», и глобус превращается в Приморье, собранное по настоящему спутниковому рельефу. Ещё раз — и это Владивосток, с Золотым Рогом, мостами и островом.",
+              "На телефоне одна кнопка ставит модель на стол. Медленно ведёте телефоном, пока он не найдёт поверхность, а потом обходите модель, наклоняетесь ближе или увеличиваете её пальцами. На компьютере это модель, которую можно крутить мышью."
+            ]
+          },
+          {
+            "title": "Чему мы научились",
+            "list": [
+              "Горы в настоящую высоту на парте не видны. У Приморья они вытянуты в девять раз, у города чуть больше чем в два, и место всё равно узнаётся.",
+              "Ссылка лучше приложения. В зале форума никто ничего не установит, но по ссылке нажмёт каждый.",
+              "Телефон уже умеет это сам. И в Android, и в iPhone есть встроенный просмотрщик AR; странице нужно только передать ему модель.",
+              "Три шага — это история. Одна модель — это демонстрация."
+            ]
+          },
+          {
+            "title": "Куда это ведёт",
+            "paragraphs": [
+              "Карты пожаров в AeroFire Command и имения в Souls & Estates — уже маленькие ландшафты. И те, и другие хорошо встанут на кухонный стол. Это следующий эксперимент."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Для кого",
+            "Форум учителей «Лаборатория Роста», Норильск"
+          ],
+          [
+            "Где работает",
+            "Android и iPhone, в браузере"
+          ],
+          [
+            "Сделано на",
+            "model-viewer, три модели glTF"
+          ],
+          [
+            "Данные",
+            "Sentinel-2 cloudless, EOX (CC BY 4.0), рельеф Terrain Tiles, NASA Blue Marble"
+          ],
+          [
+            "Язык",
+            "Русский"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "greybeard",
+      "date": "2026-09-29",
+      "tags": [
+        "vr"
+      ],
+      "status": "prototype",
+      "thread": 6,
+      "cover": "img/x/greybeard/03.jpg",
+      "thumb": "img/x/greybeard/thumb.jpg",
+      "shots": [
+        {
+          "src": "img/x/greybeard/01.jpg",
+          "en": "Dusk, before it starts. Two of the crew at the foremast.",
+          "ru": "Сумерки, до начала. Двое из команды у фок-мачты."
+        },
+        {
+          "src": "img/x/greybeard/02.jpg",
+          "en": "The first sea comes over the windward rail. You hold on to a rope with both hands.",
+          "ru": "Первая волна переваливает через наветренный борт. Вы держитесь за канат обеими руками."
+        },
+        {
+          "src": "img/x/greybeard/cover.jpg",
+          "en": "What you see from the deck when the greybeard arrives.",
+          "ru": "То, что видно с палубы, когда приходит «седобородый»."
+        },
+        {
+          "src": "img/x/greybeard/04.jpg",
+          "en": "Aloft in the bosun's chair, at the top of the swing, looking straight down the mast.",
+          "ru": "Наверху в боцманской беседке, в верхней точке качания, взгляд прямо вниз вдоль мачты."
+        },
+        {
+          "src": "img/x/greybeard/05.jpg",
+          "en": "Dawn. The sea is flat and an albatross goes past.",
+          "ru": "Рассвет. Море ровное, мимо проходит альбатрос."
+        }
+      ],
+      "en": {
+        "title": "Greybeard: a storm you stand in",
+        "cover_alt": "A three-masted ship under a breaking wave far taller than its masts",
+        "text": "Five minutes on the deck of a ship off Cape Horn in April 1788, in a headset. A wave taller than the masts is coming, and you have two hands.",
+        "intro": [
+          "Sailors called the biggest Southern Ocean waves greybeards. We wanted to know whether VR could make a room full of ordinary people, kids and parents included, feel one arrive, without anyone feeling ill. The answer so far is a five-minute slice built in grey boxes, with the effort spent where the fear is made: the water, the lightning and the sound."
+        ],
+        "sections": [
+          {
+            "title": "What your hands do",
+            "list": [
+              "Take a lashing from the bosun and hold fast while five seas board the ship from the windward side. The third one takes the hen coop.",
+              "Haul a halyard and work the pump between seas.",
+              "Get hoisted up the mast in a bosun's chair, saw through a fouled rope one-handed with a knife, and grab the rigging on the swing back.",
+              "You cannot lose. Someone who lets go of everything and just stares still reaches the dawn."
+            ]
+          },
+          {
+            "title": "What VR taught us",
+            "list": [
+              "Cap the motion, do not scale it. The deck never moves more than 12 cm or 4 degrees under your feet. Without the cap, the big wave dragged the ropes sixty centimetres out of your hands.",
+              "A wave has to be short and tall to read as a wall. At 185 metres long it looked like a hill. At 120 metres long and nine and a half high, it is a wall.",
+              "A real pendulum on a rolling ship is chaos: in one test run in three the swing never came near the rigging. The first arc is physics; the rest are written by hand.",
+              "The sail has to tear the knife out of your hand, or that hand is never free to catch the rigging.",
+              "One fade in the whole show. Three comfort settings on the operator's keys, from calm to Cape Horn."
+            ]
+          },
+          {
+            "title": "Where it is",
+            "paragraphs": [
+              "It has had one short session in a headset, which covered the calm opening at a steady 72 frames a second and produced two notes: the hands pointed the wrong way, and it was a bit colourless. Both are fixed. The storm itself has not been measured in a headset yet, and the ship and crew are still grey boxes.",
+              "It is meant for a VR venue, with an operator beside you and an empty floor. If you run one, or have been seasick in one, tell us."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Length",
+            "About 5 minutes"
+          ],
+          [
+            "For",
+            "VR arcades: walk-in visitors, controllers only, an operator at hand"
+          ],
+          [
+            "Runs on",
+            "PC VR and Quest 3"
+          ],
+          [
+            "Engine",
+            "Godot 4 with OpenXR"
+          ],
+          [
+            "Setting",
+            "Off Cape Horn, 22 April 1788"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Greybeard: шторм, в котором стоишь",
+        "cover_alt": "Трёхмачтовый корабль под обрушивающейся волной, которая намного выше его мачт",
+        "text": "Пять минут на палубе корабля у мыса Горн в апреле 1788 года, в шлеме. Идёт волна выше мачт, а у вас две руки.",
+        "intro": [
+          "Самые большие волны Южного океана моряки называли «седобородыми». Мы хотели узнать, может ли VR дать залу обычных людей, с детьми и родителями, почувствовать приход такой волны, и чтобы никого не укачало. Ответ на сегодня — пятиминутный фрагмент из серых коробок, где силы потрачены там, где рождается страх: на воду, молнии и звук."
+        ],
+        "sections": [
+          {
+            "title": "Что делают руки",
+            "list": [
+              "Взять у боцмана конец и держаться, пока пять волн накрывают корабль с наветренного борта. Третья уносит курятник.",
+              "Выбирать фал и качать помпу между волнами.",
+              "Подняться на мачту в боцманской беседке, одной рукой перепилить ножом запутавшийся трос и на обратном качании ухватиться за ванты.",
+              "Проиграть нельзя. Тот, кто всё отпустил и просто смотрит, всё равно доживёт до рассвета."
+            ]
+          },
+          {
+            "title": "Чему нас научил VR",
+            "list": [
+              "Движение нужно ограничивать, а не масштабировать. Палуба никогда не уходит из-под ног больше чем на 12 см или 4 градуса. Без этого большая волна вырывала канаты из рук на шестьдесят сантиметров.",
+              "Чтобы волна читалась как стена, она должна быть короткой и высокой. При длине 185 метров она выглядела как холм. При длине 120 метров и высоте девять с половиной это стена.",
+              "Настоящий маятник на качающемся корабле — это хаос: в одном тестовом прогоне из трёх качание так и не подходило к вантам. Первая дуга — физика; остальные написаны вручную.",
+              "Парус должен вырвать нож из руки, иначе эта рука никогда не освободится, чтобы поймать ванты.",
+              "Одно затемнение на весь показ. Три настройки комфорта на клавишах оператора, от штиля до мыса Горн."
+            ]
+          },
+          {
+            "title": "Что сейчас",
+            "paragraphs": [
+              "Был один короткий сеанс в шлеме: спокойное начало шло на ровных 72 кадрах в секунду, а замечаний было два — руки смотрят не туда и маловато цвета. Оба исправлены. Сам шторм в шлеме пока не измерен, а корабль и команда всё ещё серые коробки.",
+              "Это задумано для VR-площадки, с оператором рядом и пустым полом. Если у вас такая есть или вас в такой укачивало, расскажите нам."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Длительность",
+            "Около 5 минут"
+          ],
+          [
+            "Для кого",
+            "VR-клубы: посетители с улицы, только контроллеры, оператор рядом"
+          ],
+          [
+            "Работает на",
+            "ПК-VR и Quest 3"
+          ],
+          [
+            "Движок",
+            "Godot 4 и OpenXR"
+          ],
+          [
+            "Место действия",
+            "У мыса Горн, 22 апреля 1788 года"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "aerofire-vr",
+      "date": "2026-09-17",
+      "tags": [
+        "vr"
+      ],
+      "status": "prototype",
+      "thread": 7,
+      "cover": "img/x/aerofire-vr/cover.jpg",
+      "thumb": "img/x/aerofire-vr/thumb.jpg",
+      "links": [
+        {
+          "url": "play/aerofire-command/",
+          "en": "Play Fire Season in the browser",
+          "ru": "Играть в Fire Season в браузере"
+        }
+      ],
+      "shots": [
+        {
+          "src": "img/x/aerofire-vr/04.jpg",
+          "en": "The VR view, drawn flat: the map as a table, the pause panel floating over it, the tablet behind, the laser and two hand markers.",
+          "ru": "Вид в VR, показанный на плоском экране: карта как стол, над ней панель паузы, за ней планшет, лазер и две метки рук."
+        },
+        {
+          "src": "img/x/aerofire-vr/01.jpg",
+          "en": "A helicopter's drop on the fire line.",
+          "ru": "Сброс воды с вертолёта на кромку пожара."
+        },
+        {
+          "src": "img/x/aerofire-vr/02.jpg",
+          "en": "The whole map from above: forest, rivers, the airfield and one fire.",
+          "ru": "Вся карта сверху: лес, реки, аэродром и один пожар."
+        },
+        {
+          "src": "img/x/aerofire-vr/03.jpg",
+          "en": "A dozer cuts a fire line with a crew walking it.",
+          "ru": "Бульдозер режет минерализованную полосу, расчёт идёт следом."
+        }
+      ],
+      "en": {
+        "title": "A wildfire on your table",
+        "cover_alt": "A firefighting tanker and helicopters over a burning forest diorama",
+        "text": "AeroFire Command in a headset: the fire map becomes a table at waist height, the fleet is a shelf of miniatures in your left hand, and you give orders by putting an aircraft down where you want it.",
+        "intro": [
+          "Our wildfire game is already a diorama on a PC screen: small aircraft over a small forest. The obvious question was what happens if you stand next to it. So the PC build has a second way to play. One button on the title screen restarts the game inside the headset, and another brings it back."
+        ],
+        "sections": [
+          {
+            "title": "How it plays",
+            "list": [
+              "The player is scaled, not the map. It is the same simulation and the same orders as the flat game, on a board 2.4 metres long.",
+              "Your left hand holds a shelf of four-centimetre miniatures, one for every machine and crew you own, and a tablet with the game's menus on it.",
+              "Your right hand is a laser. Grip a miniature, hold it over the map, and it hangs on a thread to the ground while time slows. Let go, and that is the order.",
+              "The world is held, not flown. One grip pulls the table toward you. Two grips stretch and turn it: move your hands twice as far apart and you are four times closer.",
+              "Three views are a stick-click apart: the whole map, five times closer, twenty-five times closer."
+            ]
+          },
+          {
+            "title": "What the first session taught us",
+            "list": [
+              "The player started under the table. Standing height is the first thing to get right.",
+              "Tracked hands have no buttons, so Start and Pause moved onto the tablet.",
+              "The lag was the graphics card. The headset draws 2,296 by 2,456 pixels for each eye, and the game managed 71 to 88 frames a second of the 90 it needs. The VR mode now drops the fog, the colour grade and the glow.",
+              "Zoom that scales about your head feels wrong. Zoom that scales about a point on the map feels like pulling the map closer, which is what you meant."
+            ]
+          },
+          {
+            "title": "Where it is",
+            "paragraphs": [
+              "It works on a PC with any SteamVR headset, or a Quest connected to the PC. There are no hand models yet, only two white spheres and a laser, and no room around the table. The biggest map, with nearly forty thousand trees, has not been measured in the headset. A version that runs on the Quest by itself is on the shelf for now.",
+              "If you would play a strategy game standing at a table for an hour, or know why you would not, the thread is open."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Game",
+            "AeroFire Command, the PC version"
+          ],
+          [
+            "Headsets",
+            "SteamVR headsets, or a Quest linked to a PC"
+          ],
+          [
+            "Table",
+            "2.4 m long at waist height"
+          ],
+          [
+            "Measured",
+            "71 to 88 fps of 90 in the headset"
+          ],
+          [
+            "Engine",
+            "Godot 4, built-in OpenXR"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Лесной пожар на столе",
+        "cover_alt": "Пожарный самолёт и вертолёты над диорамой горящего леса",
+        "text": "AeroFire Command в шлеме: карта пожара становится столом на уровне пояса, флот — полкой миниатюр в левой руке, а приказ отдаётся так: ставишь машину туда, где она нужна.",
+        "intro": [
+          "Наша игра про лесные пожары и на экране компьютера уже диорама: маленькие самолёты над маленьким лесом. Напрашивался вопрос: а что будет, если встать рядом? Поэтому у версии для ПК есть второй способ играть. Одна кнопка на титульном экране перезапускает игру в шлеме, другая возвращает обратно."
+        ],
+        "sections": [
+          {
+            "title": "Как это играется",
+            "list": [
+              "Масштабируется игрок, а не карта. Это та же симуляция и те же приказы, что в обычной игре, на доске длиной 2,4 метра.",
+              "В левой руке полка четырёхсантиметровых миниатюр, по одной на каждую вашу машину и расчёт, и планшет с меню игры.",
+              "Правая рука — лазер. Берёте миниатюру, держите над картой, и она висит на нити до земли, пока время замедлено. Отпускаете — это и есть приказ.",
+              "Мир держат, а не облетают. Один хват подтягивает стол к себе. Два хвата растягивают и поворачивают его: развели руки вдвое шире — оказались вчетверо ближе.",
+              "Три вида в одном щелчке стика друг от друга: вся карта, в пять раз ближе, в двадцать пять раз ближе."
+            ]
+          },
+          {
+            "title": "Чему научил первый сеанс",
+            "list": [
+              "Игрок появился под столом. Высота, на которой стоишь, — первое, что нужно сделать правильно.",
+              "У отслеживаемых рук нет кнопок, поэтому «Старт» и «Пауза» переехали на планшет.",
+              "Тормозила видеокарта. Шлем рисует 2 296 на 2 456 пикселей для каждого глаза, и игра выдавала от 71 до 88 кадров в секунду из нужных 90. Теперь в VR отключены туман, цветокоррекция и свечение.",
+              "Зум, который масштабирует мир вокруг головы, ощущается неправильно. Зум вокруг точки на карте ощущается так, будто карту подтянули ближе, а именно этого вы и хотели."
+            ]
+          },
+          {
+            "title": "Что сейчас",
+            "paragraphs": [
+              "Работает на ПК с любым шлемом SteamVR или с Quest, подключённым к компьютеру. Моделей рук пока нет, только две белые сферы и лазер, и комнаты вокруг стола тоже нет. Самая большая карта, почти сорок тысяч деревьев, в шлеме ещё не измерена. Версия, которая работает на самом Quest, пока отложена.",
+              "Если вы готовы час играть в стратегию стоя у стола или знаете, почему не готовы, ветка открыта."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Игра",
+            "AeroFire Command, версия для ПК"
+          ],
+          [
+            "Шлемы",
+            "Шлемы SteamVR или Quest, подключённый к ПК"
+          ],
+          [
+            "Стол",
+            "2,4 м в длину на уровне пояса"
+          ],
+          [
+            "Измерено",
+            "от 71 до 88 кадров из 90 в шлеме"
+          ],
+          [
+            "Движок",
+            "Godot 4, встроенный OpenXR"
+          ]
+        ]
+      }
+    }
+  ]
+}
