@@ -167,6 +167,182 @@
             "Робот — это персонаж с телом. Мы хотим понять, как выглядит игра, когда он в комнате."
           ]
         ]
+      },
+      "links": [
+        {
+          "url": "experiments/robot-software/",
+          "en": "How we rebuilt Eva’s software",
+          "ru": "Как мы пересобрали программы Евы"
+        }
+      ]
+    },
+    {
+      "id": "robot-software",
+      "date": "2026-10-25",
+      "tags": [
+        "robots",
+        "tools"
+      ],
+      "status": "building",
+      "thread": 8,
+      "cover": "img/x/robot-software/cover.jpg",
+      "thumb": "img/x/robot-software/thumb.jpg",
+      "links": [
+        {
+          "url": "experiments/robots/",
+          "en": "See Eva taken apart",
+          "ru": "Посмотреть Еву в разобранном виде"
+        }
+      ],
+      "shots": [
+        {
+          "src": "img/x/robot-software/modules-en.jpg",
+          "src_ru": "img/x/robot-software/modules-ru.jpg",
+          "en": "The six modules. Each one owns one piece of the robot and talks to the others by message.",
+          "ru": "Шесть модулей. Каждый владеет одной частью робота и общается с остальными сообщениями."
+        },
+        {
+          "src": "img/x/robots/eyes.jpg",
+          "en": "Twelve of the eye animations: the lizard, the alien and the classic ring of LEDs.",
+          "ru": "Двенадцать анимаций глаз: ящерица, пришелец и классическое кольцо светодиодов."
+        },
+        {
+          "src": "img/x/robots/01.jpg",
+          "en": "Eva. Everything described here runs inside her, on one Raspberry Pi.",
+          "ru": "Ева. Всё, что здесь описано, работает внутри неё, на одном Raspberry Pi."
+        }
+      ],
+      "en": {
+        "title": "Rewiring Eva: a full software review",
+        "cover_alt": "Twelve round robot eyes in three styles",
+        "text": "We took the software of a humanoid robot apart, reviewed every piece and rebuilt it as six small programs that each own one part of her. Then we gave her a new brain.",
+        "intro": [
+          "Eva arrived able to move, blink and answer set phrases. We wanted a character: one who listens, sees who is in the room, shows a mood and can be handed to an AI agent as a body. Getting there meant reading everything that ran on her and deciding what each part was allowed to touch."
+        ],
+        "sections": [
+          {
+            "title": "What the review found",
+            "list": [
+              "Three programs were drawing on the two eye screens at once, and now and then the robot froze. Now one program owns the eyes and everyone else sends it a message.",
+              "Moves from the control panel worked twice and then stopped. The motor layer remembered where it believed each joint was and skipped orders that looked the same. It now always writes.",
+              "Driving with the joystick fell behind and then ran on old commands. The wheels now follow only the newest order, and stop by themselves after a second of silence.",
+              "She went deaf for an hour. The microphone was being muted while she spoke, and a restart mid-sentence left it muted for good."
+            ]
+          },
+          {
+            "title": "How it is built now",
+            "paragraphs": [
+              "Six modules: eyes, motors, voice, vision, the web cockpit and a door for AI agents. A module is one program that owns one piece of hardware and has one documented way of being spoken to. Any of them can be stopped, restarted or missing, and the rest carry on. A test fails the build if one module reaches into another.",
+              "All of it runs on the Raspberry Pi inside her. Nothing of Eva runs on a laptop."
+            ]
+          },
+          {
+            "title": "The new brain",
+            "list": [
+              "She listens for her name and for the word stop on the robot itself, without waiting for the internet. Everything else she hears goes to a language model.",
+              "Answers come back with a mood attached. The mood picks the eyes and moves the body, more or less depending on the role she is playing.",
+              "One list of abilities, such as music, a timer, a wave, a dance, look at me, serves both the AI and the control panel.",
+              "Roles: a persona, a voice, a set of eyes and how lively she is. Switch by voice or from the panel.",
+              "Vision on the robot: faces she has met, and the objects in front of her.",
+              "An MCP server with 33 tools, so an outside AI agent can use her as a body. Each move is a task that can be watched and cancelled."
+            ]
+          },
+          {
+            "title": "Safety first, then fun",
+            "paragraphs": [
+              "A robot with arms is not a chatbot. The stop word is recognised locally and does not wait for the internet. The wheels need a fresh order every second or they halt. Hot servos pause the body while she keeps talking. The control panel has a stop button on every page.",
+              "Still open: the camera does not follow a face yet, her Wi-Fi is weak because her own body shields the antenna, and nobody has measured how she behaves in a noisy room full of children. That is the test that matters."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Robot",
+            "Eva, a desk-sized humanoid"
+          ],
+          [
+            "Computer",
+            "Raspberry Pi 4, everything on board"
+          ],
+          [
+            "Modules",
+            "Eyes, motors, voice, vision, cockpit, MCP"
+          ],
+          [
+            "For AI agents",
+            "33 tools over MCP"
+          ],
+          [
+            "Eyes",
+            "Three themes, 19 named reactions each, plus 60 extra clips"
+          ]
+        ]
+      },
+      "ru": {
+        "title": "Перепрошивая Еву: полный разбор программ",
+        "cover_alt": "Двенадцать круглых глаз робота в трёх стилях",
+        "text": "Мы разобрали программы человекоподобного робота, проверили каждую часть и собрали всё заново как шесть небольших программ, каждая из которых владеет одной её частью. А потом дали ей новый мозг.",
+        "intro": [
+          "Ева приехала к нам умеющей двигаться, моргать и отвечать на заданные фразы. Нам нужен был персонаж: тот, кто слушает, видит, кто в комнате, показывает настроение и кого можно передать ИИ-агенту как тело. Для этого пришлось прочитать всё, что на ней работало, и решить, к чему каждой части можно прикасаться."
+        ],
+        "sections": [
+          {
+            "title": "Что показал разбор",
+            "list": [
+              "На двух экранах глаз одновременно рисовали три программы, и время от времени робот зависал. Теперь глазами владеет одна программа, а остальные отправляют ей сообщения.",
+              "Движения с пульта срабатывали дважды, а потом переставали. Слой моторов помнил, где, по его мнению, находится каждый сустав, и пропускал приказы, которые выглядели так же. Теперь он пишет всегда.",
+              "Езда с джойстика отставала, а потом шла по старым командам. Теперь колёса выполняют только самый свежий приказ и сами останавливаются после секунды тишины.",
+              "Она на час оглохла. Микрофон отключался, пока она говорит, а перезапуск посреди фразы оставлял его отключённым навсегда."
+            ]
+          },
+          {
+            "title": "Как это устроено теперь",
+            "paragraphs": [
+              "Шесть модулей: глаза, моторы, голос, зрение, веб-пульт и дверь для ИИ-агентов. Модуль — это одна программа, которая владеет одной частью железа и к которой обращаются одним описанным способом. Любой из них можно остановить, перезапустить или убрать, и остальные продолжат работать. Если один модуль лезет в другой, сборка не проходит тесты.",
+              "Всё это работает на Raspberry Pi внутри неё. Ничего от Евы не живёт на ноутбуке."
+            ]
+          },
+          {
+            "title": "Новый мозг",
+            "list": [
+              "Своё имя и слово «стоп» она слышит прямо на роботе, не дожидаясь интернета. Всё остальное, что она слышит, уходит языковой модели.",
+              "Ответы приходят с настроением. Настроение выбирает глаза и двигает тело, сильнее или слабее в зависимости от роли.",
+              "Один список умений (музыка, таймер, помахать, станцевать, посмотреть на меня) служит и ИИ, и пульту.",
+              "Роли: характер, голос, набор глаз и степень живости. Переключаются голосом или с пульта.",
+              "Зрение на самом роботе: знакомые лица и предметы перед ней.",
+              "MCP-сервер с 33 инструментами, чтобы внешний ИИ-агент мог пользоваться ею как телом. Каждое движение — задача, за которой можно следить и которую можно отменить."
+            ]
+          },
+          {
+            "title": "Сначала безопасность, потом веселье",
+            "paragraphs": [
+              "Робот с руками — это не чат-бот. Слово «стоп» распознаётся на месте и не ждёт интернета. Колёсам каждую секунду нужен свежий приказ, иначе они останавливаются. Горячие сервоприводы ставят тело на паузу, а говорить она продолжает. На каждой странице пульта есть кнопка остановки.",
+              "Что ещё не сделано: камера пока не следит за лицом, Wi-Fi у неё слабый, потому что антенну заслоняет её собственное тело, и никто не измерял, как она ведёт себя в шумной комнате, полной детей. А это и есть главный тест."
+            ]
+          }
+        ],
+        "facts": [
+          [
+            "Робот",
+            "Ева, настольный человекоподобный робот"
+          ],
+          [
+            "Компьютер",
+            "Raspberry Pi 4, всё на борту"
+          ],
+          [
+            "Модули",
+            "Глаза, моторы, голос, зрение, пульт, MCP"
+          ],
+          [
+            "Для ИИ-агентов",
+            "33 инструмента через MCP"
+          ],
+          [
+            "Глаза",
+            "Три темы, по 19 именованных реакций, плюс 60 дополнительных клипов"
+          ]
+        ]
       }
     },
     {
@@ -491,7 +667,8 @@
         {
           "url": "vrlab/ar/",
           "en": "Try it on your phone (page in Russian)",
-          "ru": "Попробовать на телефоне"
+          "ru": "Попробовать на телефоне",
+          "root": true
         }
       ],
       "shots": [

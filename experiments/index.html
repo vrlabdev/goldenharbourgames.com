@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=66e27946">
+  <link rel="stylesheet" href="../style.css?v=5fb50328">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Experiments","description":"What Golden Harbour Games tries outside its shipped games: a VR storm at sea, a wildfire on a table, AR models, humanoid robots and new places for a game to live. Write-ups, pictures and an open forum.","url":"https://goldenharbourgames.com/experiments/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"publisher":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com"}}</script>
 </head>
@@ -63,55 +63,198 @@
   <section class="section lab lab-index chart">
     <div class="section-head">
       <div>
-        <p class="kicker">Experiments · 6</p>
+        <p class="kicker">Experiments · 7</p>
         <h1>Experiments</h1>
       </div>
       <p>This is the workshop. We use VR, AR and whatever else turns up to look for new ways to play. Each experiment has a write-up, pictures and a thread where you can tell us what you think.</p>
     </div>
-    <div class="lab-grid">
-      <a class="lab-card reveal" href="../experiments/robots/">
+    <div class="chips" role="group" aria-label="Show">
+      <span class="chips-label">Show</span>
+      <button type="button" class="chip" aria-pressed="true" data-tag="">All <small>7</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="vr">VR <small>2</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="ar">AR <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="robots">Robots <small>2</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="look">Art direction <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="platform">New platform <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="tools">Tools <small>2</small></button>
+    </div>
+    <div class="lab-tiles">
+      <a class="lab-tile reveal" href="../experiments/robots/" data-peek="peek-robots" data-tags="robots tools">
         <img src="../img/x/robots/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">Robots · Tools</span>
         <span class="lab-title">Eva and Adam, taken apart</span>
-        <span class="lab-text">Two humanoid robots live in our workshop. We write the software that makes one of them see, listen and pull faces, and we built a 3D guide that takes both of them apart screw by screw.</span>
         <span class="lab-status"><i class="dot building"></i>In progress</span>
       </a>
-      <a class="lab-card reveal" href="../experiments/tabletop-ladder/">
+      <a class="lab-tile reveal" href="../experiments/tabletop-ladder/" data-peek="peek-tabletop-ladder" data-tags="look">
         <img src="../img/x/tabletop-ladder/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">Art direction</span>
         <span class="lab-title">One wheel, four tables</span>
-        <span class="lab-text">In Souls &amp; Estates one mouse wheel now takes you from a single peasant yard to a table map of central Russia, through four dioramas of the same place.</span>
         <span class="lab-status"><i class="dot live"></i>You can try it</span>
       </a>
-      <a class="lab-card reveal" href="../experiments/gull-reddit/">
+      <a class="lab-tile reveal" href="../experiments/gull-reddit/" data-peek="peek-gull-reddit" data-tags="platform">
         <img src="../img/x/gull-reddit/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">New platform</span>
         <span class="lab-title">A game inside a Reddit post</span>
-        <span class="lab-text">What if you did not have to leave the feed to play? We put Gull Chorus, our seagull flock game, inside a Reddit post: one post is one beach, with a leaderboard under it.</span>
         <span class="lab-status"><i class="dot building"></i>In progress</span>
       </a>
-      <a class="lab-card reveal" href="../experiments/pocket-ar/">
+      <a class="lab-tile reveal" href="../experiments/robot-software/" data-peek="peek-robot-software" data-tags="robots tools">
+        <img src="../img/x/robot-software/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
+        <span class="lab-kind">Robots · Tools</span>
+        <span class="lab-title">Rewiring Eva: a full software review</span>
+        <span class="lab-status"><i class="dot building"></i>In progress</span>
+      </a>
+      <a class="lab-tile reveal" href="../experiments/pocket-ar/" data-peek="peek-pocket-ar" data-tags="ar">
         <img src="../img/x/pocket-ar/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">AR</span>
         <span class="lab-title">A lab in your pocket</span>
-        <span class="lab-text">A web page that puts a relief model of the Earth, then our region, then our city on the desk in front of you, through your phone's camera. No app to install.</span>
         <span class="lab-status"><i class="dot live"></i>You can try it</span>
       </a>
-      <a class="lab-card reveal" href="../experiments/greybeard/">
+      <a class="lab-tile reveal" href="../experiments/greybeard/" data-peek="peek-greybeard" data-tags="vr">
         <img src="../img/x/greybeard/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">VR</span>
         <span class="lab-title">Greybeard: a storm you stand in</span>
-        <span class="lab-text">Five minutes on the deck of a ship off Cape Horn in April 1788, in a headset. A wave taller than the masts is coming, and you have two hands.</span>
         <span class="lab-status"><i class="dot prototype"></i>Prototype</span>
       </a>
-      <a class="lab-card reveal" href="../experiments/aerofire-vr/">
+      <a class="lab-tile reveal" href="../experiments/aerofire-vr/" data-peek="peek-aerofire-vr" data-tags="vr">
         <img src="../img/x/aerofire-vr/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">VR</span>
         <span class="lab-title">A wildfire on your table</span>
-        <span class="lab-text">AeroFire Command in a headset: the fire map becomes a table at waist height, the fleet is a shelf of miniatures in your left hand, and you give orders by putting an aircraft down where you want it.</span>
         <span class="lab-status"><i class="dot prototype"></i>Prototype</span>
       </a>
     </div>
+    <dialog class="peek" id="peek-robots" aria-label="Eva and Adam, taken apart">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/robots/cover.jpg" alt="Eva and Adam, taken apart" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Robots · Tools <span class="lab-status"><i class="dot building"></i>In progress</span></p>
+        <h2>Eva and Adam, taken apart</h2>
+        <p class="peek-text">Two humanoid robots live in our workshop. We write the software that makes one of them see, listen and pull faces, and we built a 3D guide that takes both of them apart screw by screw.</p>
+        <dl class="peek-facts">
+          <div><dt>Eva</dt><dd>64 parts · 37 wires · 48 steps · 8 servos · about 3 kg</dd></div>
+          <div><dt>Adam</dt><dd>110 parts · 44 wires · 52 steps · 10 servos · about 10 kg</dd></div>
+          <div><dt>Built with</dt><dd>Three.js, the maker's CAD converted part by part</dd></div>
+          <div><dt>Languages</dt><dd>English and Russian</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/robots/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/2">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-tabletop-ladder" aria-label="One wheel, four tables">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/tabletop-ladder/cover.jpg" alt="One wheel, four tables" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Art direction <span class="lab-status"><i class="dot live"></i>You can try it</span></p>
+        <h2>One wheel, four tables</h2>
+        <p class="peek-text">In Souls &amp; Estates one mouse wheel now takes you from a single peasant yard to a table map of central Russia, through four dioramas of the same place.</p>
+        <dl class="peek-facts">
+          <div><dt>Where</dt><dd>Souls &amp; Estates, since build 0.100</dd></div>
+          <div><dt>Looked at</dt><dd>Tiny Glade and Foundation close in, tabletop strategy games far out, Dorfromantik for trees</dd></div>
+          <div><dt>Scale</dt><dd>1 unit = 36 m; it never changes</dd></div>
+          <div><dt>Cost</dt><dd>6 to 16 ms of GPU a frame at 1440p on a laptop RTX 4070</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/tabletop-ladder/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/3">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-gull-reddit" aria-label="A game inside a Reddit post">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/gull-reddit/cover.jpg" alt="A game inside a Reddit post" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">New platform <span class="lab-status"><i class="dot building"></i>In progress</span></p>
+        <h2>A game inside a Reddit post</h2>
+        <p class="peek-text">What if you did not have to leave the feed to play? We put Gull Chorus, our seagull flock game, inside a Reddit post: one post is one beach, with a leaderboard under it.</p>
+        <dl class="peek-facts">
+          <div><dt>Game</dt><dd>Gull Chorus</dd></div>
+          <div><dt>Platform</dt><dd>Reddit's developer platform (Devvit)</dd></div>
+          <div><dt>Load</dt><dd>About 12 s the first time, 2.5 s after</dd></div>
+          <div><dt>State</dt><dd>In review at Reddit</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/gull-reddit/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/4">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-robot-software" aria-label="Rewiring Eva: a full software review">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/robot-software/cover.jpg" alt="Twelve round robot eyes in three styles" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Robots · Tools <span class="lab-status"><i class="dot building"></i>In progress</span></p>
+        <h2>Rewiring Eva: a full software review</h2>
+        <p class="peek-text">We took the software of a humanoid robot apart, reviewed every piece and rebuilt it as six small programs that each own one part of her. Then we gave her a new brain.</p>
+        <dl class="peek-facts">
+          <div><dt>Robot</dt><dd>Eva, a desk-sized humanoid</dd></div>
+          <div><dt>Computer</dt><dd>Raspberry Pi 4, everything on board</dd></div>
+          <div><dt>Modules</dt><dd>Eyes, motors, voice, vision, cockpit, MCP</dd></div>
+          <div><dt>For AI agents</dt><dd>33 tools over MCP</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/robot-software/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/8">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-pocket-ar" aria-label="A lab in your pocket">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/pocket-ar/cover.jpg" alt="A lab in your pocket" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">AR <span class="lab-status"><i class="dot live"></i>You can try it</span></p>
+        <h2>A lab in your pocket</h2>
+        <p class="peek-text">A web page that puts a relief model of the Earth, then our region, then our city on the desk in front of you, through your phone's camera. No app to install.</p>
+        <dl class="peek-facts">
+          <div><dt>Made for</dt><dd>The &quot;Laboratory of Growth&quot; teachers' forum, Norilsk</dd></div>
+          <div><dt>Works on</dt><dd>Android and iPhone, in the browser</dd></div>
+          <div><dt>Built with</dt><dd>model-viewer, three glTF models</dd></div>
+          <div><dt>Data</dt><dd>Sentinel-2 cloudless by EOX (CC BY 4.0), Terrain Tiles relief, NASA Blue Marble</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/pocket-ar/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/5">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-greybeard" aria-label="Greybeard: a storm you stand in">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/greybeard/03.jpg" alt="A three-masted ship under a breaking wave far taller than its masts" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">VR <span class="lab-status"><i class="dot prototype"></i>Prototype</span></p>
+        <h2>Greybeard: a storm you stand in</h2>
+        <p class="peek-text">Five minutes on the deck of a ship off Cape Horn in April 1788, in a headset. A wave taller than the masts is coming, and you have two hands.</p>
+        <dl class="peek-facts">
+          <div><dt>Length</dt><dd>About 5 minutes</dd></div>
+          <div><dt>For</dt><dd>VR arcades: walk-in visitors, controllers only, an operator at hand</dd></div>
+          <div><dt>Runs on</dt><dd>PC VR and Quest 3</dd></div>
+          <div><dt>Engine</dt><dd>Godot 4 with OpenXR</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/greybeard/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/6">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-aerofire-vr" aria-label="A wildfire on your table">
+      <button type="button" class="trailer-close peek-close" aria-label="Close">&times;</button>
+      <img class="peek-cover" data-src="../img/x/aerofire-vr/cover.jpg" alt="A firefighting tanker and helicopters over a burning forest diorama" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">VR <span class="lab-status"><i class="dot prototype"></i>Prototype</span></p>
+        <h2>A wildfire on your table</h2>
+        <p class="peek-text">AeroFire Command in a headset: the fire map becomes a table at waist height, the fleet is a shelf of miniatures in your left hand, and you give orders by putting an aircraft down where you want it.</p>
+        <dl class="peek-facts">
+          <div><dt>Game</dt><dd>AeroFire Command, the PC version</dd></div>
+          <div><dt>Headsets</dt><dd>SteamVR headsets, or a Quest linked to a PC</dd></div>
+          <div><dt>Table</dt><dd>2.4 m long at waist height</dd></div>
+          <div><dt>Measured</dt><dd>71 to 88 fps of 90 in the headset</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../experiments/aerofire-vr/">Read the full write-up <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/7">Open the thread <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
     <section class="lab-talk" id="talk">
       <h2>The forum</h2>
       <p>One place to talk to us and to each other: ideas for the games, bugs, your own experiments, anything at all. Every experiment has a thread of its own, and you can start a new one.</p>
@@ -233,6 +376,39 @@
     for (var k in d) s.setAttribute('data-' + k, d[k]);
     document.querySelector('.talk-frame').appendChild(s);
     b.hidden = true;
+  });
+})();
+</script><script>
+// The tiles: a press opens the experiment's summary window (its picture loads then, not before);
+// the chips keep only one kind of experiment on the page.
+(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.lab-tile'));
+  if (!tiles.length || !window.HTMLDialogElement) return;
+  tiles.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var d = document.getElementById(a.getAttribute('data-peek'));
+      if (!d) return;
+      e.preventDefault();
+      var img = d.querySelector('.peek-cover');
+      if (!img.getAttribute('src')) img.src = img.getAttribute('data-src');
+      d.showModal();
+    });
+  });
+  document.querySelectorAll('.peek').forEach(function (d) {
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    d.querySelector('.peek-close').addEventListener('click', function () { d.close(); });
+  });
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-tag]'));
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var want = chip.getAttribute('data-tag');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      tiles.forEach(function (a) {
+        a.hidden = !!want && (' ' + a.getAttribute('data-tags') + ' ').indexOf(' ' + want + ' ') < 0;
+        a.classList.add('is-in');
+      });
+    });
   });
 })();
 </script>

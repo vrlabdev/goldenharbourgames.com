@@ -131,6 +131,16 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/gull-reddit/"/>
   </url>
   <url>
+    <loc>https://goldenharbourgames.com/experiments/robot-software/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/robot-software/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/robot-software/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/experiments/robot-software/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/robot-software/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/robot-software/"/>
+  </url>
+  <url>
     <loc>https://goldenharbourgames.com/experiments/pocket-ar/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/pocket-ar/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/pocket-ar/"/>

@@ -68,7 +68,7 @@ for (const t of langs) {
   for (const x of lab.items) {
     if (!x[t.lang]) throw new Error(`content/experiments.json: "${x.id}" has no "${t.lang}" text`);
     for (const s of x.shots || []) if (!s[t.lang]) throw new Error(`content/experiments.json: a picture of "${x.id}" has no "${t.lang}" caption`);
-    for (const f of [x.cover, x.thumb, ...(x.shots || []).map((s) => s.src)]) if (!fs.existsSync(path.join(ROOT, f))) throw new Error(`content/experiments.json: "${x.id}" names ${f}, which is not there`);
+    for (const f of [x.cover, x.thumb, ...(x.shots || []).map((s) => s['src_' + t.lang] || s.src)]) if (!fs.existsSync(path.join(ROOT, f))) throw new Error(`content/experiments.json: "${x.id}" names ${f}, which is not there`);
   }
   for (const e of log) if (!e[t.lang]) throw new Error(`content/log.json: the entry of ${e.date} has no "${t.lang}" text`);
   for (const g of games) {
@@ -369,6 +369,14 @@ function crewBlock(t, kicker, base, h = 'h2') {
       </div>
       <p>${esc(t.crew.lede)}</p>
     </div>
+    <h2 class="crew-ways-title">${esc(t.crew.ways_title)}</h2>
+    <div class="crew-ways">
+${t.crew.ways.map(([h, p]) => `      <div class="creed-item reveal">
+        <h3>${esc(h)}</h3>
+        <p>${esc(p)}</p>
+      </div>`).join('\n')}
+    </div>
+    <p class="crew-note">${esc(t.crew.status_note)}</p>
     <div class="crew-grid">
       <div class="crew-col reveal">
         <h3>${esc(t.crew.get_title)}</h3>
@@ -413,6 +421,73 @@ function labCard(t, x, up, base) {
         <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span>
       </a>`;
 }
+
+// The same experiment small: a tile on the experiments page. A press opens its summary window;
+// without scripting, or with a middle click, it is a plain link to the full page.
+function labTile(t, x, up, base) {
+  const c = x[t.lang];
+  const L = t.experiments;
+  return `      <a class="lab-tile reveal" href="${base}${labPath(x)}" data-peek="peek-${x.id}" data-tags="${x.tags.join(' ')}">
+        <img src="${up}${x.thumb}" alt="" width="800" height="500" loading="lazy" decoding="async">
+        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')}</span>
+        <span class="lab-title">${esc(c.title)}</span>
+        <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span>
+      </a>`;
+}
+function labPeek(t, x, up, base) {
+  const c = x[t.lang];
+  const L = t.experiments;
+  return `    <dialog class="peek" id="peek-${x.id}" aria-label="${esc(c.title)}">
+      <button type="button" class="trailer-close peek-close" aria-label="${esc(L.close)}">&times;</button>
+      <img class="peek-cover" data-src="${up}${x.cover}" alt="${esc(c.cover_alt || c.title)}" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span></p>
+        <h2>${esc(c.title)}</h2>
+        <p class="peek-text">${esc(c.text)}</p>
+        <dl class="peek-facts">
+${c.facts.slice(0, 4).map(([k, v]) => `          <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n')}
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="${base}${labPath(x)}">${esc(L.read_more)} <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="${threadUrl(x)}">${esc(L.thread_open)} <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>`;
+}
+const peekScript = `<script>
+// The tiles: a press opens the experiment's summary window (its picture loads then, not before);
+// the chips keep only one kind of experiment on the page.
+(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.lab-tile'));
+  if (!tiles.length || !window.HTMLDialogElement) return;
+  tiles.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var d = document.getElementById(a.getAttribute('data-peek'));
+      if (!d) return;
+      e.preventDefault();
+      var img = d.querySelector('.peek-cover');
+      if (!img.getAttribute('src')) img.src = img.getAttribute('data-src');
+      d.showModal();
+    });
+  });
+  document.querySelectorAll('.peek').forEach(function (d) {
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    d.querySelector('.peek-close').addEventListener('click', function () { d.close(); });
+  });
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-tag]'));
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var want = chip.getAttribute('data-tag');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      tiles.forEach(function (a) {
+        a.hidden = !!want && (' ' + a.getAttribute('data-tags') + ' ').indexOf(' ' + want + ' ') < 0;
+        a.classList.add('is-in');
+      });
+    });
+  });
+})();
+</script>`;
 
 function page(t) {
   const up = t.path ? '../'.repeat(t.path.split('/').filter(Boolean).length) : '';
@@ -1147,7 +1222,7 @@ function labIndex(t) {
     ogImage: shareImage(labItems[0].cover),
     ogSize: [1600, 1000],
     jsonld: webPage(t, LAB, L.title, L.description),
-    script: talkScript,
+    script: talkScript + peekScript,
     main: (up) => `<main>
   <section class="section lab lab-index chart">
     <div class="section-head">
@@ -1157,9 +1232,15 @@ function labIndex(t) {
       </div>
       <p>${esc(L.lede)}</p>
     </div>
-    <div class="lab-grid">
-${labItems.map((x) => labCard(t, x, up, up + t.path)).join('\n')}
+    <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
+      <span class="chips-label">${esc(t.filter.label)}</span>
+      <button type="button" class="chip" aria-pressed="true" data-tag="">${esc(t.filter.all)} <small>${labItems.length}</small></button>
+${Object.keys(L.tags).filter((k) => labItems.some((x) => x.tags.includes(k))).map((k) => `      <button type="button" class="chip" aria-pressed="false" data-tag="${k}">${esc(L.tags[k])} <small>${labItems.filter((x) => x.tags.includes(k)).length}</small></button>`).join('\n')}
     </div>
+    <div class="lab-tiles">
+${labItems.map((x) => labTile(t, x, up, up + t.path)).join('\n')}
+    </div>
+${labItems.map((x) => labPeek(t, x, up, up + t.path)).join('\n')}
     ${talkBlock(t, null)}
   </section>
 </main>`,
@@ -1217,7 +1298,7 @@ ${s.list.map((i) => `              <li>${esc(i)}</li>`).join('\n')}
             </ul>` : s.paragraphs.map((p) => `            <p>${esc(p)}</p>`).join('\n')}
           </section>`).join('\n')}
         </div>${(x.links || []).length ? `
-        <p class="lab-links">${x.links.map((l) => `<a class="button ghost" href="${/^https?:/.test(l.url) ? l.url : up + l.url}">${esc(l[t.lang])} <span aria-hidden="true">${/^https?:/.test(l.url) ? '↗' : '→'}</span></a>`).join(' ')}</p>` : ''}
+        <p class="lab-links">${x.links.map((l) => `<a class="button ghost" href="${/^https?:/.test(l.url) ? l.url : up + (l.root ? '' : t.path) + l.url}">${esc(l[t.lang])} <span aria-hidden="true">${/^https?:/.test(l.url) ? '↗' : '→'}</span></a>`).join(' ')}</p>` : ''}
       </div>
       <aside class="lab-facts">
         <dl>
@@ -1229,7 +1310,7 @@ ${(x.shots || []).length ? `
     <h2 class="lab-h">${esc(L.gallery)}</h2>
     <div class="lab-gallery">
 ${x.shots.map((s) => `      <figure class="reveal">
-        <a href="${up}${s.src}" data-zoom><img src="${up}${s.src}" alt="${esc(s[t.lang])}" width="1600" height="1000" loading="lazy" decoding="async"></a>
+        <a href="${up}${s['src_' + t.lang] || s.src}" data-zoom><img src="${up}${s['src_' + t.lang] || s.src}" alt="${esc(s[t.lang])}" width="1600" height="1000" loading="lazy" decoding="async"></a>
         <figcaption>${esc(s[t.lang])}</figcaption>
       </figure>`).join('\n')}
     </div>` : ''}

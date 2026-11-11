@@ -817,62 +817,66 @@
     "promise": "When a game earns enough, we rebuild its generated parts with people: artists for the covers and the worlds, composers for the scores, actors for the voices, writers for the words. Their names go on the game. The first game to pay for itself will be the first to get its crew."
   },
   "crew": {
-    "title": "Game development internships",
-    "seo_title": "Game development internships (remote): design, art, code, sound · Golden Harbour Games",
-    "description": "Remote game development internships at an indie studio. Work on a real, released game in design, programming, art, sound, writing, testing or translation. Open to students and beginners, part-time, with your name in the credits.",
-    "lede": "Remote, part-time internships on real games that are already in the App Store and on Google Play. Pick a game, make one part of it better, and get your name in its credits.",
+    "title": "Game development internships and open projects",
+    "seo_title": "Game development internships and open projects (remote) · Golden Harbour Games",
+    "description": "Work on real, released indie games, remotely. Students can do a course placement in game design, programming, art or sound; anyone can take an open project as an independent contributor, for credit and a share of the game’s revenue.",
+    "lede": "Work on real games that are already on the App Store and Google Play. Pick a game, make one part of it better, and put your name in its credits.",
     "get_title": "What you get",
     "get": [
-      "Work on a released game. What you make ships to real players, usually within weeks.",
-      "Your name in the credits of the game and on this site, and a reference from us you can show anyone.",
+      "Your work in a released game, in front of real players.",
+      "Your name in the credits of the game and on this site.",
       "Something finished for your portfolio: a level, a character, a soundtrack, a feature, a language.",
       "The full source code and our tools, including the AI tools we build with, and one of us in a chat when you are stuck.",
-      "A share of what the game earns, agreed in writing before you start."
+      "A share of the game’s revenue for open projects, agreed in writing before you start."
     ],
     "how_title": "How it works",
     "how": [
       "Choose a game and the part you want to work on. The open projects are listed here; your own idea is welcome too.",
       "Email us. Say what you would like to do and show us anything you have made, finished or not. We answer within a few days.",
-      "We agree the project in writing: what it is, what finished looks like, how long it should take and what you get.",
-      "You work remotely, in your own hours. Most projects are a few weeks of part-time work.",
+      "We put it in writing: what the project is, what finished looks like, who owns the work and what your share is.",
+      "You work remotely, when it suits you. Most projects are a few weeks of spare time.",
       "Your work ships in the game, with your name on it."
     ],
     "who_title": "Who can apply",
     "who": "Students, graduates, career changers and self-taught beginners, anywhere in the world. Game designers, programmers (we use Godot and Unity), 2D and 3D artists, animators, composers and sound designers, writers, translators, voice actors and testers. You do not need a degree or a portfolio. You need to care about one of these games enough to make one part of it better.",
-    "oars_title": "Open internship projects",
+    "oars_title": "Open projects right now",
     "cta": "Apply by email",
-    "cta_subject": "Internship: ",
+    "cta_subject": "Open project: ",
     "closing": "No form and no deadline. One email is enough to start.",
     "any_game": "Any game",
     "faq_title": "Questions people ask",
     "faq": [
       [
-        "Is the internship paid?",
-        "There is no salary. You get credit, a reference and portfolio work, and a share of the game’s earnings that we agree in writing before you start. Our games earn little so far, and we will tell you the real numbers in the first email. You never pay us anything."
+        "Is it paid?",
+        "An open project pays a share of the game’s revenue, agreed in writing before you start, plus credit. There is no wage and nothing up front. Our games earn little so far, and we will tell you the real numbers in the first email. You never pay us anything."
+      ],
+      [
+        "Is this an internship?",
+        "Only if your course requires a placement and your school arranges it with us. Everything else on this page is an open project: you are an independent contributor, not an intern and not an employee."
       ],
       [
         "Is it remote?",
         "Yes, fully. The studio is in Sydney, Australia, and we work with people in any time zone. Everything happens over email, chat and the shared project."
       ],
       [
-        "How many hours is it?",
-        "As many as you agreed to. Most interns give five to ten hours a week around study or a job. There are no fixed hours."
+        "How much time does it take?",
+        "That is up to you. We agree on the result, not on hours. Most people fit a project around study or a job."
       ],
       [
         "Do I need experience?",
-        "No. We care more about what you want to make than about what you have done. If you are new to the tools, we show you how we use them."
+        "No. We care more about what you want to make than about what you have done."
       ],
       [
         "Which tools do you use?",
-        "Godot 4 and Unity for the games, Blender for 3D, GitHub for everything, and AI tools such as Claude for code and first drafts. You will learn how a small studio ships with them."
+        "Godot 4 and Unity for the games, Blender for 3D, GitHub for everything, and AI tools such as Claude for code and first drafts. You get access to all of it."
       ],
       [
-        "Can it count for my course?",
-        "It can. Tell us what your school needs, such as a supervisor, hours or a report, and we will work out with you whether we can provide it."
+        "Who owns what I make?",
+        "It becomes part of the game, so the studio needs the right to ship and keep it. The agreement says so in plain words, along with your credit and your share. You can always show the work in your portfolio."
       ],
       [
         "When can I start?",
-        "Any time. There are no intakes. Email us and we go from there."
+        "Any time. There are no intakes and no deadline. Email us and we go from there."
       ]
     ],
     "oars": [
@@ -912,7 +916,19 @@
         "game": null,
         "text": "Translation: any language we do not have yet, for any game."
       }
-    ]
+    ],
+    "ways_title": "Two ways in",
+    "ways": [
+      [
+        "Open projects",
+        "For anyone, anywhere. You take one project as an independent contributor: you choose it, you work in your own time on your own equipment, and you are paid a share of what the game earns, under a written agreement."
+      ],
+      [
+        "Internships for students",
+        "If your course requires a placement, we can host it. It is arranged with your school, follows its rules on hours, supervision and reports, and is built around what you need to learn."
+      ]
+    ],
+    "status_note": "An open project is not a job and not employment. Nobody sets your hours, and you are free to work for anyone else at the same time."
   },
   "app_store": "App Store",
   "creed": {
@@ -979,6 +995,9 @@
     "forum_title": "The forum",
     "forum_text": "One place to talk to us and to each other: ideas for the games, bugs, your own experiments, anything at all. Every experiment has a thread of its own, and you can start a new one.",
     "forum_open": "Go to the forum",
-    "forum_note": "The forum runs on GitHub Discussions. Reading is open to all; posting needs a free GitHub account."
+    "forum_note": "The forum runs on GitHub Discussions. Reading is open to all; posting needs a free GitHub account.",
+    "read_more": "Read the full write-up",
+    "close": "Close",
+    "peek_hint": "Tap a tile for a summary"
   }
 }

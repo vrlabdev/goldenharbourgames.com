@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=66e27946">
+  <link rel="stylesheet" href="../../style.css?v=5fb50328">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Эксперименты","description":"Что Golden Harbour Games пробует помимо вышедших игр: шторм в VR, лесной пожар на столе, AR-модели, человекоподобные роботы и новые места, где может жить игра. Рассказы, картинки и открытый форум.","url":"https://goldenharbourgames.com/ru/experiments/","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"publisher":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com"}}</script>
 </head>
@@ -63,55 +63,198 @@
   <section class="section lab lab-index chart">
     <div class="section-head">
       <div>
-        <p class="kicker">Эксперименты · 6</p>
+        <p class="kicker">Эксперименты · 7</p>
         <h1>Эксперименты</h1>
       </div>
       <p>Это мастерская. Мы берём VR, AR и всё, что попадается под руку, и ищем новые способы играть. У каждого эксперимента есть рассказ, картинки и ветка, где можно сказать нам, что вы думаете.</p>
     </div>
-    <div class="lab-grid">
-      <a class="lab-card reveal" href="../../ru/experiments/robots/">
+    <div class="chips" role="group" aria-label="Показать">
+      <span class="chips-label">Показать</span>
+      <button type="button" class="chip" aria-pressed="true" data-tag="">Все <small>7</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="vr">VR <small>2</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="ar">AR <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="robots">Роботы <small>2</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="look">Визуальный стиль <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="platform">Новая платформа <small>1</small></button>
+      <button type="button" class="chip" aria-pressed="false" data-tag="tools">Инструменты <small>2</small></button>
+    </div>
+    <div class="lab-tiles">
+      <a class="lab-tile reveal" href="../../ru/experiments/robots/" data-peek="peek-robots" data-tags="robots tools">
         <img src="../../img/x/robots/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">Роботы · Инструменты</span>
         <span class="lab-title">Ева и Адам в разобранном виде</span>
-        <span class="lab-text">В нашей мастерской живут два человекоподобных робота. Мы пишем программы, благодаря которым один из них видит, слушает и строит рожицы, и сделали 3D-руководство, которое разбирает обоих до винтика.</span>
         <span class="lab-status"><i class="dot building"></i>В работе</span>
       </a>
-      <a class="lab-card reveal" href="../../ru/experiments/tabletop-ladder/">
+      <a class="lab-tile reveal" href="../../ru/experiments/tabletop-ladder/" data-peek="peek-tabletop-ladder" data-tags="look">
         <img src="../../img/x/tabletop-ladder/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">Визуальный стиль</span>
         <span class="lab-title">Одно колесо, четыре стола</span>
-        <span class="lab-text">В Souls &amp; Estates одно колесо мыши теперь ведёт от единственного крестьянского двора до стола с картой центральной России, через четыре диорамы одного и того же места.</span>
         <span class="lab-status"><i class="dot live"></i>Можно попробовать</span>
       </a>
-      <a class="lab-card reveal" href="../../ru/experiments/gull-reddit/">
+      <a class="lab-tile reveal" href="../../ru/experiments/gull-reddit/" data-peek="peek-gull-reddit" data-tags="platform">
         <img src="../../img/x/gull-reddit/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">Новая платформа</span>
         <span class="lab-title">Игра внутри поста на Reddit</span>
-        <span class="lab-text">А что если не нужно уходить из ленты, чтобы поиграть? Мы поместили Gull Chorus, нашу игру про стаю чаек, внутрь поста на Reddit: один пост — один пляж, а под ним таблица рекордов.</span>
         <span class="lab-status"><i class="dot building"></i>В работе</span>
       </a>
-      <a class="lab-card reveal" href="../../ru/experiments/pocket-ar/">
+      <a class="lab-tile reveal" href="../../ru/experiments/robot-software/" data-peek="peek-robot-software" data-tags="robots tools">
+        <img src="../../img/x/robot-software/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
+        <span class="lab-kind">Роботы · Инструменты</span>
+        <span class="lab-title">Перепрошивая Еву: полный разбор программ</span>
+        <span class="lab-status"><i class="dot building"></i>В работе</span>
+      </a>
+      <a class="lab-tile reveal" href="../../ru/experiments/pocket-ar/" data-peek="peek-pocket-ar" data-tags="ar">
         <img src="../../img/x/pocket-ar/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">AR</span>
         <span class="lab-title">Лаборатория в кармане</span>
-        <span class="lab-text">Веб-страница, которая через камеру телефона ставит на парту перед вами рельефную модель Земли, потом нашего края, потом нашего города. Устанавливать ничего не нужно.</span>
         <span class="lab-status"><i class="dot live"></i>Можно попробовать</span>
       </a>
-      <a class="lab-card reveal" href="../../ru/experiments/greybeard/">
+      <a class="lab-tile reveal" href="../../ru/experiments/greybeard/" data-peek="peek-greybeard" data-tags="vr">
         <img src="../../img/x/greybeard/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">VR</span>
         <span class="lab-title">Greybeard: шторм, в котором стоишь</span>
-        <span class="lab-text">Пять минут на палубе корабля у мыса Горн в апреле 1788 года, в шлеме. Идёт волна выше мачт, а у вас две руки.</span>
         <span class="lab-status"><i class="dot prototype"></i>Прототип</span>
       </a>
-      <a class="lab-card reveal" href="../../ru/experiments/aerofire-vr/">
+      <a class="lab-tile reveal" href="../../ru/experiments/aerofire-vr/" data-peek="peek-aerofire-vr" data-tags="vr">
         <img src="../../img/x/aerofire-vr/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
         <span class="lab-kind">VR</span>
         <span class="lab-title">Лесной пожар на столе</span>
-        <span class="lab-text">AeroFire Command в шлеме: карта пожара становится столом на уровне пояса, флот — полкой миниатюр в левой руке, а приказ отдаётся так: ставишь машину туда, где она нужна.</span>
         <span class="lab-status"><i class="dot prototype"></i>Прототип</span>
       </a>
     </div>
+    <dialog class="peek" id="peek-robots" aria-label="Ева и Адам в разобранном виде">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/robots/cover.jpg" alt="Ева и Адам в разобранном виде" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Роботы · Инструменты <span class="lab-status"><i class="dot building"></i>В работе</span></p>
+        <h2>Ева и Адам в разобранном виде</h2>
+        <p class="peek-text">В нашей мастерской живут два человекоподобных робота. Мы пишем программы, благодаря которым один из них видит, слушает и строит рожицы, и сделали 3D-руководство, которое разбирает обоих до винтика.</p>
+        <dl class="peek-facts">
+          <div><dt>Ева</dt><dd>64 детали · 37 проводов · 48 шагов · 8 сервоприводов · около 3 кг</dd></div>
+          <div><dt>Адам</dt><dd>110 деталей · 44 провода · 52 шага · 10 сервоприводов · около 10 кг</dd></div>
+          <div><dt>Сделано на</dt><dd>Three.js, CAD производителя, переведённый деталь за деталью</dd></div>
+          <div><dt>Языки</dt><dd>Русский и английский</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/robots/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/2">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-tabletop-ladder" aria-label="Одно колесо, четыре стола">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/tabletop-ladder/cover.jpg" alt="Одно колесо, четыре стола" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Визуальный стиль <span class="lab-status"><i class="dot live"></i>Можно попробовать</span></p>
+        <h2>Одно колесо, четыре стола</h2>
+        <p class="peek-text">В Souls &amp; Estates одно колесо мыши теперь ведёт от единственного крестьянского двора до стола с картой центральной России, через четыре диорамы одного и того же места.</p>
+        <dl class="peek-facts">
+          <div><dt>Где</dt><dd>Souls &amp; Estates, начиная со сборки 0.100</dd></div>
+          <div><dt>На что смотрели</dt><dd>Tiny Glade и Foundation вблизи, настольные стратегии вдали, Dorfromantik для деревьев</dd></div>
+          <div><dt>Масштаб</dt><dd>1 единица = 36 м; он не меняется никогда</dd></div>
+          <div><dt>Цена</dt><dd>от 6 до 16 мс видеокарты на кадр в 1440p на ноутбучной RTX 4070</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/tabletop-ladder/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/3">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-gull-reddit" aria-label="Игра внутри поста на Reddit">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/gull-reddit/cover.jpg" alt="Игра внутри поста на Reddit" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Новая платформа <span class="lab-status"><i class="dot building"></i>В работе</span></p>
+        <h2>Игра внутри поста на Reddit</h2>
+        <p class="peek-text">А что если не нужно уходить из ленты, чтобы поиграть? Мы поместили Gull Chorus, нашу игру про стаю чаек, внутрь поста на Reddit: один пост — один пляж, а под ним таблица рекордов.</p>
+        <dl class="peek-facts">
+          <div><dt>Игра</dt><dd>Gull Chorus</dd></div>
+          <div><dt>Платформа</dt><dd>Платформа Reddit для разработчиков (Devvit)</dd></div>
+          <div><dt>Загрузка</dt><dd>Около 12 с в первый раз, 2,5 с потом</dd></div>
+          <div><dt>Состояние</dt><dd>На проверке у Reddit</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/gull-reddit/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/4">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-robot-software" aria-label="Перепрошивая Еву: полный разбор программ">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/robot-software/cover.jpg" alt="Двенадцать круглых глаз робота в трёх стилях" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">Роботы · Инструменты <span class="lab-status"><i class="dot building"></i>В работе</span></p>
+        <h2>Перепрошивая Еву: полный разбор программ</h2>
+        <p class="peek-text">Мы разобрали программы человекоподобного робота, проверили каждую часть и собрали всё заново как шесть небольших программ, каждая из которых владеет одной её частью. А потом дали ей новый мозг.</p>
+        <dl class="peek-facts">
+          <div><dt>Робот</dt><dd>Ева, настольный человекоподобный робот</dd></div>
+          <div><dt>Компьютер</dt><dd>Raspberry Pi 4, всё на борту</dd></div>
+          <div><dt>Модули</dt><dd>Глаза, моторы, голос, зрение, пульт, MCP</dd></div>
+          <div><dt>Для ИИ-агентов</dt><dd>33 инструмента через MCP</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/robot-software/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/8">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-pocket-ar" aria-label="Лаборатория в кармане">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/pocket-ar/cover.jpg" alt="Лаборатория в кармане" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">AR <span class="lab-status"><i class="dot live"></i>Можно попробовать</span></p>
+        <h2>Лаборатория в кармане</h2>
+        <p class="peek-text">Веб-страница, которая через камеру телефона ставит на парту перед вами рельефную модель Земли, потом нашего края, потом нашего города. Устанавливать ничего не нужно.</p>
+        <dl class="peek-facts">
+          <div><dt>Для кого</dt><dd>Форум учителей «Лаборатория Роста», Норильск</dd></div>
+          <div><dt>Где работает</dt><dd>Android и iPhone, в браузере</dd></div>
+          <div><dt>Сделано на</dt><dd>model-viewer, три модели glTF</dd></div>
+          <div><dt>Данные</dt><dd>Sentinel-2 cloudless, EOX (CC BY 4.0), рельеф Terrain Tiles, NASA Blue Marble</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/pocket-ar/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/5">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-greybeard" aria-label="Greybeard: шторм, в котором стоишь">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/greybeard/03.jpg" alt="Трёхмачтовый корабль под обрушивающейся волной, которая намного выше его мачт" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">VR <span class="lab-status"><i class="dot prototype"></i>Прототип</span></p>
+        <h2>Greybeard: шторм, в котором стоишь</h2>
+        <p class="peek-text">Пять минут на палубе корабля у мыса Горн в апреле 1788 года, в шлеме. Идёт волна выше мачт, а у вас две руки.</p>
+        <dl class="peek-facts">
+          <div><dt>Длительность</dt><dd>Около 5 минут</dd></div>
+          <div><dt>Для кого</dt><dd>VR-клубы: посетители с улицы, только контроллеры, оператор рядом</dd></div>
+          <div><dt>Работает на</dt><dd>ПК-VR и Quest 3</dd></div>
+          <div><dt>Движок</dt><dd>Godot 4 и OpenXR</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/greybeard/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/6">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
+    <dialog class="peek" id="peek-aerofire-vr" aria-label="Лесной пожар на столе">
+      <button type="button" class="trailer-close peek-close" aria-label="Закрыть">&times;</button>
+      <img class="peek-cover" data-src="../../img/x/aerofire-vr/cover.jpg" alt="Пожарный самолёт и вертолёты над диорамой горящего леса" width="1600" height="1000">
+      <div class="peek-body">
+        <p class="kind">VR <span class="lab-status"><i class="dot prototype"></i>Прототип</span></p>
+        <h2>Лесной пожар на столе</h2>
+        <p class="peek-text">AeroFire Command в шлеме: карта пожара становится столом на уровне пояса, флот — полкой миниатюр в левой руке, а приказ отдаётся так: ставишь машину туда, где она нужна.</p>
+        <dl class="peek-facts">
+          <div><dt>Игра</dt><dd>AeroFire Command, версия для ПК</dd></div>
+          <div><dt>Шлемы</dt><dd>Шлемы SteamVR или Quest, подключённый к ПК</dd></div>
+          <div><dt>Стол</dt><dd>2,4 м в длину на уровне пояса</dd></div>
+          <div><dt>Измерено</dt><dd>от 71 до 88 кадров из 90 в шлеме</dd></div>
+        </dl>
+        <p class="peek-actions">
+          <a class="button" href="../../ru/experiments/aerofire-vr/">Читать полностью <span aria-hidden="true">→</span></a>
+          <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions/7">Открыть ветку <span aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+    </dialog>
     <section class="lab-talk" id="talk">
       <h2>Форум</h2>
       <p>Одно место, где можно поговорить с нами и друг с другом: идеи для игр, ошибки, ваши собственные эксперименты, что угодно. У каждого эксперимента своя ветка, и вы можете начать новую. Писать можно по-русски.</p>
@@ -233,6 +376,39 @@
     for (var k in d) s.setAttribute('data-' + k, d[k]);
     document.querySelector('.talk-frame').appendChild(s);
     b.hidden = true;
+  });
+})();
+</script><script>
+// The tiles: a press opens the experiment's summary window (its picture loads then, not before);
+// the chips keep only one kind of experiment on the page.
+(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.lab-tile'));
+  if (!tiles.length || !window.HTMLDialogElement) return;
+  tiles.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var d = document.getElementById(a.getAttribute('data-peek'));
+      if (!d) return;
+      e.preventDefault();
+      var img = d.querySelector('.peek-cover');
+      if (!img.getAttribute('src')) img.src = img.getAttribute('data-src');
+      d.showModal();
+    });
+  });
+  document.querySelectorAll('.peek').forEach(function (d) {
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    d.querySelector('.peek-close').addEventListener('click', function () { d.close(); });
+  });
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-tag]'));
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var want = chip.getAttribute('data-tag');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      tiles.forEach(function (a) {
+        a.hidden = !!want && (' ' + a.getAttribute('data-tags') + ' ').indexOf(' ' + want + ' ') < 0;
+        a.classList.add('is-in');
+      });
+    });
   });
 })();
 </script>
