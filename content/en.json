@@ -443,9 +443,9 @@
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
-    "description": "How Golden Harbour Games handles your data: three games send anonymous play data, two of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
+    "description": "How Golden Harbour Games handles your data: five games send anonymous play data, two of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
     "date": "2026-11-11",
-    "updated": "Last updated: 11 November 2026",
+    "updated": "Last updated: 12 November 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, the App Store, itch.io, Steam or this website — and the website itself."
@@ -456,7 +456,7 @@
         "list": [
           "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
-          "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. The exceptions send anonymous play data, described in the next sections: AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play), and Souls & Estates from version 0.109 (the browser and Windows versions). The iPhone versions of Fire Season and Punch League send us nothing and have no Google sign-in.",
+          "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. The exceptions send anonymous play data, described in the next sections: AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play); the browser versions of Souls & Estates, Gull Chorus, Range Anxiety: Far East, AeroFire Command and Punch League on itch.io; and the Windows versions of Souls & Estates and AeroFire Command. The iPhone versions of Fire Season and Punch League send us nothing and have no Google sign-in, and Punch League from RuStore sends us nothing either.",
           "On iPhone, Fire Season and Orbital Jump Reloaded can post your scores and achievements to Apple’s Game Center, if you are signed in to Game Center on your device. That goes to Apple, under your own Game Center settings; nothing comes to us.",
           "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
@@ -467,7 +467,7 @@
           "To learn how our games play - where new players get stuck, how long a fire or a fight takes, which cards people pick, how smoothly the game runs - Fire Season and Punch League send anonymous play events to Google Analytics for Firebase. For example: a fire or a fight started or finished and its result, a tutorial step reached, a card picked, a belt won, a look in the shop viewed or bought, a setting changed, the frame rate.",
           "Each install gets a random ID that the game makes up on first launch. It is not linked to your name, email address, Google account, Play Games profile or advertising ID, and the games do not collect the advertising ID. Nothing you type is sent. Firebase also records standard technical details: device model, Android version, country, language and app version.",
           "Google processes this data for us under the Google Analytics terms and keeps it for up to 14 months. It is not used for advertising, and we do not sell or share it.",
-          "You can turn it off at any time in the game's SETTINGS: \"Share anonymous play data\" in Fire Season, \"SHARE PLAY DATA\" in Punch League. From then on the game sends nothing."
+          "You can turn it off at any time in the game's SETTINGS: \"SHARE PLAY DATA\" in both games. From then on the game sends nothing."
         ],
         "links": [
           {
@@ -481,12 +481,12 @@
         ]
       },
       {
-        "title": "Anonymous play data in Souls & Estates",
+        "title": "Anonymous play data in the browser and Windows versions",
         "paragraphs": [
-          "From version 0.109, Souls & Estates (in the browser and on Windows) sends anonymous play events to Google Analytics, so we can see where new players get stuck and how far games run. For example: the game started and with which start year, a tutorial step reached, a decade reached with the size of the estate, how long a session lasted, the language, the frame rate.",
-          "Each install gets a random ID that the game makes up on first launch and keeps on your device. It is not linked to your name, email address or any account. Nothing you type is sent, and neither are the names of your family or estate. The game sets no cookies and sends no advertising ID.",
+          "The browser versions of Souls & Estates (from version 0.109), Gull Chorus (from 0.7.4), Range Anxiety: Far East (from 0.37), AeroFire Command and Punch League, and the Windows versions of Souls & Estates and AeroFire Command, send anonymous play events to Google Analytics, so we can see where new players get stuck and how far games run. For example: the game started, a tutorial step reached, a level, fire, fight or delivery started or finished and its result, how long a session lasted, the language, the frame rate.",
+          "Each install gets a random ID that the game makes up on first launch and keeps on your device. It is not linked to your name, email address or any account. Nothing you type is sent, and neither are the names you give to people or places in a game. The games set no cookies and send no advertising ID.",
           "Google processes this data for us under the Google Analytics terms and keeps it for up to 14 months. It is not used for advertising, and we do not sell or share it.",
-          "You can turn it off at any time in the game: Settings, \"Share anonymous play data\". From then on the game sends nothing."
+          "You can turn it off at any time in the game's settings: \"Share anonymous play data\" in Souls & Estates, Gull Chorus and Range Anxiety: Far East, \"SHARE PLAY DATA\" in AeroFire Command and Punch League. From then on the game sends nothing."
         ],
         "links": [
           {
