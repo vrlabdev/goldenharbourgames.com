@@ -31,6 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css?v=5fb50328">
   <script>document.documentElement.className += ' js';</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Orbital Jump Reloaded","description":"The 2021 planet-hopper rebuilt: ten worlds, a wall of fire behind you, items for a bad moment, five suits and the classic endless run. Out now on Android and iPhone, free in your browser.","url":"https://goldenharbourgames.com/play/orbital-jump/","image":"https://goldenharbourgames.com/img/orbital-jump.jpg","genre":["Arcade","Space"],"inLanguage":["en","ru"],"gamePlatform":["Android","iOS","Web browser"],"applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"sameAs":["https://goldenharbourgames.itch.io/orbital-jump-reloaded","https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump","https://apps.apple.com/app/orbital-jump-reloaded/id6832806224"]}</script>
 </head>
 <body>
@@ -67,7 +68,7 @@
       <h1>Orbital Jump Reloaded</h1>
     </div>
 
-    <div class="stage" style="--fw: 1280; --fh: 760" data-embed="https://itch.io/embed-upload/20226889?color=0b1626" data-title="Orbital Jump Reloaded, playing in the page">
+    <div data-game="orbital-jump" class="stage" style="--fw: 1280; --fh: 760" data-embed="https://itch.io/embed-upload/20226889?color=0b1626" data-title="Orbital Jump Reloaded, playing in the page">
       <img class="stage-cover" src="../../img/orbital-jump.jpg" alt="" width="630" height="500">
       <video class="stage-cover stage-clip" data-src="../../img/clips/orbital-jump.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>
       <button type="button" class="stage-start">
@@ -85,7 +86,7 @@
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Fullscreen
         </button>
-        <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump">Get it on Google Play <span aria-hidden="true">↗</span></a>
+        <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump&referrer=utm_source%3Dgoldenharbourgames.com%26utm_medium%3Dplay-page%26utm_campaign%3Dorbital-jump">Get it on Google Play <span aria-hidden="true">↗</span></a>
         <a class="itch-link" href="https://apps.apple.com/app/orbital-jump-reloaded/id6832806224">Download on the App Store <span aria-hidden="true">↗</span></a>
         <a class="itch-link" href="https://goldenharbourgames.itch.io/orbital-jump-reloaded">This game on itch.io <span aria-hidden="true">↗</span></a>
         <button type="button" class="share-btn" data-text="Play Orbital Jump Reloaded free in your browser" data-copied="Link copied">
@@ -225,6 +226,39 @@
     e.preventDefault();
     if (a.hasAttribute('data-zoom')) zoom(a); else open(a.getAttribute('data-video'));
   });
+})();
+</script>
+
+<script>
+// Counting, without cookies or a stored id: a press on a link that leaves the site (which game, which
+// store) and a press on Play. See content/analytics.json and the privacy page.
+(function () {
+  var GA = null;
+  var cid = Math.floor(Math.random() * 2147483647) + '.' + Math.floor(Date.now() / 1000);
+  window.ghgEvent = function (name, params) {
+    if (!GA || !navigator.sendBeacon) return false;
+    params = params || {};
+    params.session_id = String(Math.floor(Date.now() / 1000));
+    params.engagement_time_msec = 1;
+    params.page = location.pathname;
+    params.lang = document.documentElement.lang || '';
+    try {
+      return navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=' + GA.measurement_id + '&api_secret=' + GA.api_secret,
+        JSON.stringify({ client_id: cid, events: [{ name: name, params: params }] }));
+    } catch (e) { return false; }
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a) {
+      var u; try { u = new URL(a.href); } catch (x) { return; }
+      if (u.host === location.host || !/^https?:$/.test(u.protocol)) return;
+      var card = a.closest('[data-game]'), here = (location.pathname.split('/play/')[1] || '').split('/')[0];
+      ghgEvent('outbound_click', { link_host: u.host, link_path: u.pathname.slice(0, 90), game: card ? card.getAttribute('data-game') : here });
+      return;
+    }
+    var s = e.target.closest && e.target.closest('.stage-start');
+    if (s) { var st = s.closest('[data-game]'); ghgEvent('play_press', { game: st ? st.getAttribute('data-game') : '' }); }
+  }, true);
 })();
 </script>
 

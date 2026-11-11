@@ -1,0 +1,8 @@
+{
+  "_about": "Site analytics. cf_token = Cloudflare Web Analytics (cookieless page views). ga = Google Analytics 4 Measurement Protocol stream for outbound-click and /go/ link events; no api_secret = those events are off.",
+  "cf_token": "d099b436115c404db0a4fc8a654fc783",
+  "ga": {
+    "measurement_id": "G-LS2SRLP74M",
+    "api_secret": ""
+  }
+}

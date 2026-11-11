@@ -31,6 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=5fb50328">
   <script>document.documentElement.className += ' js';</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Game development internships and open projects","description":"Work on real, released indie games, remotely. Students can do a course placement in game design, programming, art or sound; anyone can take an open project as an independent contributor, for credit and a share of the game’s revenue.","url":"https://goldenharbourgames.com/internships/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"publisher":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com"},"mainEntity":[{"@type":"Question","name":"Is it paid?","acceptedAnswer":{"@type":"Answer","text":"An open project pays a share of the game’s revenue, agreed in writing before you start, plus credit. There is no wage and nothing up front. Our games earn little so far, and we will tell you the real numbers in the first email. You never pay us anything."}},{"@type":"Question","name":"Is this an internship?","acceptedAnswer":{"@type":"Answer","text":"Only if your course requires a placement and your school arranges it with us. Everything else on this page is an open project: you are an independent contributor, not an intern and not an employee."}},{"@type":"Question","name":"Is it remote?","acceptedAnswer":{"@type":"Answer","text":"Yes, fully. The studio is in Sydney, Australia, and we work with people in any time zone. Everything happens over email, chat and the shared project."}},{"@type":"Question","name":"How much time does it take?","acceptedAnswer":{"@type":"Answer","text":"That is up to you. We agree on the result, not on hours. Most people fit a project around study or a job."}},{"@type":"Question","name":"Do I need experience?","acceptedAnswer":{"@type":"Answer","text":"No. We care more about what you want to make than about what you have done."}},{"@type":"Question","name":"Which tools do you use?","acceptedAnswer":{"@type":"Answer","text":"Godot 4 and Unity for the games, Blender for 3D, GitHub for everything, and AI tools such as Claude for code and first drafts. You get access to all of it."}},{"@type":"Question","name":"Who owns what I make?","acceptedAnswer":{"@type":"Answer","text":"It becomes part of the game, so the studio needs the right to ship and keep it. The agreement says so in plain words, along with your credit and your share. You can always show the work in your portfolio."}},{"@type":"Question","name":"When can I start?","acceptedAnswer":{"@type":"Answer","text":"Any time. There are no intakes and no deadline. Email us and we go from there."}}]}</script>
 </head>
 <body>
@@ -215,6 +216,39 @@
     e.preventDefault();
     if (a.hasAttribute('data-zoom')) zoom(a); else open(a.getAttribute('data-video'));
   });
+})();
+</script>
+
+<script>
+// Counting, without cookies or a stored id: a press on a link that leaves the site (which game, which
+// store) and a press on Play. See content/analytics.json and the privacy page.
+(function () {
+  var GA = null;
+  var cid = Math.floor(Math.random() * 2147483647) + '.' + Math.floor(Date.now() / 1000);
+  window.ghgEvent = function (name, params) {
+    if (!GA || !navigator.sendBeacon) return false;
+    params = params || {};
+    params.session_id = String(Math.floor(Date.now() / 1000));
+    params.engagement_time_msec = 1;
+    params.page = location.pathname;
+    params.lang = document.documentElement.lang || '';
+    try {
+      return navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=' + GA.measurement_id + '&api_secret=' + GA.api_secret,
+        JSON.stringify({ client_id: cid, events: [{ name: name, params: params }] }));
+    } catch (e) { return false; }
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a) {
+      var u; try { u = new URL(a.href); } catch (x) { return; }
+      if (u.host === location.host || !/^https?:$/.test(u.protocol)) return;
+      var card = a.closest('[data-game]'), here = (location.pathname.split('/play/')[1] || '').split('/')[0];
+      ghgEvent('outbound_click', { link_host: u.host, link_path: u.pathname.slice(0, 90), game: card ? card.getAttribute('data-game') : here });
+      return;
+    }
+    var s = e.target.closest && e.target.closest('.stage-start');
+    if (s) { var st = s.closest('[data-game]'); ghgEvent('play_press', { game: st ? st.getAttribute('data-game') : '' }); }
+  }, true);
 })();
 </script>
 

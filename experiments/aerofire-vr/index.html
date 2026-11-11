@@ -31,6 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css?v=5fb50328">
   <script>document.documentElement.className += ' js';</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A wildfire on your table","description":"AeroFire Command in a headset: the fire map becomes a table at waist height, the fleet is a shelf of miniatures in your left hand, and you give orders by putting an aircraft down where you want it.","url":"https://goldenharbourgames.com/experiments/aerofire-vr/","image":"https://goldenharbourgames.com/img/x/aerofire-vr/cover.jpg","inLanguage":"en","datePublished":"2026-09-17","author":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"publisher":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"discussionUrl":"https://github.com/vrlabdev/goldenharbourgames.com/discussions/7"}</script>
 </head>
 <body>
@@ -231,6 +232,39 @@
     e.preventDefault();
     if (a.hasAttribute('data-zoom')) zoom(a); else open(a.getAttribute('data-video'));
   });
+})();
+</script>
+
+<script>
+// Counting, without cookies or a stored id: a press on a link that leaves the site (which game, which
+// store) and a press on Play. See content/analytics.json and the privacy page.
+(function () {
+  var GA = null;
+  var cid = Math.floor(Math.random() * 2147483647) + '.' + Math.floor(Date.now() / 1000);
+  window.ghgEvent = function (name, params) {
+    if (!GA || !navigator.sendBeacon) return false;
+    params = params || {};
+    params.session_id = String(Math.floor(Date.now() / 1000));
+    params.engagement_time_msec = 1;
+    params.page = location.pathname;
+    params.lang = document.documentElement.lang || '';
+    try {
+      return navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=' + GA.measurement_id + '&api_secret=' + GA.api_secret,
+        JSON.stringify({ client_id: cid, events: [{ name: name, params: params }] }));
+    } catch (e) { return false; }
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a) {
+      var u; try { u = new URL(a.href); } catch (x) { return; }
+      if (u.host === location.host || !/^https?:$/.test(u.protocol)) return;
+      var card = a.closest('[data-game]'), here = (location.pathname.split('/play/')[1] || '').split('/')[0];
+      ghgEvent('outbound_click', { link_host: u.host, link_path: u.pathname.slice(0, 90), game: card ? card.getAttribute('data-game') : here });
+      return;
+    }
+    var s = e.target.closest && e.target.closest('.stage-start');
+    if (s) { var st = s.closest('[data-game]'); ghgEvent('play_press', { game: st ? st.getAttribute('data-game') : '' }); }
+  }, true);
 })();
 </script>
 
