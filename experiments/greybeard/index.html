@@ -242,7 +242,7 @@
 // Counting, without cookies or a stored id: a press on a link that leaves the site (which game, which
 // store) and a press on Play. See content/analytics.json and the privacy page.
 (function () {
-  var GA = null;
+  var GA = {"measurement_id":"G-LS2SRLP74M","api_secret":"nVOcpNQYSv6xom-4SWJXWA"};
   var cid = Math.floor(Math.random() * 2147483647) + '.' + Math.floor(Date.now() / 1000);
   window.ghgEvent = function (name, params) {
     if (!GA || !navigator.sendBeacon) return false;
