@@ -11,7 +11,7 @@
     "games": "Games",
     "experiments": "Experiments",
     "about": "Studio",
-    "crew": "Crew",
+    "crew": "Internships",
     "contact": "Contact"
   },
   "switch_label": "Language",
@@ -775,58 +775,98 @@
     "promise": "When a game earns enough, we rebuild its generated parts with people: artists for the covers and the worlds, composers for the scores, actors for the voices, writers for the words. Their names go on the game. The first game to pay for itself will be the first to get its crew."
   },
   "crew": {
-    "title": "Take an oar",
-    "lede": "An open crew programme. Work on a part of one of our games, get your name in its credits, and if the game earns, share in it.",
+    "title": "Game development internships",
+    "seo_title": "Game development internships (remote): design, art, code, sound · Golden Harbour Games",
+    "description": "Remote game development internships at an indie studio. Work on a real, released game in design, programming, art, sound, writing, testing or translation. Open to students and beginners, part-time, with your name in the credits.",
+    "lede": "Remote, part-time internships on real games that are already in the App Store and on Google Play. Pick a game, make one part of it better, and get your name in its credits.",
+    "get_title": "What you get",
+    "get": [
+      "Work on a released game. What you make ships to real players, usually within weeks.",
+      "Your name in the credits of the game and on this site, and a reference from us you can show anyone.",
+      "Something finished for your portfolio: a level, a character, a soundtrack, a feature, a language.",
+      "The full source code and our tools, including the AI tools we build with, and one of us in a chat when you are stuck.",
+      "A share of what the game earns, agreed in writing before you start."
+    ],
     "how_title": "How it works",
     "how": [
-      "Pick a game and a part of it you want to make better: a map, a season, a soundtrack, a language, a fighter, a village, the thing you noticed was wrong.",
-      "Write to us. Tell us what you would do and show us anything you have made before, finished or not. We answer within a few days.",
-      "We agree the piece in writing before you start: what it is, what done looks like, and what you get. Then you get the source, the tools, including the AI ones, and us on the other end of a chat.",
-      "When your piece ships, your name goes in the credits of that game and on this page.",
-      "If the game earns money, a share of it goes to the people who built it, in the proportion we agreed. If it earns nothing, we will have been honest about that from the first email. No one is paid up front. No one is asked to pay anything either."
+      "Choose a game and the part you want to work on. The open projects are listed here; your own idea is welcome too.",
+      "Email us. Say what you would like to do and show us anything you have made, finished or not. We answer within a few days.",
+      "We agree the project in writing: what it is, what finished looks like, how long it should take and what you get.",
+      "You work remotely, in your own hours. Most projects are a few weeks of part-time work.",
+      "Your work ships in the game, with your name on it."
     ],
-    "who_title": "Who we are looking for",
-    "who": "Students, modders, artists, composers, voice actors, translators, historians, pilots, boxers, testers with a phone and an opinion. You do not need a portfolio. You need to care about one of these games enough to make one part of it better.",
-    "oars_title": "Oars open right now",
+    "who_title": "Who can apply",
+    "who": "Students, graduates, career changers and self-taught beginners, anywhere in the world. Game designers, programmers (we use Godot and Unity), 2D and 3D artists, animators, composers and sound designers, writers, translators, voice actors and testers. You do not need a degree or a portfolio. You need to care about one of these games enough to make one part of it better.",
+    "oars_title": "Open internship projects",
+    "cta": "Apply by email",
+    "cta_subject": "Internship: ",
+    "closing": "No form and no deadline. One email is enough to start.",
+    "any_game": "Any game",
+    "faq_title": "Questions people ask",
+    "faq": [
+      [
+        "Is the internship paid?",
+        "There is no salary. You get credit, a reference and portfolio work, and a share of the game’s earnings that we agree in writing before you start. Our games earn little so far, and we will tell you the real numbers in the first email. You never pay us anything."
+      ],
+      [
+        "Is it remote?",
+        "Yes, fully. The studio is in Sydney, Australia, and we work with people in any time zone. Everything happens over email, chat and the shared project."
+      ],
+      [
+        "How many hours is it?",
+        "As many as you agreed to. Most interns give five to ten hours a week around study or a job. There are no fixed hours."
+      ],
+      [
+        "Do I need experience?",
+        "No. We care more about what you want to make than about what you have done. If you are new to the tools, we show you how we use them."
+      ],
+      [
+        "Which tools do you use?",
+        "Godot 4 and Unity for the games, Blender for 3D, GitHub for everything, and AI tools such as Claude for code and first drafts. You will learn how a small studio ships with them."
+      ],
+      [
+        "Can it count for my course?",
+        "It can. Tell us what your school needs, such as a supervisor, hours or a report, and we will work out with you whether we can provide it."
+      ],
+      [
+        "When can I start?",
+        "Any time. There are no intakes. Email us and we go from there."
+      ]
+    ],
     "oars": [
       {
         "game": "aerofire-command",
-        "text": "A new region on the globe, with its own trees, wind and fires."
+        "text": "Level design: a new region on the globe, with its own trees, wind and fires."
       },
       {
         "game": "punch-league",
-        "text": "Portraits for a second season of fighters, and a corner voice for each."
+        "text": "Character art and voice: portraits for a second season of fighters, and a corner voice for each."
       },
       {
         "game": "souls-and-estates",
-        "text": "Village songs and a church bell; proofreading of the Russian edition."
+        "text": "Sound and writing: village songs and a church bell; proofreading of the Russian edition."
       },
       {
         "game": "gull-chorus",
-        "text": "A new beach with its own tune."
+        "text": "Level design and music: a new beach with its own tune."
       },
       {
         "game": "peregon",
-        "text": "A road event you have lived through on a real road."
+        "text": "Writing: a road event you have lived through on a real road."
       },
       {
         "game": "orbital-jump",
-        "text": "Play-testing the rebuilt version on your phone and telling us where it bores you."
+        "text": "Testing: play the game on your phone and tell us where it bores you."
       },
       {
         "game": null,
-        "text": "An experiment of your own: a VR idea, an AR toy, something for the robot to do."
+        "text": "VR, AR and robots: an experiment of your own, with our hardware notes and help."
       },
       {
         "game": null,
-        "text": "Any language we do not have yet, for any game."
+        "text": "Translation: any language we do not have yet, for any game."
       }
-    ],
-    "cta": "Write to us about an oar",
-    "cta_subject": "Oar: ",
-    "closing": "We row in one boat. The games are ours and yours, the credit is shared, and so is whatever comes back from the sea.",
-    "any_game": "Any game",
-    "seo_title": "Take an oar: the open crew programme · Golden Harbour Games"
+    ]
   },
   "app_store": "App Store",
   "creed": {

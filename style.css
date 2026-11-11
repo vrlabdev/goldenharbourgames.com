@@ -772,3 +772,16 @@ a.oar-game:hover { color: var(--gold-hi); }
 
 /* the turning rings are a square: turned, its corners reached past a phone screen and the page slid sideways */
 .hero { overflow: clip; }
+
+/* internships: what you get, and the questions */
+.crew-get { margin-bottom: 32px; }
+.crew-get li { color: var(--text-2); }
+.crew-get li::before { background: var(--gold); }
+.crew-col h3 + .crew-get + h3 { margin-top: 0; }
+.crew-faq { max-width: 52em; margin-top: clamp(48px, 6vw, 80px); }
+.crew-faq h2 { font-size: clamp(22px, 2.6vw, 34px); margin-bottom: 20px; }
+.crew-faq details { border-top: 1px solid var(--line); }
+.crew-faq details:last-child { border-bottom: 1px solid var(--line); }
+.crew-faq summary { padding: 16px 0; font-weight: 600; font-size: 17.5px; cursor: pointer; }
+.crew-faq summary:hover { color: var(--gold-hi); }
+.crew-faq p { margin: 0 0 18px; max-width: 44em; font-size: 17px; line-height: 1.6; color: var(--text-2); }

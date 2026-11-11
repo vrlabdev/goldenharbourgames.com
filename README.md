@@ -20,7 +20,7 @@ The pages are generated. Edit the sources, then rebuild:
 | The manifest, mission, letter, crew programme | `build`, `about`, `crew` blocks in `content/en.json` and `content/ru.json` |
 | An experiment (the Experiments area) | one entry in `content/experiments.json`: id, date, tags, status, `thread` (its GitHub Discussions number), 1600x1000 pictures in `img/x/<id>/` plus an 800x500 `thumb.jpg`, and the words under `en` and `ru`. `home` names the three shown on the home page. Labels are in the `experiments` block of the language files |
 | The forum | GitHub Discussions on this repo (`forum` in `content/experiments.json`). Set `embed` to true once the giscus app is installed on the repo, and each experiment page gets a button that loads its thread in place |
-| The home page creed, the studio page | `creed` and `studio` blocks; the studio page (`studio/`) shows `about` and `build`, the crew page (`crew/`) shows `crew` |
+| The home page creed, the studio page | `creed` and `studio` blocks; the studio page (`studio/`) shows `about` and `build`, the internships page (`internships/`, with `crew/` forwarding to it) shows `crew` |
 | The harbour log (dated one-liners under the games) | `content/log.json`: date, optional game id, `en` + `ru` text; newest first on the page, four open, the rest behind a button |
 | The videos in "From the channel" | `node tools/videos.mjs` rewrites `content/videos.json` from the channel (newest public uploads, via C:/GODOT/youtube/yt.mjs), then rebuild |
 | The press kit page | `press` block in the language files; the files served from `press/kit/` (logos, brand kit zip) |

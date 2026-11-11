@@ -161,14 +161,14 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/studio/"/>
   </url>
   <url>
-    <loc>https://goldenharbourgames.com/crew/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/crew/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/crew/"/>
+    <loc>https://goldenharbourgames.com/internships/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/internships/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/internships/"/>
   </url>
   <url>
-    <loc>https://goldenharbourgames.com/ru/crew/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/crew/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/crew/"/>
+    <loc>https://goldenharbourgames.com/ru/internships/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/internships/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/internships/"/>
   </url>
   <url>
     <loc>https://goldenharbourgames.com/privacy/</loc>

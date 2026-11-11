@@ -88,7 +88,9 @@ const PRESS = 'press/';
 // The studio page (two harbours, mission, the letter, how we build), the crew programme and the
 // experiments, from the root of a language.
 const STUDIO = 'studio/';
-const CREW = 'crew/';
+const CREW = 'internships/';
+// Where the programme lived before it was called what people search for; that address now forwards.
+const CREW_OLD = 'crew/';
 const LAB = 'experiments/';
 const labPath = (x) => `${LAB}${x.id}/`;
 // An experiment's thread on the forum (GitHub Discussions), or the forum itself until it has one.
@@ -357,7 +359,7 @@ ${t.about.letter.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
   </section>`;
 }
 
-// "Take an oar": the open crew programme.
+// The internships: what you get, how it works, who can apply, the open projects, the questions.
 function crewBlock(t, kicker, base, h = 'h2') {
   return `<section id="crew" class="section crew chart">
     <div class="section-head">
@@ -369,6 +371,10 @@ function crewBlock(t, kicker, base, h = 'h2') {
     </div>
     <div class="crew-grid">
       <div class="crew-col reveal">
+        <h3>${esc(t.crew.get_title)}</h3>
+        <ul class="promises crew-get">
+${t.crew.get.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
+        </ul>
         <h3>${esc(t.crew.how_title)}</h3>
         <ol class="crew-steps">
 ${t.crew.how.map((p) => `          <li>${esc(p)}</li>`).join('\n')}
@@ -384,6 +390,13 @@ ${t.crew.oars.map((o) => { const g = o.game ? games.find((x) => x.id === o.game)
         <p class="crew-cta"><a class="button" href="mailto:${EMAIL}?subject=${encodeURIComponent(t.crew.cta_subject)}">${esc(t.crew.cta)} <span aria-hidden="true">→</span></a></p>
         <p class="crew-closing">${esc(t.crew.closing)}</p>
       </div>
+    </div>
+    <div class="crew-faq">
+      <h2>${esc(t.crew.faq_title)}</h2>
+${t.crew.faq.map(([q, a]) => `      <details class="reveal">
+        <summary>${esc(q)}</summary>
+        <p>${esc(a)}</p>
+      </details>`).join('\n')}
     </div>
   </section>`;
 }
@@ -1057,7 +1070,7 @@ ${manifestBlock(t, t.build.nav)}
 
   <section class="section next-up">
     <p class="kicker">${esc(s.next)}</p>
-    <p class="section-more"><a class="button" href="${up}${t.path}${LAB}">${esc(t.nav.experiments)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${CREW}">${esc(t.crew.title)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${PRESS}">${esc(t.press.link)} <span aria-hidden="true">→</span></a></p>
+    <p class="section-more"><a class="button" href="${up}${t.path}${LAB}">${esc(t.nav.experiments)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${CREW}">${esc(t.nav.crew)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${PRESS}">${esc(t.press.link)} <span aria-hidden="true">→</span></a></p>
   </section>
 </main>`,
     script: `<script>
@@ -1076,10 +1089,11 @@ function crewPage(t) {
   return shell(t, CREW, {
     title: t.crew.seo_title,
     ogTitle: t.crew.title,
-    description: t.crew.lede,
+    description: t.crew.description,
     ogImage: shareImage(`img/og-${t.lang}.jpg`),
     ogSize: [1200, 630],
-    jsonld: webPage(t, CREW, t.crew.title, t.crew.lede),
+    // The questions and answers, in the shape search engines read.
+    jsonld: { ...webPage(t, CREW, t.crew.title, t.crew.description), '@type': 'FAQPage', mainEntity: t.crew.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
     main: (up) => `<main>
   ${crewBlock(t, t.nav.crew, up + t.path, 'h1')}
 </main>`,
@@ -1452,6 +1466,12 @@ for (const t of langs) write(t.path + TERMS + 'index.html', legalPage(t, 'terms'
 for (const t of langs) write(t.path + PRESS + 'index.html', pressPage(t));
 for (const t of langs) write(t.path + STUDIO + 'index.html', studioPage(t));
 for (const t of langs) write(t.path + CREW + 'index.html', crewPage(t));
+for (const t of langs) write(t.path + CREW_OLD + 'index.html', `<!doctype html>
+<html lang="${t.lang}"><head><meta charset="utf-8"><title>${esc(t.crew.title)}</title>
+<link rel="canonical" href="${SITE}${t.path}${CREW}"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=${SITE}${t.path}${CREW}"></head>
+<body><a href="${SITE}${t.path}${CREW}">${esc(t.crew.title)}</a></body></html>
+`);
 for (const t of langs) write(t.path + LAB + 'index.html', labIndex(t));
 for (const t of langs) for (const x of lab.items) write(t.path + labPath(x) + 'index.html', labPage(t, x));
 write('404.html', notFound());
