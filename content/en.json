@@ -456,7 +456,7 @@
         "list": [
           "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
-          "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. The exceptions send anonymous play data, described in the next sections: AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play), and Souls & Estates from version 0.107 (the browser and Windows versions). The iPhone versions of Fire Season and Punch League send us nothing and have no Google sign-in.",
+          "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. The exceptions send anonymous play data, described in the next sections: AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play), and Souls & Estates from version 0.109 (the browser and Windows versions). The iPhone versions of Fire Season and Punch League send us nothing and have no Google sign-in.",
           "On iPhone, Fire Season and Orbital Jump Reloaded can post your scores and achievements to Apple’s Game Center, if you are signed in to Game Center on your device. That goes to Apple, under your own Game Center settings; nothing comes to us.",
           "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
         ]
@@ -483,7 +483,7 @@
       {
         "title": "Anonymous play data in Souls & Estates",
         "paragraphs": [
-          "From version 0.107, Souls & Estates (in the browser and on Windows) sends anonymous play events to Google Analytics, so we can see where new players get stuck and how far games run. For example: the game started and with which start year, a tutorial step reached, a decade reached with the size of the estate, how long a session lasted, the language, the frame rate.",
+          "From version 0.109, Souls & Estates (in the browser and on Windows) sends anonymous play events to Google Analytics, so we can see where new players get stuck and how far games run. For example: the game started and with which start year, a tutorial step reached, a decade reached with the size of the estate, how long a session lasted, the language, the frame rate.",
           "Each install gets a random ID that the game makes up on first launch and keeps on your device. It is not linked to your name, email address or any account. Nothing you type is sent, and neither are the names of your family or estate. The game sets no cookies and sends no advertising ID.",
           "Google processes this data for us under the Google Analytics terms and keeps it for up to 14 months. It is not used for advertising, and we do not sell or share it.",
           "You can turn it off at any time in the game: Settings, \"Share anonymous play data\". From then on the game sends nothing."
