@@ -2,7 +2,7 @@
 //   content/<lang>.json  every word on the page, one file per language
 //   content/games.json   the games, in order: itch link, google_play (optional store page), app_store (optional App Store page), cover, platforms, languages, and the itch
 //                        upload that plays on the site (embed) with the shape it is drawn for (frame); optional
-//                        trailer (a video link) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
+//                        trailer (a video link; trailer_<lang> overrides it for that language) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
 //                        shown only in languages whose JSON has a "rustore" label, i.e. Russian)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 //   content/log.json     the harbour log: dated one-liners (en + ru) with an optional game id, newest first
@@ -72,6 +72,8 @@ const skyline = read('content/skyline.svg').trim();
 const log = JSON.parse(read('content/log.json')).sort((a, b) => b.date.localeCompare(a.date));
 const videos = fs.existsSync(path.join(ROOT, 'content/videos.json')) ? JSON.parse(read('content/videos.json')).videos : [];
 // A YouTube link's video id, so a trailer can open in the page instead of leaving it.
+// A game's trailer in this language (trailer_ru etc.), else the default trailer.
+const trailerOf = (g, t) => g['trailer_' + t.lang] || g.trailer;
 const ytId = (url) => (String(url || '').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/) || [])[1] || '';
 // English first: it is the default page and the x-default for search engines.
 const langs = fs.readdirSync(path.join(ROOT, 'content'))
@@ -559,8 +561,8 @@ function page(t) {
               ${g.google_play ? `<a class="itch-link" href="${playLink(g, 'home')}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
               ` : ''}${g.app_store ? `<a class="itch-link" href="${g.app_store}">${esc(t.app_store)} <span aria-hidden="true">↗</span></a>
               ` : ''}${g.rustore && t.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(t.rustore)} <span aria-hidden="true">↗</span></a>
-              ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-              <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
+              ` : ''}<a class="itch-link" href="${g.itch}">${esc(t.on_itch)} <span aria-hidden="true">↗</span></a>${trailerOf(g, t) ? `
+              <a class="itch-link" href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}
             </p>
           </div>
           <span class="ring-shade" aria-hidden="true"></span>
@@ -1050,8 +1052,8 @@ function playPage(t, g) {
         ${g.google_play ? `<a class="itch-link" href="${playLink(g, 'play-page')}">${esc(p.google_play)} <span aria-hidden="true">↗</span></a>
         ` : ''}${g.app_store ? `<a class="itch-link" href="${g.app_store}">${esc(p.app_store)} <span aria-hidden="true">↗</span></a>
         ` : ''}${g.rustore && p.rustore ? `<a class="itch-link" href="${g.rustore}">${esc(p.rustore)} <span aria-hidden="true">↗</span></a>
-        ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>${g.trailer ? `
-        <a class="itch-link" href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}${g.shorts ? `
+        ` : ''}<a class="itch-link" href="${g.itch}">${esc(p.itch)} <span aria-hidden="true">↗</span></a>${trailerOf(g, t) ? `
+        <a class="itch-link" href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}">${esc(t.trailer)} <span aria-hidden="true">▶</span></a>` : ''}${g.shorts ? `
         <a class="itch-link" href="${g.shorts}">${esc(t.shorts)} <span aria-hidden="true">↗</span></a>` : ''}
         <button type="button" class="share-btn" data-text="${esc(t.share.text.replace('{game}', c.title))}" data-copied="${esc(t.share.copied)}">
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6h14v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1495,7 +1497,7 @@ ${logos.map(([base, png, bg]) => `          <figure class="press-logo ${bg}">
         <div class="press-covers">
 ${games.map((g) => `          <figure class="press-cover">
             <img src="${up}${g.cover}" alt="${esc(t.games[g.id].title)}" width="630" height="500" loading="lazy" decoding="async">
-            <figcaption><a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · <a href="${up}${g.cover}" download>JPG</a>${g.trailer ? ` · <a href="${g.trailer}" data-video="${ytId(g.trailer)}">${esc(t.trailer)}</a>` : ''}</figcaption>
+            <figcaption><a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · <a href="${up}${g.cover}" download>JPG</a>${trailerOf(g, t) ? ` · <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}">${esc(t.trailer)}</a>` : ''}</figcaption>
           </figure>`).join('\n')}
         </div>
       </section>
