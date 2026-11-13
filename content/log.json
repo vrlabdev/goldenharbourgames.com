@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-13",
+    "game": "aerofire-command",
+    "post": "aerofire-draw-the-line",
+    "en": "Fire Season, build 974: fires start further out and run at the town, and you stop them with a line drawn from barrier to barrier. Water cools the sides; only a line holds the head.",
+    "ru": "Fire Season, сборка 974: пожары начинаются дальше от города и идут на него, а остановить их можно линией от преграды до преграды. Вода охлаждает фланги, голову держит только линия."
+  },
+  {
     "date": "2026-11-11",
     "game": "roach-invasion",
     "en": "Roach Invasion joins the port: one small cockroach, a huge kitchen and a slipper. An early build, made with VR Lab in Vladivostok.",

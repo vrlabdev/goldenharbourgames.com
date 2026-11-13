@@ -966,7 +966,7 @@
       },
       {
         "title": "We stay with our games",
-        "text": "A release is a start, not a finish. New builds go out most weeks, the log below shows what changed, and what players tell us goes into the next one."
+        "text": "A release is a start, not a finish. We try things, keep what works and change the games step by step. Write to us or post on the forum: we read everything, and what players tell us goes into the next build."
       },
       {
         "title": "We experiment",
@@ -1019,5 +1019,32 @@
     "read_more": "Read the full write-up",
     "close": "Close",
     "peek_hint": "Tap a tile for a summary"
+  },
+  "voice": {
+    "title": "In active development",
+    "home": "Every game here is still being built. We try things, keep what works and change them step by step. Tell us what you think: we read everything and act on it.",
+    "game": "This game is in active development. We try things, keep what works and change it step by step. If something feels wrong or you have an idea, tell us. We read everything and act on it.",
+    "studio_title": "We build in the open",
+    "studio": [
+      "None of our games is finished, and that is on purpose. Each one is in active development: we try an idea, put it in front of players, keep what works and change the rest, one step at a time.",
+      "You can reach us by email, in the comments on itch.io or on our forum. We read every message and act on it. The harbour log shows what changed and when."
+    ],
+    "email": "Email us",
+    "forum": "The forum",
+    "itch": "Comments on itch.io",
+    "log": "The harbour log"
+  },
+  "log_page": {
+    "seo_title": "Harbour log: devlogs and changes · Golden Harbour Games",
+    "description": "Devlogs and every change to the Golden Harbour games, newest first: what we tried, what we changed and why.",
+    "lede": "Devlogs and every change to our games, newest first. What we tried, what we kept and why.",
+    "posts": "Devlogs",
+    "changes": "Every change",
+    "read": "Read the devlog",
+    "open": "Devlogs and the full log",
+    "back": "Harbour log",
+    "original": "First posted on itch.io",
+    "play": "Play {game}",
+    "game_posts": "From the log"
   }
 }

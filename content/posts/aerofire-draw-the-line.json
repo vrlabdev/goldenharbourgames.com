@@ -1,0 +1,139 @@
+{
+  "slug": "aerofire-draw-the-line",
+  "date": "2026-11-13",
+  "game": "aerofire-command",
+  "cover": "img/log/aerofire-draw-the-line/2_line.jpg",
+  "size": [
+    1280,
+    640
+  ],
+  "original": "https://goldenharbourgames.itch.io/aerofire-command/devlog/1774636/draw-the-line-hold-the-fire",
+  "en": {
+    "title": "Draw the line. Hold the fire.",
+    "description": "Fire Season plays differently from build 974: every fire starts further out, and you stop it with a line drawn from barrier to barrier. What changed, why, and what comes next.",
+    "body": [
+      {
+        "p": "**What was wrong.** Fires used to start almost on top of the town. By the time you had a look around, it was already in the back yards, and the only thing that made sense was to paint blue on the flames and hope. And painting blue barely mattered. The helicopters dropped water where you painted, the fire went out in one spot and kept running in the next, and a fire you fought well and a fire you mostly watched ended in much the same place. People told us they couldn't see what they were supposed to be doing, and they were right."
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/1_before.jpg",
+        "alt": "The old way: blue paint on the flames, close to the houses"
+      },
+      {
+        "p": "**What it is now.** Every fire starts further out, in the country, and runs at the town. You have a few minutes, and one real decision: where to stop it."
+      },
+      {
+        "list": [
+          "Water still cools the fire's sides, but it never stops the head. Only a line does.",
+          "You draw the line across the fire's path, from barrier to barrier: a road, a river, rock, ground that has already burned. Tankers coat it with retardant, dozers scrape it to bare earth.",
+          "Each end of the line is either tied to a barrier (a green dot) or loose (a broken red ring). The fire walks round a loose end.",
+          "The line shows whether your fleet can build it before the fire gets there: green, in time; amber, close; red, too late. You see that while you are still drawing, so you can move the line back toward the town and give your crews more time."
+        ]
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/2_line.jpg",
+        "alt": "A line from the road to the trees, both ends tied, the ring green"
+      },
+      {
+        "list": [
+          "The bar at the top is how much of the fire's edge is held. Hold the head with a tied line and your fleet goes on to work the open sides by itself. Fill the bar and the fire is **CONTAINED**."
+        ]
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/3_held.jpg",
+        "alt": "The head runs into the line and stops"
+      },
+      {
+        "p": "**Stars.** Town saved, small burn, contained. The third star used to be \"out in time\", which mostly meant luck. Now it means you read the fire right. You still never lose a fire or a season: a rough one just pays fewer cards."
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/4_contained.jpg",
+        "alt": "Three stars: town saved, small burn, contained"
+      },
+      {
+        "p": "**The first fire teaches it.** Three steps: the fire and where it is heading, the dashed line to draw, and what a tied, green line looks like. Then it is yours."
+      },
+      {
+        "p": "We tested it with a bot that plays well, one that only throws water at the head, one that draws a line with loose ends, and one that does nothing, over 192 fires. The good player now gets clearly more stars than the other three (2.65 against about 1.9) and contains most of its fires; the others almost never do. Before this change the gap was small enough that it didn't matter what you did."
+      },
+      {
+        "h": "What's next"
+      },
+      {
+        "list": [
+          "**Spot fires.** Embers carried ahead of the front, starting new fires past your line. From the fifth level of a season.",
+          "**Wind turns.** The wind changes during a fire, so a line that was right at the start may need a second one. Also from level five.",
+          "**The Spotter card gets better**, so you have a real answer to spot fires.",
+          "**Graphics modes**, so slower phones run smoothly and faster ones look better."
+        ]
+      },
+      {
+        "p": "Tell us where you drew your first line and whether the colours made sense. That is the part we most want to get right."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Проведи линию. Удержи огонь.",
+    "description": "С 974-й сборки Fire Season играется иначе: пожар начинается дальше от города, и остановить его можно только линией от преграды до преграды. Что поменялось, почему и что дальше.",
+    "body": [
+      {
+        "p": "**Что было не так.** Пожары начинались почти у самого города. Пока осмотришься, огонь уже во дворах, и оставалось только закрашивать пламя синим и надеяться. А синее почти ничего не решало. Вертолёты сбрасывали воду, куда вы закрасили, огонь гас в одном месте и бежал дальше в соседнем, и пожар, который вы тушили с умом, заканчивался примерно так же, как пожар, на который вы в основном смотрели. Нам говорили, что непонятно, что вообще нужно делать. И это было правдой."
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/1_before.jpg",
+        "alt": "Как было: синяя краска на пламени у самых домов"
+      },
+      {
+        "p": "**Как стало.** Каждый пожар начинается дальше, за городом, и идёт на город. У вас есть несколько минут и одно настоящее решение: где его остановить."
+      },
+      {
+        "list": [
+          "Вода по-прежнему охлаждает фланги, но голову пожара она не останавливает. Это делает только линия.",
+          "Вы проводите линию поперёк пути огня, от преграды до преграды: дорога, река, скалы, уже выгоревшая земля. Танкеры покрывают её ретардантом, бульдозеры срезают до голой земли.",
+          "Каждый конец линии либо привязан к преграде (зелёная точка), либо свободен (красное разорванное кольцо). Свободный конец огонь обходит.",
+          "Линия показывает, успеет ли флот её построить, пока огонь не дошёл: зелёная — успеет, жёлтая — впритык, красная — поздно. Это видно ещё пока вы рисуете, и линию можно отодвинуть ближе к городу, чтобы дать бригадам больше времени."
+        ]
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/2_line.jpg",
+        "alt": "Линия от дороги до леса, оба конца привязаны, кольцо зелёное"
+      },
+      {
+        "list": [
+          "Полоса вверху показывает, какая часть кромки пожара удержана. Когда голова упёрлась в привязанную линию, флот сам добивает открытые фланги. Заполните полосу, и пожар **ЛОКАЛИЗОВАН**."
+        ]
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/3_held.jpg",
+        "alt": "Голова пожара упирается в линию и встаёт"
+      },
+      {
+        "p": "**Звёзды.** Город спасён, площадь небольшая, пожар локализован. Раньше третья звезда давалась за «потушили вовремя», и это было в основном везение. Теперь она за то, что вы правильно прочитали огонь. Проиграть пожар или сезон по-прежнему нельзя: тяжёлый пожар просто даёт меньше карт."
+      },
+      {
+        "img": "img/log/aerofire-draw-the-line/4_contained.jpg",
+        "alt": "Три звезды: город спасён, площадь небольшая, пожар локализован"
+      },
+      {
+        "p": "**Первый пожар учит.** Три шага: огонь и куда он идёт, пунктирная линия, которую нужно провести, и как выглядит привязанная зелёная линия. Дальше сами."
+      },
+      {
+        "p": "Мы проверили это ботами на 192 пожарах: один играет хорошо, второй только льёт воду на голову, третий проводит линию с непривязанными концами, четвёртый ничего не делает. Хороший игрок теперь заметно опережает остальных по звёздам (2,65 против примерно 1,9) и локализует большинство пожаров, остальные почти никогда. До этого разница была такой маленькой, что было почти всё равно, что делать."
+      },
+      {
+        "h": "Что дальше"
+      },
+      {
+        "list": [
+          "**Очаги от искр.** Угли летят впереди фронта и поджигают землю за вашей линией. С пятого уровня сезона.",
+          "**Смена ветра.** Ветер меняется посреди пожара, и линии, верной в начале, может понадобиться вторая. Тоже с пятого уровня.",
+          "**Карта «Наблюдатель» станет сильнее**, чтобы против очагов был настоящий ответ.",
+          "**Режимы графики**: чтобы на слабых телефонах шло плавно, а на мощных выглядело лучше."
+        ]
+      },
+      {
+        "p": "Напишите, где вы провели первую линию и понятны ли цвета. Это то, что нам важнее всего сделать правильно."
+      }
+    ]
+  }
+}

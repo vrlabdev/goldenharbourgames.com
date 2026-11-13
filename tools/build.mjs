@@ -8,6 +8,7 @@
 //   content/log.json     the harbour log: dated one-liners (en + ru) with an optional game id, newest first
 //   content/videos.json  the newest public videos on the channel, written by tools/videos.mjs
 //   content/experiments.json  the experiments (pictures, tags, status, the words in each language) and the forum
+//   content/posts/<slug>.json  the devlogs, a page each at log/<slug>/ (pictures in img/log/<slug>/), listed on log/
 // Out: index.html (English), <lang>/index.html for the rest, a play page per game and language
 // (play/<id>/, ru/play/<id>/), the studio page (studio/), the crew programme (crew/), the experiments
 // (experiments/ and experiments/<id>/), the privacy policy (privacy/, ru/privacy/), the terms of service (terms/, ru/terms/),
@@ -70,6 +71,14 @@ const EVENT_JS = `var GA = ${JSON.stringify(GA)};
 const skyline = read('content/skyline.svg').trim();
 // The harbour log, newest first, and the channel's newest videos (an empty list hides the section).
 const log = JSON.parse(read('content/log.json')).sort((a, b) => b.date.localeCompare(a.date));
+// The devlogs: one file per post in content/posts/ (slug, date, game id or null, cover, the original
+// address if it was posted elsewhere first, and per language a title, a description and the body as
+// blocks: {p}, {h}, {list}, {img, alt}; **bold** works inside text). Each is a page at log/<slug>/,
+// listed on log/ with every log entry, and linked from a log entry that names it ("post") and the game's page.
+const posts = fs.existsSync(path.join(ROOT, 'content/posts'))
+  ? fs.readdirSync(path.join(ROOT, 'content/posts')).filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(read('content/posts/' + f))).sort((a, b) => b.date.localeCompare(a.date))
+  : [];
 const videos = fs.existsSync(path.join(ROOT, 'content/videos.json')) ? JSON.parse(read('content/videos.json')).videos : [];
 // A YouTube link's video id, so a trailer can open in the page instead of leaving it.
 // A game's trailer in this language (trailer_ru etc.), else the default trailer.
@@ -120,6 +129,23 @@ const CREW = 'internships/';
 const CREW_OLD = 'crew/';
 const LAB = 'experiments/';
 const labPath = (x) => `${LAB}${x.id}/`;
+// The harbour log's own page (devlogs + every change), and one devlog, from the root of a language.
+const LOGP = 'log/';
+const postPath = (p) => `${LOGP}${p.slug}/`;
+// A post's text: escaped, with **bold** kept.
+const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+// "In active development": the studio's line on how the games are made and how to reach us, with the
+// ways in (email, forum, and on a game's page its itch comments). Home, studio and every game page.
+function voiceBlock(t, text, { up, g = null, title = t.voice.title, cls = '' } = {}) {
+  const v = t.voice;
+  const paras = Array.isArray(text) ? text : [text];
+  return `<aside class="voice${cls ? ' ' + cls : ''}">
+      <h2>${esc(title)}</h2>
+${paras.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
+      <p class="voice-links"><a class="button" href="mailto:${EMAIL}">${esc(v.email)} <span aria-hidden="true">✉</span></a> <a class="button ghost" href="${lab.forum.url}">${esc(v.forum)} <span aria-hidden="true">↗</span></a>${g ? ` <a class="button ghost" href="${g.itch}#comments">${esc(v.itch)} <span aria-hidden="true">↗</span></a>` : ''}${up !== undefined && !g ? ` <a class="button ghost" href="${up}${t.path}${LOGP}">${esc(v.log)} <span aria-hidden="true">→</span></a>` : ''}</p>
+      <p class="voice-mail"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+    </aside>`;
+}
 // An experiment's thread on the forum (GitHub Discussions), or the forum itself until it has one.
 const threadUrl = (x) => (x.thread ? `${lab.forum.url}/${x.thread}` : lab.forum.url);
 // itch's own page for one upload: the newest build pushed to that channel, made to sit in a frame.
@@ -128,7 +154,7 @@ const embedUrl = (g) => `https://itch.io/embed-upload/${g.embed}?color=0b1626`;
 // Everything but the <main>: head, header, footer, the language offer. `sub` is the page's path
 // below its language's root ("" for home, "play/peregon/" for a game), so the language switch and
 // the offer lead to the same page in the other language.
-function shell(t, sub, { title, description, ogTitle, ogDescription, ogImage, ogSize, jsonld, main, script = '' }) {
+function shell(t, sub, { title, description, ogTitle, ogDescription, ogImage, ogSize, jsonld, main, script = '', ogType = 'website' }) {
   const here = t.path + sub;
   const up = '../'.repeat(here.split('/').filter(Boolean).length);
   const home = up + (t.path || './');
@@ -152,7 +178,7 @@ function shell(t, sub, { title, description, ogTitle, ogDescription, ogImage, og
   <link rel="canonical" href="${url}">
 ${alternates}
   <link rel="alternate" hreflang="x-default" href="${SITE}${sub}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${ogType}">
   <meta property="og:site_name" content="Golden Harbour Games">
   <meta property="og:title" content="${esc(ogTitle || title)}">
   <meta property="og:description" content="${esc(ogDescription || description)}">
@@ -536,6 +562,19 @@ const peekScript = `<script>
 })();
 </script>`;
 
+// One line of the harbour log: the date, the game (a link to its page), what changed, and the devlog
+// about it when there is one. `base` is the way from the page to its language's root.
+function logItem(t, e, base, hidden = false) {
+  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  const g = e.game ? games.find((x) => x.id === e.game) : null;
+  const post = e.post ? posts.find((p) => p.slug === e.post) : null;
+  const who = g ? `<a class="log-game" href="${base}${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="log-game">goldenharbourgames.com</span>`;
+  return `      <li class="log-item reveal${hidden ? ' log-hidden' : ''}"${hidden ? ' hidden' : ''}>
+        <time datetime="${e.date}">${esc(dateFmt.format(new Date(e.date + 'T00:00:00')))}</time>
+        <div>${who}<p>${esc(e[t.lang])}</p>${post ? `<p class="log-post"><a href="${base}${postPath(post)}">${esc(t.log_page.read)} <span aria-hidden="true">→</span></a></p>` : ''}</div>
+      </li>`;
+}
+
 function page(t) {
   const up = t.path ? '../'.repeat(t.path.split('/').filter(Boolean).length) : '';
 
@@ -598,15 +637,7 @@ ${games.map((g, i) => `        <button type="button" aria-label="${esc(t.games[g
 
   // The harbour log: the newest entries open, the rest behind a button.
   const LOG_SHOWN = 4;
-  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
-  const logItems = log.map((e, i) => {
-    const g = e.game ? games.find((x) => x.id === e.game) : null;
-    const who = g ? `<a class="log-game" href="${playPath(g)}">${esc(t.games[g.id].title)}</a>` : `<span class="log-game">goldenharbourgames.com</span>`;
-    return `      <li class="log-item reveal${i >= LOG_SHOWN ? ' log-hidden' : ''}"${i >= LOG_SHOWN ? ' hidden' : ''}>
-        <time datetime="${e.date}">${esc(dateFmt.format(new Date(e.date + 'T00:00:00')))}</time>
-        <div>${who}<p>${esc(e[t.lang])}</p></div>
-      </li>`;
-  }).join('\n');
+  const logItems = log.map((e, i) => logItem(t, e, '', i >= LOG_SHOWN)).join('\n');
 
   // The newest videos: a poster each, playing in place when pressed. Shorts posters are upright.
   const viewsFmt = new Intl.NumberFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU');
@@ -913,7 +944,9 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
       <p>${esc(t.games_lede)}</p>
     </div>
 
-${showcase()}  </section>
+${showcase()}
+    ${voiceBlock(t, t.voice.home, { up, cls: 'voice-home reveal' })}
+  </section>
 
   <section id="creed" class="section creed chart">
     <div class="section-head">
@@ -958,6 +991,7 @@ ${labHome.slice(0, 3).map((x) => labCard(t, x, up, '')).join('\n')}
 ${logItems}
     </ol>${log.length > LOG_SHOWN ? `
     <p><button type="button" class="chip log-more-btn" aria-expanded="false" data-less="${esc(t.log.less)}">${esc(t.log.all)} <small>${log.length - LOG_SHOWN}</small></button></p>` : ''}
+    <p class="section-more"><a class="button ghost" href="${LOGP}">${esc(t.log_page.open)} <span aria-hidden="true">→</span></a></p>
   </section>
 ${videos.length ? `
   <section id="channel" class="section channel">
@@ -998,6 +1032,7 @@ function playPage(t, g) {
   const aka = c.aka ? `\n        <p class="aka">${esc(c.aka)}</p>` : '';
   const note = esc(p.note) + (g.platforms.includes('phone') ? '' : ' ' + esc(p.note_tablet));
   const others = games.filter((x) => x.id !== g.id);
+  const gamePosts = posts.filter((x) => x.game === g.id);
   const game = {
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
@@ -1078,7 +1113,12 @@ ${s.list.map((i) => `          <li>${esc(i)}</li>`).join('\n')}
         </ul>` : s.paragraphs.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
       </section>`).join('\n')}
     </div>
-` : ''}  </section>
+` : ''}${gamePosts.length ? `    <div class="game-posts">
+      <h2>${esc(t.log_page.game_posts)}</h2>
+${gamePosts.map((x) => postCard(t, x, up, up + t.path)).join('\n')}
+    </div>
+` : ''}    ${voiceBlock(t, t.voice.game, { up, g })}
+  </section>
 
   <section class="section more-games">
     <p class="kicker">${esc(p.more)}</p>
@@ -1187,6 +1227,10 @@ function studioPage(t) {
     jsonld: webPage(t, STUDIO, s.title, s.description),
     main: (up) => `<main>
   ${aboutBlock(t, t.nav.about, 'h1')}
+
+  <section class="section voice-section">
+    ${voiceBlock(t, t.voice.studio, { up, title: t.voice.studio_title })}
+  </section>
 
 ${manifestBlock(t, t.build.nav)}
 
@@ -1370,6 +1414,119 @@ ${x.shots.map((s) => `      <figure class="reveal">
     <div class="lab-grid">
 ${others.map((o) => labCard(t, o, up, up + t.path)).join('\n')}
     </div>
+  </section>
+</main>`,
+  });
+}
+
+// One devlog as a card: its picture, the game and date, the title, a line about it.
+function postCard(t, x, up, base) {
+  const c = x[t.lang];
+  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+  const g = x.game ? games.find((o) => o.id === x.game) : null;
+  return `      <a class="post-card reveal" href="${base}${postPath(x)}">
+        <img src="${up}${x.cover}" alt="" width="${x.size[0]}" height="${x.size[1]}" loading="lazy" decoding="async">
+        <span class="post-meta">${g ? esc(t.games[g.id].title) + ' · ' : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></span>
+        <span class="post-title">${esc(c.title)}</span>
+        <span class="post-text">${esc(c.description)}</span>
+        <span class="more-go">${esc(t.log_page.read)} <span aria-hidden="true">→</span></span>
+      </a>`;
+}
+
+// One devlog: the text and its pictures, where it first appeared, the game, and how to talk to us.
+function postPage(t, x) {
+  const c = x[t.lang];
+  const L = t.log_page;
+  const sub = postPath(x);
+  const g = x.game ? games.find((o) => o.id === x.game) : null;
+  const dateFmt = new Intl.DateTimeFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+  const others = posts.filter((o) => o.slug !== x.slug).slice(0, 3);
+  const article = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: c.title,
+    description: c.description,
+    url: SITE + t.path + sub,
+    mainEntityOfPage: SITE + t.path + sub,
+    image: SITE + x.cover,
+    inLanguage: t.lang,
+    datePublished: x.date,
+    dateModified: x.modified || x.date,
+    author: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE },
+    publisher: { '@type': 'Organization', name: 'Golden Harbour Games', url: SITE, logo: { '@type': 'ImageObject', url: SITE + 'img/apple-touch-icon.png' } },
+    ...(x.original ? { isBasedOn: x.original } : {}),
+    ...(g ? { about: { '@type': 'VideoGame', name: t.games[g.id].title, url: SITE + t.path + playPath(g) } } : {}),
+  };
+  const block = (b, up) => {
+    if (b.h) return `      <h2>${esc(b.h)}</h2>`;
+    if (b.list) return `      <ul>\n${b.list.map((i) => `        <li>${rich(i)}</li>`).join('\n')}\n      </ul>`;
+    if (b.img) return `      <figure class="post-figure">
+        <a href="${up}${b.img}" data-zoom><img src="${up}${b.img}" alt="${esc(b.alt || '')}" width="${x.size[0]}" height="${x.size[1]}" loading="lazy" decoding="async"></a>
+        <figcaption>${esc(b.alt || '')}</figcaption>
+      </figure>`;
+    return `      <p>${rich(b.p)}</p>`;
+  };
+  return shell(t, sub, {
+    title: `${c.title} · ${g ? t.games[g.id].title + ' · ' : ''}Golden Harbour Games`,
+    ogTitle: c.title,
+    description: c.description,
+    ogImage: shareImage(x.cover),
+    ogSize: x.size,
+    ogType: 'article',
+    jsonld: article,
+    main: (up) => `<main>
+  <article class="section game-page post-page chart">
+    <p class="crumbs"><a href="${up}${t.path}${LOGP}"><span aria-hidden="true">←</span> ${esc(L.back)}</a></p>
+    <div class="game-head">
+      <p class="kind">${g ? `<a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · ` : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
+      <h1>${esc(c.title)}</h1>
+      <p class="lede">${esc(c.description)}</p>
+    </div>
+    <div class="post-body">
+${c.body.map((b) => block(b, up)).join('\n')}
+    </div>
+    <p class="post-actions">${g ? `<a class="button" href="${up}${t.path}${playPath(g)}">${esc(L.play.replace('{game}', t.games[g.id].title))} <span aria-hidden="true">→</span></a> ` : ''}${x.original ? `<a class="button ghost" href="${x.original}">${esc(L.original)} <span aria-hidden="true">↗</span></a>` : ''}</p>
+    ${voiceBlock(t, g ? t.voice.game : t.voice.home, { up, g })}
+  </article>${others.length ? `
+
+  <section class="section more-games">
+    <p class="kicker">${esc(L.posts)}</p>
+    <div class="post-grid">
+${others.map((o) => postCard(t, o, up, up + t.path)).join('\n')}
+    </div>
+  </section>` : ''}
+</main>`,
+  });
+}
+
+// The harbour log on a page of its own: the devlogs, then every change, newest first.
+function logIndex(t) {
+  const L = t.log_page;
+  return shell(t, LOGP, {
+    title: L.seo_title,
+    ogTitle: t.log.title,
+    description: L.description,
+    ogImage: posts.length ? shareImage(posts[0].cover) : shareImage(`img/og-${t.lang}.jpg`),
+    ogSize: posts.length ? posts[0].size : [1200, 630],
+    jsonld: webPage(t, LOGP, t.log.title, L.description),
+    main: (up) => `<main>
+  <section class="section log log-page chart">
+    <div class="section-head">
+      <div>
+        <p class="kicker">${esc(t.log.nav)}</p>
+        <h1>${esc(t.log.title)}</h1>
+      </div>
+      <p>${esc(L.lede)}</p>
+    </div>${posts.length ? `
+    <h2 class="lab-h">${esc(L.posts)}</h2>
+    <div class="post-grid">
+${posts.map((x) => postCard(t, x, up, up + t.path)).join('\n')}
+    </div>` : ''}
+    <h2 class="lab-h">${esc(L.changes)}</h2>
+    <ol class="log-list">
+${log.map((e) => logItem(t, e, up + t.path)).join('\n')}
+    </ol>
+    ${voiceBlock(t, t.voice.home)}
   </section>
 </main>`,
   });
@@ -1645,10 +1802,12 @@ for (const t of langs) write(t.path + CREW_OLD + 'index.html', `<!doctype html>
 `);
 for (const t of langs) write(t.path + LAB + 'index.html', labIndex(t));
 for (const t of langs) for (const x of lab.items) write(t.path + labPath(x) + 'index.html', labPage(t, x));
+for (const t of langs) write(t.path + LOGP + 'index.html', logIndex(t));
+for (const t of langs) for (const x of posts) write(t.path + postPath(x) + 'index.html', postPage(t, x));
 write('404.html', notFound());
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${['', ...games.map(playPath), LAB, ...labItems.map(labPath), STUDIO, CREW, PRIVACY, TERMS, PRESS].flatMap((sub) => langs.map((t) => `  <url>
+${['', ...games.map(playPath), LOGP, ...posts.map(postPath), LAB, ...labItems.map(labPath), STUDIO, CREW, PRIVACY, TERMS, PRESS].flatMap((sub) => langs.map((t) => `  <url>
     <loc>${SITE}${t.path}${sub}</loc>
 ${langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="${SITE}${l.path}${sub}"/>`).join('\n')}
   </url>`)).join('\n')}

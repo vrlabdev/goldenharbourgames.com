@@ -91,6 +91,26 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/play/vladivostok-fortress/"/>
   </url>
   <url>
+    <loc>https://goldenharbourgames.com/log/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/log/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/log/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/log/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/log/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/log/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/log/aerofire-draw-the-line/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/log/aerofire-draw-the-line/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/log/aerofire-draw-the-line/"/>
+  </url>
+  <url>
+    <loc>https://goldenharbourgames.com/ru/log/aerofire-draw-the-line/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/log/aerofire-draw-the-line/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/log/aerofire-draw-the-line/"/>
+  </url>
+  <url>
     <loc>https://goldenharbourgames.com/experiments/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenharbourgames.com/experiments/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://goldenharbourgames.com/ru/experiments/"/>
