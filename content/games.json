@@ -57,6 +57,25 @@
     "app_store": "https://apps.apple.com/app/punch-league/id6827402540"
   },
   {
+    "id": "stick-vs-weeds",
+    "itch": "https://goldenharbourgames.itch.io/stick-vs-weeds",
+    "cover": "img/stick-vs-weeds.jpg",
+    "platforms": [
+      "browser",
+      "phone",
+      "android"
+    ],
+    "languages": [
+      "RU"
+    ],
+    "embed": 20531565,
+    "frame": [
+      1280,
+      720
+    ],
+    "new": true
+  },
+  {
     "id": "orbital-jump",
     "itch": "https://goldenharbourgames.itch.io/orbital-jump-reloaded",
     "cover": "img/orbital-jump.jpg",

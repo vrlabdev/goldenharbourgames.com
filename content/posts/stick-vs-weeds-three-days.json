@@ -1,0 +1,229 @@
+{
+  "slug": "stick-vs-weeds-three-days",
+  "date": "2026-11-16",
+  "game": "stick-vs-weeds",
+  "cover": "img/log/stick-vs-weeds-three-days/1_street.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "A stick, a nettle patch and three days",
+    "description": "On a Friday, Stick vs. Weeds was a joke about hitting nettles. On Sunday it was a public, voiced game on build 56. How we made it by feel, what the method is good and bad at, and what the game still needs.",
+    "body": [
+      {
+        "p": "Everyone who grew up near a patch of waste ground knows the game. You find a good stick. The nettles are taller than you. Something has to be done."
+      },
+      {
+        "p": "On Friday 14 November that was all we had: the memory, a rude Russian title that does not translate politely, and one of us saying \"the kid should talk the whole time, and he should talk like his dad\". On Sunday night the game was public on itch.io: five days of the summer of 1985, a boss, seven neighbours, more than five hundred voiced lines and build number 56."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/1_street.jpg",
+        "alt": "The street at golden hour. The kid: \"Dad says they screw him at work. Strange. I thought he was a lathe operator.\""
+      },
+      {
+        "p": "This is how that happened, and why we think it is a good way to make a game like this one."
+      },
+      {
+        "h": "The method: play it, say how it felt, get a new build"
+      },
+      {
+        "p": "People call it vibe coding. The name undersells it. What we actually did was shrink the loop until a design decision took an hour."
+      },
+      {
+        "p": "One of us had the idea, the town and the sense of humour. He wrote down what the game was in a few pages. Claude wrote the code, built the models in Blender, painted the textures and generated the voices and the music with ElevenLabs. Then came the only step that matters: a build went on a phone, he played it, and he said what was wrong in one sentence. That sentence was the whole specification for the next build."
+      },
+      {
+        "p": "The sentences, in order:"
+      },
+      {
+        "list": [
+          "Build 8: the swing \"feels like waving a wand\". So the stick moved behind the shoulder and learned to wind up, strike and follow through.",
+          "Build 11: \"concept is sound, had a few laughs\", but a hit should cut like a blade. So now you draw a line and the stick travels along it.",
+          "Build 16: \"weird as f***\". Fair.",
+          "Build 17: \"hit still feels weak, no follow-through, hands bad\". Heavier stop on contact, a shake, a trail, a finish over the far shoulder.",
+          "The arms, somewhere around build 30: \"scary and appalling\". He was right: a child’s elbows flapping in first person look like a horror game. During a swing you now see only the stick and the fists, drawn as outlines.",
+          "Build 33: \"Not bad.\"",
+          "Build 47: \"Loved it.\" And in the same breath: \"still feels like it is missing quite a lot of systems.\""
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/2_cut.jpg",
+        "alt": "A clean cut by the garages: the swing as outlines, the tops flying"
+      },
+      {
+        "p": "The swing was rebuilt half a dozen times in two days. On a normal schedule each of those is a week of somebody’s work and an awkward meeting. Here each one cost an hour, so nobody defended the old one. That is the real gain: not that the code is quick to write, but that it is cheap to throw away."
+      },
+      {
+        "h": "Three rules that kept it from turning to mush"
+      },
+      {
+        "p": "Working by feel fails in a known way: you pile up features on top of a core that is not fun and end up with a large, dull thing. Three rules stopped that."
+      },
+      {
+        "list": [
+          "**The hit first.** For the first day there was no town, no neighbours and no score that meant anything. There was a stick and a weed. Nothing else was allowed in until swinging was worth doing for two minutes on its own.",
+          "**A verdict gets a build, not an argument.** If the person holding the phone says it feels weak, it is weak. We do not explain why it is actually fine.",
+          "**Feel decides what is fun. Measurement decides what is true.** When the browser version \"froze up bad\" on a PC, we did not guess. We built a small tool into the game that records every slow frame, and it found three things: the game was drawing 240 frames a second on a 240 Hz screen for no reason, it stopped for 1.4 and then 3.5 seconds the first time it saw each new thing, and the fix we had already shipped for fullscreen (draw fewer pixels) was itself halving the frame rate in a browser. We would not have guessed the last one, because it was our idea."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/3_tolya.jpg",
+        "alt": "Uncle Tolya offers a bet: his front garden, half a minute"
+      },
+      {
+        "h": "What the machine was good at, and what it was not"
+      },
+      {
+        "p": "Good: everything that is work. Seven neighbours modelled and voiced. Four districts of a town. A voice for the kid and five hundred lines for it. Tests that play the game so a new build does not quietly break an old day. An Android build and a browser build from the same evening."
+      },
+      {
+        "p": "Bad: knowing what is funny, and knowing what feels good in the hand. Every one of those came from a person with a phone. The line everybody quotes back to us is a child misunderstanding his father, and no tool proposed it. The painted look came from one picture he chose out of a dozen and said \"this one, a summer you remember\"; the game was then repainted three times to get near it."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/4_boss.jpg",
+        "alt": "The boss: hogweed behind the boiler house, at dusk. \"He is taller than Dad.\""
+      },
+      {
+        "h": "Why this game suits the method"
+      },
+      {
+        "p": "A game about hitting weeds has no design document that can tell you whether it is good. It is good when the cut feels right and the kid makes you laugh, and you find both out only by playing. A strategy game with a hundred years of economy needs a plan. This needed forty tries."
+      },
+      {
+        "p": "It also helped that the game is honest about what it is. It is 18+ and sweary all the way through, and it is in Russian, because the jokes are about a Russian childhood. We did not sand it down to fit more shelves."
+      },
+      {
+        "h": "What it still needs"
+      },
+      {
+        "p": "Three days gets you a game that makes people laugh for twenty minutes. It does not get you a game people come back to. Here is what we know is missing."
+      },
+      {
+        "list": [
+          "**More to do between the swings.** His verdict stands: it is short on systems. We have not decided which ones yet. That is the next argument at the kitchen table, and we would like you in it.",
+          "**The hit, again.** It is better than build 8 and not yet the thing you do for its own sake. It will keep changing.",
+          "**The browser on a PC.** The Android APK is smooth. The browser version on a big screen is still slower than it should be.",
+          "**The years.** 1985 is in. The plan is for Seryoga to grow up through 1990, 1995 and 2000, in the same town with different sticks and different problems.",
+          "**English.** The game is in Russian. If you would play it in English, tell us, because that is a real job and we will only do it if somebody wants it."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/5_evening.jpg",
+        "alt": "The evening: the day’s finds on the kitchen oilcloth"
+      },
+      {
+        "p": "So play it, and tell us one sentence about how it felt. That is how every build so far got made, and we see no reason to stop now. The comments on the itch.io page are open, and so are our email and the forum."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Палка, крапива и три дня",
+    "description": "В пятницу «Отп*зди траву» была шуткой про палку и крапиву. В воскресенье — открытой игрой с озвучкой и сборкой номер 56. Как мы делали её на ощущениях, что этот способ умеет, чего не умеет и чего игре пока не хватает.",
+    "body": [
+      {
+        "p": "Кто рос рядом с пустырём, тот знает эту игру. Нашёл хорошую палку. Крапива выше тебя. Надо что-то делать."
+      },
+      {
+        "p": "В пятницу 14 ноября у нас было только это: воспоминание, название, которое при бабушке вслух не скажешь, и фраза одного из нас: «Пацан должен всю дорогу говорить, и говорить как его батя». В воскресенье ночью игра открылась на itch.io: пять дней лета 1985-го, босс, семеро соседей, больше пятисот озвученных реплик и сборка номер 56."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/1_street.jpg",
+        "alt": "Улица на закате. Серёга: «Папа говорит, на работе его е*ут. Странно. Я думал, он токарь.»"
+      },
+      {
+        "p": "Рассказываем, как это получилось и почему нам кажется, что такую игру так и надо делать."
+      },
+      {
+        "h": "Способ: сыграл, сказал, как ощущается, получил новую сборку"
+      },
+      {
+        "p": "Это называют вайб-кодингом. Название слабее самого дела. На самом деле мы сжали круг так, что одно дизайнерское решение стало занимать час."
+      },
+      {
+        "p": "У одного из нас были идея, посёлок и чувство юмора. Он на нескольких страницах записал, что это за игра. Claude писал код, лепил модели в Blender, рисовал текстуры, а голоса и музыку делал через ElevenLabs. Дальше шёл единственный шаг, который что-то решает: сборка попадала на телефон, он играл и одной фразой говорил, что не так. Эта фраза и была всем техзаданием на следующую сборку."
+      },
+      {
+        "p": "Фразы по порядку:"
+      },
+      {
+        "list": [
+          "Сборка 8: удар — «как волшебной палочкой помахал». Палка ушла за плечо и научилась замаху, удару и проводке.",
+          "Сборка 11: «идея рабочая, пару раз посмеялся», но удар должен резать, как клинок. Теперь чертишь линию, и палка идёт по ней.",
+          "Сборка 16: «странно, пи**ец». Справедливо.",
+          "Сборка 17: «удар всё ещё слабый, проводки нет, руки плохие». Добавили остановку в момент удара, тряску, след и финиш над дальним плечом.",
+          "Руки, где-то к тридцатой сборке: «страшно и отвратительно». И правда: детские локти, которые машут перед камерой, — это хоррор. Теперь во время удара видны только палка и кулаки, одним контуром.",
+          "Сборка 33: «Неплохо».",
+          "Сборка 47: «Очень понравилось». И тут же: «но систем в ней ещё сильно не хватает»."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/2_cut.jpg",
+        "alt": "Чистый срез у гаражей: удар контуром, верхушки летят"
+      },
+      {
+        "p": "За два дня удар пересобрали раз шесть. В обычном графике каждая такая переделка — неделя чьей-то работы и неприятный разговор. Здесь она стоила час, поэтому старый вариант никто не защищал. В этом и есть выигрыш: дело не в том, что код быстро пишется, а в том, что его не жалко выбросить."
+      },
+      {
+        "h": "Три правила, чтобы не получилась каша"
+      },
+      {
+        "p": "Когда делаешь на ощущениях, ошибка известная: навешиваешь системы на ядро, в которое неинтересно играть, и получаешь большую скучную вещь. Нас от этого удержали три правила."
+      },
+      {
+        "list": [
+          "**Сначала удар.** Первый день в игре не было ни посёлка, ни соседей, ни очков со смыслом. Были палка и сорняк. Ничего другого не пускали, пока махать палкой не стало интересно само по себе хотя бы две минуты.",
+          "**На вердикт отвечают сборкой, а не спором.** Если человек с телефоном в руке говорит, что удар слабый, — он слабый. Мы не объясняем, почему на самом деле всё хорошо.",
+          "**Что весело, решают ощущения. Что правда, решают замеры.** Когда браузерная версия на компьютере стала «жёстко подвисать», мы не гадали. Встроили в игру маленький инструмент, который записывает каждый медленный кадр, и он нашёл три вещи: игра без всякой причины рисовала 240 кадров в секунду на экране 240 Гц; она замирала на 1,4, а потом на 3,5 секунды, когда впервые видела каждую новую вещь; а наше же лекарство для полного экрана (рисовать меньше пикселей) в браузере само резало частоту кадров вдвое. До последнего мы бы не догадались: идея-то была наша."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/3_tolya.jpg",
+        "alt": "Дядя Толя предлагает спор: палисадник за полминуты"
+      },
+      {
+        "h": "Что машина умеет, а что нет"
+      },
+      {
+        "p": "Умеет всё, что называется работой. Семеро соседей с моделями и голосами. Четыре района посёлка. Голос пацана и пятьсот реплик к нему. Тесты, которые сами проходят игру, чтобы новая сборка тихо не сломала старый день. Сборка для Android и сборка для браузера в один вечер."
+      },
+      {
+        "p": "Не умеет понимать, что смешно, и чувствовать, что приятно в руке. Всё это каждый раз приходило от человека с телефоном. Реплику, которую нам цитируют чаще всего, — ребёнок не так понял отца — не предложил ни один инструмент. Рисованный вид вырос из одной картинки: он выбрал её из десятка и сказал «вот эта, лето, которое помнишь». После этого игру перекрашивали три раза, чтобы к ней приблизиться."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/4_boss.jpg",
+        "alt": "Босс: борщевик за котельной, сумерки. «Он выше папы.»"
+      },
+      {
+        "h": "Почему этой игре такой способ подходит"
+      },
+      {
+        "p": "Про игру, где бьют траву палкой, никакой документ не скажет, хороша она или нет. Она хороша, когда срез ощущается как надо, а пацан смешит, и узнать это можно только играя. Стратегии про сто лет хозяйства нужен план. Здесь нужно было сорок попыток."
+      },
+      {
+        "p": "Помогло и то, что игра не притворяется. Она 18+, с матом от начала до конца, про детство в советском посёлке. Мы не стали её причёсывать, чтобы влезть на большее число полок."
+      },
+      {
+        "h": "Чего ей ещё не хватает"
+      },
+      {
+        "p": "За три дня получается игра, над которой смеются двадцать минут. Игра, в которую возвращаются, за три дня не получается. Вот чего, по-нашему, не хватает."
+      },
+      {
+        "list": [
+          "**Больше дел между ударами.** Вердикт в силе: систем мало. Каких именно — мы ещё не решили. Это следующий спор на кухне, и мы хотим, чтобы вы в нём участвовали.",
+          "**Удар, опять.** Он лучше, чем в восьмой сборке, но ещё не такой, чтобы махать ради самого удара. Будем менять дальше.",
+          "**Браузер на компьютере.** APK для Android идёт плавно. Браузерная версия на большом экране пока медленнее, чем должна быть.",
+          "**Годы.** Сейчас готов 1985-й. По плану Серёга взрослеет: 1990-й, 1995-й, 2000-й — тот же посёлок, другие палки и другие проблемы."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-three-days/5_evening.jpg",
+        "alt": "Вечер: трофеи из карманов на клеёнке"
+      },
+      {
+        "p": "Так что сыграйте и напишите одну фразу о том, как оно ощущается. Так была сделана каждая сборка до сих пор, и менять это незачем. Комментарии на странице itch.io открыты, почта и форум тоже."
+      }
+    ]
+  }
+}

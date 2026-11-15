@@ -133,7 +133,8 @@ const labPath = (x) => `${LAB}${x.id}/`;
 const LOGP = 'log/';
 const postPath = (p) => `${LOGP}${p.slug}/`;
 // A post's text: escaped, with **bold** kept.
-const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+// Devlog text: **bold** and [text](https://link).
+const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>');
 // "In active development": the studio's line on how the games are made and how to reach us, with the
 // ways in (email, forum, and on a game's page its itch comments). Home, studio and every game page.
 function voiceBlock(t, text, { up, g = null, title = t.voice.title, cls = '' } = {}) {

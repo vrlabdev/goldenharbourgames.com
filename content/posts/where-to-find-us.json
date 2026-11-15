@@ -1,0 +1,166 @@
+{
+  "slug": "where-to-find-us",
+  "date": "2026-11-16",
+  "game": null,
+  "cover": "img/log/where-to-find-us/1_port.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Where to find us, and where we gave up",
+    "description": "Every account the studio runs, what we post on each, the real numbers, the one platform we left, and the places where a message actually gets an answer.",
+    "body": [
+      {
+        "p": "A studio of two cannot be everywhere, and for a month we tried anyway. This is the map as it stands on 16 November: where we post, how often, how it is going in plain numbers, and where to write if you want a reply."
+      },
+      {
+        "img": "img/log/where-to-find-us/1_port.jpg",
+        "alt": "Six of the nine games in port"
+      },
+      {
+        "h": "YouTube: the main channel"
+      },
+      {
+        "p": "[@goldenharbourgames](https://www.youtube.com/@goldenharbourgames). A hundred and thirty-one videos, a little over thirty-eight thousand views, twenty-three subscribers. Almost all of it is Shorts, and almost all of the views came from the Shorts feed, not from people who know us."
+      },
+      {
+        "p": "We post in two lanes. **What changed**: one problem in one game, the build before and the build after, forty to sixty seconds. And **how it plays**: one mechanic, shown in real play with the interface on. The trailers are there too."
+      },
+      {
+        "p": "What we learned: a short film about a real thing travels and a short film about our game does not. \"Why is fire retardant pink?\" got nearly two thousand views. A three-card knockout in Punch League got a hundred and eighteen. So the firefighting films explain firefighting, and the game is just where it is shown."
+      },
+      {
+        "h": "Instagram and Facebook: new this week"
+      },
+      {
+        "p": "[Instagram](https://www.instagram.com/goldenharbourgames/) and the [Facebook page](https://www.facebook.com/1398649926668969) opened on 13 November. Two Reels a day, morning and evening Sydney time, plus the trailers and the odd set of stills. Instagram has twenty-seven followers and Facebook has two, which is what three days looks like."
+      },
+      {
+        "p": "It has already done one thing YouTube had not: somebody asked a real question. Under the Russian trailer for Souls & Estates a player wanted to know whether towns grow by themselves and whether there is a tech tree. (Villages grow by themselves; you or your steward place the buildings; no tech tree.) One real question is worth more to us than a thousand views from a feed."
+      },
+      {
+        "h": "X"
+      },
+      {
+        "p": "[@GoldenHrbrGames](https://x.com/GoldenHrbrGames). The same short films, and replies in the weekly threads where developers show each other what they are making. It is small, and it is mostly other developers. That suits us: they have the same problems we do."
+      },
+      {
+        "h": "Reddit"
+      },
+      {
+        "p": "We are there as the studio, mostly in comments: answering questions about Godot exports, store review and small-studio problems where we have something real to say. Many game communities do not accept games made with AI tools. Ours are, and we say so, so we post our games only where the rules allow it and stay out of the rest."
+      },
+      {
+        "h": "itch.io"
+      },
+      {
+        "p": "[Every game has a page](https://goldenharbourgames.itch.io/) with open comments, and the bigger changes get a devlog there as well as here. For the browser builds it is also the fastest place to tell us something broke."
+      },
+      {
+        "h": "TikTok: we left"
+      },
+      {
+        "p": "We posted there for three weeks. Some films reached a few hundred people, then every new one reached nobody, whatever we changed. One follower. We stopped on 9 November and deleted the queue. If you came here looking for our TikTok, that is why it is quiet."
+      },
+      {
+        "h": "Where a message gets an answer"
+      },
+      {
+        "list": [
+          "**Email**: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). A person reads it.",
+          "**The comments on a game’s itch.io page.** Best for \"this broke\" and \"this felt wrong\".",
+          "**[The forum](https://github.com/vrlabdev/goldenharbourgames.com/discussions)** on this site, for longer talk about the games and the experiments.",
+          "**Comments on Instagram and YouTube.** We read them all. There are not so many yet that it is hard."
+        ]
+      },
+      {
+        "h": "What we will try next"
+      },
+      {
+        "p": "More of what gets a question, less of what gets a view. Short films about real things first. Devlogs like this one for people who care how games get made. Letters to people who make videos about the kinds of games we make, which has had more replies than we expected. And fewer platforms, done properly, over more platforms done by a queue."
+      },
+      {
+        "p": "If there is somewhere you would rather hear from us, say so. That is a real question, and we will move."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Где нас найти и откуда мы ушли",
+    "description": "Все аккаунты студии: что мы публикуем на каждом, настоящие цифры, одна площадка, с которой мы ушли, и места, где на сообщение действительно отвечают.",
+    "body": [
+      {
+        "p": "Студия из двух человек не может быть везде, но месяц мы всё равно пытались. Это карта на 16 ноября: где мы публикуем, как часто, как идут дела в простых цифрах и куда писать, если нужен ответ."
+      },
+      {
+        "img": "img/log/where-to-find-us/1_port.jpg",
+        "alt": "Шесть из девяти игр в порту"
+      },
+      {
+        "h": "YouTube: главный канал"
+      },
+      {
+        "p": "[@goldenharbourgames](https://www.youtube.com/@goldenharbourgames). Сто тридцать один ролик, чуть больше тридцати восьми тысяч просмотров, двадцать три подписчика. Почти всё это Shorts, и почти все просмотры пришли из ленты Shorts, а не от людей, которые нас знают."
+      },
+      {
+        "p": "У нас два направления. **«Что изменилось»**: одна проблема в одной игре, сборка до и сборка после, сорок–шестьдесят секунд. И **«как это играется»**: одна механика в настоящей игре, с интерфейсом. Трейлеры лежат там же."
+      },
+      {
+        "p": "Чему мы научились: короткий ролик про настоящую вещь расходится, а короткий ролик про нашу игру — нет. «Почему пожарный состав розовый?» набрал почти две тысячи просмотров. Нокаут с трёх карт в Punch League — сто восемнадцать. Поэтому ролики про пожары объясняют, как тушат пожары, а игра в них — просто место, где это видно."
+      },
+      {
+        "h": "Instagram и Facebook: с этой недели"
+      },
+      {
+        "p": "[Instagram](https://www.instagram.com/goldenharbourgames/) и [страница в Facebook](https://www.facebook.com/1398649926668969) открылись 13 ноября. Два Reels в день, утром и вечером по Сиднею, плюс трейлеры и иногда подборки кадров. В Instagram двадцать семь подписчиков, в Facebook двое: так выглядят три дня."
+      },
+      {
+        "p": "Но одно там уже случилось, чего не было на YouTube: нам задали настоящий вопрос. Под русским трейлером Souls & Estates игрок спросил, растут ли города сами и есть ли дерево технологий. (Деревни растут сами; здания ставите вы или управляющий; дерева технологий нет.) Один настоящий вопрос нам дороже тысячи просмотров из ленты."
+      },
+      {
+        "h": "X"
+      },
+      {
+        "p": "[@GoldenHrbrGames](https://x.com/GoldenHrbrGames). Те же короткие ролики и ответы в еженедельных ветках, где разработчики показывают друг другу, что делают. Там немного людей, и в основном это другие разработчики. Нас это устраивает: у них те же беды, что и у нас."
+      },
+      {
+        "h": "Reddit"
+      },
+      {
+        "p": "Мы там от имени студии, в основном в комментариях: отвечаем на вопросы про экспорт из Godot, проверки в магазинах и беды маленьких студий, когда нам есть что сказать по делу. Многие игровые сообщества не принимают игры, сделанные с помощью ИИ. Наши сделаны так, и мы этого не скрываем, поэтому публикуем игры только там, где это разрешено правилами, а в остальные не лезем."
+      },
+      {
+        "h": "itch.io"
+      },
+      {
+        "p": "[У каждой игры есть страница](https://goldenharbourgames.itch.io/) с открытыми комментариями, а о больших изменениях мы пишем девлог и там, и здесь. Для браузерных сборок это ещё и самый быстрый способ сказать нам, что что-то сломалось."
+      },
+      {
+        "h": "TikTok: мы ушли"
+      },
+      {
+        "p": "Мы публиковали там три недели. Некоторые ролики доходили до нескольких сотен человек, потом каждый новый перестал доходить до кого-либо, что бы мы ни меняли. Один подписчик. 9 ноября мы остановились и удалили очередь. Если вы искали наш TikTok — вот почему там тихо."
+      },
+      {
+        "h": "Где на сообщение отвечают"
+      },
+      {
+        "list": [
+          "**Почта**: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). Её читает человек.",
+          "**Комментарии на странице игры на itch.io.** Лучше всего для «это сломалось» и «это ощущается не так».",
+          "**[Форум](https://github.com/vrlabdev/goldenharbourgames.com/discussions)** на этом сайте — для разговоров подлиннее об играх и экспериментах.",
+          "**Комментарии в Instagram и на YouTube.** Читаем все. Их пока не так много, чтобы это было трудно."
+        ]
+      },
+      {
+        "h": "Что попробуем дальше"
+      },
+      {
+        "p": "Больше того, что вызывает вопросы, и меньше того, что набирает просмотры. В первую очередь короткие ролики про настоящие вещи. Девлоги вроде этого — для тех, кому интересно, как делаются игры. Письма людям, которые снимают видео про такие игры, как наши: на них отвечают чаще, чем мы ждали. И меньше площадок, зато как следует, а не много площадок очередью."
+      },
+      {
+        "p": "Если вам удобнее слышать нас где-то ещё — скажите. Это настоящий вопрос, и мы туда придём."
+      }
+    ]
+  }
+}

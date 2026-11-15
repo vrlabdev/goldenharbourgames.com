@@ -121,6 +121,50 @@
         }
       ]
     },
+    "stick-vs-weeds": {
+      "title": "Stick vs. Weeds",
+      "aka": "Отп*зди траву",
+      "text": "Summer 1985. You are eight, you have a stick, and the nettles have it coming. A first-person slasher about a kid, a small Soviet town and everything that stings. In Russian, 18+, and very sweary.",
+      "tags": [
+        "Arcade",
+        "Comedy",
+        "18+"
+      ],
+      "seo_title": "Stick vs. Weeds – an 18+ comedy slasher about a kid, a stick and nettles",
+      "seo_description": "Summer 1985, a small Soviet town, an eight-year-old with a stick and a mouth he got from his dad. Draw a line, the stick follows, the nettles fall. An early build in Russian, 18+, free in your browser and as an Android APK.",
+      "intro": [
+        "Seryoga leaves the yard \"not far\" and keeps going. Between him and the river stands everything that stings, snags and gets in your face: nettles, burdock, thistle and, behind the boiler house, hogweed three metres tall. Draw a line with your finger and he swings from the shoulder.",
+        "He also never shuts up. He repeats everything he has heard from his dad, his grandad and uncle Tolya, and understands none of it: \"Dad says they screw him at work. Strange. I thought he was a lathe operator.\""
+      ],
+      "sections": [
+        {
+          "title": "How it plays",
+          "list": [
+            "Draw a line across the screen and the stick follows it, like a bat from the right shoulder. A clean cut at the root pays double. A lazy one gets a remark.",
+            "Five days until sunset, with a boss at the end. Cottages, garages, a building site, the river. At the forks you choose where to turn.",
+            "Things you do not hit: rocks and rebar (sticks are not free), granny’s peonies and the neighbour’s garden gnome. Especially the gnome.",
+            "The neighbours. Grandad Matvey teaches the swing. Uncle Tolya bets you his front garden. Vitka swaps sticks for a pig in a poke. Aunt Zina pours kvass. The geese guard nothing; the geese are just like that.",
+            "Seryoga grows: respect, four stats and three skills, a two-handed spin among them.",
+            "Evenings: the day’s finds on the kitchen oilcloth, parents arguing next door, and a plan for tomorrow.",
+            "Two short modes: Zen on the wasteland, where nobody yells, and the Plot of the Day, one patch for everybody and one go that counts."
+          ]
+        },
+        {
+          "title": "Before you press Play",
+          "paragraphs": [
+            "The game is 18+. More than five hundred voiced lines, most of them rude, none of them meant for children. There is a switch that beeps the swearing.",
+            "It is in Russian only. The jokes are the game, and they are Russian jokes about a Russian childhood. If you would play an English version, tell us: that is how it gets made."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "Here in the browser, with a mouse or a finger: upright on a phone, wide or fullscreen on a computer. Better with sound. On Android the APK from the itch.io page runs noticeably smoother than the browser.",
+            "An early build: the year 1985 is in. The plan is for Seryoga to grow up through 1990, 1995 and 2000 in the same town, with different sticks and different problems. The voices, music, pictures and code were made with AI tools; the idea and the sense of humour were not."
+          ]
+        }
+      ]
+    },
     "aerofire-command": {
       "title": "AeroFire Command: Fire Season",
       "text": "A wildfire is heading for town. You don't fly the helicopters: you paint the map, and your fleet does the rest. Out now on Android and iPhone, free on PC and in your browser.",
@@ -392,13 +436,13 @@
       "When you tell us something is wrong, we fix it. The harbour log on the home page is where you can see it happen.",
       "We tell you what is made by a machine and what is made by a person. Always."
     ],
-    "letter_title": "How it is going (11 November 2026)",
+    "letter_title": "How it is going (16 November 2026)",
     "letter": [
-      "Honestly? Better than a week ago, and still worse than we would like. Eight games are in port, and three of them are now on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game. Apple sent Punch League back with questions the first time and passed it the second.",
-      "The numbers are small. Our YouTube channel has passed thirty-six thousand views across a hundred or so short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
-      "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. The same week the game learned to zoom from one village yard out to a map table of central Russia.",
-      "What is not working yet: being found. Eight good small games nobody has heard of are still eight games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
-      "Next: Souls & Estates gets a tutorial that opens its menus one step at a time; Fire Season gets a tutorial that does not need a manual; Punch League is learning to fight in 3D; the experiments get a page and a forum of their own; and the first human artist gets hired the month a game pays for one."
+      "Honestly? Better than a week ago, and still worse than we would like. Nine games are in port, and three of them are on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game.",
+      "The numbers are small. Our YouTube channel has passed thirty-eight thousand views across a hundred and thirty short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
+      "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. Fire Season stopped being a game about painting water on flames and became one about where you draw the line. And a joke about hitting nettles with a stick became a public, voiced game in three days; the harbour log tells how.",
+      "What is not working yet: being found. Nine good small games nobody has heard of are still nine games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
+      "Next: Stick vs. Weeds gets more to do between the swings; Fire Season gets spot fires and a wind that turns; Souls & Estates keeps getting easier to learn; Punch League is learning to fight in 3D; and the first human artist gets hired the month a game pays for one."
     ]
   },
   "contact": {

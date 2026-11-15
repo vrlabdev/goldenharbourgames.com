@@ -1,0 +1,196 @@
+{
+  "slug": "punch-league-2-real-ring",
+  "date": "2026-11-16",
+  "game": "punch-league",
+  "cover": "img/log/punch-league-2-real-ring/1_hit.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Punch League 2: real-time boxing in a real ring",
+    "description": "Punch League is a card game about boxing. Punch League 2 is a different game: you control the boxer directly, in real time, in a 3D ring. Why we threw away a prototype that passed all its tests, and what is built so far.",
+    "body": [
+      {
+        "p": "Punch League is a card game about boxing: you pick a punch, he picks a punch, the fighters play it out. It is live on Google Play, the App Store, RuStore and itch.io, and it stays there and keeps getting fixes."
+      },
+      {
+        "p": "Punch League 2 is a different game with a different minute of play. You move the boxer yourself, in real time, in a ring you can circle. Distance decides everything. A punch commits you. Throwing too many leaves you with nothing. Moving your head makes the other man miss. A hurt fighter goes down. We are building it with Pasha, a friend of the studio who made the first 3D prototype, and it has two fighters so far: Kai and Dan."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/1_hit.jpg",
+        "alt": "Kai lands the cross after a jab. A frame from our own review film of build 993; the yellow line is the test script."
+      },
+      {
+        "p": "It is not out. This is a report from the workshop."
+      },
+      {
+        "h": "The prototype that passed every test"
+      },
+      {
+        "p": "The first 3D version put two modelled boxers inside the card game’s screen. It had a hundred and fifty commits in three days and a test suite that was green on every one. And every time the build went on a phone, the verdict was the same: punches look short, the attacker drifts backwards, the feet overlap."
+      },
+      {
+        "p": "So we stopped tuning and measured. Three things came out."
+      },
+      {
+        "list": [
+          "**They stood too close.** The card game placed its fighters about 0.9 metres apart, because cards do not need room. That is clinch distance. A jab thrown from there cannot straighten: the elbow was bent to about 100 degrees in the game against 168 in the animation it came from.",
+          "**A hit was a timer.** A slip dodged a punch because a rule said the timing was right, not because the head had left the glove’s path. That is why defence never looked like defence.",
+          "**The test measured the wrong thing.** It checked that one point came within 12 centimetres of another. It passed on every build the phone rejected."
+        ]
+      },
+      {
+        "p": "The honest reading was that the prototype had done its job. It proved the controls and the rules. The picture needed a real 3D scene under it, so we started that part again."
+      },
+      {
+        "h": "What is built"
+      },
+      {
+        "list": [
+          "**Two bodies in a room.** A real ring measured in metres. Straight punches work at about a metre between the hips, hooks and uppercuts at about 0.8. The arms now reach full length.",
+          "**Contact.** A punch is committed the moment it is thrown. A block works when the gloves are in the punch’s path, and a slip works when the head is not. The glove you see stops on the face or the guard where the rules say it did, to within a centimetre.",
+          "**The ring.** The fighters circle each other, the camera turns with them, and the ropes give, spring back and trap a man in the corner.",
+          "**One fight.** Three one-minute rounds, a knockdown with a count and a get-up you have to tap for, and a decision on the cards if both are standing. Dan can fight three ways: pressing, countering or boxing at range."
+        ]
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/2_ropes.jpg",
+        "alt": "Dan backs Kai along the rope and into the corner"
+      },
+      {
+        "h": "How we judge motion"
+      },
+      {
+        "p": "Numbers lie about animation and so does a video at full speed. What works is a filmstrip: every frame of one punch laid side by side on a sheet, from a fixed camera. A pop of one frame is invisible in motion and obvious on the sheet."
+      },
+      {
+        "p": "That is how we found the worst bug so far. A second jab thrown straight after the first made the arms jump from the return pose to the guard in a single frame. The cause was dull: one animation slot being restarted while it was still fading out. The fix was two slots used in turn. The jerk on the glove went from 16 units to 5, where a single clean jab measures 3."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/3_hands.jpg",
+        "alt": "The close camera we use to judge the hands: Kai’s jab after a step in"
+      },
+      {
+        "p": "For the hook and the uppercut we put our frames next to frames of a boxing coach teaching the same punches. The hook’s elbow now rises with the fist instead of trailing under it. The uppercut dips six centimetres and drives up from the legs. The turn of the hips in the hook is still wrong, and that one has to be redone in the animation itself."
+      },
+      {
+        "h": "Letting the machines fight"
+      },
+      {
+        "p": "Before a person plays a rule change, two computer fighters play it eighteen times. The first set of numbers ended every fight in round one, so damage came down. The next set had the opposite problem: nobody ever went down. After punches were made cheaper to throw and a miss less costly, the same eighteen fights gave four knockouts instead of none and forty knockdowns instead of five, and the fighters spent less than half as long too tired to jab."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/4_count.jpg",
+        "alt": "Dan is down and the count is on"
+      },
+      {
+        "h": "What is not right yet"
+      },
+      {
+        "list": [
+          "Kai beats Dan fifteen fights to three when the computer plays both. His jab is longer and the rules have no answer to that yet.",
+          "The hook needs its hip turn, and the hand takes too long to come back across the face.",
+          "There are two fighters, one ring and no game around the fight: no career, no opponents to climb through.",
+          "The newest build has not had its verdict on a phone. Everything above is from recordings and checks, and the phone has overruled those before."
+        ]
+      },
+      {
+        "p": "There is nothing to download yet and we are not going to name a date. When there is a round worth replaying, it goes on this site first, free in the browser like everything else. Until then, Punch League the card game is right here, and if you box, or just know what a good boxing game feels like, we would like to hear what we should not get wrong."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Punch League 2: бокс в реальном времени и в настоящем ринге",
+    "description": "Punch League — карточная игра про бокс. Punch League 2 — другая игра: боксёром управляешь напрямую, в реальном времени, в трёхмерном ринге. Почему мы выбросили прототип, который проходил все тесты, и что уже построено.",
+    "body": [
+      {
+        "p": "Punch League — карточная игра про бокс: ты выбираешь удар, соперник выбирает удар, бойцы разыгрывают. Она вышла в Google Play, App Store, RuStore и на itch.io, остаётся там и продолжает получать исправления."
+      },
+      {
+        "p": "Punch League 2 — другая игра, и минута игры в ней другая. Боксёра ведёшь сам, в реальном времени, по рингу, в котором можно кружить. Всё решает дистанция. Начал удар — уже не отменишь. Бьёшь слишком часто — остаёшься без сил. Убрал голову — соперник промахнулся. Потрясённый боец падает. Мы делаем её вместе с Пашей, другом студии, который собрал первый трёхмерный прототип. Бойцов пока двое: Кай и Дэн."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/1_hit.jpg",
+        "alt": "Кай попадает кроссом после джеба. Кадр из нашей проверочной записи сборки 993; жёлтая строка — сценарий проверки."
+      },
+      {
+        "p": "Игра не вышла. Это отчёт из мастерской."
+      },
+      {
+        "h": "Прототип, который проходил все тесты"
+      },
+      {
+        "p": "В первой трёхмерной версии два смоделированных боксёра стояли внутри экрана карточной игры. За три дня в ней набралось полторы сотни коммитов, и тесты были зелёными на каждом. И каждый раз, когда сборка попадала на телефон, вердикт был один и тот же: удары короткие, атакующий отъезжает назад, ноги наезжают друг на друга."
+      },
+      {
+        "p": "Мы перестали подкручивать и стали мерить. Нашлись три вещи."
+      },
+      {
+        "list": [
+          "**Они стояли слишком близко.** Карточная игра ставила бойцов примерно в 0,9 метра друг от друга: картам место не нужно. Это дистанция клинча. Джеб оттуда не может выпрямиться: локоть в игре был согнут примерно до 100 градусов, а в исходной анимации — 168.",
+          "**Попадание было таймером.** Уклон спасал от удара потому, что правило считало момент удачным, а не потому, что голова ушла с пути перчатки. Поэтому защита и не выглядела защитой.",
+          "**Тест мерил не то.** Он проверял, что одна точка подошла к другой ближе чем на 12 сантиметров. И проходил на каждой сборке, которую телефон забраковал."
+        ]
+      },
+      {
+        "p": "Честный вывод: прототип свою работу сделал. Он доказал управление и правила. Картинке нужна была настоящая трёхмерная сцена, и эту часть мы начали заново."
+      },
+      {
+        "h": "Что построено"
+      },
+      {
+        "list": [
+          "**Два тела в комнате.** Настоящий ринг в метрах. Прямые удары работают примерно на метре между бёдрами, хуки и апперкоты — примерно на 0,8. Рука теперь выпрямляется до конца.",
+          "**Контакт.** Удар считается начатым в момент броска. Блок работает, когда перчатки стоят на пути удара, уклон — когда головы на этом пути нет. Перчатка, которую вы видите, останавливается на лице или на защите там же, где это посчитали правила, с точностью до сантиметра.",
+          "**Ринг.** Бойцы кружат друг вокруг друга, камера поворачивается вместе с ними, канаты прогибаются, пружинят и запирают человека в углу.",
+          "**Один бой.** Три раунда по минуте, нокдаун со счётом и подъёмом, ради которого надо стучать по экрану, и решение судей, если оба на ногах. Дэн умеет драться тремя способами: давить, ловить на контратаке и работать с дистанции."
+        ]
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/2_ropes.jpg",
+        "alt": "Дэн ведёт Кая вдоль каната в угол"
+      },
+      {
+        "h": "Как мы оцениваем движение"
+      },
+      {
+        "p": "Про анимацию врут и цифры, и видео на полной скорости. Работает раскадровка: все кадры одного удара лежат рядом на одном листе, снятые неподвижной камерой. Скачок в один кадр в движении не виден, а на листе бросается в глаза."
+      },
+      {
+        "p": "Так нашёлся самый неприятный пока баг. Второй джеб сразу после первого за один кадр перебрасывал руки из позы возврата в стойку. Причина скучная: один и тот же слот анимации запускался заново, пока ещё затухал. Исправление — два слота по очереди. Рывок перчатки упал с 16 единиц до 5; одиночный чистый джеб даёт 3."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/3_hands.jpg",
+        "alt": "Ближняя камера, по которой мы судим руки: джеб Кая после шага вперёд"
+      },
+      {
+        "p": "Хук и апперкот мы сравнивали по кадрам с записью тренера по боксу, который показывает те же удары. Локоть в хуке теперь поднимается вместе с кулаком, а не тащится под ним. В апперкоте появился подсед на шесть сантиметров, и удар идёт от ног. Поворот бёдер в хуке всё ещё неправильный, и его придётся переделывать в самой анимации."
+      },
+      {
+        "h": "Пусть сначала подерутся машины"
+      },
+      {
+        "p": "Прежде чем изменение правил попробует человек, два компьютерных бойца проводят с ним восемнадцать боёв. С первыми числами каждый бой заканчивался в первом раунде, и урон пришлось снизить. Со следующими вышло наоборот: никто не падал. Когда удары стали дешевле, а промах — не таким дорогим, те же восемнадцать боёв дали четыре нокаута вместо нуля и сорок нокдаунов вместо пяти, а время, когда у бойца нет сил даже на джеб, сократилось больше чем вдвое."
+      },
+      {
+        "img": "img/log/punch-league-2-real-ring/4_count.jpg",
+        "alt": "Дэн на полу, идёт счёт"
+      },
+      {
+        "h": "Что ещё не так"
+      },
+      {
+        "list": [
+          "Когда за обоих играет компьютер, Кай выигрывает у Дэна пятнадцать боёв из восемнадцати. Джеб у него длиннее, и в правилах на это пока нет ответа.",
+          "Хуку нужен поворот бёдер, а рука слишком долго возвращается поперёк лица.",
+          "Есть два бойца, один ринг и никакой игры вокруг боя: ни карьеры, ни лестницы соперников.",
+          "Последняя сборка ещё не получила вердикт на телефоне. Всё, что выше, — записи и проверки, а телефон их уже опровергал."
+        ]
+      },
+      {
+        "p": "Скачать пока нечего, и дату мы называть не будем. Когда появится раунд, который хочется переиграть, он сначала окажется на этом сайте — бесплатно и в браузере, как всё остальное. А пока карточная Punch League лежит здесь же. Если вы боксируете или просто знаете, какой на ощупь должна быть хорошая игра про бокс, напишите нам, что нельзя испортить."
+      }
+    ]
+  }
+}
