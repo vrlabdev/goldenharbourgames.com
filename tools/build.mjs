@@ -263,6 +263,10 @@ ${main(up, home)}
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
+<a class="compass" href="#" aria-label="${esc(t.nav.top)}" title="${esc(t.nav.top)}">
+  <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#0d1a2d" stroke="#e8b04b" stroke-width="1.5"/><g class="compass-card"><path d="M32 6v6M32 52v6M6 32h6M52 32h6" stroke="#5f7290" stroke-width="1.5" stroke-linecap="round"/><path d="M13.6 13.6l3.6 3.6M46.8 46.8l3.6 3.6M13.6 50.4l3.6-3.6M46.8 17.2l3.6-3.6" stroke="#34496b" stroke-width="1.2" stroke-linecap="round"/></g><g class="compass-needle"><path d="M32 11l6.5 21h-13z" fill="#e8b04b"/><path d="M32 53l6.5-21h-13z" fill="#f3eee2"/><circle cx="32" cy="32" r="2.6" fill="#0d1a2d"/></g></svg>
+</a>
+
 <dialog class="trailer" id="trailer" aria-label="${esc(t.trailer)}">
   <button type="button" class="trailer-close" aria-label="${esc(t.trailer_dialog.close)}">&times;</button>
   <div class="trailer-frame"></div>
@@ -274,7 +278,21 @@ ${main(up, home)}
 // opens the film in a dialog instead of leaving for YouTube (middle-click and no-JS still leave).
 (function () {
   var top = document.querySelector('.top');
-  function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
+  // The compass in the corner shows once the page has moved; its needle turns with the scroll.
+  var compass = document.querySelector('.compass'), needle = compass && compass.querySelector('.compass-needle'), card = compass && compass.querySelector('.compass-card');
+  function onScroll() {
+    var y = window.scrollY;
+    top.classList.toggle('is-scrolled', y > 8);
+    if (compass) {
+      compass.classList.toggle('is-on', y > 520);
+      needle.style.transform = 'rotate(' + (y * 0.22).toFixed(1) + 'deg)';
+      card.style.transform = 'rotate(' + (-y * 0.05).toFixed(1) + 'deg)';
+    }
+  }
+  if (compass) compass.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // The menu is a <details>, so it opens without scripting; this closes it on Escape, on a tap
@@ -402,7 +420,7 @@ function manifestBlock(t, kicker, h = 'h2') {
         <span class="man-note">${esc(r.note)}</span>
       </li>`).join('\n');
   return `<section id="build" class="section build chart">
-  <div class="section-head">
+  <div class="section-head reveal">
     <div>
       <p class="kicker">${esc(kicker)}</p>
       <${h}>${esc(t.build.title)}</${h}>
@@ -435,7 +453,7 @@ ${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
 // Two harbours: the name, the bridges, the mission, the promises and the dated letter, on paper.
 function aboutBlock(t, kicker, h = 'h2') {
   return `<section id="about" class="section about">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${esc(kicker)}</p>
         <${h}>${esc(t.about.title)}</${h}>
@@ -473,7 +491,7 @@ ${t.about.letter.map((p) => `        <p>${esc(p)}</p>`).join('\n')}
 // The internships: what you get, how it works, who can apply, the open projects, the questions.
 function crewBlock(t, kicker, base, h = 'h2') {
   return `<section id="crew" class="section crew chart">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${esc(kicker)}</p>
         <${h}>${esc(t.crew.title)}</${h}>
@@ -708,6 +726,9 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   var pos = 0, target = 0, vel = 0, fling = 0, running = false;
   var pressed = false, dragging = false, moved = false, sx = 0, spos = 0, lx = 0, lt = 0;
   var w = 1, front = -1, seen = !('IntersectionObserver' in window), resting = false, timer = null;
+  // Landing: on arrival every card flies in from in front of the screen and settles into the ring,
+  // the front one first. land runs 0 to 1 once. Then the front card leans a little toward the mouse.
+  var land = still ? 1 : 0, landT0 = 0, tx = 0, ty = 0, ttx = 0, tty = 0;
   all.forEach(function (c) { c._shade = c.querySelector('.ring-shade'); });
 
   function wrap(d) { var m = cards.length; d = ((d % m) + m) % m; return d > m / 2 ? d - m : d; }
@@ -715,8 +736,16 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     var a = Math.abs(d), s = d < 0 ? -1 : 1;
     var x = a <= 1 ? d * w * 0.62 : s * (0.62 + (a - 1) * 0.3) * w;
     var op = a < 2.4 ? 1 : Math.max(0, 1 - (a - 2.4) / 0.7);
-    c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,' + (-Math.min(a, 3) * w * 0.5).toFixed(1) + 'px) rotateY(' +
-      (-s * Math.min(a, 1) * 34).toFixed(2) + 'deg) scale(' + (1 - Math.min(a, 3) * 0.06).toFixed(3) + ')';
+    var fy = 0, fz = 0, fr = 0, lean = '';
+    if (land < 1) {
+      var lt = Math.min(1, Math.max(0, land * 1.8 - Math.min(a, 3) * 0.26)), u = lt - 1;
+      var L = 1 + 2.4 * u * u * u + 1.4 * u * u; // eases out and overshoots a touch: the card lands
+      fy = (1 - L) * -w * 0.55; fz = (1 - L) * 950; fr = (1 - L) * (d < 0 ? -1 : 1) * 16;
+      op *= Math.min(1, lt * 5);
+    }
+    if (a < 0.5 && (tx || ty)) lean = ' rotateX(' + ty.toFixed(2) + 'deg) rotateY(' + tx.toFixed(2) + 'deg)';
+    c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + fy.toFixed(1) + 'px,' + (fz - Math.min(a, 3) * w * 0.5).toFixed(1) + 'px) rotateY(' +
+      (-s * Math.min(a, 1) * 34).toFixed(2) + 'deg) rotateZ(' + fr.toFixed(2) + 'deg)' + lean + ' scale(' + (1 - Math.min(a, 3) * 0.06).toFixed(3) + ')';
     c.style.opacity = op.toFixed(3);
     c._shade.style.opacity = Math.min(a * 0.32, 0.72).toFixed(3);
     var z = 100 - Math.round(a * 10);
@@ -776,8 +805,16 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
         if (Math.abs(d) < 0.001 && Math.abs(vel) < 0.001) { pos = target; vel = 0; }
       }
     }
+    if (land < 1) {
+      if (!landT0) landT0 = performance.now();
+      land = Math.min(1, (performance.now() - landT0) / 1700);
+      if (land === 1) { var hero = stage.closest('.hero'); if (hero) hero.classList.add('is-landed'); }
+    }
+    tx += (ttx - tx) * 0.14; ty += (tty - ty) * 0.14;
+    var leaning = Math.abs(ttx - tx) > 0.03 || Math.abs(tty - ty) > 0.03;
+    if (!leaning) { tx = ttx; ty = tty; }
     render();
-    if (dragging || fling || vel || pos !== target) requestAnimationFrame(frame); else { running = false; clips(); }
+    if (dragging || fling || vel || pos !== target || land < 1 || leaning) requestAnimationFrame(frame); else { running = false; clips(); }
   }
   function kick() {
     if (still) { pos = target; fling = vel = 0; render(); clips(); return; }
@@ -831,6 +868,16 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     kick(); arm();
   }
   scene.addEventListener('pointerup', release);
+  if (!still) {
+    scene.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse' || dragging) return;
+      var r = scene.getBoundingClientRect();
+      ttx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / w)) * 7;
+      tty = -Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / (r.height / 2))) * 5;
+      kick();
+    });
+    scene.addEventListener('pointerleave', function () { ttx = tty = 0; kick(); });
+  }
   scene.addEventListener('pointercancel', release);
   // A click after a drag does nothing; a click on a card at the side turns it to the front.
   scene.addEventListener('click', function (e) {
@@ -883,10 +930,51 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   stage.classList.add('is-live');
   measure();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-  if (!still) { pos = -2.2; target = 0; }
+  if (!still) { pos = -0.8; target = 0; }
   render();
   requestAnimationFrame(function () { stage.classList.add('is-in'); kick(); });
   arm();
+})();
+
+// Harbour lights: small points drifting up behind the games, shifting a little with the mouse. One
+// canvas, drawn only while the top of the page is on screen; not at all for those who asked for
+// less motion or have Data Saver on.
+(function () {
+  var c = document.querySelector('.hero-lights');
+  if (!c || !c.getContext || window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
+  var hero = c.closest('.hero'), ctx = c.getContext('2d');
+  var W = 0, H = 0, pts = [], on = true, going = false, mx = 0, my = 0, sx = 0, sy = 0;
+  function size() {
+    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    W = hero.offsetWidth; H = hero.offsetHeight;
+    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(110, W * H / 13000));
+    pts = [];
+    for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: 0.6 + Math.random() * 1.9, s: 0.12 + Math.random() * 0.5, p: Math.random() * 6.28, g: Math.random() < 0.34 });
+  }
+  function draw(t) {
+    going = false;
+    if (!on || document.hidden) return;
+    sx += (mx - sx) * 0.05; sy += (my - sy) * 0.05;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var q = pts[i];
+      q.y -= q.s * 0.45; q.x += Math.sin(t / 2600 + q.p) * 0.18;
+      if (q.y < -6) { q.y = H + 6; q.x = Math.random() * W; }
+      ctx.globalAlpha = 0.18 + 0.5 * (0.5 + 0.5 * Math.sin(t / 800 + q.p));
+      ctx.fillStyle = q.g ? '#e8b04b' : '#7fa2d6';
+      ctx.beginPath(); ctx.arc(q.x - sx * q.r * 14, q.y - sy * q.r * 10, q.r, 0, 6.2832); ctx.fill();
+    }
+    go();
+  }
+  function go() { if (!going && on) { going = true; requestAnimationFrame(draw); } }
+  hero.addEventListener('pointermove', function (e) { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { on = es[0].isIntersecting; go(); }).observe(hero);
+  document.addEventListener('visibilitychange', go);
+  var q2 = false;
+  window.addEventListener('resize', function () { if (q2) return; q2 = true; requestAnimationFrame(function () { q2 = false; size(); }); });
+  size(); go();
 })();
 
 // Old links to parts of this page that now have pages of their own still arrive.
@@ -929,8 +1017,13 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   const heroTitle = `${esc(words.join(' '))} <span>${esc(last)}.</span>`;
 
   const allLangs = [...new Set(games.flatMap((g) => g.languages))];
-  const strip = [...t.strip, allLangs.join(' · '), t.strip_games.replace('{n}', games.length)]
-    .map((s) => `<span>${esc(s)}</span>`).join('<i aria-hidden="true">◆</i>');
+  // The brass strip and the band of game titles above it both slide sideways for ever: each is written
+  // twice in a row and the row moves by half its width. The strip's facts repeat so that one set is
+  // wider than any screen.
+  const stripOnce = [...t.strip, allLangs.join(' · '), t.strip_games.replace('{n}', games.length)]
+    .map((s) => `<span>${esc(s)}</span><i aria-hidden="true">◆</i>`).join('');
+  const strip = stripOnce.repeat(3);
+  const titleSet = `<div class="titles-set">${games.map((g) => `<a href="${playPath(g)}" tabindex="-1">${esc(t.games[g.id].title)}</a><i>✦</i>`).join('')}</div>`;
 
   const org = {
     '@context': 'https://schema.org',
@@ -952,42 +1045,33 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     ogSize: [1200, 630],
     jsonld: org,
     script: homeScript,
-    main: () => `<section class="hero chart">
-  <div class="hero-text">
-    <p class="kicker">${esc(t.hero.eyebrow)} · ${esc(t.hero.route)}</p>
-    <h1>${heroTitle}</h1>
-    <p class="lede">${esc(t.hero.lede)}</p>
-    <div class="actions">
-      <a class="button" href="${playPath(games[0])}">${esc(t.hero.play)} <span aria-hidden="true">→</span></a>
-      <a class="button ghost" href="#games">${esc(t.hero.button)}</a>
+    main: () => `<section id="games" class="hero hero-games">
+  <div class="hero-sky" aria-hidden="true">
+    <canvas class="hero-lights"></canvas>
+    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/><path d="M0 500H1000M500 0V1000" stroke-dasharray="2 8"/></svg>
+    <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
+    <span class="hero-pulse"></span><span class="hero-pulse late"></span>
+  </div>
+  <div class="hero-head">
+    <div>
+      <p class="kicker">${esc(t.hero.eyebrow)} · ${esc(t.hero.route)}</p>
+      <h1>${heroTitle}</h1>
     </div>
+    <p class="lede">${esc(t.hero.lede)}</p>
   </div>
-  <div class="hero-mark" aria-hidden="true">
-    <svg class="rings" viewBox="0 0 520 520" fill="none"><circle cx="260" cy="260" r="250" stroke-dasharray="3 7"/><circle cx="260" cy="260" r="214"/><path d="M0 260H520M260 0V520" stroke-dasharray="2 6"/></svg>
-    <img src="${up}img/logo.svg" alt="" width="380" height="380">
-    <span class="coord north">43°06′N 131°53′E<br>ЗОЛОТОЙ РОГ</span>
-    <span class="coord south">33°51′S 151°13′E<br>PORT JACKSON</span>
-  </div>
+${showcase()}
 </section>
 
-<div class="strip">${strip}</div>
+<div class="titles" aria-hidden="true"><div class="titles-track">${titleSet}${titleSet}</div></div>
+<div class="strip"><div class="strip-track"><div class="strip-set">${strip}</div><div class="strip-set" aria-hidden="true">${strip}</div></div></div>
 
 <main>
-  <section id="games" class="section games">
-    <div class="section-head">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.nav.games)}</p>
-        <h2>${esc(t.games_title)}</h2>
-      </div>
-      <p>${esc(t.games_lede)}</p>
-    </div>
-
-${showcase()}
+  <section class="section games-after">
     ${voiceBlock(t, t.voice.home, { up, cls: 'voice-home reveal' })}
   </section>
 
   <section id="creed" class="section creed chart">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${num()} / ${esc(t.creed.nav)}</p>
         <h2>${esc(t.creed.title)}</h2>
@@ -1004,7 +1088,7 @@ ${t.creed.items.map((i) => `      <li class="creed-item reveal">
   </section>
 
   <section id="experiments" class="section lab">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${num()} / ${esc(t.experiments.nav)}</p>
         <h2>${esc(t.experiments.home_title)}</h2>
@@ -1018,7 +1102,7 @@ ${labHome.slice(0, 3).map((x) => labCard(t, x, up, '')).join('\n')}
   </section>
 
   <section id="log" class="section log">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${num()} / ${esc(t.log.nav)}</p>
         <h2>${esc(t.log.title)}</h2>
@@ -1033,7 +1117,7 @@ ${logItems}
   </section>
 ${videos.length ? `
   <section id="channel" class="section channel">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${num()} / ${esc(t.videos.nav)}</p>
         <h2>${esc(t.videos.title)}</h2>
@@ -1354,7 +1438,7 @@ function labIndex(t) {
     script: talkScript + peekScript,
     main: (up) => `<main>
   <section class="section lab lab-index chart">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${esc(L.nav)} · ${labItems.length}</p>
         <h1>${esc(L.title)}</h1>
@@ -1549,7 +1633,7 @@ function logIndex(t) {
     jsonld: webPage(t, LOGP, t.log.title, L.description),
     main: (up) => `<main>
   <section class="section log log-page chart">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
         <p class="kicker">${esc(t.log.nav)}</p>
         <h1>${esc(t.log.title)}</h1>

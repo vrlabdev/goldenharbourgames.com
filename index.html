@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=c5e0d281">
+  <link rel="stylesheet" href="style.css?v=c807da70">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD","https://apps.apple.com/developer/golden-harbour-games/id6827402542","https://www.youtube.com/@goldenharbourgames","https://www.instagram.com/goldenharbourgames/","https://www.facebook.com/1398649926668969","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
@@ -95,36 +95,20 @@
   </div>
 </header>
 
-<section class="hero chart">
-  <div class="hero-text">
-    <p class="kicker">Independent game studio · Vladivostok ⇄ Sydney</p>
-    <h1>Games from two <span>harbours.</span></h1>
+<section id="games" class="hero hero-games">
+  <div class="hero-sky" aria-hidden="true">
+    <canvas class="hero-lights"></canvas>
+    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/><path d="M0 500H1000M500 0V1000" stroke-dasharray="2 8"/></svg>
+    <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
+    <span class="hero-pulse"></span><span class="hero-pulse late"></span>
+  </div>
+  <div class="hero-head">
+    <div>
+      <p class="kicker">Independent game studio · Vladivostok ⇄ Sydney</p>
+      <h1>Games from two <span>harbours.</span></h1>
+    </div>
     <p class="lede">We love games, so we make the ones we want to play: small, polished and easy to pick up, whoever you are. Three are out on Android and iPhone, and every one of them plays free in your browser.</p>
-    <div class="actions">
-      <a class="button" href="play/aerofire-command/">Play Fire Season <span aria-hidden="true">→</span></a>
-      <a class="button ghost" href="#games">See the games</a>
-    </div>
   </div>
-  <div class="hero-mark" aria-hidden="true">
-    <svg class="rings" viewBox="0 0 520 520" fill="none"><circle cx="260" cy="260" r="250" stroke-dasharray="3 7"/><circle cx="260" cy="260" r="214"/><path d="M0 260H520M260 0V520" stroke-dasharray="2 6"/></svg>
-    <img src="img/logo.svg" alt="" width="380" height="380">
-    <span class="coord north">43°06′N 131°53′E<br>ЗОЛОТОЙ РОГ</span>
-    <span class="coord south">33°51′S 151°13′E<br>PORT JACKSON</span>
-  </div>
-</section>
-
-<div class="strip"><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span></div>
-
-<main>
-  <section id="games" class="section games">
-    <div class="section-head">
-      <div>
-        <p class="kicker">01 / Games</p>
-        <h2>In port now</h2>
-      </div>
-      <p>Small, sharp games: on your phone from Google Play or the App Store, or in a browser tab.</p>
-    </div>
-
     <div class="chips" role="group" aria-label="Show">
       <span class="chips-label">Show</span>
       <button type="button" class="chip" aria-pressed="true" data-platform="">All <small>10</small></button>
@@ -339,6 +323,13 @@
     </div>
     <p class="chips-none" hidden>Nothing plays there yet.</p>
 
+</section>
+
+<div class="titles" aria-hidden="true"><div class="titles-track"><div class="titles-set"><a href="play/aerofire-command/" tabindex="-1">AeroFire Command: Fire Season</a><i>✦</i><a href="play/punch-league/" tabindex="-1">Punch League</a><i>✦</i><a href="play/vr-arcade-story/" tabindex="-1">VR Arcade Story</a><i>✦</i><a href="play/stick-vs-weeds/" tabindex="-1">Stick vs. Weeds</a><i>✦</i><a href="play/orbital-jump/" tabindex="-1">Orbital Jump Reloaded</a><i>✦</i><a href="play/souls-and-estates/" tabindex="-1">Souls &amp; Estates</a><i>✦</i><a href="play/gull-chorus/" tabindex="-1">Gull Chorus</a><i>✦</i><a href="play/roach-invasion/" tabindex="-1">Roach Invasion</a><i>✦</i><a href="play/peregon/" tabindex="-1">Range Anxiety: Far East</a><i>✦</i><a href="play/vladivostok-fortress/" tabindex="-1">Vladivostok Fortress</a><i>✦</i></div><div class="titles-set"><a href="play/aerofire-command/" tabindex="-1">AeroFire Command: Fire Season</a><i>✦</i><a href="play/punch-league/" tabindex="-1">Punch League</a><i>✦</i><a href="play/vr-arcade-story/" tabindex="-1">VR Arcade Story</a><i>✦</i><a href="play/stick-vs-weeds/" tabindex="-1">Stick vs. Weeds</a><i>✦</i><a href="play/orbital-jump/" tabindex="-1">Orbital Jump Reloaded</a><i>✦</i><a href="play/souls-and-estates/" tabindex="-1">Souls &amp; Estates</a><i>✦</i><a href="play/gull-chorus/" tabindex="-1">Gull Chorus</a><i>✦</i><a href="play/roach-invasion/" tabindex="-1">Roach Invasion</a><i>✦</i><a href="play/peregon/" tabindex="-1">Range Anxiety: Far East</a><i>✦</i><a href="play/vladivostok-fortress/" tabindex="-1">Vladivostok Fortress</a><i>✦</i></div></div></div>
+<div class="strip"><div class="strip-track"><div class="strip-set"><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i></div><div class="strip-set" aria-hidden="true"><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>10 games in port</span><i aria-hidden="true">◆</i></div></div></div>
+
+<main>
+  <section class="section games-after">
     <aside class="voice voice-home reveal">
       <h2>In active development</h2>
       <p>Every game here is still being built. We try things, keep what works and change them step by step. Tell us what you think: we read everything and act on it.</p>
@@ -348,9 +339,9 @@
   </section>
 
   <section id="creed" class="section creed chart">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
-        <p class="kicker">02 / What we care about</p>
+        <p class="kicker">01 / What we care about</p>
         <h2>Games first</h2>
       </div>
       <p>We were players long before we were a studio. Four things we hold ourselves to.</p>
@@ -377,9 +368,9 @@
   </section>
 
   <section id="experiments" class="section lab">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
-        <p class="kicker">03 / Experiments</p>
+        <p class="kicker">02 / Experiments</p>
         <h2>From the workshop</h2>
       </div>
       <p>VR, AR, robots and odd ideas. Not all of them become games. All of them teach us something about play.</p>
@@ -411,9 +402,9 @@
   </section>
 
   <section id="log" class="section log">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
-        <p class="kicker">04 / Log</p>
+        <p class="kicker">03 / Log</p>
         <h2>Harbour log</h2>
       </div>
       <p>What changed lately, newest first. Every game on this site is a living build.</p>
@@ -541,9 +532,9 @@
   </section>
 
   <section id="channel" class="section channel">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div>
-        <p class="kicker">05 / Channel</p>
+        <p class="kicker">04 / Channel</p>
         <h2>From the channel</h2>
       </div>
       <p>Short films from the games: the physics, the history and the fights behind them.</p>
@@ -586,7 +577,7 @@
   </section>
 
   <section id="contact" class="section contact chart">
-    <p class="kicker">06 / Contact</p>
+    <p class="kicker">05 / Contact</p>
     <h2>Say hello</h2>
     <p class="contact-text">Press, players, publishers, or someone who has driven the M60 in a Leaf: we read everything.</p>
     <a class="email" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
@@ -599,6 +590,10 @@
   <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
 </footer>
 
+<a class="compass" href="#" aria-label="Back to the top" title="Back to the top">
+  <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#0d1a2d" stroke="#e8b04b" stroke-width="1.5"/><g class="compass-card"><path d="M32 6v6M32 52v6M6 32h6M52 32h6" stroke="#5f7290" stroke-width="1.5" stroke-linecap="round"/><path d="M13.6 13.6l3.6 3.6M46.8 46.8l3.6 3.6M13.6 50.4l3.6-3.6M46.8 17.2l3.6-3.6" stroke="#34496b" stroke-width="1.2" stroke-linecap="round"/></g><g class="compass-needle"><path d="M32 11l6.5 21h-13z" fill="#e8b04b"/><path d="M32 53l6.5-21h-13z" fill="#f3eee2"/><circle cx="32" cy="32" r="2.6" fill="#0d1a2d"/></g></svg>
+</a>
+
 <dialog class="trailer" id="trailer" aria-label="Trailer">
   <button type="button" class="trailer-close" aria-label="Close the trailer">&times;</button>
   <div class="trailer-frame"></div>
@@ -610,7 +605,21 @@
 // opens the film in a dialog instead of leaving for YouTube (middle-click and no-JS still leave).
 (function () {
   var top = document.querySelector('.top');
-  function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
+  // The compass in the corner shows once the page has moved; its needle turns with the scroll.
+  var compass = document.querySelector('.compass'), needle = compass && compass.querySelector('.compass-needle'), card = compass && compass.querySelector('.compass-card');
+  function onScroll() {
+    var y = window.scrollY;
+    top.classList.toggle('is-scrolled', y > 8);
+    if (compass) {
+      compass.classList.toggle('is-on', y > 520);
+      needle.style.transform = 'rotate(' + (y * 0.22).toFixed(1) + 'deg)';
+      card.style.transform = 'rotate(' + (-y * 0.05).toFixed(1) + 'deg)';
+    }
+  }
+  if (compass) compass.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // The menu is a <details>, so it opens without scripting; this closes it on Escape, on a tap
@@ -752,6 +761,9 @@
   var pos = 0, target = 0, vel = 0, fling = 0, running = false;
   var pressed = false, dragging = false, moved = false, sx = 0, spos = 0, lx = 0, lt = 0;
   var w = 1, front = -1, seen = !('IntersectionObserver' in window), resting = false, timer = null;
+  // Landing: on arrival every card flies in from in front of the screen and settles into the ring,
+  // the front one first. land runs 0 to 1 once. Then the front card leans a little toward the mouse.
+  var land = still ? 1 : 0, landT0 = 0, tx = 0, ty = 0, ttx = 0, tty = 0;
   all.forEach(function (c) { c._shade = c.querySelector('.ring-shade'); });
 
   function wrap(d) { var m = cards.length; d = ((d % m) + m) % m; return d > m / 2 ? d - m : d; }
@@ -759,8 +771,16 @@
     var a = Math.abs(d), s = d < 0 ? -1 : 1;
     var x = a <= 1 ? d * w * 0.62 : s * (0.62 + (a - 1) * 0.3) * w;
     var op = a < 2.4 ? 1 : Math.max(0, 1 - (a - 2.4) / 0.7);
-    c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,' + (-Math.min(a, 3) * w * 0.5).toFixed(1) + 'px) rotateY(' +
-      (-s * Math.min(a, 1) * 34).toFixed(2) + 'deg) scale(' + (1 - Math.min(a, 3) * 0.06).toFixed(3) + ')';
+    var fy = 0, fz = 0, fr = 0, lean = '';
+    if (land < 1) {
+      var lt = Math.min(1, Math.max(0, land * 1.8 - Math.min(a, 3) * 0.26)), u = lt - 1;
+      var L = 1 + 2.4 * u * u * u + 1.4 * u * u; // eases out and overshoots a touch: the card lands
+      fy = (1 - L) * -w * 0.55; fz = (1 - L) * 950; fr = (1 - L) * (d < 0 ? -1 : 1) * 16;
+      op *= Math.min(1, lt * 5);
+    }
+    if (a < 0.5 && (tx || ty)) lean = ' rotateX(' + ty.toFixed(2) + 'deg) rotateY(' + tx.toFixed(2) + 'deg)';
+    c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + fy.toFixed(1) + 'px,' + (fz - Math.min(a, 3) * w * 0.5).toFixed(1) + 'px) rotateY(' +
+      (-s * Math.min(a, 1) * 34).toFixed(2) + 'deg) rotateZ(' + fr.toFixed(2) + 'deg)' + lean + ' scale(' + (1 - Math.min(a, 3) * 0.06).toFixed(3) + ')';
     c.style.opacity = op.toFixed(3);
     c._shade.style.opacity = Math.min(a * 0.32, 0.72).toFixed(3);
     var z = 100 - Math.round(a * 10);
@@ -820,8 +840,16 @@
         if (Math.abs(d) < 0.001 && Math.abs(vel) < 0.001) { pos = target; vel = 0; }
       }
     }
+    if (land < 1) {
+      if (!landT0) landT0 = performance.now();
+      land = Math.min(1, (performance.now() - landT0) / 1700);
+      if (land === 1) { var hero = stage.closest('.hero'); if (hero) hero.classList.add('is-landed'); }
+    }
+    tx += (ttx - tx) * 0.14; ty += (tty - ty) * 0.14;
+    var leaning = Math.abs(ttx - tx) > 0.03 || Math.abs(tty - ty) > 0.03;
+    if (!leaning) { tx = ttx; ty = tty; }
     render();
-    if (dragging || fling || vel || pos !== target) requestAnimationFrame(frame); else { running = false; clips(); }
+    if (dragging || fling || vel || pos !== target || land < 1 || leaning) requestAnimationFrame(frame); else { running = false; clips(); }
   }
   function kick() {
     if (still) { pos = target; fling = vel = 0; render(); clips(); return; }
@@ -875,6 +903,16 @@
     kick(); arm();
   }
   scene.addEventListener('pointerup', release);
+  if (!still) {
+    scene.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse' || dragging) return;
+      var r = scene.getBoundingClientRect();
+      ttx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / w)) * 7;
+      tty = -Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / (r.height / 2))) * 5;
+      kick();
+    });
+    scene.addEventListener('pointerleave', function () { ttx = tty = 0; kick(); });
+  }
   scene.addEventListener('pointercancel', release);
   // A click after a drag does nothing; a click on a card at the side turns it to the front.
   scene.addEventListener('click', function (e) {
@@ -927,10 +965,51 @@
   stage.classList.add('is-live');
   measure();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-  if (!still) { pos = -2.2; target = 0; }
+  if (!still) { pos = -0.8; target = 0; }
   render();
   requestAnimationFrame(function () { stage.classList.add('is-in'); kick(); });
   arm();
+})();
+
+// Harbour lights: small points drifting up behind the games, shifting a little with the mouse. One
+// canvas, drawn only while the top of the page is on screen; not at all for those who asked for
+// less motion or have Data Saver on.
+(function () {
+  var c = document.querySelector('.hero-lights');
+  if (!c || !c.getContext || window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
+  var hero = c.closest('.hero'), ctx = c.getContext('2d');
+  var W = 0, H = 0, pts = [], on = true, going = false, mx = 0, my = 0, sx = 0, sy = 0;
+  function size() {
+    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    W = hero.offsetWidth; H = hero.offsetHeight;
+    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(110, W * H / 13000));
+    pts = [];
+    for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: 0.6 + Math.random() * 1.9, s: 0.12 + Math.random() * 0.5, p: Math.random() * 6.28, g: Math.random() < 0.34 });
+  }
+  function draw(t) {
+    going = false;
+    if (!on || document.hidden) return;
+    sx += (mx - sx) * 0.05; sy += (my - sy) * 0.05;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var q = pts[i];
+      q.y -= q.s * 0.45; q.x += Math.sin(t / 2600 + q.p) * 0.18;
+      if (q.y < -6) { q.y = H + 6; q.x = Math.random() * W; }
+      ctx.globalAlpha = 0.18 + 0.5 * (0.5 + 0.5 * Math.sin(t / 800 + q.p));
+      ctx.fillStyle = q.g ? '#e8b04b' : '#7fa2d6';
+      ctx.beginPath(); ctx.arc(q.x - sx * q.r * 14, q.y - sy * q.r * 10, q.r, 0, 6.2832); ctx.fill();
+    }
+    go();
+  }
+  function go() { if (!going && on) { going = true; requestAnimationFrame(draw); } }
+  hero.addEventListener('pointermove', function (e) { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { on = es[0].isIntersecting; go(); }).observe(hero);
+  document.addEventListener('visibilitychange', go);
+  var q2 = false;
+  window.addEventListener('resize', function () { if (q2) return; q2 = true; requestAnimationFrame(function () { q2 = false; size(); }); });
+  size(); go();
 })();
 
 // Old links to parts of this page that now have pages of their own still arrive.

@@ -936,3 +936,108 @@ a.oar-game:hover { color: var(--gold-hi); }
   .wordmark small { display: none; }
   .menu-col a { font-size: 16px; padding: 8px 0; }
 }
+
+/* ---- 18 Nov 2026, design round: the games are the landing screen. The hero is the ring itself, the
+   cards fly in and land, harbour lights drift behind them, the chart rings turn with three small
+   lights in orbit, two bands slide under it (game titles one way, the brass strip the other), and a
+   compass in the corner turns with the scroll. Everything that moves is a transform or an opacity;
+   all of it stops for visitors who asked for less motion. ---- */
+.hero.hero-games { display: block; position: relative; isolation: isolate; overflow: clip; padding: clamp(18px, 2.4vw, 34px) var(--pad) clamp(20px, 3vw, 40px); }
+.hero-sky { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.hero-lights { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-rings { position: absolute; left: 50%; top: 56%; width: min(1500px, 170vw); height: auto; aspect-ratio: 1; stroke: var(--line-2); opacity: 0.6; animation: heroturn 150s linear infinite; }
+@keyframes heroturn { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+.orbit { position: absolute; left: 50%; top: 56%; width: var(--d); height: var(--d); margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); border-radius: 50%; animation: turn var(--t) linear infinite; }
+.orbit i { position: absolute; left: 50%; top: -5px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 16px 3px rgba(232, 176, 75, 0.65); }
+.orbit.o1 { --d: min(1200px, 136vw); --t: 44s; }
+.orbit.o2 { --d: min(900px, 102vw); --t: 30s; animation-direction: reverse; }
+.orbit.o2 i { width: 7px; height: 7px; top: -3.5px; margin-left: -3.5px; background: #9cc0f2; box-shadow: 0 0 14px 3px rgba(143, 180, 234, 0.7); }
+.orbit.o3 { --d: min(1476px, 167vw); --t: 70s; }
+.orbit.o3 i { background: var(--red); box-shadow: 0 0 14px 3px rgba(224, 83, 61, 0.6); width: 8px; height: 8px; }
+.hero-pulse { position: absolute; left: 50%; top: 50%; width: 320px; height: 320px; margin: -160px 0 0 -160px; border-radius: 50%; border: 2px solid var(--gold); opacity: 0; }
+.hero.is-landed .hero-pulse { animation: landpulse 1.3s cubic-bezier(0.2, 0.7, 0.2, 1) 1 both; }
+.hero.is-landed .hero-pulse.late { animation-delay: 0.22s; border-color: #9cc0f2; }
+@keyframes landpulse { 0% { opacity: 0.85; transform: scale(0.5); } 100% { opacity: 0; transform: scale(4.6); } }
+.hero-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 56px; margin-bottom: clamp(12px, 1.6vw, 22px); }
+.hero-games .kicker { margin-bottom: 10px; }
+.hero.hero-games h1 { font-size: clamp(30px, 4.3vw, 62px); }
+.hero-games .lede { margin: 0; max-width: 31em; font-size: clamp(15px, 1.2vw, 18px); }
+.js .hero-games .hero-head { animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-games h1 span { background: linear-gradient(100deg, var(--gold) 42%, #fff1c4 50%, var(--gold) 58%) 0 0 / 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 6s linear infinite; }
+@keyframes shine { from { background-position: 100% 0; } to { background-position: -160% 0; } }
+.hero-games .chips { margin: 0 0 4px; }
+.hero-games .ring-stage { background: radial-gradient(ellipse 46% 62% at 50% 46%, rgba(30, 58, 98, 0.5), transparent 72%); }
+.hero-games .ring-stage.is-live .ring-scene { perspective: 1500px; }
+.ring-stage.is-live .ring-card.is-front { box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 70px rgba(232, 176, 75, 0.2); }
+/* a line of light crosses the cover of the card that has just come to the front */
+.ring-cover::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; background: linear-gradient(105deg, transparent 38%, rgba(255, 244, 214, 0.38) 50%, transparent 62%); transform: translateX(-110%); }
+.ring-stage.is-live .ring-card.is-front .ring-cover::after { animation: sweep 1.1s ease-out 0.15s 1; }
+@keyframes sweep { 0% { opacity: 1; transform: translateX(-110%); } 100% { opacity: 1; transform: translateX(110%); } }
+.section.games-after { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
+
+/* the two bands */
+.titles { overflow: hidden; padding: 16px 0 14px; background: #091322; border-top: 1px solid #1e3150; }
+.titles-track, .strip-track { display: flex; width: max-content; }
+.titles-track { animation: slide 80s linear infinite; }
+.titles-set { display: flex; align-items: center; gap: 34px; padding-right: 34px; }
+.titles a { font: 800 clamp(30px, 4.6vw, 64px)/1.1 var(--display); letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; text-decoration: none; color: transparent; -webkit-text-stroke: 1.5px #3d5a88; transition: color 0.2s, -webkit-text-stroke-color 0.2s; }
+.titles a:hover { color: var(--gold); -webkit-text-stroke-color: var(--gold); }
+.titles i { font-style: normal; font-size: 20px; color: var(--gold); }
+.strip { display: block; padding: 0; overflow: hidden; }
+.strip-track { animation: slide 60s linear infinite reverse; }
+.strip-set { display: flex; align-items: center; gap: 30px; padding: 18px 30px 18px 0; white-space: nowrap; }
+.strip i { display: inline; }
+.titles:hover .titles-track, .strip:hover .strip-track { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* the compass */
+.compass { position: fixed; right: clamp(14px, 2.4vw, 32px); bottom: clamp(14px, 2.4vw, 32px); z-index: 18; display: block; width: 56px; height: 56px; border-radius: 50%; opacity: 0; transform: translateY(16px) scale(0.8); pointer-events: none; transition: opacity 0.3s, transform 0.3s; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5); }
+.compass.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.compass:hover { transform: scale(1.08); }
+.compass svg { display: block; }
+.compass-needle, .compass-card { transform-origin: 32px 32px; transition: transform 0.25s ease-out; }
+@media (max-width: 860px) { .hint:not([hidden]) ~ .compass { bottom: 96px; } }
+
+/* things in a row arrive one after another */
+.js .creed-item.reveal:nth-child(2), .js .video.reveal:nth-child(2), .js .lab-grid > .reveal:nth-child(2) { transition-delay: 0.09s; }
+.js .creed-item.reveal:nth-child(3), .js .video.reveal:nth-child(3), .js .lab-grid > .reveal:nth-child(3) { transition-delay: 0.18s; }
+.js .creed-item.reveal:nth-child(4), .js .video.reveal:nth-child(4) { transition-delay: 0.27s; }
+.js .reveal { transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); transform: translateY(26px) scale(0.985); }
+
+@media (max-width: 860px) {
+  .hero-head { display: block; margin-bottom: 10px; }
+  .hero-games .lede { display: none; }
+  .hero-games .kicker { font-size: 10.5px; margin-bottom: 6px; }
+  .hero-games .chips-label { display: none; }
+  .hero-games .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--pad)) 2px; padding: 0 var(--pad); }
+  .hero-games .chips::-webkit-scrollbar { display: none; }
+  .hero-games .chip { flex: none; }
+  .hero-rings { top: 50%; }
+  .orbit { top: 50%; }
+  .strip { font-size: 12px; }
+  .strip-set { padding-top: 14px; padding-bottom: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rings, .orbit, .titles-track, .strip-track, .hero-games h1 span, .js .hero-games .hero-head, .hero.is-landed .hero-pulse, .ring-stage.is-live .ring-card.is-front .ring-cover::after { animation: none; }
+  .hero-rings { transform: translate(-50%, -50%); }
+  .hero-lights, .orbit { display: none; }
+  .titles, .strip { overflow-x: auto; }
+  .compass, .compass-needle, .compass-card { transition: none; }
+}
+
+/* on a computer the headline is one line, so the cards start high; on a short screen the covers are
+   cut a little so the Play button of the front card is still on the first screen */
+@media (min-width: 861px) {
+  .hero.hero-games { padding-top: clamp(14px, 1.6vw, 24px); }
+  .hero.hero-games h1 { font-size: clamp(28px, 3.3vw, 46px); white-space: nowrap; }
+  .hero-head { align-items: center; margin-bottom: 14px; }
+  .hero-games .kicker { margin-bottom: 8px; }
+  .hero-games .lede { font-size: clamp(14px, 1.1vw, 16.5px); line-height: 1.45; }
+  .hero-games .ring-stage.is-live .ring-card { top: 6px; }
+}
+@media (min-width: 861px) and (max-height: 1000px) {
+  .hero-games .ring-cover { aspect-ratio: 630 / 400; }
+  .hero-games .ring-body { gap: 7px; padding: 14px 20px 18px; }
+  .hero-games .ring-body .text { font-size: 14.5px; line-height: 1.45; }
+}
