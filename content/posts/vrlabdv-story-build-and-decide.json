@@ -1,0 +1,144 @@
+{
+  "slug": "vrlabdv-story-build-and-decide",
+  "date": "2026-11-17",
+  "game": "vrlabdv-story",
+  "cover": "img/log/vrlabdv-story-build-and-decide/1_today.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "The first version had no gameplay. He said so",
+    "description": "VRLABDV Story is a small tycoon game about a real VR lab in Vladivostok. Its first build made you do the staff’s chores by hand and was thrown away the same day. What replaced it, what else got rejected in two days, and where the game is going.",
+    "body": [
+      {
+        "p": "In 2016 one of us opened a VR lab on the ground floor of a panel block in Vladivostok. Two stations, a pharmacy next door, a back room full of somebody else’s junk. On Monday 16 November we started a game about it, and since Tuesday it has been [public on itch.io](https://goldenharbourgames.itch.io/vrlabdv-story), free in a browser."
+      },
+      {
+        "p": "It is a tycoon game in the small, friendly tradition: a cutaway building, tiny people, a business that grows room by room. In the game the lab never stops growing, and one day it moves to San Francisco. The real one never got that far."
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/1_today.jpg",
+        "alt": "VRLABDV Story today: the morning before opening, build mode, and the games shop"
+      },
+      {
+        "h": "The first build: wiping lenses"
+      },
+      {
+        "p": "The first playable version was a chore loop. A guest walks in, you tap to seat them. A lens gets greasy, you tap to wipe it. A cable tangles, you tap to untangle it. It ran, it had art, it passed its checks."
+      },
+      {
+        "p": "The verdict from the person who ran the real lab: \"It’s small. The gameplay: zero.\""
+      },
+      {
+        "p": "He was right, and the reason is worth writing down. In this kind of game the fun is in deciding, not in doing. Nobody plays a shop game to work the till. We had built the staff’s job and handed it to the player."
+      },
+      {
+        "p": "So the loop was replaced the same day. Guests and staff now run themselves. You decide what stands where, which game plays on which station, who to hire and what to do with the back room. Guests arrive wanting a kind of game, and if nothing in the hall plays it they go home and say so. The next verdicts, in order: \"OK. Better.\" Then, after an hour with build 10: \"It’s pretty cool.\" After build 14: \"We are definitely on the right track.\" After build 20: \"This is getting close to a good game.\""
+      },
+      {
+        "h": "Three more things that got thrown away"
+      },
+      {
+        "list": [
+          "**A wall of menus.** After build 18: \"I like it, but the menus, the arrows. I don’t like it.\" We rewrote the interface three times from a written list of rules and missed three times. Then we drew two directions as pictures and he picked one in a minute. The lesson is ours: for how a thing looks and feels, show a picture to choose from before building anything.",
+          "**Ready-made art packs.** We tested whether open asset packs could replace our pixel art, which is drawn by code. His answer to the test picture: \"That pack is bad. No way.\" The code-drawn art stays, and gets pushed further.",
+          "**Low walls.** We cut the walls down so they would never hide the floor. It looked \"like the roof is on the ground\". The walls are back, with three ways to show them."
+        ]
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/2_before_after.jpg",
+        "alt": "The interface on Monday night (left) and on Tuesday (right)"
+      },
+      {
+        "h": "Two bugs that looked like design problems"
+      },
+      {
+        "p": "\"The games end very fast\" sounded like a balance complaint: not enough games in the shop. The cause was one helpful button. The suggested line-up put the same title on every station, so every guest who wanted that kind of game played it out in a day. The line-up now spreads titles and is made fresh each morning."
+      },
+      {
+        "p": "And five fully trained staff could not keep up with ten stations, which made training look pointless. The staff numbers were not reaching the part of the game that decides how fast work gets done. Now they do, and one person can honestly cover two or three stations of the first kit, and not four."
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/3_san_francisco.jpg",
+        "alt": "The second level, San Francisco; the team; the day’s line-up"
+      },
+      {
+        "h": "Where it is going"
+      },
+      {
+        "p": "This is a plan and not a promise. Four acts: Vladivostok in 2016 with VR pods, which is what you can play now, with San Francisco as a first sketch of the second; San Francisco in 2020 with free-roam arenas you drag out to any size; a campus where the lab’s research turns into whole departments; and New York, where the grown-up kid of the founders builds something odd and tall."
+      },
+      {
+        "p": "The build on the page changes every few days. If you run it and something feels slow, confusing or dull, tell us: contact@goldenharbourgames.com or the comments on the itch page. As you can see above, one sentence is enough to get something thrown away."
+      }
+    ]
+  },
+  "ru": {
+    "title": "В первой версии не было геймплея. Он так и сказал",
+    "description": "VRLABDV Story — маленький тайкун про настоящую VR-лабораторию во Владивостоке. В первой сборке игрок руками делал работу сотрудников, и её выбросили в тот же день. Что пришло на смену, что ещё мы выбросили за два дня и куда игра идёт.",
+    "body": [
+      {
+        "p": "В 2016 году один из нас открыл VR-лабораторию на первом этаже панельки во Владивостоке. Две станции, аптека за стеной, задняя комната с чужим хламом. В понедельник 16 ноября мы начали делать про это игру, а со вторника она [открыта на itch.io](https://goldenharbourgames.itch.io/vrlabdv-story), бесплатно, в браузере."
+      },
+      {
+        "p": "Это тайкун в маленькой уютной традиции: дом в разрезе, крошечные люди, дело, которое растёт комната за комнатой. В игре лаборатория не перестаёт расти и однажды переезжает в Сан-Франциско. Настоящая так далеко не дошла."
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/1_today.jpg",
+        "alt": "VRLABDV Story сегодня: утро перед открытием, режим стройки и магазин игр"
+      },
+      {
+        "h": "Первая сборка: протирать линзы"
+      },
+      {
+        "p": "Первая играбельная версия была про мелкие дела. Вошёл гость — нажми, чтобы усадить. Запачкалась линза — нажми, чтобы протереть. Запутался провод — нажми, чтобы распутать. Она работала, в ней была графика, она проходила проверки."
+      },
+      {
+        "p": "Вердикт человека, который вёл настоящую лабораторию: «Маленько. Геймплея — ноль»."
+      },
+      {
+        "p": "Он был прав, и причину стоит записать. В таких играх интересно решать, а не делать. Никто не играет в магазин, чтобы стоять за кассой. Мы построили работу сотрудника и вручили её игроку."
+      },
+      {
+        "p": "Поэтому в тот же день игру переделали. Гости и сотрудники теперь живут сами. Вы решаете, что где стоит, какая игра идёт на какой станции, кого нанять и что делать с задней комнатой. Гости приходят за определённым видом игр, и если в зале его нет, уходят домой и говорят об этом. Следующие вердикты по порядку: «Ок. Лучше». После часа в десятой сборке: «Довольно круто». После четырнадцатой: «Мы точно на верном пути». После двадцатой: «Это уже близко к хорошей игре»."
+      },
+      {
+        "h": "Ещё три вещи, которые мы выбросили"
+      },
+      {
+        "list": [
+          "**Стена меню.** После восемнадцатой сборки: «Мне нравится, но меню, стрелки… Не нравится». Мы трижды переписывали интерфейс по списку правил и трижды промахнулись. Потом нарисовали два направления картинками, и он выбрал за минуту. Урок наш: когда речь о том, как вещь выглядит и ощущается, сначала покажи картинку на выбор, потом строй.",
+          "**Готовые наборы графики.** Мы проверили, можно ли заменить открытыми наборами нашу пиксельную графику, которая рисуется кодом. Его ответ на пробную картинку: «Этот набор плохой. Ни за что». Графика из кода остаётся, и мы тянем её дальше.",
+          "**Низкие стены.** Мы срезали стены, чтобы они никогда не закрывали пол. Вышло, «будто крыша лежит на земле». Стены вернулись, и показывать их можно тремя способами."
+        ]
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/2_before_after.jpg",
+        "alt": "Интерфейс в ночь на вторник (слева) и во вторник днём (справа)"
+      },
+      {
+        "h": "Две ошибки, похожие на проблемы дизайна"
+      },
+      {
+        "p": "«Игры кончаются очень быстро» звучало как жалоба на баланс: мало игр в магазине. Причиной была одна услужливая кнопка. Предложенное расписание ставило одну и ту же игру на все станции, и все гости, которым хотелось такого, за день наигрывались. Теперь расписание раскладывает разные игры и каждое утро составляется заново."
+      },
+      {
+        "p": "А пятеро полностью обученных сотрудников не справлялись с десятью станциями, и обучение казалось бессмысленным. Показатели людей не доходили до той части игры, которая решает, как быстро делается работа. Теперь доходят: один человек честно держит две-три станции первого поколения, но не четыре."
+      },
+      {
+        "img": "img/log/vrlabdv-story-build-and-decide/3_san_francisco.jpg",
+        "alt": "Второй уровень, Сан-Франциско; команда; расписание на день"
+      },
+      {
+        "h": "Куда всё идёт"
+      },
+      {
+        "p": "Это план, а не обещание. Четыре акта: Владивосток 2016 года с VR-станциями — в это можно играть уже сейчас, а Сан-Франциско пока есть как первый набросок второго акта; Сан-Франциско 2020 года с аренами свободного перемещения, которые растягиваются до любого размера; кампус, где исследования лаборатории превращаются в целые отделы; и Нью-Йорк, где выросший ребёнок основателей строит что-то странное и высокое."
+      },
+      {
+        "p": "Сборка на странице меняется каждые несколько дней. Если вы её запустите и что-то покажется медленным, непонятным или скучным, напишите: contact@goldenharbourgames.com или в комментариях на itch. Как видно выше, одной фразы хватает, чтобы что-нибудь выбросили."
+      }
+    ]
+  }
+}

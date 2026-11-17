@@ -57,6 +57,25 @@
     "app_store": "https://apps.apple.com/app/punch-league/id6827402540"
   },
   {
+    "id": "vrlabdv-story",
+    "itch": "https://goldenharbourgames.itch.io/vrlabdv-story",
+    "cover": "img/vrlabdv-story.jpg",
+    "platforms": [
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 20590235,
+    "frame": [
+      432,
+      768
+    ],
+    "new": true
+  },
+  {
     "id": "stick-vs-weeds",
     "itch": "https://goldenharbourgames.itch.io/stick-vs-weeds",
     "cover": "img/stick-vs-weeds.jpg",
@@ -73,7 +92,8 @@
       1280,
       720
     ],
-    "new": true
+    "new": true,
+    "clip": "img/clips/stick-vs-weeds.mp4"
   },
   {
     "id": "orbital-jump",

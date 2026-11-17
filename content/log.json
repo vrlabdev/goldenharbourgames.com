@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-11-17",
+    "game": "vrlabdv-story",
+    "post": "vrlabdv-story-build-and-decide",
+    "en": "VRLABDV Story joins the port: a small tycoon game about the VR lab one of us ran in Vladivostok in 2016. Its first build had no gameplay and was thrown away the same day. The devlog says what replaced it.",
+    "ru": "VRLABDV Story в порту: маленький тайкун про VR-лабораторию, которую один из нас вёл во Владивостоке в 2016 году. В первой сборке не было геймплея, и её выбросили в тот же день. Что пришло на смену — в девлоге."
+  },
+  {
+    "date": "2026-11-17",
+    "game": "stick-vs-weeds",
+    "post": "stick-vs-weeds-hands-and-map",
+    "en": "Stick vs. Weeds, build 81: fists that finally close round the stick, a village with a map and a route for each day, a wide screen on phones, and four phone faults traced to four small causes.",
+    "ru": "«Отп*зди траву», сборка 81: кулаки наконец сомкнулись на палке, у посёлка появились карта и маршрут на каждый день, на телефоне игра идёт в горизонтальном положении, а у четырёх телефонных бед нашлись четыре маленькие причины."
+  },
+  {
+    "date": "2026-11-17",
+    "game": "vladivostok-fortress",
+    "post": "fortress-the-landing",
+    "en": "Vladivostok Fortress is being rebuilt as an action strategy game about a landing that never happened. The first alpha looked fine and nobody knew what to do in it. Nothing to play yet; the devlog shows where it stands.",
+    "ru": "«Владивостокскую крепость» мы пересобираем как стратегию с боем о десанте, которого не было. Первая альфа выглядела неплохо, и никто не понимал, что в ней делать. Играть пока не во что; в девлоге — где мы сейчас."
+  },
+  {
     "date": "2026-11-16",
     "game": "stick-vs-weeds",
     "post": "stick-vs-weeds-three-days",

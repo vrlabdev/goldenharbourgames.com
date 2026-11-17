@@ -1,0 +1,154 @@
+{
+  "slug": "fortress-the-landing",
+  "date": "2026-11-17",
+  "game": "vladivostok-fortress",
+  "cover": "img/log/fortress-the-landing/1_approach.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Vladivostok Fortress is being rebuilt as a battle",
+    "description": "We have reopened Vladivostok Fortress as an action strategy game about a landing that never happened. The first alpha looked fine and nobody knew what to do in it. What we kept from the old game, and what the second alpha does differently.",
+    "body": [
+      {
+        "p": "[Vladivostok Fortress](https://goldenharbourgames.com/play/vladivostok-fortress/) is our slowest game: a narrative strategy about an engineer officer who lands in 1899 and builds a fortress with money he does not control. It is still there and still playable. But this week we reopened the fortress as a different kind of game, and since we build in the open, here it is, early and unfinished. There is nothing to play yet."
+      },
+      {
+        "h": "A landing that never happened"
+      },
+      {
+        "p": "The real fortress was shelled once from the sea, in 1904, and never stormed. The working title of the new game is The Landing, and its question is what would have happened in 1905 if someone had tried. You command the whole fortress, on one board, for the length of a siege."
+      },
+      {
+        "p": "Nothing of the research was thrown away. The old game left us the real works, the real relief of the hills, the maps and the officers. The new board is built from actual height data of the peninsula and of Russky Island."
+      },
+      {
+        "img": "img/log/fortress-the-landing/1_approach.jpg",
+        "alt": "The sea approaches in the second alpha: a fort and a coast battery, landing boats coming in under a cruiser’s guns, a torpedo boat going out"
+      },
+      {
+        "h": "The look came from one picture"
+      },
+      {
+        "p": "Our first idea was a flat staff map: contour lines, pencil arrows, the way an officer would have seen it. It was dropped the moment a better picture turned up: a painted relief model seen from above. Sculpted green hills with soft shadows, pale concrete forts on the hilltops, turquoise shallows going to deep teal, ships with long wakes. \"I like this style.\" That is the look now."
+      },
+      {
+        "h": "The first alpha: \"unclear\""
+      },
+      {
+        "p": "The first design split the fortress into small sector battles. It was rejected in a sentence: \"It was designed to be one big thing.\" So the second draft is one board for the whole fortress, and a day that is replayed from its morning if you lose it."
+      },
+      {
+        "p": "The first alpha gave every work a card with three postures: shelter, fight, sortie. The enemy bombards, storms or saps, and you answer. On paper that is a clean game of rock, paper, scissors. In the hand it was this: the works sat in shelter, nothing fired, and the player did not know what he was supposed to do. His verdict was \"looks not bad\" and, about the rest, \"unclear\", with a stronger word attached."
+      },
+      {
+        "p": "We asked what his hands should be doing in a game like this: shoot, build, move forces or give orders. He picked all four."
+      },
+      {
+        "img": "img/log/fortress-the-landing/3_board.jpg",
+        "alt": "The whole board: the peninsula and all of Russky Island, with the reach of one battery drawn on the water"
+      },
+      {
+        "h": "The second alpha: hands on the map"
+      },
+      {
+        "p": "So the cards are gone, and the second alpha, built the same day, puts everything on the map."
+      },
+      {
+        "list": [
+          "Select a fort or a battery and right-click a ship: it fires.",
+          "Spend supplies to place a field battery, mines, wire or a trench where you think the boats will come in.",
+          "Move battalions, Cossacks and torpedo boats.",
+          "Tell a work to hold fire, fire at will or take cover.",
+          "The first day is guided: nine steps, with a pointer on the map, so that nobody sits wondering why nothing shoots."
+        ]
+      },
+      {
+        "img": "img/log/fortress-the-landing/2_mid.jpg",
+        "alt": "The peninsula from higher up"
+      },
+      {
+        "p": "Shells, men and time are the three things you never have enough of. That part of the design has survived both alphas."
+      },
+      {
+        "h": "What is not decided"
+      },
+      {
+        "p": "Most of it. The second alpha has not had its verdict yet. The pictures on this page are from a test scene, not from a finished battle. It may change shape again, and if it does we will say so here. If you know the fortress, or you just like games where a coast battery matters, write to us: contact@goldenharbourgames.com."
+      }
+    ]
+  },
+  "ru": {
+    "title": "«Владивостокскую крепость» мы пересобираем как бой",
+    "description": "Мы заново открыли «Владивостокскую крепость» как стратегию с боем о десанте, которого не было. Первая альфа выглядела неплохо, и никто не понимал, что в ней делать. Что осталось от старой игры и что вторая альфа делает иначе.",
+    "body": [
+      {
+        "p": "[«Владивостокская крепость»](https://goldenharbourgames.com/ru/play/vladivostok-fortress/) — самая неторопливая наша игра: повествовательная стратегия про инженерного офицера, который сходит на берег в 1899 году и строит крепость на деньги, которыми не распоряжается. Она на месте, и в неё можно играть. Но на этой неделе мы открыли крепость заново, уже как игру другого рода. Мы делаем игры открыто, поэтому показываем её сейчас, раннюю и недоделанную. Играть пока не во что."
+      },
+      {
+        "h": "Десант, которого не было"
+      },
+      {
+        "p": "Настоящую крепость один раз обстреляли с моря, в 1904 году, и ни разу не штурмовали. Рабочее название новой игры — «Десант», и её вопрос: что было бы в 1905-м, если бы кто-то попробовал. Вы командуете всей крепостью, на одной доске, всю осаду."
+      },
+      {
+        "p": "Из исследований ничего не выброшено. От старой игры остались настоящие укрепления, настоящий рельеф сопок, карты и офицеры. Новая доска построена по реальным данным высот полуострова и острова Русский."
+      },
+      {
+        "img": "img/log/fortress-the-landing/1_approach.jpg",
+        "alt": "Морские подступы во второй альфе: форт и береговая батарея, десантные шлюпки идут под прикрытием крейсера, миноносец выходит навстречу"
+      },
+      {
+        "h": "Облик пришёл с одной картинки"
+      },
+      {
+        "p": "Сначала мы думали о плоской штабной карте: горизонтали, карандашные стрелки, как видел бы офицер. От неё отказались в ту минуту, когда нашлась картинка лучше: раскрашенный рельефный макет, вид сверху. Зелёные сопки с мягкими тенями, светлые бетонные форты на вершинах, бирюзовое мелководье, которое уходит в тёмную морскую глубину, корабли с длинным следом. «Мне нравится этот стиль». Теперь это облик игры."
+      },
+      {
+        "h": "Первая альфа: «непонятно»"
+      },
+      {
+        "p": "Первый вариант делил крепость на маленькие бои по участкам. Его отклонили одной фразой: «Она задумана как одно большое целое». Поэтому во втором варианте одна доска на всю крепость, а проигранный день переигрывается с утра."
+      },
+      {
+        "p": "В первой альфе у каждого укрепления была карточка с тремя положениями: укрыться, вести бой, вылазка. Противник обстреливает, штурмует или ведёт сапу, а вы отвечаете. На бумаге это чистые «камень, ножницы, бумага». В руках вышло так: укрепления сидели в укрытии, никто не стрелял, а игрок не понимал, что от него требуется. Его вердикт: «выглядит неплохо» и, про всё остальное, «непонятно», с крепким словом в придачу."
+      },
+      {
+        "p": "Мы спросили, что в такой игре должны делать руки: стрелять, строить, двигать войска или отдавать приказы. Он выбрал все четыре."
+      },
+      {
+        "img": "img/log/fortress-the-landing/3_board.jpg",
+        "alt": "Вся доска: полуостров и весь остров Русский, на воде отмечена дальность одной батареи"
+      },
+      {
+        "h": "Вторая альфа: руки на карте"
+      },
+      {
+        "p": "Карточек больше нет, а вторая альфа, собранная в тот же день, переносит всё на карту."
+      },
+      {
+        "list": [
+          "Выберите форт или батарею и щёлкните правой кнопкой по кораблю: они откроют огонь.",
+          "Тратьте припасы, чтобы поставить полевую батарею, мины, проволоку или окоп там, где, по-вашему, подойдут шлюпки.",
+          "Двигайте батальоны, казаков и миноносцы.",
+          "Приказывайте укреплению не стрелять, стрелять по готовности или уйти в укрытие.",
+          "Первый день идёт с подсказками: девять шагов и указатель на карте, чтобы никто не сидел и не гадал, почему ничего не стреляет."
+        ]
+      },
+      {
+        "img": "img/log/fortress-the-landing/2_mid.jpg",
+        "alt": "Полуостров с высоты"
+      },
+      {
+        "p": "Снаряды, люди и время — три вещи, которых всегда не хватает. Эта часть замысла пережила обе альфы."
+      },
+      {
+        "h": "Что не решено"
+      },
+      {
+        "p": "Почти всё. Вердикта по второй альфе ещё нет. Картинки на этой странице сняты в тестовой сцене, а не в готовом бою. Игра может снова поменять форму, и если поменяет, мы напишем об этом здесь. Если вы знаете крепость или просто любите игры, где береговая батарея что-то значит, напишите нам: contact@goldenharbourgames.com."
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "slug": "stick-vs-weeds-hands-and-map",
+  "date": "2026-11-17",
+  "game": "stick-vs-weeds",
+  "cover": "img/log/stick-vs-weeds-hands-and-map/1_fork.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Why the hands kept looking wrong",
+    "description": "Stick vs. Weeds, builds 57 to 81: the hands that drew a complaint in every build and what was actually wrong with them, four phone faults that each had one small cause, and the village that now has a map.",
+    "body": [
+      {
+        "p": "Last time [we wrote about Stick vs. Weeds](https://goldenharbourgames.com/log/stick-vs-weeds-three-days/) it was three days old and on build 56. It is now on build 81. Most of what happened in between came from one person playing it on a phone and on a PC and saying what was wrong."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/1_fork.jpg",
+        "alt": "A fork in the village. Left: Klubnaya street, nettles, lots of experience. Straight on: the heating main, quiet, a kiosk"
+      },
+      {
+        "h": "The hands"
+      },
+      {
+        "p": "The complaint that would not go away was the hands. \"Hands bad.\" \"Still crazy.\" And finally a sentence we will not print. We remodelled them, repainted them and re-posed them, and each time they were wrong again."
+      },
+      {
+        "p": "There were two causes, and neither was the model."
+      },
+      {
+        "list": [
+          "**The hands pointed the wrong way.** They were set so that the player looked straight down his own forearm. However good a hand is, from that angle it is a stump with knuckles. Turning the hands 42 degrees, so the fingers face you, fixed more than every remodel before it.",
+          "**The fists were not closed.** The stick’s handle was 5.4 centimetres thick, and an eight-year-old’s fingers cannot close round that. So the fingers sat open round it like claws, with the thumb sticking out. We tried to find a closed pose by searching finger angles at random and scoring the result. That did not work. What worked was geometry: wind each finger joint onto a circle round the handle, put the thumb over the index finger, and whittle the handle thinner, with a knob at the end, the way a kid would."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/3_before.jpg",
+        "alt": "Before: fingers open round the stick, bottom right"
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/2_hands.jpg",
+        "alt": "The fists now: closed round a handle whittled thin"
+      },
+      {
+        "p": "The hand itself is now an open one: the generic hand model published for web VR, under the MIT licence. We also built a small tool that draws only the hands and the stick, in every pose, so that nobody has to play a whole day to judge a thumb. His verdict on the new fists is not in yet."
+      },
+      {
+        "h": "Four phone faults, four small causes"
+      },
+      {
+        "list": [
+          "**The game quit in the middle of a fight.** On his phone a swipe from the left edge means \"back\", and the game was held upright, so a good swing at a nettle closed the game. It now plays sideways by default, and back opens the pause page.",
+          "**The settings did nothing.** Each switch reacted to the finger lifting and, one frame later, to the button’s own press. Every tap flipped it twice. There is now a test that taps every switch on every page with real touch events.",
+          "**Tilting the phone did nothing either.** The engine ships with the motion sensors turned off, and we had never turned them on. Tilting now turns Seryoga’s head, up to thirty degrees.",
+          "**The new jokes \"sounded like a different voice\".** We suspected the voice generator. The likelier culprit was us: we had added effects for a mouth full of tar or soda. They are off, and every new line is now scored against the first recordings before it goes in."
+        ]
+      },
+      {
+        "h": "A village with a map"
+      },
+      {
+        "p": "The other complaint was fair in a different way: \"It is missing quite a lot of systems.\" So the village is now a real map. Each day draws a route through it, a small map in the corner shows where you are, and at the corners you choose: the street with the nettles and the experience, or the quiet one with the kvass kiosk."
+      },
+      {
+        "p": "Seryoga now levels up in the middle of a swing. Sticks he finds go to the shed and he picks one each morning. The day’s finds and kopeks mean something by evening. The hogweed boss has to be notched on three sides before it falls. And he has more than a thousand lines, with a rule that he never interrupts himself."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/4_boss.jpg",
+        "alt": "The hogweed behind the boiler house: \"It is taller than dad. Don’t tell dad.\""
+      },
+      {
+        "p": "It plays in the browser, and the Android APK is on [the itch.io page](https://goldenharbourgames.itch.io/stick-vs-weeds), where it runs smoother. Still in Russian only, still 18+, still being built. If the fists are wrong again, tell us. We have a tool for that now."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Почему руки всё время выглядели не так",
+    "description": "«Отп*зди траву», сборки с 57-й по 81-ю: руки, на которые жаловались в каждой сборке, и что с ними было не так на самом деле; четыре телефонные беды с одной маленькой причиной у каждой; и посёлок, у которого теперь есть карта.",
+    "body": [
+      {
+        "p": "В прошлый раз, [когда мы писали про «Отп*зди траву»](https://goldenharbourgames.com/ru/log/stick-vs-weeds-three-days/), игре было три дня и шла 56-я сборка. Сейчас 81-я. Почти всё, что случилось между ними, пришло от одного человека, который играл на телефоне и на компьютере и говорил, что не так."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/1_fork.jpg",
+        "alt": "Развилка в посёлке. Налево: улица Клубная, крапива, много опыта. Прямо: теплотрасса, тихо, киоск"
+      },
+      {
+        "h": "Руки"
+      },
+      {
+        "p": "Жалоба, которая не уходила, была про руки. «Руки плохие». «Всё ещё дичь». И под конец фраза, которую мы печатать не будем. Мы их перелепливали, перекрашивали, ставили в новую позу, и каждый раз они снова были не те."
+      },
+      {
+        "p": "Причин было две, и ни одна не в модели."
+      },
+      {
+        "list": [
+          "**Руки смотрели не туда.** Они стояли так, что игрок глядел точно вдоль собственного предплечья. Какой бы хорошей ни была рука, с этой точки это обрубок с костяшками. Поворот кистей на 42 градуса, пальцами к игроку, исправил больше, чем все перелепки до него.",
+          "**Кулаки не были сжаты.** Рукоять палки была толщиной 5,4 сантиметра, а пальцы восьмилетнего такую не обхватят. Поэтому пальцы стояли вокруг неё раскрытыми, как когти, и большой торчал в сторону. Мы пробовали найти сжатую позу перебором углов с оценкой результата. Не вышло. Вышло геометрией: намотать каждый сустав на окружность вокруг рукояти, большой палец положить поверх указательного, а рукоять обстругать потоньше, с набалдашником, как сделал бы пацан."
+        ]
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/3_before.jpg",
+        "alt": "Раньше: пальцы вокруг палки раскрыты, справа внизу"
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/2_hands.jpg",
+        "alt": "Кулаки сейчас: сомкнуты на рукояти, обструганной потоньше"
+      },
+      {
+        "p": "Сама рука теперь открытая: типовая модель кисти для веб-VR под лицензией MIT. Ещё мы сделали маленький инструмент, который рисует только руки и палку во всех позах, чтобы не проходить целый день ради одного большого пальца. Вердикта по новым кулакам пока нет."
+      },
+      {
+        "h": "Четыре беды на телефоне, четыре маленькие причины"
+      },
+      {
+        "list": [
+          "**Игра закрывалась посреди драки.** На его телефоне жест от левого края — это «назад», а игру держали вертикально, так что хороший замах по крапиве закрывал игру. Теперь она по умолчанию идёт в горизонтальном положении, а «назад» открывает паузу.",
+          "**Настройки не работали.** Каждый переключатель срабатывал, когда палец отрывался от экрана, и ещё раз через кадр, от собственного нажатия кнопки. Каждое касание переключало его дважды. Теперь есть тест, который настоящими касаниями жмёт каждый переключатель на каждой странице.",
+          "**Наклон телефона тоже не работал.** В движке датчики движения по умолчанию выключены, и мы их ни разу не включали. Теперь наклон поворачивает Серёге голову, до тридцати градусов.",
+          "**Новые шутки «звучали другим голосом».** Мы грешили на генератор голоса. Вероятнее, виноваты мы сами: добавили эффекты для рта, набитого гудроном или газировкой. Эффекты выключены, а каждая новая реплика теперь сверяется с первыми записями, прежде чем попасть в игру."
+        ]
+      },
+      {
+        "h": "Посёлок с картой"
+      },
+      {
+        "p": "Другая претензия была справедлива по-своему: «Не хватает довольно многих систем». Теперь посёлок — настоящая карта. Каждый день по ней прокладывается маршрут, маленькая карта в углу показывает, где ты, а на поворотах выбираешь: улица с крапивой и опытом или тихая, с квасным киоском."
+      },
+      {
+        "p": "Серёга теперь получает уровень прямо посреди замаха. Найденные палки идут в сарай, и каждое утро он выбирает одну. Находки и копейки к вечеру что-то значат. Борщевик-босс надо подрубить с трёх сторон, прежде чем он упадёт. А реплик у Серёги больше тысячи, и есть правило: сам себя он не перебивает."
+      },
+      {
+        "img": "img/log/stick-vs-weeds-hands-and-map/4_boss.jpg",
+        "alt": "Борщевик за котельной: «Он выше папы. Папе не говорить»."
+      },
+      {
+        "p": "Игра идёт в браузере, а APK для Android лежит на [странице itch.io](https://goldenharbourgames.itch.io/stick-vs-weeds), и он идёт плавнее. По-прежнему только на русском, по-прежнему 18+, по-прежнему в разработке. Если кулаки опять не те, скажите. Теперь у нас есть для этого инструмент."
+      }
+    ]
+  }
+}

@@ -141,10 +141,10 @@
           "title": "How it plays",
           "list": [
             "Draw a line across the screen and the stick follows it, like a bat from the right shoulder. A clean cut at the root pays double. A lazy one gets a remark.",
-            "Five days until sunset, with a boss at the end. Cottages, garages, a building site, the river. At the forks you choose where to turn.",
+            "Five days until sunset, with a boss at the end. Cottages, garages, a building site, the river. Each day is a different route through the village: a small map in the corner shows the way, and at the corners you choose where to turn.",
             "Things you do not hit: rocks and rebar (sticks are not free), granny’s peonies and the neighbour’s garden gnome. Especially the gnome.",
             "The neighbours. Grandad Matvey teaches the swing. Uncle Tolya bets you his front garden. Vitka swaps sticks for a pig in a poke. Aunt Zina pours kvass. The geese guard nothing; the geese are just like that.",
-            "Seryoga grows: respect, four stats and three skills, a two-handed spin among them.",
+            "Seryoga grows: respect, four stats and three skills, a two-handed spin among them. Sticks he finds go to the shed, and each morning he picks one.",
             "Evenings: the day’s finds on the kitchen oilcloth, parents arguing next door, and a plan for tomorrow.",
             "Two short modes: Zen on the wasteland, where nobody yells, and the Plot of the Day, one patch for everybody and one go that counts."
           ]
@@ -152,14 +152,14 @@
         {
           "title": "Before you press Play",
           "paragraphs": [
-            "The game is 18+. More than five hundred voiced lines, most of them rude, none of them meant for children. There is a switch that beeps the swearing.",
+            "The game is 18+. More than a thousand voiced lines, most of them rude, none of them meant for children. There is a switch that beeps the swearing.",
             "It is in Russian only. The jokes are the game, and they are Russian jokes about a Russian childhood. If you would play an English version, tell us: that is how it gets made."
           ]
         },
         {
           "title": "Where to play",
           "paragraphs": [
-            "Here in the browser, with a mouse or a finger: upright on a phone, wide or fullscreen on a computer. Better with sound. On Android the APK from the itch.io page runs noticeably smoother than the browser.",
+            "Here in the browser, with a mouse or a finger, in a wide window or fullscreen; on a phone, turn it sideways. Better with sound. On Android the APK from the itch.io page runs noticeably smoother than the browser.",
             "An early build: the year 1985 is in. The plan is for Seryoga to grow up through 1990, 1995 and 2000 in the same town, with different sticks and different problems. The voices, music, pictures and code were made with AI tools; the idea and the sense of humour were not."
           ]
         }
@@ -414,6 +414,48 @@
           ]
         }
       ]
+    },
+    "vrlabdv-story": {
+      "title": "VRLABDV Story",
+      "text": "Open a tiny VR arcade on the ground floor of a Vladivostok panel block in 2016 and grow it room by room. A small tycoon game based on a real lab, which one of us ran.",
+      "tags": [
+        "Tycoon",
+        "Simulation"
+      ],
+      "seo_title": "VRLABDV Story – a VR arcade tycoon game, free in your browser",
+      "seo_description": "Run a tiny VR arcade in a Vladivostok panel block in 2016 and grow it room by room: place the stations, pick the games, hire the team, buy out the neighbours. An early build based on a real lab, free in your browser.",
+      "intro": [
+        "You start with two VR stations, one zombie game, a pharmacy on the left and a grocery on the right. One of the two founders can fix anything with a soldering iron. The other can talk anyone into trying on a headset. That has to be enough for now.",
+        "Guests and staff run themselves. You decide what stands where, what plays on each station, who works for you and what becomes of the back room full of junk."
+      ],
+      "sections": [
+        {
+          "title": "A true story, mostly",
+          "paragraphs": [
+            "A real VR lab opened in a Vladivostok panel block in 2016, and the person who ran it now runs our studio. This game is the what-if version, where the lab never stops growing: the neighbours sell up, the flats upstairs turn into rooms, the lab finds work for VR in other trades, and one day the whole thing moves to San Francisco. The real one never got that far. We are making up for it."
+          ]
+        },
+        {
+          "title": "What is in it today",
+          "list": [
+            "Vladivostok as one whole level, stage by stage, and then the move to San Francisco.",
+            "Build mode: stations, sofas, water coolers, posters, plants, floors and wallpaper. Drag anything to move it; tap it to turn it or sell it.",
+            "Games for the stations. Guests come for a kind of game, and if nothing plays it, they go home and let you know. Each morning you set the line-up for the day.",
+            "A team that grows: hire people, give them a post, and watch their skills, traits and ranks start to matter when the hall is full.",
+            "Rooms to clear and fit out, neighbours to buy out (the grocery, the pharmacy, a medical equipment firm) and flats upstairs to take one by one.",
+            "A coworking where indie developers rent desks, and a studio where your own developers make games for your stations.",
+            "A lab that tries VR in other trades: school trips, flat viewings for estate agents, practice for surgeons.",
+            "Better kit as you go, from wired headsets to standalone ones and full-body rigs."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "Here in the browser. Everything is a tap or a click: drag to look around, pinch or use the mouse wheel to zoom. It is made for a phone held upright, so on a computer it plays in a tall window; the fullscreen button gives a wider view of the street. The game saves by itself in this browser.",
+            "An early build in English and Russian, and it changes every few days. The code, the pixel art (drawn by code), the text, the music and the sound were made with AI tools; the design and direction come from the person who ran the real lab."
+          ]
+        }
+      ]
     }
   },
   "about": {
@@ -436,13 +478,13 @@
       "When you tell us something is wrong, we fix it. The harbour log on the home page is where you can see it happen.",
       "We tell you what is made by a machine and what is made by a person. Always."
     ],
-    "letter_title": "How it is going (16 November 2026)",
+    "letter_title": "How it is going (17 November 2026)",
     "letter": [
-      "Honestly? Better than a week ago, and still worse than we would like. Nine games are in port, and three of them are on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game.",
-      "The numbers are small. Our YouTube channel has passed thirty-eight thousand views across a hundred and thirty short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
-      "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. Fire Season stopped being a game about painting water on flames and became one about where you draw the line. And a joke about hitting nettles with a stick became a public, voiced game in three days; the harbour log tells how.",
-      "What is not working yet: being found. Nine good small games nobody has heard of are still nine games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
-      "Next: Stick vs. Weeds gets more to do between the swings; Fire Season gets spot fires and a wind that turns; Souls & Estates keeps getting easier to learn; Punch League is learning to fight in 3D; and the first human artist gets hired the month a game pays for one."
+      "Honestly? Better than a week ago, and still worse than we would like. Ten games are in port, and three of them are on both Google Play and the App Store: Fire Season, Punch League and Orbital Jump Reloaded, the rebuild of our 2021 phone game.",
+      "The numbers are small. Our YouTube channel has passed forty-one thousand views across nearly a hundred and forty short films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
+      "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. Fire Season stopped being a game about painting water on flames and became one about where you draw the line. A joke about hitting nettles with a stick became a public, voiced game in three days. And this week the VR lab one of us ran in Vladivostok in 2016 became a small tycoon game, public on its second day; the harbour log tells how.",
+      "What is not working yet: being found. Ten good small games nobody has heard of are still ten games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
+      "Next: VRLABDV Story gets its second act, in San Francisco; Stick vs. Weeds waits for a verdict on its new fists; Vladivostok Fortress is being rebuilt as an action strategy game; Fire Season gets spot fires and a wind that turns; Punch League is learning to fight in 3D; and the first human artist gets hired the month a game pays for one."
     ]
   },
   "contact": {
