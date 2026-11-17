@@ -1,7 +1,7 @@
 {
   "slug": "vrlabdv-story-build-and-decide",
   "date": "2026-11-17",
-  "game": "vrlabdv-story",
+  "game": "vr-arcade-story",
   "cover": "img/log/vrlabdv-story-build-and-decide/1_today.jpg",
   "size": [
     1280,
@@ -12,7 +12,10 @@
     "description": "VRLABDV Story is a small tycoon game about a real VR lab in Vladivostok. Its first build made you do the staff’s chores by hand and was thrown away the same day. What replaced it, what else got rejected in two days, and where the game is going.",
     "body": [
       {
-        "p": "In 2016 one of us opened a VR lab on the ground floor of a panel block in Vladivostok. Two stations, a pharmacy next door, a back room full of somebody else’s junk. On Monday 16 November we started a game about it, and since Tuesday it has been [public on itch.io](https://goldenharbourgames.itch.io/vrlabdv-story), free in a browser."
+        "p": "In 2016 one of us opened a VR lab on the ground floor of a panel block in Vladivostok. Two stations, a pharmacy next door, a back room full of somebody else’s junk. On Monday 16 November we started a game about it, and since Tuesday it has been [public on itch.io](https://goldenharbourgames.itch.io/vr-arcade-story), free in a browser."
+      },
+      {
+        "p": "Update, 18 November: the game is now called VR Arcade Story. [Why the name went, and what build 28 added](https://goldenharbourgames.com/log/vr-arcade-story-new-name/)."
       },
       {
         "p": "It is a tycoon game in the small, friendly tradition: a cutaway building, tiny people, a business that grows room by room. In the game the lab never stops growing, and one day it moves to San Francisco. The real one never got that far."
@@ -79,7 +82,10 @@
     "description": "VRLABDV Story — маленький тайкун про настоящую VR-лабораторию во Владивостоке. В первой сборке игрок руками делал работу сотрудников, и её выбросили в тот же день. Что пришло на смену, что ещё мы выбросили за два дня и куда игра идёт.",
     "body": [
       {
-        "p": "В 2016 году один из нас открыл VR-лабораторию на первом этаже панельки во Владивостоке. Две станции, аптека за стеной, задняя комната с чужим хламом. В понедельник 16 ноября мы начали делать про это игру, а со вторника она [открыта на itch.io](https://goldenharbourgames.itch.io/vrlabdv-story), бесплатно, в браузере."
+        "p": "В 2016 году один из нас открыл VR-лабораторию на первом этаже панельки во Владивостоке. Две станции, аптека за стеной, задняя комната с чужим хламом. В понедельник 16 ноября мы начали делать про это игру, а со вторника она [открыта на itch.io](https://goldenharbourgames.itch.io/vr-arcade-story), бесплатно, в браузере."
+      },
+      {
+        "p": "Дополнение от 18 ноября: игра теперь называется VR Arcade Story. [Почему ушло старое название и что появилось в сборке 28](https://goldenharbourgames.com/ru/log/vr-arcade-story-new-name/)."
       },
       {
         "p": "Это тайкун в маленькой уютной традиции: дом в разрезе, крошечные люди, дело, которое растёт комната за комнатой. В игре лаборатория не перестаёт расти и однажды переезжает в Сан-Франциско. Настоящая так далеко не дошла."

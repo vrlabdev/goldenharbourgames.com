@@ -1,0 +1,122 @@
+{
+  "slug": "vr-arcade-story-new-name",
+  "date": "2026-11-18",
+  "game": "vr-arcade-story",
+  "cover": "img/log/vr-arcade-story-new-name/1_menu.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "VRLABDV Story is now VR Arcade Story",
+    "description": "Our VR lab tycoon game got a new name on the day it went public. Why the old one went, what build 28 added (a main menu, save slots, a research board, rooms that join), and where the free part ends.",
+    "body": [
+      {
+        "p": "On Tuesday 17 November we put a small tycoon game called VRLABDV Story on itch.io. By that evening it had a different name. It is now [VR Arcade Story](https://goldenharbourgames.itch.io/vr-arcade-story), and the old address forwards to the new one."
+      },
+      {
+        "h": "Why the name went"
+      },
+      {
+        "p": "VRLABDV was the name of the real lab: VR Lab, Vladivostok. It means a lot to the one of us who ran it, and nothing to anybody else. His own verdict on it as the title of a game: \"not sellable\"."
+      },
+      {
+        "p": "VR Arcade Story says what is inside. You run a VR arcade, and it is a tycoon game of the \"story\" kind, where a small business grows room by room. The lab keeps its name where it belongs, on the neon sign over the door: VRLAB.PLAY."
+      },
+      {
+        "img": "img/log/vr-arcade-story-new-name/1_menu.jpg",
+        "alt": "VR Arcade Story, build 28: the main menu, the hall on a busy day, and the block at dusk with the VRLAB.PLAY sign"
+      },
+      {
+        "h": "What build 28 added"
+      },
+      {
+        "list": [
+          "**A main menu.** Three save slots with a picture of each lab, settings, credits, and an archive of everything you have found across all your saves.",
+          "**Research in three kinds of know-how.** Practice comes from running sessions, insight from deals and discoveries, code from shipping things. You spend it on a board of more than a hundred projects, so who you hire decides where the lab gets better.",
+          "**Rooms that join.** The shop next door is now the standard size of a room. Rooms with the same job join into bigger ones, split again or swap places, and each change takes a day of building work that you can watch.",
+          "**A speed button.** Half speed, normal or double. It replaced a zoom button nobody needed, because a pinch or a double tap already zooms.",
+          "**Buttons that keep their taps.** In the build before, a tap on the round buttons at the right also landed on the hall behind them. It no longer does."
+        ]
+      },
+      {
+        "img": "img/log/vr-arcade-story-new-name/2_research.jpg",
+        "alt": "The research board with the three kinds of know-how, the team list, and picking a room to join with the main hall"
+      },
+      {
+        "h": "The free part and the full game"
+      },
+      {
+        "p": "The build in the browser is the free part. It ends when your first lab is on its feet: the back room cleared, the first person hired, the shop next door taken, a coworking or a studio running and a first discovery made. After that the lab keeps running and you can keep playing it, but the story stops there."
+      },
+      {
+        "p": "The full game is coming to phones as a single purchase, with no ads and no timers. The button for it in the browser build cannot sell you anything yet. We would rather say that plainly now than surprise anyone later."
+      },
+      {
+        "h": "What is next"
+      },
+      {
+        "p": "Act two: San Francisco in 2020, with free-roam arenas. You drag an arena out to the size you want, and its size decides how many people fit. Each one needs a rack of wearable kits at the entrance and marshals on the floor. It is being built now and is not in the public build yet."
+      },
+      {
+        "p": "The first notes on build 28 are already in. Rooms are too hard to tap, because a station always wins the tap. A pharmacy joined to the hall kept the wall between them. The wide layout squashes its panels. All three are being fixed. If you find a fourth, tell us: contact@goldenharbourgames.com or the comments on the itch page."
+      }
+    ]
+  },
+  "ru": {
+    "title": "VRLABDV Story теперь называется VR Arcade Story",
+    "description": "Наш тайкун про VR-лабораторию сменил название в день выхода. Почему ушло старое, что появилось в сборке 28 (главное меню, слоты сохранений, доска исследований, объединение комнат) и где заканчивается бесплатная часть.",
+    "body": [
+      {
+        "p": "Во вторник 17 ноября мы выложили на itch.io маленький тайкун под названием VRLABDV Story. К вечеру у него было другое имя. Теперь это [VR Arcade Story](https://goldenharbourgames.itch.io/vr-arcade-story), а старый адрес ведёт на новый."
+      },
+      {
+        "h": "Почему ушло название"
+      },
+      {
+        "p": "VRLABDV — имя настоящей лаборатории: VR Lab, Владивосток. Оно много значит для того из нас, кто её вёл, и ничего не значит для всех остальных. Его собственный вердикт названию игры: «не продаётся»."
+      },
+      {
+        "p": "VR Arcade Story говорит, что внутри. Вы ведёте VR-клуб, и это тайкун из тех, где маленькое дело растёт комната за комнатой. А имя лаборатории осталось там, где ему место, — на неоновой вывеске над дверью: VRLAB.PLAY."
+      },
+      {
+        "img": "img/log/vr-arcade-story-new-name/1_menu.jpg",
+        "alt": "VR Arcade Story, сборка 28: главное меню, зал в людный день и дом в сумерках с вывеской VRLAB.PLAY"
+      },
+      {
+        "h": "Что появилось в сборке 28"
+      },
+      {
+        "list": [
+          "**Главное меню.** Три слота сохранений с картинкой каждой лаборатории, настройки, титры и архив всего, что вы нашли во всех сохранениях.",
+          "**Исследования на трёх видах знаний.** Практика приходит от проведённых сеансов, идеи — от сделок и открытий, код — от выпущенных вещей. Знания тратятся на доске, где больше сотни проектов, так что от того, кого вы наняли, зависит, в чём лаборатория станет лучше.",
+          "**Комнаты объединяются.** Соседний магазин стал стандартным размером комнаты. Комнаты с одним назначением объединяются в большие, делятся обратно или меняются местами, и каждая перестройка занимает день работ, которые видно.",
+          "**Кнопка скорости.** Половина, обычная или двойная. Она заменила кнопку масштаба, которая была не нужна: масштаб и так меняется щипком или двойным касанием.",
+          "**Кнопки больше не пропускают касания.** В прошлой сборке нажатие на круглые кнопки справа попадало ещё и в зал за ними. Теперь не попадает."
+        ]
+      },
+      {
+        "img": "img/log/vr-arcade-story-new-name/2_research.jpg",
+        "alt": "Доска исследований с тремя видами знаний, список команды и выбор комнаты для объединения с главным залом"
+      },
+      {
+        "h": "Бесплатная часть и полная игра"
+      },
+      {
+        "p": "Сборка в браузере — бесплатная часть. Она заканчивается, когда ваша первая лаборатория встанет на ноги: задняя комната расчищена, первый сотрудник нанят, соседний магазин ваш, работает коворкинг или студия и сделано первое открытие. Дальше лаборатория продолжает работать, и играть можно сколько угодно, но история на этом останавливается."
+      },
+      {
+        "p": "Полная игра выйдет на телефонах: одна покупка, без рекламы и без таймеров. Кнопка полной игры в браузерной сборке пока ничего не продаёт. Лучше сказать об этом прямо сейчас, чем удивить кого-то потом."
+      },
+      {
+        "h": "Что дальше"
+      },
+      {
+        "p": "Второй акт: Сан-Франциско, 2020 год, арены свободного перемещения. Арену вы растягиваете до нужного размера, и от размера зависит, сколько человек в неё помещается. Каждой нужна стойка с носимыми комплектами у входа и маршалы в зале. Мы строим это сейчас, в открытой сборке этого ещё нет."
+      },
+      {
+        "p": "Первые замечания к сборке 28 уже пришли. В комнату трудно попасть пальцем: касание всегда забирает станция. Аптека, объединённая с залом, сохранила стену между ними. Широкая раскладка сплющивает панели. Всё это мы чиним. Если найдёте четвёртое, напишите: contact@goldenharbourgames.com или в комментариях на itch."
+      }
+    ]
+  }
+}

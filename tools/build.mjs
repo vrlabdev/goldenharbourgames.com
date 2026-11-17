@@ -1751,6 +1751,7 @@ img { display: block; width: 420px; height: 420px; margin: 50px 60px 70px; }
 function goPage() {
   const map = {};
   for (const g of games) map[g.id] = { itch: g.itch, play: g.google_play ? playLink(g, 'go') : undefined, appstore: g.app_store, rustore: g.rustore };
+  for (const g of games) if (g.was) map[g.was] = map[g.id]; // links handed out under a game's old id still work
   const en = langs.find((l) => l.lang === 'en') || langs[0];
   return `<!doctype html>
 <html lang="en">
@@ -1790,6 +1791,13 @@ ${games.map((g) => `    <p><a class="button" href="${g.itch}">${esc(en.games[g.i
 write('go/index.html', goPage());
 for (const t of langs) write(t.path + 'index.html', page(t));
 for (const t of langs) for (const g of games) write(t.path + playPath(g) + 'index.html', playPage(t, g));
+// A renamed game (games.json "was": its old id) keeps its old address as a page that forwards to the new one.
+for (const t of langs) for (const g of games) if (g.was) write(t.path + `play/${g.was}/index.html`, `<!doctype html>
+<html lang="${t.lang}"><head><meta charset="utf-8"><title>${esc(t.games[g.id].title)}</title>
+<link rel="canonical" href="${SITE}${t.path}${playPath(g)}"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=${SITE}${t.path}${playPath(g)}"></head>
+<body><a href="${SITE}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a></body></html>
+`);
 for (const t of langs) write(t.path + PRIVACY + 'index.html', legalPage(t, 'privacy', PRIVACY));
 for (const t of langs) write(t.path + TERMS + 'index.html', legalPage(t, 'terms', TERMS));
 for (const t of langs) write(t.path + PRESS + 'index.html', pressPage(t));

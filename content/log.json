@@ -1,7 +1,14 @@
 [
   {
+    "date": "2026-11-18",
+    "game": "vr-arcade-story",
+    "post": "vr-arcade-story-new-name",
+    "en": "VRLABDV Story is now VR Arcade Story. Build 28 adds a main menu with three save slots, a research board and rooms that join. The browser build is the free part; the full game is coming to phones.",
+    "ru": "VRLABDV Story теперь называется VR Arcade Story. В сборке 28 появились главное меню с тремя слотами сохранений, доска исследований и объединение комнат. В браузере — бесплатная часть; полная игра выйдет на телефонах."
+  },
+  {
     "date": "2026-11-17",
-    "game": "vrlabdv-story",
+    "game": "vr-arcade-story",
     "post": "vrlabdv-story-build-and-decide",
     "en": "VRLABDV Story joins the port: a small tycoon game about the VR lab one of us ran in Vladivostok in 2016. Its first build had no gameplay and was thrown away the same day. The devlog says what replaced it.",
     "ru": "VRLABDV Story в порту: маленький тайкун про VR-лабораторию, которую один из нас вёл во Владивостоке в 2016 году. В первой сборке не было геймплея, и её выбросили в тот же день. Что пришло на смену — в девлоге."

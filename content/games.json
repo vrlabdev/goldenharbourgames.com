@@ -57,9 +57,9 @@
     "app_store": "https://apps.apple.com/app/punch-league/id6827402540"
   },
   {
-    "id": "vrlabdv-story",
-    "itch": "https://goldenharbourgames.itch.io/vrlabdv-story",
-    "cover": "img/vrlabdv-story.jpg",
+    "id": "vr-arcade-story",
+    "itch": "https://goldenharbourgames.itch.io/vr-arcade-story",
+    "cover": "img/vr-arcade-story.jpg",
     "platforms": [
       "browser",
       "phone"
@@ -73,7 +73,8 @@
       432,
       768
     ],
-    "new": true
+    "new": true,
+    "was": "vrlabdv-story"
   },
   {
     "id": "stick-vs-weeds",
