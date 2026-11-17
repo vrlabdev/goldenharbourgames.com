@@ -12,7 +12,15 @@
     "experiments": "Experiments",
     "about": "Studio",
     "crew": "Internships",
-    "contact": "Contact"
+    "contact": "Contact",
+    "log": "Devlogs",
+    "videos": "Videos",
+    "forum": "Forum",
+    "menu": "Menu",
+    "all_games": "All games",
+    "g_games": "Games",
+    "g_read": "Read and watch",
+    "g_studio": "The studio"
   },
   "switch_label": "Language",
   "hero": {

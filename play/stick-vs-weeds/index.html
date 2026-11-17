@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=aa79d75f">
+  <link rel="stylesheet" href="../../style.css?v=c5e0d281">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Stick vs. Weeds","description":"Summer 1985. You are eight, you have a stick, and the nettles have it coming. A first-person slasher about a kid, a small Soviet town and everything that stings. In Russian, 18+, and very sweary.","url":"https://goldenharbourgames.com/play/stick-vs-weeds/","image":"https://goldenharbourgames.com/img/stick-vs-weeds.jpg","genre":["Arcade","Comedy","18+"],"inLanguage":["ru"],"gamePlatform":["Web browser","Android"],"applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"sameAs":["https://goldenharbourgames.itch.io/stick-vs-weeds"]}</script>
@@ -51,12 +51,47 @@
   <div class="top-right">
     <nav>
       <a href="../.././#games">Games</a>
+      <a href="../../log/">Devlogs</a>
       <a href="../../experiments/">Experiments</a>
       <a href="../../studio/">Studio</a>
       <a href="../../internships/">Internships</a>
       <a href="../.././#contact">Contact</a>
     </nav>
     <div class="langs" role="group" aria-label="Language"><a href="../../play/stick-vs-weeds/" hreflang="en" lang="en" aria-current="true" data-lang="en">EN</a><a href="../../ru/play/stick-vs-weeds/" hreflang="ru" lang="ru" data-lang="ru">RU</a></div>
+    <details class="menu" id="menu">
+      <summary><span>Menu</span><i aria-hidden="true"></i></summary>
+      <div class="menu-panel">
+        <div class="menu-col menu-games">
+          <h2>Games</h2>
+          <a href="../../play/aerofire-command/">AeroFire Command: Fire Season</a>
+          <a href="../../play/punch-league/">Punch League</a>
+          <a href="../../play/vr-arcade-story/">VR Arcade Story</a>
+          <a href="../../play/stick-vs-weeds/" aria-current="page">Stick vs. Weeds</a>
+          <a href="../../play/orbital-jump/">Orbital Jump Reloaded</a>
+          <a href="../../play/souls-and-estates/">Souls &amp; Estates</a>
+          <a href="../../play/gull-chorus/">Gull Chorus</a>
+          <a href="../../play/roach-invasion/">Roach Invasion</a>
+          <a href="../../play/peregon/">Range Anxiety: Far East</a>
+          <a href="../../play/vladivostok-fortress/">Vladivostok Fortress</a>
+          <a class="menu-all" href="../.././#games">All games <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>Read and watch</h2>
+          <a href="../../log/">Devlogs</a>
+          <a href="../.././#channel">Videos</a>
+          <a href="../../experiments/">Experiments</a>
+          <a href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">Forum <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>The studio</h2>
+          <a href="../../studio/">Studio</a>
+          <a href="../../internships/">Internships</a>
+          <a href="../../press/">Press kit</a>
+          <a href="../.././#contact">Contact</a>
+          <p class="menu-small"><a href="../../privacy/">Privacy</a> · <a href="../../terms/">Terms</a></p>
+        </div>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -224,6 +259,17 @@
   var top = document.querySelector('.top');
   function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // The menu is a <details>, so it opens without scripting; this closes it on Escape, on a tap
+  // outside it, and after a link in it is followed (some lead to a place on the same page).
+  var menu = document.getElementById('menu');
+  if (menu) {
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+    document.addEventListener('click', function (e) {
+      if (!menu.open) return;
+      if (!menu.contains(e.target) || (e.target.closest && e.target.closest('.menu-panel a'))) menu.open = false;
+    });
+  }
 
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');

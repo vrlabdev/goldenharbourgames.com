@@ -220,12 +220,38 @@ ${CF_BEACON}  <script type="application/ld+json">${JSON.stringify(jsonld)}</scri
   <div class="top-right">
     <nav>
       <a href="${anchor('games')}">${esc(t.nav.games)}</a>
+      ${navLink(LOGP, t.nav.log)}
       ${navLink(LAB, t.nav.experiments)}
       ${navLink(STUDIO, t.nav.about)}
       ${navLink(CREW, t.nav.crew)}
       <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
     </nav>
     <div class="langs" role="group" aria-label="${esc(t.switch_label)}">${switcher}</div>
+    <details class="menu" id="menu">
+      <summary><span>${esc(t.nav.menu)}</span><i aria-hidden="true"></i></summary>
+      <div class="menu-panel">
+        <div class="menu-col menu-games">
+          <h2>${esc(t.nav.g_games)}</h2>
+${games.map((g) => `          <a href="${up}${t.path}${playPath(g)}"${sub === playPath(g) ? ' aria-current="page"' : ''}>${esc(t.games[g.id].title)}</a>`).join('\n')}
+          <a class="menu-all" href="${anchor('games')}">${esc(t.nav.all_games)} <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>${esc(t.nav.g_read)}</h2>
+          ${navLink(LOGP, t.nav.log)}
+          <a href="${anchor('channel')}">${esc(t.nav.videos)}</a>
+          ${navLink(LAB, t.nav.experiments)}
+          <a href="${lab.forum.url}">${esc(t.nav.forum)} <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>${esc(t.nav.g_studio)}</h2>
+          ${navLink(STUDIO, t.nav.about)}
+          ${navLink(CREW, t.nav.crew)}
+          ${navLink(PRESS, t.press.link)}
+          <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
+          <p class="menu-small">${navLink(PRIVACY, t.privacy.link)} · ${navLink(TERMS, t.terms.link)}</p>
+        </div>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -250,6 +276,17 @@ ${main(up, home)}
   var top = document.querySelector('.top');
   function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // The menu is a <details>, so it opens without scripting; this closes it on Escape, on a tap
+  // outside it, and after a link in it is followed (some lead to a place on the same page).
+  var menu = document.getElementById('menu');
+  if (menu) {
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+    document.addEventListener('click', function (e) {
+      if (!menu.open) return;
+      if (!menu.contains(e.target) || (e.target.closest && e.target.closest('.menu-panel a'))) menu.open = false;
+    });
+  }
 
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');

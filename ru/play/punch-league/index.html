@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../style.css?v=aa79d75f">
+  <link rel="stylesheet" href="../../../style.css?v=c5e0d281">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Punch League","description":"Боксёрская карточная игра. Он показывает свой следующий удар, и иногда врёт. Прочитай его, собери связку, возьми три пояса. Уже на Android и iPhone.","url":"https://goldenharbourgames.com/ru/play/punch-league/","image":"https://goldenharbourgames.com/img/punch-league.jpg","genre":["Карточная игра","Бокс"],"inLanguage":["en","ru"],"gamePlatform":["Android","iOS","Web browser"],"applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/"},"sameAs":["https://goldenharbourgames.itch.io/punch-league","https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague","https://apps.apple.com/app/punch-league/id6827402540"]}</script>
@@ -51,12 +51,47 @@
   <div class="top-right">
     <nav>
       <a href="../../../ru/#games">Игры</a>
+      <a href="../../../ru/log/">Девлоги</a>
       <a href="../../../ru/experiments/">Эксперименты</a>
       <a href="../../../ru/studio/">Студия</a>
       <a href="../../../ru/internships/">Стажировки</a>
       <a href="../../../ru/#contact">Контакты</a>
     </nav>
     <div class="langs" role="group" aria-label="Язык"><a href="../../../play/punch-league/" hreflang="en" lang="en" data-lang="en">EN</a><a href="../../../ru/play/punch-league/" hreflang="ru" lang="ru" aria-current="true" data-lang="ru">RU</a></div>
+    <details class="menu" id="menu">
+      <summary><span>Меню</span><i aria-hidden="true"></i></summary>
+      <div class="menu-panel">
+        <div class="menu-col menu-games">
+          <h2>Игры</h2>
+          <a href="../../../ru/play/aerofire-command/">AeroFire Command: Fire Season</a>
+          <a href="../../../ru/play/punch-league/" aria-current="page">Punch League</a>
+          <a href="../../../ru/play/vr-arcade-story/">VR Arcade Story</a>
+          <a href="../../../ru/play/stick-vs-weeds/">Отп*зди траву</a>
+          <a href="../../../ru/play/orbital-jump/">Orbital Jump Reloaded</a>
+          <a href="../../../ru/play/souls-and-estates/">Souls &amp; Estates</a>
+          <a href="../../../ru/play/gull-chorus/">Gull Chorus</a>
+          <a href="../../../ru/play/roach-invasion/">Тараканье нашествие</a>
+          <a href="../../../ru/play/peregon/">Перегон</a>
+          <a href="../../../ru/play/vladivostok-fortress/">Владивостокская крепость</a>
+          <a class="menu-all" href="../../../ru/#games">Все игры <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>Читать и смотреть</h2>
+          <a href="../../../ru/log/">Девлоги</a>
+          <a href="../../../ru/#channel">Видео</a>
+          <a href="../../../ru/experiments/">Эксперименты</a>
+          <a href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">Форум <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="menu-col">
+          <h2>Студия</h2>
+          <a href="../../../ru/studio/">Студия</a>
+          <a href="../../../ru/internships/">Стажировки</a>
+          <a href="../../../ru/press/">Для прессы</a>
+          <a href="../../../ru/#contact">Контакты</a>
+          <p class="menu-small"><a href="../../../ru/privacy/">Конфиденциальность</a> · <a href="../../../ru/terms/">Условия</a></p>
+        </div>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -219,6 +254,17 @@
   var top = document.querySelector('.top');
   function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // The menu is a <details>, so it opens without scripting; this closes it on Escape, on a tap
+  // outside it, and after a link in it is followed (some lead to a place on the same page).
+  var menu = document.getElementById('menu');
+  if (menu) {
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+    document.addEventListener('click', function (e) {
+      if (!menu.open) return;
+      if (!menu.contains(e.target) || (e.target.closest && e.target.closest('.menu-panel a'))) menu.open = false;
+    });
+  }
 
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');
