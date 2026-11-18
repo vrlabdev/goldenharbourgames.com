@@ -1,0 +1,168 @@
+{
+  "slug": "orbital-jump-reloaded-second-life",
+  "date": "2026-11-19",
+  "game": "orbital-jump",
+  "cover": "img/log/orbital-jump-reloaded-second-life/2_fire.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Orbital Jump Reloaded: a 2021 game, taken apart and put back together",
+    "description": "Orbital Jump came to us as the source code of a 2021 phone game. Eight days later its rebuild was on Google Play and the App Store. What broke on the way, what had been switched off for five years, and what we would do differently.",
+    "body": [
+      {
+        "p": "Orbital Jump is a one-button game from 2021. Your astronaut runs around a planet, you tap, he jumps to the next one, and the Sun is coming up behind you. On 2 November 2026 its source code reached us as one 337 MB archive."
+      },
+      {
+        "h": "Day one: make the old game run"
+      },
+      {
+        "p": "The project was on Unity 2020. We moved it to Unity 6 and took out everything online that had died since: the login and leaderboard server answered only with errors, and the ad, analytics and Facebook kits had nothing left behind them. The leaderboard became a local top ten. That evening the 2021 game went up on itch.io as it was, playable in a browser."
+      },
+      {
+        "p": "The first verdict on it was “just the good old days”. That was fair, and it was also the problem: a nice memory is not a game anybody picks up today. So Orbital Jump Reloaded started the same day."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/1_classic.jpg",
+        "alt": "The 2021 game: the Sun is a flat yellow wall on the left"
+      },
+      {
+        "h": "The jump that did not jump"
+      },
+      {
+        "p": "The first Reloaded build had a bug that sounds like a joke: the astronaut would not jump. You tapped and he stayed on the planet. Our automatic test runs, which play the game on autopilot, never saw it."
+      },
+      {
+        "p": "The cause was a little squash-and-stretch we had added for the take-off. In this project the animation lives on the astronaut’s root object, so stretching him also stretched his collision shape. The bigger shape still touched the planet, and on the next physics step he landed again. The fix was to stop stretching the astronaut. The lesson was bigger: the tests now press the button the way a person does, and a test run fails if he ever lands the moment he takes off."
+      },
+      {
+        "h": "Switched off since 2021"
+      },
+      {
+        "p": "Old code hides things nobody noticed. The scene’s post-processing had its weight set to zero in the 2021 project, so none of its effects ever showed: the screen was meant to darken near a black hole and never did. It is on now, kept low in normal play, with the full dark saved for the moment a hole swallows you."
+      },
+      {
+        "p": "The Sun had been a flat wall. Now a run starts calm, with the Sun a dim red disk under your home planet. Your first jump sets it alight, straight through the planet you left, and a wall of fire with embers follows you from there."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/2_fire.jpg",
+        "alt": "Reloaded: the wall of fire on the left, a black hole ahead and the item tray at the bottom"
+      },
+      {
+        "h": "Is there a set path?"
+      },
+      {
+        "p": "One question from early play was whether there is a set path through the planets. There is not. A flight is plain physics: one push at take-off, then the pull of every planet you pass. That made the camera hard, because it could not know where to look."
+      },
+      {
+        "p": "So the game now works the flight out at the moment you jump, step by step, the same way the physics will, and knows where you are going to land. In two test runs the first guess was exactly right 32 times out of 38, and it guesses again every frame. The camera uses that: close on the planet you stand on, pulled back to show you and the landing point while you fly, close again for the touchdown."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/3_blackhole.jpg",
+        "alt": "A black hole that kills, with a dashed red ring to show how close is too close"
+      },
+      {
+        "h": "What it is now"
+      },
+      {
+        "p": "Ten worlds in two galaxies, each a chain of short missions: collect the stars and spheres, reach the beacon. Black holes that swallow you, wormholes that throw you across the sky, planets that hunt you. Three items for a bad moment, five suits, and the classic endless run kept as a mode of its own. It is free, with no ads."
+      },
+      {
+        "p": "It went live on [Google Play](https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump) on 6 November and on the [App Store](https://apps.apple.com/app/orbital-jump-reloaded/id6832806224) on 10 November, eight days after the archive arrived. The browser version is on [itch.io](https://goldenharbourgames.itch.io/orbital-jump-reloaded)."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/4_map.jpg",
+        "alt": "The galaxy map: Earth, the Moon and Mars done, Venus open, Europa and Titan still locked"
+      },
+      {
+        "h": "What we would do differently"
+      },
+      {
+        "p": "We put it straight onto a public early-access track on Google Play. A new game should go to a small internal test first, then a closed one, then the public. We also cut the first short videos from a browser screen recording that stuttered, and had to take two of them down. Neither hurt the game. Both cost us time."
+      },
+      {
+        "p": "It is still being worked on. If something feels wrong, from a jump that misses to a menu that does not fit your phone, tell us: contact@goldenharbourgames.com or the comments on the itch page."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Orbital Jump Reloaded: игра 2021 года, разобранная и собранная заново",
+    "description": "Orbital Jump пришла к нам исходниками телефонной игры 2021 года. Через восемь дней её новая версия была в Google Play и App Store. Что сломалось по дороге, что пять лет было выключено и что мы сделали бы иначе.",
+    "body": [
+      {
+        "p": "Orbital Jump — игра на одну кнопку 2021 года. Ваш космонавт бежит по планете, вы нажимаете, он прыгает на следующую, а сзади надвигается Солнце. 2 ноября 2026 года её исходники пришли к нам одним архивом на 337 МБ."
+      },
+      {
+        "h": "День первый: запустить старую игру"
+      },
+      {
+        "p": "Проект был на Unity 2020. Мы перенесли его на Unity 6 и выкинули всё сетевое, что успело умереть: сервер входа и таблицы рекордов отвечал только ошибками, а за модулями рекламы, аналитики и Facebook ничего не осталось. Таблица рекордов стала локальной десяткой лучших. В тот же вечер игра 2021 года появилась на itch.io как есть, с игрой прямо в браузере."
+      },
+      {
+        "p": "Первый отзыв был: «просто старые добрые времена». Честно, и в этом же была проблема: приятное воспоминание — ещё не игра, которую сегодня кто-то возьмёт в руки. Поэтому в тот же день началась Orbital Jump Reloaded."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/1_classic.jpg",
+        "alt": "Игра 2021 года: Солнце — плоская жёлтая стена слева"
+      },
+      {
+        "h": "Прыжок, который не прыгал"
+      },
+      {
+        "p": "В первой сборке Reloaded была ошибка, похожая на анекдот: космонавт не прыгал. Нажимаешь — а он стоит на планете. Наши автоматические прогоны, где игру проходит автопилот, этого ни разу не заметили."
+      },
+      {
+        "p": "Причиной было небольшое сжатие и растяжение, которое мы добавили на старт. В этом проекте анимация висит на корневом объекте космонавта, поэтому вместе с ним растягивалась и его форма столкновений. Увеличенная форма всё ещё касалась планеты, и на следующем шаге физики он снова приземлялся. Исправление — не растягивать космонавта. А вывод больше: тесты теперь жмут кнопку так, как это делает человек, и прогон падает, если космонавт приземлился в ту же секунду, как оттолкнулся."
+      },
+      {
+        "h": "Выключено с 2021 года"
+      },
+      {
+        "p": "В старом коде прячутся вещи, которых никто не замечал. У постобработки сцены в проекте 2021 года вес стоял на нуле, поэтому ни один её эффект так и не показался: экран должен был темнеть возле чёрной дыры и не темнел. Теперь она включена, в обычной игре приглушена, а полная темнота оставлена на тот момент, когда дыра вас проглатывает."
+      },
+      {
+        "p": "Солнце было плоской стеной. Теперь забег начинается спокойно: Солнце — тусклый красный диск под вашей родной планетой. Первый прыжок его поджигает, прямо сквозь планету, которую вы покинули, и дальше за вами идёт стена огня с искрами."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/2_fire.jpg",
+        "alt": "Reloaded: стена огня слева, впереди чёрная дыра, внизу панель предметов"
+      },
+      {
+        "h": "А путь заранее задан?"
+      },
+      {
+        "p": "Один из первых вопросов был: есть ли через планеты заданный путь? Нет. Полёт — чистая физика: один толчок на старте, а дальше притяжение каждой планеты, мимо которой летишь. Из-за этого было трудно с камерой: она не знала, куда смотреть."
+      },
+      {
+        "p": "Теперь игра в момент прыжка просчитывает полёт шаг за шагом, так же, как это сделает физика, и знает, где вы приземлитесь. В двух тестовых прогонах первая догадка была точной 32 раза из 38, а пересчитывается она каждый кадр. Камера этим пользуется: близко к планете, на которой вы стоите, отъезжает, чтобы показать вас и точку посадки, пока вы летите, и снова приближается к приземлению."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/3_blackhole.jpg",
+        "alt": "Смертельная чёрная дыра; пунктирное красное кольцо показывает, ближе какого места лучше не подлетать"
+      },
+      {
+        "h": "Что получилось"
+      },
+      {
+        "p": "Десять миров в двух галактиках, каждый — цепочка коротких миссий: собрать звёзды и сферы, долететь до маяка. Чёрные дыры, которые проглатывают, червоточины, которые швыряют через полнеба, планеты, которые охотятся за вами. Три предмета на трудный момент, пять костюмов и классический бесконечный забег отдельным режимом. Игра бесплатная и без рекламы."
+      },
+      {
+        "p": "Она вышла в [Google Play](https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump) 6 ноября и в [App Store](https://apps.apple.com/app/orbital-jump-reloaded/id6832806224) 10 ноября — через восемь дней после того, как пришёл архив. Версия для браузера — на [itch.io](https://goldenharbourgames.itch.io/orbital-jump-reloaded)."
+      },
+      {
+        "img": "img/log/orbital-jump-reloaded-second-life/4_map.jpg",
+        "alt": "Карта галактики: Земля, Луна и Марс пройдены, Венера открыта, Европа и Титан пока закрыты"
+      },
+      {
+        "h": "Что мы сделали бы иначе"
+      },
+      {
+        "p": "Мы сразу выпустили игру в открытый ранний доступ в Google Play. Новую игру стоит сначала дать маленькому внутреннему тесту, потом закрытому и только потом всем. А первые короткие ролики мы нарезали из записи экрана браузера, которая подтормаживала, и два из них пришлось снять. Игре это не навредило. Время отняло и то и другое."
+      },
+      {
+        "p": "Работа над игрой продолжается. Если что-то не так — от прыжка мимо до меню, которое не помещается на вашем телефоне, — напишите: contact@goldenharbourgames.com или в комментариях на itch."
+      }
+    ]
+  }
+}

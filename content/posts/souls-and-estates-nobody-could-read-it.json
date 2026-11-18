@@ -1,0 +1,176 @@
+{
+  "slug": "souls-and-estates-nobody-could-read-it",
+  "date": "2026-11-19",
+  "game": "souls-and-estates",
+  "cover": "img/log/souls-and-estates-nobody-could-read-it/1_words.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Souls & Estates: we showed it at a meetup, and nobody could read it",
+    "description": "On 10 November we put Souls & Estates in front of other game developers. They told us there was too much to read and too many Russian words. What we changed over the next three days, version by version, with pictures from before and after.",
+    "body": [
+      {
+        "p": "Souls & Estates is a strategy game about a Russian noble house from 1670 to 1861. You set what each serf village owes, lay out the land, marry off your children and climb the Table of Ranks. It is free in the browser and on Windows on [itch.io](https://goldenharbourgames.itch.io/souls-and-estates), in English and Russian."
+      },
+      {
+        "p": "On 10 November we took it to a game developers’ meetup and let people play. Nobody had trouble with the idea. Everybody had trouble with the screen."
+      },
+      {
+        "h": "What we heard"
+      },
+      {
+        "list": [
+          "**Too much text.** Every page was a wall of words, and you had to read it before you could click anything.",
+          "**Russian words in the English game.** Chetverts, sazhens, vedros, obrok, barshchina. They are right for the period and mean nothing to an English speaker.",
+          "**Everything at once.** The guided start opened on step 1 of 9 with all eight tabs, the whole top bar and a page of numbers already on screen.",
+          "**Menus that unfold inside the page.** A button with choices under it opened a list in the middle of the page and pushed everything else down. The idea that replaced it came from the meetup too: a small pop-out next to the button."
+        ]
+      },
+      {
+        "p": "None of it was news to anyone except us. We had stopped seeing it because we knew what every word meant."
+      },
+      {
+        "h": "Plain words (version 0.104)"
+      },
+      {
+        "p": "The English text no longer holds transliterated Russian. Obrok is rent. Barshchina is labour. A chetvert of grain is a sack, a vedro is a bucket, a sazhen of firewood is a cord, a verst is a mile and a desyatina is an acre, with the numbers converted on the screen. A uyezd is a district and a governorate is a province. We kept the words English already has: Tsar, boyar, Cossack, ruble, kopeck, samovar, kvass, serf and souls."
+      },
+      {
+        "p": "A rule like that rots unless something checks it, so the game’s own tests now fail if an old word creeps back into the English text. The Russian edition keeps its own words, of course."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/1_words.jpg",
+        "alt": "The same village page before (version 0.102: obrok and barshchina in every row, chetverts and vedros in the top bar) and after (version 0.105: rent and labour, and the terms in one row that opens a pop-out)"
+      },
+      {
+        "h": "Icons and pop-outs (0.103 to 0.107)"
+      },
+      {
+        "p": "Version 0.103 brought a new icon set: 150 bold one-colour silhouettes from [game-icons.net](https://game-icons.net), which are free to use with credit, and 19 we drew ourselves, among them one family of busts for the people. We picked solid shapes on purpose, because thin line icons turn to dust at 14 pixels."
+      },
+      {
+        "p": "Version 0.105 put the pop-out everywhere: a button that hides choices opens a small menu next to it, and a click anywhere else closes it. A village’s terms used to be a table of six rows on its page. Now they are one row with the current choice, and the six options open on a click. Version 0.107 did the same to every tall section of the office: notes, orchards, hay, waters, lawsuits."
+      },
+      {
+        "p": "The barns went furthest. Selling rye used to take three rows of buttons. Since 0.112 it is four short rows, Keep, Send, Sell and Market, each with one sign and one word, and the markets with their prices open in a pop-out. That one came three days after the meetup, when we saw that the first pop-outs still left too many words on the page."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/3_barns.jpg",
+        "alt": "Rye in the barns before (version 0.102: three rows of buttons, counted in chetverts) and after (version 0.112: Keep, Send, Sell, Market, and the markets in a pop-out)"
+      },
+      {
+        "h": "A tutorial that starts with nothing (0.106)"
+      },
+      {
+        "p": "The guided game now opens on the land alone, with your steward. The office arrives a piece at a time, when the steward gets to it: the Villages tab, the chest, the clock, the letters, the Build book, the Manor. The rest of the pages open through the first year, one at a time, and the steward tells you when a new one is there. You can open it at once or later."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/2_tutorial.jpg",
+        "alt": "The guided start before (version 0.102: step 1 of 9 with every tab already open) and after (version 0.106: by step 8 only Villages and Build are open)"
+      },
+      {
+        "h": "Two more things from that week"
+      },
+      {
+        "list": [
+          "**Frame rate.** The game had no frame limit. On a laptop with a 240 Hz screen it asked for 240 frames a second and kept the graphics card working flat out, even when paused. Version 0.108 added a Frame rate setting (60 by default, 15 while the game sits behind another window) and a Detail setting. On our test laptop, Light takes the graphics card’s work per frame from 12.8 to 6.6 milliseconds.",
+          "**Fields.** Peasants farmed in narrow strips, and in our game every strip looked the same, like striped wallpaper. Version 0.113 gave each strip its own shade and a few other crops here and there, and the harvest now comes in strip by strip and leaves stooks on the stubble."
+        ]
+      },
+      {
+        "h": "Where it is now"
+      },
+      {
+        "p": "Version 0.114 is on [itch.io](https://goldenharbourgames.itch.io/souls-and-estates), in the browser and as a Windows download. Short films about these changes, before and after, are in our [Souls & Estates playlist](https://www.youtube.com/playlist?list=PLezIkZAKjsKI) under the name “What changed”."
+      },
+      {
+        "p": "There are still more words than we want, and some pages still need two columns. If a screen makes you stop and read when you only wanted to click, tell us which one: contact@goldenharbourgames.com or the comments on the itch page."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Souls & Estates: мы показали игру на встрече разработчиков, и её никто не смог прочитать",
+    "description": "10 ноября мы показали Souls & Estates другим разработчикам игр. Нам сказали, что читать приходится слишком много, а в английской версии слишком много русских слов. Что мы поменяли за следующие три дня, версия за версией, с картинками до и после.",
+    "body": [
+      {
+        "p": "Souls & Estates — стратегия о русском дворянском роде с 1670 по 1861 год. Вы решаете, что должна каждая крепостная деревня, распределяете землю, жените детей и поднимаетесь по Табели о рангах. Игра бесплатная, в браузере и для Windows, на [itch.io](https://goldenharbourgames.itch.io/souls-and-estates), на русском и английском."
+      },
+      {
+        "p": "10 ноября мы принесли её на встречу разработчиков игр и дали людям поиграть. С идеей ни у кого трудностей не было. Трудности были у всех с экраном."
+      },
+      {
+        "h": "Что нам сказали"
+      },
+      {
+        "list": [
+          "**Слишком много текста.** Каждая страница была стеной слов, и прочитать её приходилось раньше, чем что-нибудь нажать.",
+          "**Русские слова в английской игре.** В английской версии стояли латиницей chetvert, sazhen, vedro, obrok, barshchina. Для эпохи они верные, а англоязычному игроку не говорят ничего.",
+          "**Всё сразу.** Обучение начиналось с шага 1 из 9, а на экране уже были все восемь вкладок, вся верхняя панель и страница цифр.",
+          "**Меню, которые раскрываются внутри страницы.** Кнопка с вариантами открывала список посреди страницы и сдвигала вниз всё остальное. Замену тоже подсказали на встрече: маленькое всплывающее меню рядом с кнопкой."
+        ]
+      },
+      {
+        "p": "Новостью это было только для нас. Мы перестали это замечать, потому что сами знали, что значит каждое слово."
+      },
+      {
+        "h": "Простые слова (версия 0.104)"
+      },
+      {
+        "p": "В английском тексте больше нет русских слов латиницей. Оброк там теперь rent, барщина — labour. Четверть зерна стала мешком, ведро — bucket, сажень дров — cord, верста — милей, десятина — акром, и числа на экране пересчитываются. Уезд стал district, губерния — province. Оставили только то, что в английском и так есть: Tsar, boyar, Cossack, ruble, kopeck, samovar, kvass, serf и souls."
+      },
+      {
+        "p": "Такое правило быстро забывается, если его ничто не проверяет, поэтому собственные тесты игры теперь падают, если старое слово снова пролезет в английский текст. В русской версии, конечно, остались оброк, барщина и вёрсты."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/1_words.jpg",
+        "alt": "Одна и та же страница деревни до (версия 0.102: obrok и barshchina в каждой строке, chetverts и vedros в верхней панели) и после (версия 0.105: rent и labour, а условия — одна строка, которая открывает всплывающее меню)"
+      },
+      {
+        "h": "Значки и всплывающие меню (с 0.103 по 0.107)"
+      },
+      {
+        "p": "В версии 0.103 появился новый набор значков: 150 жирных одноцветных силуэтов с [game-icons.net](https://game-icons.net), которыми можно пользоваться с указанием авторов, и 19 нарисованных нами, среди них одно семейство бюстов для людей. Сплошные формы выбирали нарочно: тонкие контурные значки при 14 пикселях превращаются в пыль."
+      },
+      {
+        "p": "Версия 0.105 сделала всплывающие меню везде: кнопка, за которой есть варианты, открывает рядом с собой маленькое меню, а щелчок в любом другом месте его закрывает. Условия деревни раньше были таблицей из шести строк прямо на странице. Теперь это одна строка с текущим выбором, а шесть вариантов открываются по щелчку. Версия 0.107 сделала то же со всеми длинными разделами конторы: заметками, садами, сеном, водами, тяжбами."
+      },
+      {
+        "p": "Дальше всех ушли амбары. Чтобы продать рожь, раньше нужно было пройти три ряда кнопок. С версии 0.112 это четыре короткие строки — «Держать», «Везти», «Продавать», «Рынок», у каждой один значок и одно слово, а рынки с ценами открываются во всплывающем меню. Это сделали через три дня после встречи, когда увидели, что после первых всплывающих меню слов на странице всё ещё слишком много."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/3_barns.jpg",
+        "alt": "Рожь в амбарах до (версия 0.102: три ряда кнопок, счёт в четвертях) и после (версия 0.112: Keep, Send, Sell, Market, а рынки во всплывающем меню); на картинке английская версия"
+      },
+      {
+        "h": "Обучение, которое начинается с пустого экрана (0.106)"
+      },
+      {
+        "p": "Обучение теперь начинается с одной только земли и вашего управляющего. Контора появляется по частям, когда управляющий до неё доходит: вкладка деревень, сундук, часы, письма, книга построек, усадьба. Остальные страницы открываются в течение первого года, по одной, и управляющий говорит, когда появилась новая. Открыть её можно сразу или потом."
+      },
+      {
+        "img": "img/log/souls-and-estates-nobody-could-read-it/2_tutorial.jpg",
+        "alt": "Начало обучения до (версия 0.102: шаг 1 из 9, а все вкладки уже открыты) и после (версия 0.106: к шагу 8 открыты только деревни и постройки)"
+      },
+      {
+        "h": "Ещё две вещи с той недели"
+      },
+      {
+        "list": [
+          "**Частота кадров.** У игры не было ограничения кадров. На ноутбуке с экраном 240 Гц она просила 240 кадров в секунду и гоняла видеокарту на полную, даже на паузе. В версии 0.108 появились настройка частоты кадров (по умолчанию 60, а когда игра за другим окном — 15) и настройка детализации. На нашем тестовом ноутбуке «Лёгкая» сокращает работу видеокарты на кадр с 12,8 до 6,6 миллисекунды.",
+          "**Поля.** Крестьяне пахали узкими полосами, а в нашей игре все полосы выглядели одинаково, как полосатые обои. В версии 0.113 у каждой полосы свой оттенок, кое-где другие культуры, а жатва идёт полоса за полосой и оставляет на стерне снопы."
+        ]
+      },
+      {
+        "h": "Где она сейчас"
+      },
+      {
+        "p": "Версия 0.114 лежит на [itch.io](https://goldenharbourgames.itch.io/souls-and-estates), в браузере и для Windows. Короткие ролики про эти перемены, с тем, как было и как стало, — в нашем [плейлисте Souls & Estates](https://www.youtube.com/playlist?list=PLezIkZAKjsKI), серия «What changed»."
+      },
+      {
+        "p": "Слов всё ещё больше, чем хотелось бы, и некоторым страницам всё ещё нужны две колонки. Если какой-то экран заставляет вас остановиться и читать, когда хотелось просто нажать, скажите, какой: contact@goldenharbourgames.com или комментарии на itch."
+      }
+    ]
+  }
+}

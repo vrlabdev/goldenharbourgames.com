@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-11-19",
+    "game": "souls-and-estates",
+    "post": "souls-and-estates-nobody-could-read-it",
+    "en": "Souls & Estates went to a developers’ meetup, and nobody could read it: too much text, too many Russian words, every menu at once. What changed in the next three days, with pictures from before and after.",
+    "ru": "Souls & Estates побывала на встрече разработчиков, и её никто не смог прочитать: слишком много текста, слишком много русских слов, все меню сразу. Что поменялось за следующие три дня — с картинками до и после."
+  },
+  {
+    "date": "2026-11-19",
+    "game": "vr-arcade-story",
+    "post": "vr-arcade-story-kinds-and-light",
+    "en": "VR Arcade Story, version 0.1.35 in the browser: a station limit that grows with your rooms, six kinds of station, 28 combos, weather and weekdays, a power cut that plays out, and a hall that finally looks used.",
+    "ru": "VR Arcade Story, версия 0.1.35 в браузере: предел станций растёт с комнатами, шесть видов станций, 28 комбо, погода и дни недели, отключение света у вас на глазах и зал, который наконец выглядит обжитым."
+  },
+  {
+    "date": "2026-11-19",
+    "game": "orbital-jump",
+    "post": "orbital-jump-reloaded-second-life",
+    "en": "Orbital Jump Reloaded: how the source of a 2021 phone game became a new game on Google Play and the App Store in eight days, and the bug where the astronaut would not jump.",
+    "ru": "Orbital Jump Reloaded: как исходники телефонной игры 2021 года за восемь дней стали новой игрой в Google Play и App Store — и ошибка, из-за которой космонавт не прыгал."
+  },
+  {
     "date": "2026-11-18",
     "game": "vr-arcade-story",
     "post": "vr-arcade-story-new-name",

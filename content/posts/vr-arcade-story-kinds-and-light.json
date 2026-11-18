@@ -1,0 +1,168 @@
+{
+  "slug": "vr-arcade-story-kinds-and-light",
+  "date": "2026-11-19",
+  "game": "vr-arcade-story",
+  "cover": "img/log/vr-arcade-story-kinds-and-light/2_dusk.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "VR Arcade Story: six kinds of station, and a hall that looks used",
+    "description": "The browser build of VR Arcade Story has moved on from build 28. The station limit grows with your rooms, there are six kinds of station and 28 combos, weather and weekdays change the crowd, and the hall finally looks like somebody works in it.",
+    "body": [
+      {
+        "p": "Yesterday’s devlog was about [the new name](https://goldenharbourgames.com/log/vr-arcade-story-new-name/) and build 28. The browser build on [itch.io](https://goldenharbourgames.itch.io/vr-arcade-story) has moved on since then: it is version 0.1.35 now. Here is what changed, and why."
+      },
+      {
+        "h": "The faults from last time"
+      },
+      {
+        "p": "The last devlog ended with three faults from the first notes on build 28. All three are fixed. A tap on bare floor now picks the room, rooms have a chip of their own in the world and a Rooms page. A pharmacy joined to the hall loses the wall between them. The wide layout puts its panels at the side, at full height, instead of squashing them."
+      },
+      {
+        "h": "A limit that grows with the lab"
+      },
+      {
+        "p": "Build 28 had a flat cap on stations: 18 in Vladivostok, 22 in San Francisco, however many rooms you had. We suggested softening it by making each station past the ninth earn a little less. That was turned down. Now the limit grows with the rooms you use for play: a standard room adds 5 stations, each of the two halls adds 6 and the old pharmacy adds 12, so the lab goes from 12 to 17 to 29. Bigger kinds of station take more floor, so space does the rest of the limiting."
+      },
+      {
+        "h": "Six kinds of station"
+      },
+      {
+        "p": "Until now every station was the same standing pod. Now there are six kinds, and each has its own price, crowd, games, staff load and upgrade levels:"
+      },
+      {
+        "list": [
+          "**Standing**, the pod you already know.",
+          "**Room-scale**, three tiles by three to walk around in.",
+          "**Seated**, at a desk.",
+          "**Racing rig**: a wheel clamped to a desk, then a seat frame, then a motion platform.",
+          "**Flight rig**: a stick, then a cockpit, then a seat that moves on several axes.",
+          "**Treadmill**: a slippery dish with a harness, then a belt, and late in the game a full running rig."
+        ]
+      },
+      {
+        "p": "Sixteen new games came with them, tied to their kinds, so a racing game needs a rig. There are now 28 combos, collected in a combo book under Games. Some are about objects: a fan blowing in a racing driver’s face, a rig next to the big screen so people on the street stop and watch, spare parts on a shelf by the rigs. Some are about games side by side: two racing rigs make a race, four make a grid, two shooters make a duel. A pair only counts when the two games are different, so a varied line-up pays better than the same game copied across the hall."
+      },
+      {
+        "h": "Weather, weekdays and a power cut"
+      },
+      {
+        "p": "How many guests come is now one sum you can see: the weekday, the weather, fame, reputation, the sign, ads, prices, how well the games fit, rivals and whatever is happening. A Visitors page shows every part. Weekdays are quieter, Friday to Sunday busier. Rain and snow fill the place and a heat wave empties it."
+      },
+      {
+        "p": "Things that happen now play out where you can see them. In a storm the power can go: the lights flicker and die, only the exit signs glow, and the guests file out and queue on the pavement. Four times in ten the power is back in about five minutes and they walk back to their own stations. Otherwise the doors stay shut for one to three hours."
+      },
+      {
+        "h": "A hall that looks used"
+      },
+      {
+        "p": "The pixel art in this game is drawn by code, and until this build it was drawn clean: every floor tile new, every wall lit the same, like a picture of a shop nobody has opened yet. The real lab in 2016 was the ground floor of a panel block, with worn linoleum, cables everywhere and boxes in the corners."
+      },
+      {
+        "p": "So the hall got a light pass and some wear: warm light inside and a dark street around it at dusk, floors and walls that show their age, cables from the stations, clutter where people work. The pictures below are the same frames before and after. If a phone struggles with it, a Lights setting turns it down or off."
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/1_midday.jpg",
+        "alt": "The opening hall at midday, the same frame before the light pass (left) and after it (right)"
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/2_dusk.jpg",
+        "alt": "The same hall at dusk: flat before (left), warm light, worn floor and cables after (right)"
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/3_wide_dusk.jpg",
+        "alt": "The whole block and the park at dusk, before (left) and after (right)"
+      },
+      {
+        "h": "What is next"
+      },
+      {
+        "p": "Being built now and not in the browser build yet: the working day. Guests walk up to a counter, register and pay, play, leave a review at a table by the door and go home. At closing time there is a last call, the staff clean up and turn the lights off, and in the morning a couple of them are already chatting outside before the doors open. The people are getting bigger and more detailed too."
+      },
+      {
+        "p": "If something in the new build feels wrong, tell us: contact@goldenharbourgames.com or the comments on the itch page."
+      }
+    ]
+  },
+  "ru": {
+    "title": "VR Arcade Story: шесть видов станций и зал, в котором видно, что тут работают",
+    "description": "Браузерная сборка VR Arcade Story ушла дальше сборки 28. Предел станций растёт вместе с комнатами, появились шесть видов станций и 28 комбо, погода и дни недели меняют поток гостей, а зал наконец выглядит так, будто в нём кто-то работает.",
+    "body": [
+      {
+        "p": "Вчерашний девлог был про [новое название](https://goldenharbourgames.com/ru/log/vr-arcade-story-new-name/) и сборку 28. Браузерная сборка на [itch.io](https://goldenharbourgames.itch.io/vr-arcade-story) с тех пор ушла вперёд: сейчас там версия 0.1.35. Вот что изменилось и почему."
+      },
+      {
+        "h": "Ошибки из прошлого раза"
+      },
+      {
+        "p": "Прошлый девлог заканчивался тремя ошибками из первых замечаний к сборке 28. Все три исправлены. Касание по пустому полу теперь выбирает комнату, у комнат есть свой значок прямо в мире и отдельная страница «Комнаты». Аптека, объединённая с залом, теряет стену между ними. Широкая раскладка ставит панели сбоку во всю высоту, а не сплющивает их."
+      },
+      {
+        "h": "Предел, который растёт вместе с лабораторией"
+      },
+      {
+        "p": "В сборке 28 был жёсткий потолок: 18 станций во Владивостоке, 22 в Сан-Франциско, сколько бы у вас ни было комнат. Мы предлагали смягчить его: пусть каждая станция после девятой приносит чуть меньше. Это предложение не прошло. Теперь предел растёт с комнатами, где играют: обычная комната добавляет 5 станций, каждый из двух залов — 6, бывшая аптека — 12, так что лаборатория растёт с 12 до 17 и до 29. Станции побольше занимают больше места, так что дальше всё решает площадь."
+      },
+      {
+        "h": "Шесть видов станций"
+      },
+      {
+        "p": "До сих пор все станции были одинаковыми стойками. Теперь видов шесть, и у каждого своя цена, свои гости, свои игры, своя нагрузка на персонал и свои уровни улучшения:"
+      },
+      {
+        "list": [
+          "**Стоячая** — та самая стойка, которую вы уже знаете.",
+          "**Комнатная** — площадка три на три клетки, по которой можно ходить.",
+          "**Сидячая** — за столом.",
+          "**Гоночный стенд**: руль, прикрученный к столу, потом кресло на раме, потом подвижная платформа.",
+          "**Лётный стенд**: джойстик, потом кабина, потом кресло, которое двигается по нескольким осям.",
+          "**Беговая дорожка**: скользкая чаша со страховкой, потом ленточная дорожка, а ближе к концу игры — полный беговой стенд."
+        ]
+      },
+      {
+        "p": "Вместе с ними пришли шестнадцать новых игр, привязанных к своим видам: гонке нужен стенд. Комбо теперь 28, и они собираются в книгу комбо на вкладке «Игры». Одни — про предметы: вентилятор, который дует гонщику в лицо, стенд рядом с большим экраном, чтобы прохожие останавливались посмотреть, запчасти на полке у стендов. Другие — про игры рядом: два гоночных стенда — это гонка, четыре — стартовая решётка, два шутера — дуэль. Пара засчитывается, только если игры разные, так что пёстрое расписание выгоднее одной и той же игры на весь зал."
+      },
+      {
+        "h": "Погода, дни недели и отключение света"
+      },
+      {
+        "p": "Сколько придёт гостей, теперь считается одной видимой суммой: день недели, погода, известность, репутация, вывеска, реклама, цены, насколько подходят игры, конкуренты и то, что сейчас происходит. На странице «Посетители» видна каждая часть. В будни тише, с пятницы по воскресенье людно. Дождь и снег загоняют людей внутрь, а в жару зал пустеет."
+      },
+      {
+        "p": "События теперь разыгрываются у вас на глазах. В грозу может пропасть свет: лампы мигают и гаснут, светятся только таблички «Выход», гости выходят и ждут на тротуаре. В четырёх случаях из десяти свет возвращается минут через пять, и они расходятся обратно по своим станциям. Иначе двери закрыты на час-три."
+      },
+      {
+        "h": "Зал, в котором видно, что тут работают"
+      },
+      {
+        "p": "Пиксельную графику в этой игре рисует код, и до этой сборки он рисовал всё чистым: каждая плитка новая, каждая стена освещена одинаково, как картинка магазина, который ещё никто не открывал. Настоящая лаборатория в 2016 году была первым этажом панельного дома: затёртый линолеум, повсюду провода, коробки по углам."
+      },
+      {
+        "p": "Поэтому зал прошёл через свет и износ: тёплый свет внутри и тёмная улица вокруг в сумерках, полы и стены, по которым видно возраст, провода от станций, мелкий беспорядок там, где работают люди. Ниже одни и те же кадры до и после. Если телефону тяжело, настройка «Свет» делает его проще или выключает."
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/1_midday.jpg",
+        "alt": "Первый зал в полдень, один и тот же кадр до прохода по свету (слева) и после (справа)"
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/2_dusk.jpg",
+        "alt": "Тот же зал в сумерках: плоский до (слева), тёплый свет, затёртый пол и провода после (справа)"
+      },
+      {
+        "img": "img/log/vr-arcade-story-kinds-and-light/3_wide_dusk.jpg",
+        "alt": "Весь дом и сквер в сумерках, до (слева) и после (справа)"
+      },
+      {
+        "h": "Что дальше"
+      },
+      {
+        "p": "Строится сейчас, в браузерной сборке этого пока нет: рабочий день. Гости подходят к стойке, регистрируются и платят, играют, оставляют отзыв за столиком у двери и уходят домой. Перед закрытием — последний заход, персонал убирается и гасит свет, а утром пара сотрудников уже болтает у входа, пока двери не открыли. И люди становятся крупнее и подробнее."
+      },
+      {
+        "p": "Если в новой сборке что-то не так, напишите: contact@goldenharbourgames.com или в комментариях на itch."
+      }
+    ]
+  }
+}

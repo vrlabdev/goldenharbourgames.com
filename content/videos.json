@@ -1,52 +1,52 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "videos": [
+    {
+      "id": "cEfMXq83IPU",
+      "title": "Отп*зди траву: тебе 8, у тебя палка, крапиве не повезло (18+)",
+      "views": 579,
+      "short": true
+    },
+    {
+      "id": "fGS606tKq_U",
+      "title": "Why do EV drivers unplug at 80%? 10 to 83% took 50 minutes, the last 12% took 30",
+      "views": 17,
+      "short": true
+    },
+    {
+      "id": "peCF5b8nXes",
+      "title": "This power-up slowed the Sun. You couldn't tell you'd used it",
+      "views": 20,
+      "short": true
+    },
+    {
+      "id": "ZPR2Z5inboU",
+      "title": "Our tutorial showed every menu at once. Now it starts with none | What changed #11",
+      "views": 4,
+      "short": true
+    },
+    {
+      "id": "WssxKpFkTB4",
+      "title": "Why does every great boxer have one punch you can't stop?",
+      "views": 8,
+      "short": true
+    },
+    {
+      "id": "7kQQyriAa8g",
+      "title": "Why does a helicopter's water bucket hang on such a long line?",
+      "views": 397,
+      "short": true
+    },
     {
       "id": "VURZpBiveKw",
       "title": "Отп*зди траву (Stick vs. Weeds) — трейлер | Лето 1985-го, тебе восемь, у тебя палка",
-      "views": 0,
+      "views": 2,
       "short": false
     },
     {
       "id": "J0h1gLSIGjE",
       "title": "Our seagull game lagged in the browser: 600 draw calls a frame became under 50",
-      "views": 12,
-      "short": true
-    },
-    {
-      "id": "uVkH_w4-DRE",
-      "title": "A black hole has a point of no return. In this game it's a thin red line",
-      "views": 49,
-      "short": true
-    },
-    {
-      "id": "a8cHZOuzGeM",
-      "title": "Why does every old sawmill stand on a river?",
-      "views": 5,
-      "short": true
-    },
-    {
-      "id": "DReiG9K9N-M",
-      "title": "A tester said our cards read like puzzles. We rewrote 834 lines | What changed #2",
-      "views": 1,
-      "short": true
-    },
-    {
-      "id": "aXhIrLAipmI",
-      "title": "You couldn't tell where our fire was going. What changed",
-      "views": 678,
-      "short": true
-    },
-    {
-      "id": "2R_S14dKrU0",
-      "title": "Our road trip game had no driving. How the drive became the game | What changed",
-      "views": 9,
-      "short": true
-    },
-    {
-      "id": "hIRHR-TNEdM",
-      "title": "How do you get a cookie this big home? | What changed #6",
-      "views": 9,
+      "views": 22,
       "short": true
     }
   ]
