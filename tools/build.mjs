@@ -160,7 +160,9 @@ ${b.text.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
         <div class="beta-row">
           <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="${esc(b.placeholder)}">
           <button class="button" type="submit">${esc(b.button)} <span aria-hidden="true">✉</span></button>
+          <button class="button ghost beta-copy" type="button" data-done="${esc(b.copied)}">${esc(b.copy)}</button>
         </div>
+        <p class="beta-status" role="status" hidden></p>
         <fieldset class="beta-phone">
           <legend>${esc(b.phone_label)}</legend>
           <label><input type="radio" name="phone" value="${esc(b.android)}"> <span>${esc(b.android)}</span></label>
@@ -171,11 +173,24 @@ ${b.text.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
       <script>
 (function () {
   var f = document.querySelector('.beta-form'); if (!f) return;
+  var d = f.dataset, st = f.querySelector('.beta-status');
+  function text() {
+    var mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    return d.body + '\\n\\n' + d.email + ' ' + mail + (ph ? '\\n' + d.phone + ' ' + ph.value : '') + '\\n';
+  }
   f.addEventListener('submit', function (e) {
     e.preventDefault();
-    var d = f.dataset, mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
-    var body = d.body + '\\n\\n' + d.email + ' ' + mail + (ph ? '\\n' + d.phone + ' ' + ph.value : '') + '\\n';
-    location.href = 'mailto:${EMAIL}?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(body);
+    location.href = 'mailto:${EMAIL}?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(text());
+  });
+  // No mail app on this device: copy the same message, to paste into any mail in the browser.
+  f.querySelector('.beta-copy').addEventListener('click', function () {
+    if (!f.reportValidity()) return;
+    var t = text(), done = function () { st.textContent = this.dataset.done; st.hidden = false; }.bind(this);
+    var old = function () {
+      var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0';
+      document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (x) {} a.remove();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, old); else old();
   });
 })();
       </script>

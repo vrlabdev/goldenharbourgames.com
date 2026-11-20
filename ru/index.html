@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=066a2835">
+  <link rel="stylesheet" href="../style.css?v=8688b59b">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD","https://apps.apple.com/developer/golden-harbour-games/id6827402542","https://www.youtube.com/@goldenharbourgames","https://www.instagram.com/goldenharbourgames/","https://www.facebook.com/1398649926668969","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
@@ -348,22 +348,37 @@
         <div class="beta-row">
           <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
           <button class="button" type="submit">Написать письмо <span aria-hidden="true">✉</span></button>
+          <button class="button ghost beta-copy" type="button" data-done="Скопировано. Вставьте текст в новое письмо на contact@goldenharbourgames.com и отправьте.">Скопировать письмо</button>
         </div>
+        <p class="beta-status" role="status" hidden></p>
         <fieldset class="beta-phone">
           <legend>Ваш телефон</legend>
           <label><input type="radio" name="phone" value="Android"> <span>Android</span></label>
           <label><input type="radio" name="phone" value="iPhone"> <span>iPhone</span></label>
         </fieldset>
       </form>
-      <p class="beta-note">Кнопка откроет вашу почту с готовым письмом: останется нажать «Отправить». С этой страницы ничего не отправляется. Или напишите нам сами: <a href="mailto:contact@goldenharbourgames.com?subject=%D0%91%D0%B5%D1%82%D0%B0-%D1%82%D0%B5%D1%81%D1%82%D0%B5%D1%80">contact@goldenharbourgames.com</a></p>
+      <p class="beta-note">Первая кнопка откроет вашу почту с готовым письмом: останется нажать «Отправить». Нет почтовой программы? Скопируйте письмо и отправьте его из любой почты. С этой страницы ничего не отправляется. Наш адрес: <a href="mailto:contact@goldenharbourgames.com?subject=%D0%91%D0%B5%D1%82%D0%B0-%D1%82%D0%B5%D1%81%D1%82%D0%B5%D1%80">contact@goldenharbourgames.com</a></p>
       <script>
 (function () {
   var f = document.querySelector('.beta-form'); if (!f) return;
+  var d = f.dataset, st = f.querySelector('.beta-status');
+  function text() {
+    var mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    return d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
+  }
   f.addEventListener('submit', function (e) {
     e.preventDefault();
-    var d = f.dataset, mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
-    var body = d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
-    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(body);
+    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(text());
+  });
+  // No mail app on this device: copy the same message, to paste into any mail in the browser.
+  f.querySelector('.beta-copy').addEventListener('click', function () {
+    if (!f.reportValidity()) return;
+    var t = text(), done = function () { st.textContent = this.dataset.done; st.hidden = false; }.bind(this);
+    var old = function () {
+      var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0';
+      document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (x) {} a.remove();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, old); else old();
   });
 })();
       </script>

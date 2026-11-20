@@ -1166,11 +1166,13 @@
     "android": "Android",
     "iphone": "iPhone",
     "button": "Write the email",
-    "note": "The button opens your mail app with the message ready: press Send there. Nothing is sent from this page. Or write to us yourself:",
+    "note": "The first button opens your mail app with the message ready: press Send there. No mail app on this device? Copy the message and send it from any mail. Nothing is sent from this page. Our address:",
     "subject": "Beta tester",
     "body": "Hello! Please add me to your early beta testers.",
     "body_email": "Email to add:",
     "body_phone": "Phone:",
-    "voice": "Become a beta tester"
+    "voice": "Become a beta tester",
+    "copy": "Copy the message",
+    "copied": "Copied. Paste it into a new email to contact@goldenharbourgames.com and send it."
   }
 }

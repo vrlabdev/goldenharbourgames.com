@@ -1062,6 +1062,7 @@ a.oar-game:hover { color: var(--gold-hi); }
 .beta-phone span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line-2); color: var(--text-2); font: 500 15px var(--body); }
 .beta-phone input:checked + span { border-color: var(--gold); color: var(--ink); background: var(--gold); }
 .beta-phone input:focus-visible + span { box-shadow: 0 0 0 3px rgba(232, 176, 75, 0.3); }
+.voice .beta-status { margin: 14px 0 0; font-size: 15px; color: var(--gold-hi); }
 .voice .beta-note { margin: 0; font-size: 14.5px; color: var(--muted); }
 .voice .beta-note a { color: var(--gold); overflow-wrap: anywhere; }
 @media (max-width: 640px) { .beta-row .button { width: 100%; } .beta-phone legend { width: 100%; margin: 0 0 2px; } }
