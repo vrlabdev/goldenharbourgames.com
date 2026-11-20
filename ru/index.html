@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=c807da70">
+  <link rel="stylesheet" href="../style.css?v=066a2835">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD","https://apps.apple.com/developer/golden-harbour-games/id6827402542","https://www.youtube.com/@goldenharbourgames","https://www.instagram.com/goldenharbourgames/","https://www.facebook.com/1398649926668969","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
@@ -86,6 +86,7 @@
           <h2>Студия</h2>
           <a href="../ru/studio/">Студия</a>
           <a href="../ru/internships/">Стажировки</a>
+          <a href="#beta">Бета-тестерам</a>
           <a href="../ru/press/">Для прессы</a>
           <a href="#contact">Контакты</a>
           <p class="menu-small"><a href="../ru/privacy/">Конфиденциальность</a> · <a href="../ru/terms/">Условия</a></p>
@@ -337,6 +338,35 @@
       <p>Все игры здесь ещё в работе. Мы пробуем новое, оставляем то, что работает, и меняем игры шаг за шагом. Напишите, что думаете: мы читаем всё, и это идёт в работу.</p>
       <p class="voice-links"><a class="button" href="mailto:contact@goldenharbourgames.com">Написать нам <span aria-hidden="true">✉</span></a> <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">Форум <span aria-hidden="true">↗</span></a> <a class="button ghost" href="../ru/log/">Судовой журнал <span aria-hidden="true">→</span></a></p>
       <p class="voice-mail"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a></p>
+    </aside>
+    <aside class="voice beta reveal" id="beta">
+      <h2>Станьте ранним бета-тестером</h2>
+      <p>Новые сборки наших игр сначала получает небольшая группа ранних тестеров. Вы играете первыми, рассказываете, что сломано или скучно, а мы это чиним.</p>
+      <p>Чтобы попасть в группу, напишите нам письмо и укажите адрес почты, который нужно добавить: тот, с которым вы заходите в Google Play на Android, или ваш Apple ID на iPhone. Это бесплатно, и выйти можно в любой момент.</p>
+      <form class="beta-form" data-subject="Бета-тестер" data-body="Здравствуйте! Добавьте меня, пожалуйста, в группу ранних бета-тестеров." data-email="Адрес для добавления:" data-phone="Телефон:">
+        <label for="beta-email">Адрес почты, который добавить</label>
+        <div class="beta-row">
+          <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+          <button class="button" type="submit">Написать письмо <span aria-hidden="true">✉</span></button>
+        </div>
+        <fieldset class="beta-phone">
+          <legend>Ваш телефон</legend>
+          <label><input type="radio" name="phone" value="Android"> <span>Android</span></label>
+          <label><input type="radio" name="phone" value="iPhone"> <span>iPhone</span></label>
+        </fieldset>
+      </form>
+      <p class="beta-note">Кнопка откроет вашу почту с готовым письмом: останется нажать «Отправить». С этой страницы ничего не отправляется. Или напишите нам сами: <a href="mailto:contact@goldenharbourgames.com?subject=%D0%91%D0%B5%D1%82%D0%B0-%D1%82%D0%B5%D1%81%D1%82%D0%B5%D1%80">contact@goldenharbourgames.com</a></p>
+      <script>
+(function () {
+  var f = document.querySelector('.beta-form'); if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = f.dataset, mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    var body = d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
+    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+      </script>
     </aside>
   </section>
 

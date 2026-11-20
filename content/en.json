@@ -549,8 +549,8 @@
     "title": "Privacy policy",
     "seo_title": "Privacy Policy · Golden Harbour Games",
     "description": "How Golden Harbour Games handles your data: six games send anonymous play data, two of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
-    "date": "2026-11-15",
-    "updated": "Last updated: 19 November 2026",
+    "date": "2026-11-20",
+    "updated": "Last updated: 20 November 2026",
     "back": "Home",
     "intro": [
       "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, the App Store, itch.io, Steam or this website — and the website itself."
@@ -622,7 +622,8 @@
       {
         "title": "This website",
         "paragraphs": [
-          "goldenharbourgames.com is a static site: plain pages, no sign-in, no forms. It sets no cookies. If you pick a language, the page remembers that choice in your browser only; nothing is sent anywhere.",
+          "goldenharbourgames.com is a static site: plain pages and no sign-in. Nothing you type on it is sent to us. It sets no cookies. If you pick a language, the page remembers that choice in your browser only; nothing is sent anywhere.",
+          "If you ask to join our early beta testers, you send us an email with the address you want added. The field on the home page only prepares that email in your own mail app. We use the address for one thing: to put it on the testers list of the store (Google Play or the App Store), so that account can get test builds, and to write to you about the tests. Write to us at any time and we will take it off the list and delete it.",
           "We count visits without cookies. Cloudflare Web Analytics tells us how many times a page was opened, from which site the visitor came, and the country, browser and device type; it does not use cookies, does not fingerprint and does not follow you between sites. When you press a link that leaves the site (to a store or to itch.io), press Play on a game page, or open one of our short \"go\" links from an email or a post, the page also sends one anonymous event to Google Analytics saying which link it was. That event carries a random number made for that single page view: no cookie, nothing stored in your browser, nothing that ties one visit to the next.",
           "The site is hosted on GitHub Pages. GitHub's servers may log standard request data, such as your IP address and browser user agent, as described in GitHub's privacy statement. Our pages load their typefaces from Google Fonts, so your browser also requests those from Google's servers, under Google's privacy policy.",
           "When you press Play on a game page, the game loads in a frame from itch.io. Inside that frame, itch.io's privacy policy applies.",
@@ -1151,5 +1152,25 @@
     "original": "First posted on itch.io",
     "play": "Play {game}",
     "game_posts": "From the log"
+  },
+  "beta": {
+    "nav": "Beta testers",
+    "title": "Become an early beta tester",
+    "text": [
+      "We give new builds of our games to a small group of early testers before anyone else. You play first, tell us what is broken or boring, and we fix it.",
+      "To join, send us an email with the email address you want us to add: the one you use for Google Play on Android, or your Apple ID on iPhone. It is free, and you can leave at any time."
+    ],
+    "label": "The email address to add",
+    "placeholder": "you@example.com",
+    "phone_label": "Your phone",
+    "android": "Android",
+    "iphone": "iPhone",
+    "button": "Write the email",
+    "note": "The button opens your mail app with the message ready: press Send there. Nothing is sent from this page. Or write to us yourself:",
+    "subject": "Beta tester",
+    "body": "Hello! Please add me to your early beta testers.",
+    "body_email": "Email to add:",
+    "body_phone": "Phone:",
+    "voice": "Become a beta tester"
   }
 }

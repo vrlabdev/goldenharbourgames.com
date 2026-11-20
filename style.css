@@ -1041,3 +1041,27 @@ a.oar-game:hover { color: var(--gold-hi); }
   .hero-games .ring-body { gap: 7px; padding: 14px 20px 18px; }
   .hero-games .ring-body .text { font-size: 14.5px; line-height: 1.45; }
 }
+
+/* ---- 20 Nov 2026: early beta testers. A field for the address and a button that writes the email. */
+.beta { scroll-margin-top: 96px; }
+.voice + .beta { margin-top: 20px; }
+.beta-form { display: none; margin: 22px 0 16px; max-width: 46em; }
+.js .beta-form { display: block; }
+.beta-form > label, .beta-phone legend { display: block; padding: 0; margin: 0 0 8px; font: 500 13px var(--mono); letter-spacing: 0.06em; color: var(--muted); }
+.beta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.beta-row input {
+  flex: 1 1 260px; min-width: 0; min-height: 52px; padding: 0 22px; border-radius: 999px;
+  border: 1.5px solid var(--line-2); background: var(--ink); color: var(--text); font: 500 17px var(--body);
+}
+.beta-row input::placeholder { color: #5f7290; }
+.beta-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232, 176, 75, 0.22); }
+.beta-phone { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 0; padding: 0; border: 0; }
+.beta-phone legend { float: left; margin: 0 6px 0 0; }
+.beta-phone label { position: relative; cursor: pointer; }
+.beta-phone input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.beta-phone span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line-2); color: var(--text-2); font: 500 15px var(--body); }
+.beta-phone input:checked + span { border-color: var(--gold); color: var(--ink); background: var(--gold); }
+.beta-phone input:focus-visible + span { box-shadow: 0 0 0 3px rgba(232, 176, 75, 0.3); }
+.voice .beta-note { margin: 0; font-size: 14.5px; color: var(--muted); }
+.voice .beta-note a { color: var(--gold); overflow-wrap: anywhere; }
+@media (max-width: 640px) { .beta-row .button { width: 100%; } .beta-phone legend { width: 100%; margin: 0 0 2px; } }

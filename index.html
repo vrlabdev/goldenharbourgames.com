@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=c807da70">
+  <link rel="stylesheet" href="style.css?v=066a2835">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/developer?id=Golden+Harbour+Games+PTY+LTD","https://apps.apple.com/developer/golden-harbour-games/id6827402542","https://www.youtube.com/@goldenharbourgames","https://www.instagram.com/goldenharbourgames/","https://www.facebook.com/1398649926668969","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
@@ -86,6 +86,7 @@
           <h2>The studio</h2>
           <a href="studio/">Studio</a>
           <a href="internships/">Internships</a>
+          <a href="#beta">Beta testers</a>
           <a href="press/">Press kit</a>
           <a href="#contact">Contact</a>
           <p class="menu-small"><a href="privacy/">Privacy</a> · <a href="terms/">Terms</a></p>
@@ -335,6 +336,35 @@
       <p>Every game here is still being built. We try things, keep what works and change them step by step. Tell us what you think: we read everything and act on it.</p>
       <p class="voice-links"><a class="button" href="mailto:contact@goldenharbourgames.com">Email us <span aria-hidden="true">✉</span></a> <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">The forum <span aria-hidden="true">↗</span></a> <a class="button ghost" href="log/">The harbour log <span aria-hidden="true">→</span></a></p>
       <p class="voice-mail"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a></p>
+    </aside>
+    <aside class="voice beta reveal" id="beta">
+      <h2>Become an early beta tester</h2>
+      <p>We give new builds of our games to a small group of early testers before anyone else. You play first, tell us what is broken or boring, and we fix it.</p>
+      <p>To join, send us an email with the email address you want us to add: the one you use for Google Play on Android, or your Apple ID on iPhone. It is free, and you can leave at any time.</p>
+      <form class="beta-form" data-subject="Beta tester" data-body="Hello! Please add me to your early beta testers." data-email="Email to add:" data-phone="Phone:">
+        <label for="beta-email">The email address to add</label>
+        <div class="beta-row">
+          <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+          <button class="button" type="submit">Write the email <span aria-hidden="true">✉</span></button>
+        </div>
+        <fieldset class="beta-phone">
+          <legend>Your phone</legend>
+          <label><input type="radio" name="phone" value="Android"> <span>Android</span></label>
+          <label><input type="radio" name="phone" value="iPhone"> <span>iPhone</span></label>
+        </fieldset>
+      </form>
+      <p class="beta-note">The button opens your mail app with the message ready: press Send there. Nothing is sent from this page. Or write to us yourself: <a href="mailto:contact@goldenharbourgames.com?subject=Beta%20tester">contact@goldenharbourgames.com</a></p>
+      <script>
+(function () {
+  var f = document.querySelector('.beta-form'); if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = f.dataset, mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    var body = d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
+    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+      </script>
     </aside>
   </section>
 

@@ -143,8 +143,42 @@ function voiceBlock(t, text, { up, g = null, title = t.voice.title, cls = '' } =
   return `<aside class="voice${cls ? ' ' + cls : ''}">
       <h2>${esc(title)}</h2>
 ${paras.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
-      <p class="voice-links"><a class="button" href="mailto:${EMAIL}">${esc(v.email)} <span aria-hidden="true">✉</span></a> <a class="button ghost" href="${lab.forum.url}">${esc(v.forum)} <span aria-hidden="true">↗</span></a>${g ? ` <a class="button ghost" href="${g.itch}#comments">${esc(v.itch)} <span aria-hidden="true">↗</span></a>` : ''}${up !== undefined && !g ? ` <a class="button ghost" href="${up}${t.path}${LOGP}">${esc(v.log)} <span aria-hidden="true">→</span></a>` : ''}</p>
+      <p class="voice-links"><a class="button" href="mailto:${EMAIL}">${esc(v.email)} <span aria-hidden="true">✉</span></a> <a class="button ghost" href="${lab.forum.url}">${esc(v.forum)} <span aria-hidden="true">↗</span></a>${g ? ` <a class="button ghost" href="${g.itch}#comments">${esc(v.itch)} <span aria-hidden="true">↗</span></a>` : ''}${up !== undefined && !g ? ` <a class="button ghost" href="${up}${t.path}${LOGP}">${esc(v.log)} <span aria-hidden="true">→</span></a>` : ''}${up !== undefined && !/voice-home/.test(cls) ? ` <a class="button ghost" href="${up}${t.path}#beta">${esc(t.beta.voice)} <span aria-hidden="true">→</span></a>` : ''}</p>
       <p class="voice-mail"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+    </aside>`;
+}
+// Early beta testers: the reader types the address they want added and the button writes the email
+// in their own mail app (a static site sends nothing itself). Without scripts the field is hidden
+// and the plain address below it does the job.
+function betaBlock(t) {
+  const b = t.beta;
+  return `<aside class="voice beta reveal" id="beta">
+      <h2>${esc(b.title)}</h2>
+${b.text.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
+      <form class="beta-form" data-subject="${esc(b.subject)}" data-body="${esc(b.body)}" data-email="${esc(b.body_email)}" data-phone="${esc(b.body_phone)}">
+        <label for="beta-email">${esc(b.label)}</label>
+        <div class="beta-row">
+          <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="${esc(b.placeholder)}">
+          <button class="button" type="submit">${esc(b.button)} <span aria-hidden="true">✉</span></button>
+        </div>
+        <fieldset class="beta-phone">
+          <legend>${esc(b.phone_label)}</legend>
+          <label><input type="radio" name="phone" value="${esc(b.android)}"> <span>${esc(b.android)}</span></label>
+          <label><input type="radio" name="phone" value="${esc(b.iphone)}"> <span>${esc(b.iphone)}</span></label>
+        </fieldset>
+      </form>
+      <p class="beta-note">${esc(b.note)} <a href="mailto:${EMAIL}?subject=${encodeURIComponent(b.subject)}">${EMAIL}</a></p>
+      <script>
+(function () {
+  var f = document.querySelector('.beta-form'); if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = f.dataset, mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    var body = d.body + '\\n\\n' + d.email + ' ' + mail + (ph ? '\\n' + d.phone + ' ' + ph.value : '') + '\\n';
+    location.href = 'mailto:${EMAIL}?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+      </script>
     </aside>`;
 }
 // An experiment's thread on the forum (GitHub Discussions), or the forum itself until it has one.
@@ -246,6 +280,7 @@ ${games.map((g) => `          <a href="${up}${t.path}${playPath(g)}"${sub === pl
           <h2>${esc(t.nav.g_studio)}</h2>
           ${navLink(STUDIO, t.nav.about)}
           ${navLink(CREW, t.nav.crew)}
+          <a href="${anchor('beta')}">${esc(t.beta.nav)}</a>
           ${navLink(PRESS, t.press.link)}
           <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
           <p class="menu-small">${navLink(PRIVACY, t.privacy.link)} · ${navLink(TERMS, t.terms.link)}</p>
@@ -1068,6 +1103,7 @@ ${showcase()}
 <main>
   <section class="section games-after">
     ${voiceBlock(t, t.voice.home, { up, cls: 'voice-home reveal' })}
+    ${betaBlock(t)}
   </section>
 
   <section id="creed" class="section creed chart">
