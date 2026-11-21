@@ -1,52 +1,52 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-21",
   "videos": [
     {
-      "id": "cEfMXq83IPU",
-      "title": "Отп*зди траву: тебе 8, у тебя палка, крапиве не повезло (18+)",
-      "views": 579,
+      "id": "SNyR8LW3HIk",
+      "title": "Two games in 72 hours: one human, one AI | Far East hackathon, day 1",
+      "views": 0,
+      "short": false
+    },
+    {
+      "id": "ScBL2Hmy6ys",
+      "title": "Две игры за 72 часа: человек и ИИ | Дальневосточный хакатон ДВФУ, день 1",
+      "views": 0,
+      "short": false
+    },
+    {
+      "id": "p8or7lHC3yU",
+      "title": "How did Lennox Lewis win a fight he was losing?",
+      "views": 0,
       "short": true
     },
     {
-      "id": "fGS606tKq_U",
-      "title": "Why do EV drivers unplug at 80%? 10 to 83% took 50 minutes, the last 12% took 30",
-      "views": 17,
+      "id": "3UUOQO1y_nc",
+      "title": "What does \"contained\" mean? A wildfire can be 100% contained and still burning",
+      "views": 2,
       "short": true
     },
     {
-      "id": "peCF5b8nXes",
-      "title": "This power-up slowed the Sun. You couldn't tell you'd used it",
-      "views": 20,
-      "short": true
-    },
-    {
-      "id": "ZPR2Z5inboU",
-      "title": "Our tutorial showed every menu at once. Now it starts with none | What changed #11",
+      "id": "0Evpv1PM1rk",
+      "title": "Отп*зди траву: соседи 1985-го и борщевик выше папы (18+)",
       "views": 4,
       "short": true
     },
     {
-      "id": "WssxKpFkTB4",
-      "title": "Why does every great boxer have one punch you can't stop?",
-      "views": 8,
+      "id": "KM3-1BsIAHI",
+      "title": "Our VR arcade game had zero gameplay. Here is what replaced it | What changed",
+      "views": 14,
       "short": true
     },
     {
-      "id": "7kQQyriAa8g",
-      "title": "Why does a helicopter's water bucket hang on such a long line?",
-      "views": 397,
+      "id": "1YdNMgEYrVA",
+      "title": "5 seconds into your first raid, a foot came down | What changed #7",
+      "views": 157,
       "short": true
     },
     {
-      "id": "VURZpBiveKw",
-      "title": "Отп*зди траву (Stick vs. Weeds) — трейлер | Лето 1985-го, тебе восемь, у тебя палка",
-      "views": 2,
-      "short": false
-    },
-    {
-      "id": "J0h1gLSIGjE",
-      "title": "Our seagull game lagged in the browser: 600 draw calls a frame became under 50",
-      "views": 22,
+      "id": "-bKwRZEb_sY",
+      "title": "How does a water bomber refill without landing? It skims the lake",
+      "views": 948,
       "short": true
     }
   ]

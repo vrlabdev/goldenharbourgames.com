@@ -1606,6 +1606,25 @@ function postCard(t, x, up, base) {
       </a>`;
 }
 
+// A devlog's clips load and play only while they are on screen, and stop when they leave it.
+const clipScript = `<script>
+(function () {
+  var clips = document.querySelectorAll('video[data-clip]');
+  if (!clips.length) return;
+  if (!('IntersectionObserver' in window)) { clips.forEach(function (v) { v.controls = true; }); return; }
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) { clips.forEach(function (v) { v.controls = true; v.preload = 'metadata'; }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+      else v.pause();
+    });
+  }, { threshold: 0.35 });
+  clips.forEach(function (v) { io.observe(v); });
+})();
+</script>`;
+
 // One devlog: the text and its pictures, where it first appeared, the game, and how to talk to us.
 function postPage(t, x) {
   const c = x[t.lang];
@@ -1633,10 +1652,23 @@ function postPage(t, x) {
   const block = (b, up) => {
     if (b.h) return `      <h2>${esc(b.h)}</h2>`;
     if (b.list) return `      <ul>\n${b.list.map((i) => `        <li>${rich(i)}</li>`).join('\n')}\n      </ul>`;
-    if (b.img) return `      <figure class="post-figure">
-        <a href="${up}${b.img}" data-zoom><img src="${up}${b.img}" alt="${esc(b.alt || '')}" width="${x.size[0]}" height="${x.size[1]}" loading="lazy" decoding="async"></a>
+    // A picture, a looping silent clip (the "gif" of a devlog), a video on YouTube that opens in the
+    // page, or somebody's words. A block's own size wins over the post's; "narrow" is for upright pictures.
+    const sz = b.size || x.size;
+    const cls = 'post-figure' + (b.narrow ? ' is-narrow' : '');
+    if (b.img) return `      <figure class="${cls}">
+        <a href="${up}${b.img}" data-zoom><img src="${up}${b.img}" alt="${esc(b.alt || '')}" width="${sz[0]}" height="${sz[1]}" loading="lazy" decoding="async"></a>
         <figcaption>${esc(b.alt || '')}</figcaption>
       </figure>`;
+    if (b.clip) return `      <figure class="${cls} post-clip">
+        <video data-clip src="${up}${b.clip}"${b.poster ? ` poster="${up}${b.poster}"` : ''} width="${sz[0]}" height="${sz[1]}" muted loop playsinline preload="none" aria-label="${esc(b.alt || '')}" disablepictureinpicture></video>
+        <figcaption>${esc(b.alt || '')}</figcaption>
+      </figure>`;
+    if (b.video) return `      <figure class="post-figure post-video">
+        <a href="${b.video}" data-video="${ytId(b.video)}"><img src="${up}${b.poster}" alt="${esc(b.alt || '')}" width="${sz[0]}" height="${sz[1]}" loading="lazy" decoding="async"><span class="post-play" aria-hidden="true">▶</span></a>
+        <figcaption>${esc(b.alt || '')}</figcaption>
+      </figure>`;
+    if (b.quote) return `      <blockquote class="post-quote"><p>${rich(b.quote)}</p>${b.by ? `<footer>${esc(b.by)}</footer>` : ''}</blockquote>`;
     return `      <p>${rich(b.p)}</p>`;
   };
   return shell(t, sub, {
@@ -1647,6 +1679,7 @@ function postPage(t, x) {
     ogSize: x.size,
     ogType: 'article',
     jsonld: article,
+    script: clipScript,
     main: (up) => `<main>
   <article class="section game-page post-page chart">
     <p class="crumbs"><a href="${up}${t.path}${LOGP}"><span aria-hidden="true">←</span> ${esc(L.back)}</a></p>

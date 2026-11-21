@@ -879,6 +879,14 @@ a.oar-game:hover { color: var(--gold-hi); }
 .post-figure { margin: 28px 0; }
 .post-figure a { display: block; cursor: zoom-in; }
 .post-figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; background: #050b14; }
+.post-figure video { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; background: #050b14; }
+.post-figure.is-narrow { max-width: 380px; margin-left: auto; margin-right: auto; }
+.post-video a { position: relative; cursor: pointer; }
+.post-play { position: absolute; left: 50%; top: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; display: grid; place-items: center; padding-left: 6px; border-radius: 50%; background: var(--gold); color: #050b14; font-size: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, .55); transition: transform .2s ease; }
+.post-video a:hover .post-play { transform: scale(1.08); }
+.post-quote { margin: 26px 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--gold); }
+.post-quote p { margin: 0; font-size: 21px; line-height: 1.45; color: var(--text); }
+.post-quote footer { margin-top: 8px; font-size: 14.5px; color: var(--muted); }
 .post-figure figcaption { margin-top: 10px; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
 .post-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 36px 0 0; }
 @media (max-width: 1080px) { .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

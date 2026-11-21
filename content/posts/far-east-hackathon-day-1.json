@@ -1,0 +1,376 @@
+{
+  "slug": "far-east-hackathon-day-1",
+  "date": "2026-11-21",
+  "game": null,
+  "cover": "img/log/far-east-hackathon-day-1/cover.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Far East hackathon, day 1: one human, one machine, two games",
+    "description": "We are in the Far East game hackathon run by FEFU in Vladivostok: 72 hours, the history and culture of the Far East. We are building two games at once, a pirate sandbox on the Sea of Japan in 1220 and a tycoon about the Green Corner car market in 1992. This is how a person and an AI actually split the work on day one, with pictures, clips, and the parts that went wrong.",
+    "body": [
+      {
+        "p": "On Friday at 18:30 Vladivostok time the [Far East hackathon](https://myindie.net/jams/jam/dalnevostochnyj-hakaton) began. The Far Eastern Federal University runs it as the last act of its school of game development, anyone may enter, and it lives on MyIndie. Thirty-one teams signed up. The rules are short: 72 hours, and the game must be about the history and culture of the Russian Far East. Some teams sit in a hall on the campus on Russky Island. We take part from a desk in Sydney."
+      },
+      {
+        "p": "Half of this studio is from Vladivostok, so the theme is home. We could not choose between two ideas, so we are building both, in the same 72 hours. That is only possible because of how we work: one person and one AI. This devlog is about that, hour by hour, and there will be one for day two and one for day three."
+      },
+      {
+        "video": "https://youtu.be/SNyR8LW3HIk",
+        "poster": "img/log/far-east-hackathon-day-1/trailer.jpg",
+        "alt": "Day one of both games in one minute. Everything in it was recorded from the builds as they stood at midday on Saturday."
+      },
+      {
+        "h": "The two games"
+      },
+      {
+        "p": "**Pirates of the Japan Sea** (in Russian: «Железная джонка», The Iron Junk). The year is 1220. The coast where Vladivostok now stands belongs to Eastern Xia, a Jurchen state, and the Mongols will reach it in 1233. You have one junk with oars, a crew of archers and a thrower of fire bombs. You sail by hand, fight in two or three minutes, hire boats, storm ports and try to hold your islands for thirteen years. For a computer, in a browser."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_sail.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_sail.jpg",
+        "alt": "Pirates of the Japan Sea after seventeen hours: the home waters, under sail and oar."
+      },
+      {
+        "p": "**Right-Hand Drive: Green Corner** (in Russian: «Правый руль: Зелёный угол»). The Green Corner is the car market on a hill in Vladivostok where, from the early nineties, half of Russia bought used right-hand-drive cars off the ships from Japan. You start in April 1992 on a dirt lot your uncle leaves you, with a handful of cars that sailors brought in. You prepare cars on weekdays, sell on Saturday and Sunday, and move lot by lot toward the market gate until December 2008. A pixel tycoon for a phone held upright."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/gc_lot.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/gc_lot.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Green Corner: a Saturday on the first lot, June 1994."
+      },
+      {
+        "h": "Who does what"
+      },
+      {
+        "p": "The machine is Claude Code. It sits in the project folder, writes every line of the game, draws the pixel art and the shaders with code, runs the game without a window to test it, and puts each build where it can be played. It works in several copies at once: on Saturday morning three of them were redrawing ships, land and towns of the pirate game at the same time, each in its own copy of the project, while three more were inside the car game."
+      },
+      {
+        "p": "The human does not write code in this hackathon. What he does:"
+      },
+      {
+        "list": [
+          "**Chooses what the game is.** Before the car game there were six pitches. Five were jobs done by hand: inspector, parking boy, unloading a ship, night guard, driving a convoy. The answer was \"I wouldn’t play any of these\". One idea survived, the uncle’s lot.",
+          "**Chooses the picture.** The machine cannot tell what is beautiful. It can show options, and he points.",
+          "**Plays every build and says what is wrong, in plain words.** This is most of the job.",
+          "**Rules.** One-line answers that settle an argument: \"Rubles.\" or \"No walking ashore\".",
+          "**Brings other people.** A friend from Vladivostok played the car game on Saturday morning. A designer looked at it over breakfast."
+        ]
+      },
+      {
+        "h": "Game one: the picture came first"
+      },
+      {
+        "p": "The pirate game began on Friday, a few hours before the start, as a document and five paintings made by an image model: what the sea, a battle, a fort and a boarding should look like. The human picked one, ink and wash over lit hills, and wrote \"I want to play it already\". By the start of the hackathon the game had maps, a design and that target. It had no code. Everything you can play was written after the bell."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_target.jpg",
+        "alt": "The target: a painting by an image model, picked on Friday before the start. Not the game."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_build.jpg",
+        "alt": "The game on Saturday at midday. The land, sea, ships and towns are drawn by shaders and code; there is not one painted texture in it."
+      },
+      {
+        "p": "Two and a half hours after the bell there was a ship to sail. Then the loop started that has run ever since: he plays for ten minutes, writes a few lines, the machine answers with a new build in ten to forty minutes."
+      },
+      {
+        "quote": "Pretty slow. More action, faster. Didn’t find any enemies.",
+        "by": "The first verdict, three hours in"
+      },
+      {
+        "p": "So ships got sixty per cent faster, and two or three patrols now always cross your path. The next verdict was the opposite problem: the enemies were \"like super enemies\". The machine had written opponents that aimed perfectly and never made a mistake. They were made slower than you, given half your skill with a bow, and taught to give up."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_fight.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_fight.jpg",
+        "alt": "A fight now: you can win it."
+      },
+      {
+        "p": "The best change of the day also came from one sentence. The first map worked like most games: sail to the edge, press a key, see a chart, pick a place. He wrote: \"I don’t want to fast travel to other coasts, it’s all sailing, so he can zoom in anytime and be where he is on the strategic map.\" By one in the morning the whole sea, 512 by 288 kilometres, was one piece of water. You roll the wheel back, pass through cloud, and you are looking at the map. Roll it forward anywhere and you are on the water there."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_zoom.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_zoom.jpg",
+        "alt": "One sea: from the deck, up through the cloud to the whole map, and back down."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_port.jpg",
+        "alt": "A port: repairs, the yard, the market, the crew and officers for hire."
+      },
+      {
+        "h": "Game two: seven builds before lunch"
+      },
+      {
+        "p": "Green Corner did not start from nothing either, and it is fair to say so: it stands on the interface kit of our other tycoon, VR Arcade Story. The rules, the cars, the lot and the people are new. The first version you could play was saved five hours after the bell. The human played build 2 at about one in the morning and answered:"
+      },
+      {
+        "quote": "OK. Needs a lot of work. The menus are small. Way too much text, move it to tooltips. Need more icons. Selling goes by fast, and it’s unclear if a guy is a buyer.",
+        "by": "On build 2"
+      },
+      {
+        "p": "Then he went to sleep, and the machine did not. By the time he woke up there was a calendar from 1992 to 2008, seven lots, sixty-six car models, sailors, auction sheets, customs and a typhoon. Selling had become a scene you can watch: a buyer walks the row, opens a door, kicks a tyre, haggles, shakes hands, counts the notes."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/gc_rounds.jpg",
+        "alt": "The same lot at midnight, at two in the morning and at ten: stage 1, round 2, round 4."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/gc_deal.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/gc_deal.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "One sale from the first look to the handshake."
+      },
+      {
+        "p": "On Saturday morning two outside opinions arrived. The friend from Vladivostok liked it and asked for prices in roubles, more variety in the cars, things only locals would recognise, and cars that do not drive through each other. The designer was harder on it: fonts, headings, far too much text. \"You can see it’s Claude.\""
+      },
+      {
+        "p": "He is right, and it is the most useful sentence of the day. An AI left alone writes a paragraph where a person would draw an icon. So the machine drew six different interface styles on one page, and the human chose the fourth, the one made of pixels like the world under it. Roubles were settled in one word. Both are being built as this is written."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/gc_ui.jpg",
+        "size": [
+          1872,
+          654
+        ],
+        "alt": "Six directions for the interface on one page. The pick was D, «Пиксель»."
+      },
+      {
+        "h": "Two games at once"
+      },
+      {
+        "p": "In practice it looks like this. Two windows, one per game, each with its own machine that keeps its own notes on what was decided. The human plays game one while game two is being rebuilt, then swaps. Each machine hands the big jobs to helpers and checks their work before it reaches the build. Neither game waits for the other, and the only thing in short supply is the human’s attention. That is the real limit of this way of working, and it is why the verdicts are so short."
+      },
+      {
+        "h": "Where the machine fails"
+      },
+      {
+        "list": [
+          "**It cannot hear.** The pirate game’s sound is made from numbers at start-up, and the machine tested it for volume and for clicks in the loops. Whether it sounds good, nobody knows until the human puts headphones on.",
+          "**It cannot tell fun from correct.** Every check passed on the build with the unbeatable enemies. Later it set the enemies’ courage so low that every one of them ran from a healthy ship, and the checks passed again.",
+          "**It broke the game once.** At eleven at night a commit went in with a broken line and the game would not start. It was fixed in three minutes. Since then nothing is saved until the game has been started and has printed no errors.",
+          "**It writes too much text.** See above.",
+          "**It runs out.** On Saturday the helpers hit their usage limit in the middle of an edit and left ninety-four failing checks behind. The work was picked up on a different model.",
+          "**Its history is from memory.** Dates, names and prices in both games still need a pass against real sources, and for Green Corner, against people who were there."
+        ]
+      },
+      {
+        "p": "What catches most of this is not cleverness but checks. The pirate game has twelve of them, 176 separate tests: sailing, fights, sight, prizes, hired boats, the chart, trade, holding a region, weapons, saving, sound, and the thirteen years of history. The car game has a bot that plays from 1992 to 2008 in sixteen seconds. It was that bot, not a person, that found the late game broken: it ended $125,000 in debt on the third lot."
+      },
+      {
+        "h": "Day one in numbers"
+      },
+      {
+        "list": [
+          "Seventeen and a half hours since the bell, of which the human slept roughly six.",
+          "Pirates of the Japan Sea: 36 saved versions, about 9,800 lines of game code, 19 shaders, 12 checks, a whole sea.",
+          "Green Corner: build 7, 78 car models from 9 makers, 7 lots, 17 years of calendar, music and 27 new sound effects.",
+          "Lines of code written by the human: none. Decisions made by the machine about what the games should be: as few as we can manage."
+        ]
+      },
+      {
+        "h": "What is next"
+      },
+      {
+        "p": "Two more days. For the pirates: boarding fought by squads, more coasts built by hand, music. For Green Corner: the new interface, roubles, a Vladivostok that locals recognise. Neither game is public yet; both go up on MyIndie for the judges by Monday evening, and after the hackathon we want both released properly, on as many platforms as will take them."
+      },
+      {
+        "p": "We build in the open and change things from what people tell us. If you were at the Green Corner in the nineties, or know the history of this coast better than a machine does, write to us: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). Day two tomorrow."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Хакатон ДВФУ, день 1: человек, машина и две игры",
+    "description": "Мы участвуем в Дальневосточном хакатоне по разработке игр, который проводит ДВФУ: 72 часа, тема — история и культура Дальнего Востока. Делаем сразу две игры: пиратскую песочницу на Японском море в 1220 году и тайкун про «Зелёный угол» в 1992-м. Рассказываем, как человек и ИИ на самом деле делят работу в первый день: с картинками, клипами и тем, что пошло не так.",
+    "body": [
+      {
+        "p": "В пятницу в 18:30 по Владивостоку начался [Дальневосточный хакатон](https://myindie.net/jams/jam/dalnevostochnyj-hakaton). Его проводит ДВФУ как финал своей Школы видеоигровой разработки, участвовать может кто угодно, а проходит он на MyIndie. Записалась 31 команда. Правила короткие: 72 часа, игра должна быть об истории и культуре Дальнего Востока. Часть команд сидит в зале на кампусе на острове Русском. Мы участвуем из-за стола в Сиднее."
+      },
+      {
+        "p": "Половина нашей студии из Владивостока, так что тема для нас домашняя. Выбрать одну из двух идей мы не смогли и делаем обе, за те же 72 часа. Это возможно только из-за того, как мы работаем: один человек и один ИИ. Этот девлог как раз об этом, по часам. Потом будут день второй и день третий."
+      },
+      {
+        "video": "https://youtu.be/ScBL2Hmy6ys",
+        "poster": "img/log/far-east-hackathon-day-1/trailer.jpg",
+        "alt": "Первый день обеих игр за минуту. Всё снято из сборок в том виде, в каком они были в субботу в полдень."
+      },
+      {
+        "h": "Две игры"
+      },
+      {
+        "p": "**«Железная джонка»** (по-английски Pirates of the Japan Sea). 1220 год. Берег, где сейчас стоит Владивосток, принадлежит Восточному Ся, государству чжурчжэней, а в 1233-м сюда дойдут монголы. У вас одна джонка с вёслами, команда лучников и метатель огненных бомб. Вы ведёте корабль сами, бой идёт две-три минуты, можно нанимать лодки, брать порты штурмом и тринадцать лет держать свои острова. Для компьютера, прямо в браузере."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_sail.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_sail.jpg",
+        "alt": "«Железная джонка» через семнадцать часов: родные воды, под парусом и на вёслах."
+      },
+      {
+        "p": "**«Правый руль: Зелёный угол»**. «Зелёный угол» — авторынок на сопке во Владивостоке, где с начала девяностых полстраны покупало подержанные праворульные машины прямо с пароходов из Японии. Вы начинаете в апреле 1992 года на грунтовой площадке, которую оставил дядя, с несколькими машинами, которые привезли моряки. В будни готовите машины, в субботу и воскресенье продаёте, и площадка за площадкой двигаетесь к воротам рынка — до декабря 2008-го. Пиксельный тайкун для телефона в вертикальном положении."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/gc_lot.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/gc_lot.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "«Зелёный угол»: суббота на первой площадке, июнь 1994-го."
+      },
+      {
+        "h": "Кто что делает"
+      },
+      {
+        "p": "Машина — это Claude Code. Она сидит в папке проекта, пишет каждую строчку игры, рисует пиксель-арт и шейдеры кодом, запускает игру без окна, чтобы её проверить, и кладёт каждую сборку туда, где в неё можно сыграть. Работает она сразу в несколько копий: в субботу утром три из них одновременно перерисовывали корабли, землю и города пиратской игры, каждая в своей копии проекта, а ещё три сидели в игре про машины."
+      },
+      {
+        "p": "Человек на этом хакатоне код не пишет. Вот что он делает:"
+      },
+      {
+        "list": [
+          "**Выбирает, что это за игра.** До игры про машины было шесть идей. Пять из них — работа руками: инспектор, парковщик, разгрузка парохода, ночной сторож, перегон колонны. Ответ был: «Я бы ни во что из этого не играл». Выжила одна идея, дядина площадка.",
+          "**Выбирает картинку.** Машина не знает, что красиво. Она может показать варианты, а он показывает пальцем.",
+          "**Играет в каждую сборку и говорит простыми словами, что не так.** Это бо́льшая часть работы.",
+          "**Решает.** Ответы в одну строку, которые закрывают спор: «Рубли.» или «По берегу не ходим».",
+          "**Приводит других людей.** В субботу утром в игру про машины сыграл друг из Владивостока. За завтраком на неё посмотрел дизайнер."
+        ]
+      },
+      {
+        "h": "Игра первая: сначала была картинка"
+      },
+      {
+        "p": "Пиратская игра началась в пятницу, за несколько часов до старта, с документа и пяти картин, которые нарисовала нейросеть: как должны выглядеть море, бой, форт и абордаж. Человек выбрал одну — тушь и размывка поверх освещённых сопок — и написал: «Я уже хочу в это играть». К началу хакатона у игры были карты, дизайн и эта цель. Кода не было. Всё, во что можно играть, написано после старта."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_target.jpg",
+        "alt": "Цель: картина нейросети, выбранная в пятницу до старта. Это не игра."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_build.jpg",
+        "alt": "Игра в субботу в полдень. Землю, море, корабли и города рисуют шейдеры и код; ни одной нарисованной текстуры в ней нет."
+      },
+      {
+        "p": "Через два с половиной часа после старта уже был корабль, на котором можно плыть. Дальше пошёл цикл, который не останавливается до сих пор: он десять минут играет, пишет несколько строк, машина через десять-сорок минут отвечает новой сборкой."
+      },
+      {
+        "quote": "Медленно. Больше экшена, быстрее. Врагов вообще не нашёл.",
+        "by": "Первый вердикт, через три часа после старта"
+      },
+      {
+        "p": "Корабли стали на шестьдесят процентов быстрее, и теперь два-три патруля всегда пересекают ваш путь. Следующий вердикт был про обратное: враги оказались «какими-то супер-врагами». Машина написала противников, которые целились идеально и никогда не ошибались. Их сделали медленнее игрока, дали им половину его меткости и научили сдаваться."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_fight.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_fight.jpg",
+        "alt": "Бой сейчас: его можно выиграть."
+      },
+      {
+        "p": "Лучшее изменение дня тоже выросло из одной фразы. Первая карта работала как в большинстве игр: доплыл до края, нажал клавишу, увидел карту, выбрал место. Он написал: «Не хочу быстрых перемещений к другим берегам, это всё плавание — чтобы в любой момент можно было приблизиться и оказаться там, где ты есть на стратегической карте». К часу ночи всё море, 512 на 288 километров, стало одним куском воды. Крутите колесо назад, проходите сквозь облака — и смотрите на карту. Крутите вперёд в любом месте — и вы там на воде."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/pj_zoom.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/pj_zoom.jpg",
+        "alt": "Одно море: с палубы вверх сквозь облака до всей карты и обратно."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/pj_port.jpg",
+        "alt": "Порт: ремонт, верфь, рынок, команда и офицеры, которых можно нанять."
+      },
+      {
+        "h": "Игра вторая: семь сборок до обеда"
+      },
+      {
+        "p": "«Зелёный угол» тоже начинался не с нуля, и честно будет это сказать: он стоит на наборе интерфейса из другого нашего тайкуна, VR Arcade Story. Правила, машины, площадка и люди — новые. Первая версия, в которую можно играть, была сохранена через пять часов после старта. Человек сыграл во вторую сборку около часа ночи и ответил:"
+      },
+      {
+        "quote": "Ок. Работы много. Меню мелкие. Слишком много текста, убери его в подсказки. Нужно больше значков. Продажа пролетает быстро, и непонятно, покупатель этот мужик или нет.",
+        "by": "О сборке 2"
+      },
+      {
+        "p": "Потом он лёг спать, а машина нет. К его пробуждению в игре были календарь с 1992 по 2008 год, семь площадок, шестьдесят шесть моделей машин, моряки, аукционные листы, таможня и тайфун. Продажа стала сценой, на которую можно смотреть: покупатель идёт вдоль ряда, открывает дверь, пинает колесо, торгуется, жмёт руку, пересчитывает деньги."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/gc_rounds.jpg",
+        "alt": "Одна и та же площадка в полночь, в два часа ночи и в десять утра: этап 1, раунд 2, раунд 4."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-1/gc_deal.mp4",
+        "poster": "img/log/far-east-hackathon-day-1/gc_deal.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Одна продажа от первого взгляда до рукопожатия."
+      },
+      {
+        "p": "В субботу утром пришли два мнения со стороны. Другу из Владивостока понравилось, и он попросил цены в рублях, больше разных машин, детали, которые узнают только местные, и чтобы машины не ездили друг сквозь друга. Дизайнер был строже: шрифты, заголовки, слишком много текста. «Видно, что это Claude»."
+      },
+      {
+        "p": "Он прав, и это самая полезная фраза дня. ИИ, оставленный без присмотра, пишет абзац там, где человек нарисовал бы значок. Поэтому машина нарисовала на одной странице шесть разных стилей интерфейса, а человек выбрал четвёртый — тот, что сделан из пикселей, как мир под ним. Вопрос с рублями решился одним словом. И то и другое делается прямо сейчас, пока пишется этот текст."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-1/gc_ui.jpg",
+        "size": [
+          1872,
+          654
+        ],
+        "alt": "Шесть направлений интерфейса на одной странице. Выбрано D, «Пиксель»."
+      },
+      {
+        "h": "Две игры одновременно"
+      },
+      {
+        "p": "На практике это выглядит так. Два окна, по одному на игру, в каждом своя машина, которая ведёт свои записи о том, что решено. Человек играет в первую игру, пока вторую пересобирают, потом меняет их местами. Каждая машина раздаёт крупные задачи помощникам и проверяет их работу до того, как она попадёт в сборку. Ни одна игра не ждёт другую, а в дефиците только внимание человека. Это и есть настоящий предел такого способа работы, и именно поэтому вердикты такие короткие."
+      },
+      {
+        "h": "Где машина ошибается"
+      },
+      {
+        "list": [
+          "**Она не слышит.** Звук пиратской игры собирается из чисел при запуске, и машина проверила в нём громкость и щелчки на стыках. Хорошо ли он звучит — никто не узнает, пока человек не наденет наушники.",
+          "**Она не отличает «весело» от «правильно».** На сборке с непобедимыми врагами все проверки прошли. Позже она так занизила врагам смелость, что от целого корабля убегали все до одного, — и проверки снова прошли.",
+          "**Один раз она сломала игру.** В одиннадцать вечера в проект ушла правка с испорченной строкой, и игра не запускалась. Починили за три минуты. С тех пор ничего не сохраняется, пока игра не запустилась и не напечатала ноль ошибок.",
+          "**Она пишет слишком много текста.** См. выше.",
+          "**Она кончается.** В субботу помощники упёрлись в лимит посреди правки и оставили после себя девяносто четыре упавшие проверки. Работу подхватила другая модель.",
+          "**Историю она знает по памяти.** Даты, названия и цены в обеих играх ещё нужно сверить с настоящими источниками, а для «Зелёного угла» — с людьми, которые там были."
+        ]
+      },
+      {
+        "p": "Почти всё это ловит не ум, а проверки. У пиратской игры их двенадцать, 176 отдельных тестов: плавание, бой, видимость, призы, наёмные лодки, карта, торговля, удержание вод, оружие, сохранение, звук и тринадцать лет истории. У игры про машины есть бот, который проходит её с 1992 по 2008 год за шестнадцать секунд. Именно бот, а не человек, нашёл сломанную позднюю игру: на третьей площадке он закончил с долгом в 125 тысяч долларов."
+      },
+      {
+        "h": "Первый день в цифрах"
+      },
+      {
+        "list": [
+          "Семнадцать с половиной часов со старта, из них человек спал примерно шесть.",
+          "«Железная джонка»: 36 сохранённых версий, около 9800 строк кода игры, 19 шейдеров, 12 проверок, целое море.",
+          "«Зелёный угол»: сборка 7, 78 моделей машин от 9 производителей, 7 площадок, 17 лет календаря, музыка и 27 новых звуков.",
+          "Строк кода, написанных человеком: ноль. Решений о том, какими должны быть игры, принятых машиной: так мало, как только получается."
+        ]
+      },
+      {
+        "h": "Что дальше"
+      },
+      {
+        "p": "Ещё два дня. Пиратам — абордаж отрядами, больше берегов, собранных вручную, музыка. «Зелёному углу» — новый интерфейс, рубли и Владивосток, который узнают местные. Ни одна из игр пока не открыта для всех; к вечеру понедельника обе уйдут на MyIndie для жюри, а после хакатона мы хотим выпустить обе по-настоящему, на всех площадках, какие их примут."
+      },
+      {
+        "p": "Мы делаем игры открыто и меняем их по тому, что нам говорят. Если вы бывали на «Зелёном углу» в девяностые или знаете историю этого берега лучше машины, напишите нам: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). День второй — завтра."
+      }
+    ]
+  }
+}
