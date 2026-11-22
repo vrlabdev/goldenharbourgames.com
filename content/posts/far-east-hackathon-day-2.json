@@ -1,0 +1,360 @@
+{
+  "slug": "far-east-hackathon-day-2",
+  "date": "2026-11-22",
+  "game": null,
+  "cover": "img/log/far-east-hackathon-day-2/cover.jpg",
+  "size": [
+    1280,
+    720
+  ],
+  "en": {
+    "title": "Far East hackathon, day 2: the day of \"no\"",
+    "description": "Forty-two hours into the 72-hour Far East hackathon. Both games changed more on day two than on day one, and almost all of it began with the human saying no: to the interface, to the roubles he asked for yesterday, to boarding drawn as three bars. More clips and a new film.",
+    "body": [
+      {
+        "p": "Forty-two hours in, thirty to go. [Yesterday](https://goldenharbourgames.com/log/far-east-hackathon-day-1/) we wrote how one person and one AI build two games at once. Several people told us it was too long, so this one is shorter and has more moving pictures."
+      },
+      {
+        "video": "https://youtu.be/8ONoBOemelY",
+        "poster": "img/log/far-east-hackathon-day-2/trailer.jpg",
+        "alt": "Day two of both games in a minute, recorded from Sunday’s builds."
+      },
+      {
+        "p": "Day one was the machine building. Day two was the human saying no. Nearly everything below started as one sentence of his that began with \"I don’t like\" or \"this is not\"."
+      },
+      {
+        "h": "Pirates of the Japan Sea"
+      },
+      {
+        "p": "Yesterday’s game had a grey box in the corner for the ship. He called it unacceptable. The machine drew six interfaces on one page, he pointed at black lacquer and gold, and every screen was rebuilt in one pass. His answer: \"Getting better. I like the UI.\""
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-2/pj_ui.jpg",
+        "size": [
+          1280,
+          1450
+        ],
+        "alt": "The same port on Saturday and on Sunday."
+      },
+      {
+        "p": "Then he opened the folder of target paintings from day one and asked whether boarding looked like the fourth one. It did not: boarding was three bars filling up, seen from far away. Now the camera comes down, the hulls are lashed side by side and both crews fight on her deck."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_board.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_board.jpg",
+        "alt": "Boarding, as of Sunday midday."
+      },
+      {
+        "p": "Other sentences of his, and what they turned into:"
+      },
+      {
+        "list": [
+          "**\"A SAIL! is not informative.\"** The lookout now tells more the closer a sail comes: first a sail, then her size and course, then her flag, then her name, crew and cargo.",
+          "**\"Very little traffic.\"** Merchants on routes between ports, fishing boats, patrols of whoever holds the water, pirates who attack everybody.",
+          "**\"We need to move on.\"** Rivers you can sail into, with towns and sandbars. Five hulls ordered at yards. A cove of your own to build. Villages to raid or tax. Storming a port in three fights. Day, night and weather."
+        ]
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_night.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_night.jpg",
+        "alt": "A day is two minutes of light and forty-five seconds of dark."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_town.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_town.jpg",
+        "alt": "Running in to a pier. The people on the quay are new too."
+      },
+      {
+        "p": "He also asked for the things a prototype lacks and a game has: a main menu, three voyages saved side by side, three captains to begin as, an archive that keeps what you found across voyages, and legends with relics that work as lasting bonuses and grow with your standing in a water. And one rule about pace, after \"the boat must feel fast\": time runs faster the higher the eye is, up to ten times at the top, while the helm answers the same at any speed."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_storm.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_storm.jpg",
+        "alt": "Storming a port is three fights now: the waterfront, the gate, the keep."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_oil.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_oil.jpg",
+        "alt": "Oil from the flamethrower burns on the water for twenty seconds and burns whoever sails through it, you included."
+      },
+      {
+        "p": "Yesterday we wrote that the machine cannot hear and nobody knew whether the sound was any good. He put the headphones on. It was not: \"too much rowing, loud and constant\". The sea is a recording now, and the music is played on instruments of the 1200s: guqin, xiao, gayageum, war drums."
+      },
+      {
+        "h": "JDM Car Lot Tycoon"
+      },
+      {
+        "p": "The car game has a second name. In Russian it stays «Правый руль: Зелёный угол»; for everyone else it is JDM Car Lot Tycoon. And it has the interface he chose yesterday, made of pixels like the world under it, with tabs that have no words at all. The designer who said \"you can see it’s Claude\" was right about the text, so most of it went into pictures. The friend from Vladivostok asked for more variety: there are 164 models in 16 colours now, with trim levels and local nicknames that still need a local to check them."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-2/gc_ui.jpg",
+        "size": [
+          1280,
+          1129
+        ],
+        "alt": "Build 7 on the left, build 23 on the right."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_menus.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_menus.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "The new menus: cars, a car sheet, building, the port, an auction sheet."
+      },
+      {
+        "p": "Yesterday we quoted his one-word ruling, \"Rubles.\" The machine built it properly: street exchange rates month by month, old roubles, the 1998 redenomination. He played it and wrote: \"I want the dollars back. It adds that whole exchange rate minigame, not sure about it.\" Dollars are back. Roubles are a switch in the settings. A ruling lasts until the human has played it."
+      },
+      {
+        "p": "\"The port is a port, the yard is up on the hills.\" The lot and the quay used to share one picture. Now they are two places. On ship day you go down to the port, and the cars you bought drive up to the yard in a column."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_port.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_port.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Ship day."
+      },
+      {
+        "p": "The hills took three tries. Real Green Corner is terraces of cars up a hillside, and the machine first drew a five-storey town there. \"Weird, out of place.\" Now the hills are stepped pads with two rows of cars and a lane on each, and other dealers’ lots below the road."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_pull.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_pull.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Pulling back from the lot to the hills."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_deal.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_deal.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "A sale you take yourself now gets a close camera."
+      },
+      {
+        "h": "The night shift"
+      },
+      {
+        "p": "On Saturday the pirate game got one standing order to cover the hours when nobody is watching: keep going in batches, without asking, until it looks like the reference paintings, and check and publish every batch. Between two and three on Sunday morning fourteen versions were saved in a single hour: raiding, paid work from towns, fog, service under the Khan, the cove, named pirate captains, six peoples of the coast."
+      },
+      {
+        "p": "The car game has its own version of this. Every build that passes its checks lands on his phone by itself, and he answers when he wakes up."
+      },
+      {
+        "p": "This is the honest risk of working like this. The machine now builds faster than one person can play, and much of what it built overnight is still waiting for him. Anything he has not played is a guess."
+      },
+      {
+        "h": "Where the machine failed today"
+      },
+      {
+        "list": [
+          "**The screen went black.** On his phone the whole picture flashed black on every pinch. The machine’s checks run without a screen and saw nothing. There is now a check that plays a pinch on a real renderer and fails on a dark frame.",
+          "**It was too strict.** Asked for cars that move realistically, it wrote right-of-way rules so careful that cars stood in a jam for a game week. The new rule is his: \"It has to be close. It’s okay if they do a clippy and go on their merry way.\"",
+          "**It built systems that did nothing.** Owner’s manuals to collect, finds on a shelf, auction sheet notes: all present, none changing play. \"Systems give no bonus.\" Now a manual makes that model’s repairs cheaper and faster.",
+          "**The browser build crawled.** Twenty frames a second on a laptop chip. The machine measured instead of guessing: a third of each frame was edge smoothing nobody would miss. It runs at sixty now.",
+          "**It got a name wrong.** For a day the machine kept telling the human that the uncle in the car game was called Igor. In the game’s own data he had been Misha all along."
+        ]
+      },
+      {
+        "h": "Day two in numbers"
+      },
+      {
+        "list": [
+          "Pirates of the Japan Sea: 44 more saved versions, the code doubled to about 19,000 lines, 21 checks instead of 12.",
+          "JDM Car Lot Tycoon: build 7 became build 23, 164 car models instead of 78.",
+          "Rulings reversed by the person who made them: one. Interfaces thrown away: two."
+        ]
+      },
+      {
+        "p": "Thirty hours left. Both games go to the judges on Monday evening, Vladivostok time. We build in the open and change things from what people tell us, the length of these posts included: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). Day three tomorrow."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Хакатон ДВФУ, день 2: день слова «нет»",
+    "description": "Сорок два часа из семидесяти двух. За второй день обе игры изменились сильнее, чем за первый, и почти всё началось с того, что человек сказал «нет»: интерфейсу, рублям, которые сам вчера попросил, абордажу в виде трёх полосок. Больше клипов и новый ролик.",
+    "body": [
+      {
+        "p": "Прошло сорок два часа, осталось тридцать. [Вчера](https://goldenharbourgames.com/ru/log/far-east-hackathon-day-1/) мы писали, как один человек и один ИИ делают две игры сразу. Несколько человек сказали, что вышло слишком длинно, так что сегодня короче и больше движущихся картинок."
+      },
+      {
+        "video": "https://youtu.be/JQNsOWH4tH4",
+        "poster": "img/log/far-east-hackathon-day-2/trailer.jpg",
+        "alt": "Второй день обеих игр за минуту, снято из воскресных сборок."
+      },
+      {
+        "p": "В первый день машина строила. Во второй человек говорил «нет». Почти всё, что ниже, началось с одной его фразы, которая начиналась с «мне не нравится» или «это не то»."
+      },
+      {
+        "h": "«Железная джонка»"
+      },
+      {
+        "p": "Во вчерашней игре в углу висела серая коробка с состоянием корабля. Он назвал её неприемлемой. Машина нарисовала на одной странице шесть интерфейсов, он показал на чёрный лак с золотом, и все экраны были пересобраны за один заход. Его ответ: «Уже лучше. Интерфейс мне нравится»."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-2/pj_ui.jpg",
+        "size": [
+          1280,
+          1450
+        ],
+        "alt": "Один и тот же порт в субботу и в воскресенье."
+      },
+      {
+        "p": "Потом он открыл папку с картинами-целями из первого дня и спросил, похож ли абордаж на четвёртую. Не похож: абордаж был тремя полосками, которые заполняются где-то вдалеке. Теперь камера опускается, корабли стянуты борт к борту, и обе команды дерутся на чужой палубе."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_board.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_board.jpg",
+        "alt": "Абордаж на полдень воскресенья."
+      },
+      {
+        "p": "Другие его фразы и то, во что они превратились:"
+      },
+      {
+        "list": [
+          "**«“ПАРУС!” — это неинформативно».** Теперь вперёдсмотрящий сообщает тем больше, чем ближе парус: сначала просто парус, потом размер и курс, потом флаг, потом имя, команду и груз.",
+          "**«Очень мало движения».** Купцы на маршрутах между портами, рыбацкие лодки, патрули того, кто держит воду, и пираты, которые нападают на всех.",
+          "**«Надо двигаться дальше».** Реки, в которые можно зайти, с городами и отмелями. Пять корпусов, которые заказывают на верфях. Своя бухта, которую можно застроить. Деревни, которые можно ограбить или обложить данью. Штурм порта в три боя. День, ночь и погода."
+        ]
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_night.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_night.jpg",
+        "alt": "Сутки — это две минуты света и сорок пять секунд темноты."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_town.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_town.jpg",
+        "alt": "Подход к причалу. Люди на набережной тоже новые."
+      },
+      {
+        "p": "Ещё он попросил то, чего нет у прототипа и что есть у игры: главное меню, три плавания в соседних слотах, трёх капитанов на выбор, архив, который хранит найденное между плаваниями, и легенды с реликвиями, которые дают постоянные бонусы и растут вместе с вашей репутацией в этих водах. И одно правило про темп, после фразы «лодка должна ощущаться быстрой»: время идёт тем быстрее, чем выше камера, на самом верху вдесятеро, а руль на любой скорости отвечает одинаково."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_storm.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_storm.jpg",
+        "alt": "Штурм порта теперь три боя: набережная, ворота, цитадель."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/pj_oil.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/pj_oil.jpg",
+        "alt": "Масло из огнемёта двадцать секунд горит на воде и жжёт всех, кто через него пройдёт, вас тоже."
+      },
+      {
+        "p": "Вчера мы писали, что машина не слышит и никто не знает, хорош ли звук. Он надел наушники. Нехорош: «слишком много гребли, громко и без остановки». Теперь море — это запись, а музыку играют инструменты XIII века: гуцинь, сяо, каягым, боевые барабаны."
+      },
+      {
+        "h": "«Правый руль: Зелёный угол»"
+      },
+      {
+        "p": "У игры про машины появилось второе имя. По-русски она остаётся «Правый руль: Зелёный угол», для всех остальных это JDM Car Lot Tycoon. И у неё теперь интерфейс, который он выбрал вчера: из пикселей, как мир под ним, и вкладки в нём вообще без слов. Дизайнер, сказавший «видно, что это Claude», был прав насчёт текста, так что бо́льшая его часть ушла в картинки. Друг из Владивостока просил разнообразия: теперь в игре 164 модели в 16 цветах, с комплектациями и местными прозвищами, которые ещё должен проверить кто-то местный."
+      },
+      {
+        "img": "img/log/far-east-hackathon-day-2/gc_ui.jpg",
+        "size": [
+          1280,
+          1129
+        ],
+        "alt": "Слева сборка 7, справа сборка 23."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_menus.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_menus.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Новые меню: машины, карточка машины, стройка, порт, аукционный лист."
+      },
+      {
+        "p": "Вчера мы цитировали его решение в одно слово: «Рубли.» Машина сделала всё как следует: уличный курс по месяцам, старые рубли, деноминация 1998 года. Он сыграл и написал: «Верни доллары. Это добавляет целую мини-игру с курсом, я в ней не уверен». Доллары вернулись, рубли стали переключателем в настройках. Решение живёт до тех пор, пока человек в него не сыграл."
+      },
+      {
+        "p": "«Порт — это порт, а площадка наверху, на сопках». Раньше площадка и причал были на одной картинке. Теперь это два места. В день прихода парохода вы спускаетесь в порт, а купленные машины колонной едут наверх."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_port.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_port.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "День парохода."
+      },
+      {
+        "p": "Сопки получились с третьей попытки. Настоящий «Зелёный угол» — это террасы с машинами вверх по склону, а машина сначала нарисовала там пятиэтажки. «Странно, не к месту». Теперь сопки — это ступени, на каждой два ряда машин и проезд, а ниже дороги стоят площадки других торговцев."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_pull.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_pull.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Отъезд от площадки к сопкам."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-2/gc_deal.mp4",
+        "poster": "img/log/far-east-hackathon-day-2/gc_deal.jpg",
+        "size": [
+          540,
+          960
+        ],
+        "narrow": true,
+        "alt": "Продажу, которую ведёте сами, теперь показывают вблизи."
+      },
+      {
+        "h": "Ночная смена"
+      },
+      {
+        "p": "В субботу пиратская игра получила одно постоянное распоряжение на те часы, когда никто не смотрит: продолжай партиями, не спрашивая, пока не станет похоже на картины-цели, и каждую партию проверяй и выкладывай. Между двумя и тремя часами ночи в воскресенье за один час было сохранено четырнадцать версий: набеги, работа от городов, туман, служба хану, своя бухта, пиратские капитаны с именами, шесть народов побережья."
+      },
+      {
+        "p": "У игры про машины своя версия того же. Каждая сборка, прошедшая проверки, сама оказывается у него на телефоне, а он отвечает, когда проснётся."
+      },
+      {
+        "p": "Это честный риск такой работы. Машина теперь строит быстрее, чем один человек успевает играть, и многое из построенного за ночь всё ещё ждёт его. Всё, во что он не сыграл, — догадка."
+      },
+      {
+        "h": "Где машина ошиблась сегодня"
+      },
+      {
+        "list": [
+          "**Экран чернел.** На его телефоне вся картинка мигала чёрным при каждом щипке. Проверки машины идут без экрана и ничего не видели. Теперь есть проверка, которая делает щипок на настоящем рендере и падает на тёмном кадре.",
+          "**Она была слишком строгой.** Её попросили, чтобы машины ездили реалистично, и она написала такие аккуратные правила проезда, что машины простояли в пробке игровую неделю. Новое правило — его: «Должно быть близко к правде. Пусть проедут друг сквозь друга и едут себе дальше».",
+          "**Она построила системы, которые ничего не делали.** Мануалы, которые собирают, находки на полке, пометки в аукционных листах — всё было, и ничего не влияло на игру. «Системы не дают бонуса». Теперь с мануалом ремонт этой модели дешевле и быстрее.",
+          "**Браузерная сборка еле ползла.** Двадцать кадров в секунду на ноутбучной графике. Машина не гадала, а измерила: треть каждого кадра уходила на сглаживание краёв, которого никто бы не хватился. Теперь шестьдесят.",
+          "**Она перепутала имя.** Целый день машина говорила человеку, что дядю в игре про машины зовут Игорь. В данных самой игры он с самого начала был Мишей."
+        ]
+      },
+      {
+        "h": "Второй день в цифрах"
+      },
+      {
+        "list": [
+          "«Железная джонка»: ещё 44 сохранённые версии, код вырос вдвое, примерно до 19 000 строк, проверок 21 вместо 12.",
+          "«Зелёный угол»: сборка 7 стала сборкой 23, моделей машин 164 вместо 78.",
+          "Решений, отменённых тем, кто их принял: одно. Выброшенных интерфейсов: два."
+        ]
+      },
+      {
+        "p": "Осталось тридцать часов. Обе игры уходят жюри в понедельник вечером по Владивостоку. Мы делаем игры открыто и меняем их по тому, что нам говорят, — длину этих постов тоже: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com). День третий — завтра."
+      }
+    ]
+  }
+}
