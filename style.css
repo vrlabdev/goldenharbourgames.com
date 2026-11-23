@@ -884,6 +884,8 @@ a.oar-game:hover { color: var(--gold-hi); }
 .post-video a { position: relative; cursor: pointer; }
 .post-play { position: absolute; left: 50%; top: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; display: grid; place-items: center; padding-left: 6px; border-radius: 50%; background: var(--gold); color: #050b14; font-size: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, .55); transition: transform .2s ease; }
 .post-video a:hover .post-play { transform: scale(1.08); }
+.game-trailer { max-width: 880px; margin: 0 0 clamp(24px, 3vw, 36px); }
+.game-shots { margin-top: clamp(28px, 4vw, 44px); }
 .post-quote { margin: 26px 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--gold); }
 .post-quote p { margin: 0; font-size: 21px; line-height: 1.45; color: var(--text); }
 .post-quote footer { margin-top: 8px; font-size: 14.5px; color: var(--muted); }

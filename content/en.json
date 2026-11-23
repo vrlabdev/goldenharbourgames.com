@@ -475,6 +475,73 @@
           ]
         }
       ]
+    },
+    "jdm-car-lot-tycoon": {
+      "title": "JDM Car Lot Tycoon",
+      "aka": "In Russian: «Правый руль: Зелёный угол»",
+      "text": "Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. The first lot is free.",
+      "tags": [
+        "Tycoon",
+        "Pixel art"
+      ],
+      "seo_title": "JDM Car Lot Tycoon: a used car lot tycoon in 1990s Vladivostok",
+      "seo_description": "A pixel-art tycoon about a used Japanese car lot in Vladivostok, 1992 to 2008. Order cars through sailors, clear them at the port, wash and fix them, haggle face to face and grow from one muddy lot to seven. Free first lot on Android and in the browser.",
+      "intro": [
+        "Vladivostok, April 1992. Your uncle meets you at the port, shows you how the trade works, then leaves you a patch of dirt on the hills above the city, five tired Japanese cars and a wire fence. Around you a whole market is growing on the slopes: the Green Corner.",
+        "Buyers walk the rows, kick tyres, argue, leave and come back. You decide what to order, what to fix, where each car stands and how far to drop the price."
+      ],
+      "shots": [
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_1.jpg",
+          "alt": "The big lot by the main road, 2001."
+        },
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_2.jpg",
+          "alt": "Haggling face to face: hold, give a little, or take his offer."
+        },
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_3.jpg",
+          "alt": "Ship day at the port. Sailors buy used cars in Japan and bring them over on deck."
+        },
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_4.jpg",
+          "alt": "A full lot in 1997."
+        },
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_5.jpg",
+          "alt": "Your own place on the Amur Bay shore."
+        },
+        {
+          "src": "img/games/jdm-car-lot-tycoon/en/shot_6.jpg",
+          "alt": "Winter on the hills, 1999."
+        }
+      ],
+      "sections": [
+        {
+          "title": "What is in it today",
+          "list": [
+            "Ordering cars in Japan through sailors you trust, reading auction sheets, and ships at the port every weekday.",
+            "More than a hundred models from nine makers, each with its own faults, mileage you may or may not believe, and a manual in the glovebox to collect.",
+            "Haggling you can read: hold your price, give a little, or let him walk.",
+            "A front row by the road that gets twice the looks, and themed rows that buyers start coming for.",
+            "Seven lots from 1992 to 2008, through the 1998 crash and every change of the rules.",
+            "A place of your own on the Amur Bay shore that fills up over the years, and a share card of your lot with a rank."
+          ]
+        },
+        {
+          "title": "The free lot and the full game",
+          "paragraphs": [
+            "The whole first lot is free, for as long as you like. The full game is one purchase on Google Play: no ads, no coins. The browser version on this page is the free lot."
+          ]
+        },
+        {
+          "title": "Where to play",
+          "paragraphs": [
+            "On Android through Google Play, or here in the browser. An iPhone version is on its way through TestFlight.",
+            "The game is in active development and a new build comes out every few days. It was started at the Far East hackathon in November 2026. The code, the pixel art, the text, the music and the sound were made with AI tools; the design and direction come from people. Tell us what felt wrong and what you want more of: we read everything."
+          ]
+        }
+      ]
     }
   },
   "about": {

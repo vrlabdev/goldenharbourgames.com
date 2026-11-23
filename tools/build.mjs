@@ -2,7 +2,9 @@
 //   content/<lang>.json  every word on the page, one file per language
 //   content/games.json   the games, in order: itch link, google_play (optional store page), app_store (optional App Store page), cover, platforms, languages, and the itch
 //                        upload that plays on the site (embed) with the shape it is drawn for (frame); optional
-//                        trailer (a video link; trailer_<lang> overrides it for that language) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
+//                        trailer (a video link; trailer_<lang> overrides it for that language; with trailer_poster[_<lang>] it also
+//                        sits at the top of the play page as a big poster that opens the film; a game's text block may carry
+//                        shots [{src, alt}], 1600x900, shown as a gallery under its intro) and shorts (a playlist, shown on the play page only); rustore (a RuStore page,
 //                        shown only in languages whose JSON has a "rustore" label, i.e. Russian)
 //   content/skyline.svg  the two bridges drawn in About, shared by every language
 //   content/log.json     the harbour log: dated one-liners (en + ru) with an optional game id, newest first
@@ -1238,7 +1240,11 @@ function playPage(t, g) {
       <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
       <h1>${esc(c.title)}</h1>${aka}
     </div>
-
+${g.trailer_poster && trailerOf(g, t) ? `
+    <figure class="post-figure post-video game-trailer">
+      <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}"><img src="${up}${g['trailer_poster_' + t.lang] || g.trailer_poster}" alt="${esc(t.trailer)}: ${esc(c.title)}" width="1280" height="720" fetchpriority="high"><span class="post-play" aria-hidden="true">▶</span></a>
+    </figure>
+` : ''}
     <div data-game="${g.id}" class="stage${portrait ? ' portrait' : ''}" style="--fw: ${fw}; --fh: ${fh}" data-embed="${embedUrl(g)}" data-title="${esc(p.frame_title.replace('{game}', c.title))}">
       <img class="stage-cover" src="${up}${g.cover}" alt="" width="630" height="500">${g.clip ? `
       <video class="stage-cover stage-clip" data-src="${up}${g.clip}" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>` : ''}
@@ -1278,7 +1284,13 @@ ${(c.intro || []).map((p) => `      <p class="text more">${esc(p)}</p>`).join('\
         <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
       </dl>
     </div>
-${(c.sections || []).length ? `    <div class="game-story">
+${(c.shots || []).length ? `    <div class="lab-gallery game-shots">
+${c.shots.map((s) => `      <figure>
+        <a href="${up}${s.src}" data-zoom><img src="${up}${s.src}" alt="${esc(s.alt)}" width="1600" height="900" loading="lazy" decoding="async"></a>
+        <figcaption>${esc(s.alt)}</figcaption>
+      </figure>`).join('\n')}
+    </div>
+` : ''}${(c.sections || []).length ? `    <div class="game-story">
 ${c.sections.map((s) => `      <section>
         <h2>${esc(s.title)}</h2>
 ${s.list ? `        <ul>

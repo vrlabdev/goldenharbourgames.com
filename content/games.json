@@ -57,6 +57,32 @@
     "app_store": "https://apps.apple.com/app/punch-league/id6827402540"
   },
   {
+    "id": "jdm-car-lot-tycoon",
+    "itch": "https://goldenharbourgames.itch.io/green-corner",
+    "cover": "img/jdm-car-lot-tycoon.jpg",
+    "platforms": [
+      "android",
+      "browser",
+      "phone"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 20686863,
+    "frame": [
+      1280,
+      720
+    ],
+    "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.greencorner",
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=3MLqw2erWdc",
+    "trailer_ru": "https://www.youtube.com/watch?v=Ro-0jnmdXpE",
+    "trailer_poster": "img/games/jdm-car-lot-tycoon/trailer_en.jpg",
+    "trailer_poster_ru": "img/games/jdm-car-lot-tycoon/trailer_ru.jpg",
+    "shorts": "https://www.youtube.com/playlist?list=PLTuTD7ki6z_o"
+  },
+  {
     "id": "vr-arcade-story",
     "itch": "https://goldenharbourgames.itch.io/vr-arcade-story",
     "cover": "img/vr-arcade-story.jpg",
