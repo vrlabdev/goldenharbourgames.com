@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-11-23",
+    "game": null,
+    "post": "far-east-hackathon-day-3",
+    "en": "Far East hackathon, day 3. The last day: both games got a tutorial, a trailer and a public page, and JDM Car Lot Tycoon went on sale on Google Play. Seven clips, two trailers and every place to play them.",
+    "ru": "Дальневосточный хакатон, день 3. Последний день: у обеих игр обучение, трейлер и открытая страница, а «Правый руль: Зелёный угол» вышел в продажу в Google Play. Семь клипов, два трейлера и все места, где поиграть."
+  },
+  {
+    "date": "2026-11-23",
     "game": "jdm-car-lot-tycoon",
     "en": "JDM Car Lot Tycoon has a trailer and a page here. The first lot is free on Google Play and in the browser.",
     "ru": "У «Правого руля: Зелёного угла» вышел трейлер, и у игры появилась своя страница. Первая площадка бесплатно в Google Play и в браузере."

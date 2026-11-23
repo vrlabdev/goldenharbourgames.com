@@ -1,0 +1,359 @@
+{
+  "slug": "far-east-hackathon-day-3",
+  "date": "2026-11-23",
+  "game": null,
+  "cover": "img/log/far-east-hackathon-day-3/cover.jpg",
+  "size": [
+    1600,
+    900
+  ],
+  "en": {
+    "title": "Far East hackathon, day 3: two games out the door",
+    "description": "The last day of the 72-hour Far East hackathon. Both games got a tutorial, a trailer and a public page; the car game went on sale on Google Play. Short text, seven clips, two trailers, and every place you can play them.",
+    "body": [
+      {
+        "p": "The 72 hours end on Monday at 18:30 Vladivostok time. Both games are in. This is the last of three posts ([day 1](https://goldenharbourgames.com/log/far-east-hackathon-day-1/), [day 2](https://goldenharbourgames.com/log/far-east-hackathon-day-2/)), and the shortest, because on day three the work stopped being about making the games and started being about getting them to people."
+      },
+      {
+        "p": "Each game has its own trailer now, cut from Monday’s builds."
+      },
+      {
+        "video": "https://youtu.be/OEYkwEFP1Xg",
+        "poster": "img/log/far-east-hackathon-day-3/trailer_pj.jpg",
+        "size": [
+          1280,
+          720
+        ],
+        "alt": "Pirates of the Japan Sea, the trailer. One minute."
+      },
+      {
+        "video": "https://youtu.be/3MLqw2erWdc",
+        "poster": "img/log/far-east-hackathon-day-3/trailer_gc.jpg",
+        "size": [
+          1280,
+          720
+        ],
+        "alt": "JDM Car Lot Tycoon, the trailer. A minute and a half."
+      },
+      {
+        "h": "Pirates of the Japan Sea"
+      },
+      {
+        "p": "He played it twice in the small hours of Monday and gave up the tutorial both times. The first time there was too much to read. The second time the lesson said \"beat a pirate\" and he could not tell which ship was the pirate. His notes were short: \"less text, more icons and flair\"."
+      },
+      {
+        "p": "So every ship now has a colour on the water: green for yours, yellow for neutral, red for whoever wants you dead. Lesson cards are one sentence each, with a seal, and a stamp when a step is done. Rows in the town became a drawing, a name and a price."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_fight.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_fight.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "A raider in red, our junk and the lookout card. The lookout used to be a paragraph."
+      },
+      {
+        "p": "Then he asked what prizes are for. Now a ship you take joins your fleet. Each one costs wages, can be given an officer, and can be laid up in your cove when you cannot afford her."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_fleet.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_fleet.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "A taken ship sails with you. Orders to the fleet are on keys 1 to 4."
+      },
+      {
+        "p": "The last thing he did not like was the edge of the world. Where the detailed coast met the rough map of the whole sea there was a visible seam. His answer was to turn the far land into something else entirely: land you have not explored is drawn as a hand-made chart, with ink shores, paper and form lines for the hills."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_chart.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_chart.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "Pull back far enough and the sea becomes a chart."
+      },
+      {
+        "h": "JDM Car Lot Tycoon"
+      },
+      {
+        "p": "He called the tutorial the most important task of the day and wrote out how it should go. Now the game starts at the port with an empty screen and the clock stopped. The first ship comes in, you tap each car off the ramp, and parts of the interface appear one at a time, as you need them."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_port.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_port.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "The port, where the game now begins. It runs every weekday, with other people’s ships too."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_haggle.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_haggle.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "Haggling with a buyer face to face. This screen did not change much: he liked it."
+      },
+      {
+        "p": "In the browser he found the menus made for a phone, \"huge\", and the text \"very very small\" once they were fixed. There is a desktop layout now. And a third place to spend money: your own home on the shore of the Amur Bay, which goes from a rented room to a house by the sea over seventeen years."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_years.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_years.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "From 1998 to 2003: hills of cars, then lights on after dark."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_home.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_home.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "Your own place on the Amur Bay, by the end of the game."
+      },
+      {
+        "p": "And it is a product now. The first lot is free. The rest is one purchase, no ads. He set the price in four words: \"4usd it is\". Then he bought it on his own phone to check that it works, and said \"Lets Go\"."
+      },
+      {
+        "h": "Where the machine failed today"
+      },
+      {
+        "list": [
+          "**It wrote a tutorial nobody could finish.** Every check passed. Only a person found out the pirate looked like everyone else.",
+          "**It told iPhone users to look for the game on Google Play.** One store screenshot for Apple still carried that line from the Play set. Caught before review.",
+          "**It broke its own Android build** by packing the splash picture twice, which made the signing tool refuse the file.",
+          "**The ground vanished.** After you visited your home, the lot and the port were drawn with no ground under them.",
+          "**It still writes too much.** On day one and again on day three the human’s note was the same: fewer words."
+        ]
+      },
+      {
+        "h": "Seventy-two hours in numbers"
+      },
+      {
+        "list": [
+          "Lines of code written by the human: none.",
+          "Pirates of the Japan Sea: 105 saved versions, about 22,400 lines of game code, 24 checks.",
+          "JDM Car Lot Tycoon: build 60, 164 car models, seventeen years, English and Russian.",
+          "Trailers: two for the games and two for the hackathon."
+        ]
+      },
+      {
+        "h": "Play them"
+      },
+      {
+        "p": "**Pirates of the Japan Sea**, for a computer with a keyboard and mouse:"
+      },
+      {
+        "list": [
+          "[itch.io](https://goldenharbourgames.itch.io/pirates-of-the-japan-sea), free in the browser",
+          "[MyIndie](https://myindie.net/games/game/piraty-yaponskogo-morya), the hackathon page",
+          "Epic Games Store: the store page is being set up"
+        ]
+      },
+      {
+        "p": "**JDM Car Lot Tycoon**, for a phone or a computer:"
+      },
+      {
+        "list": [
+          "[Google Play](https://play.google.com/store/apps/details?id=com.goldenharbourgames.greencorner), the first lot free, the full game one purchase",
+          "iPhone: [the open beta on TestFlight](https://testflight.apple.com/join/B8zeNkPM) while the App Store version waits to be sent for review",
+          "[itch.io](https://goldenharbourgames.itch.io/green-corner), the first lot in the browser",
+          "[MyIndie](https://myindie.net/games/game/pravyj-rul-zelyonyj-ugol_e3d), the hackathon page"
+        ]
+      },
+      {
+        "p": "The judges score the entries until 26 November. Whatever they decide, both games keep going, and the goal from day one has not changed: release both, properly, in as many places as will take them."
+      },
+      {
+        "p": "We build in the open and change things from what people tell us, and these three posts are proof of that. If something in either game feels wrong, tell us: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com)."
+      }
+    ]
+  },
+  "ru": {
+    "title": "Хакатон ДВФУ, день 3: две игры за дверь",
+    "description": "Последний день 72-часового Дальневосточного хакатона. У обеих игр появились обучение, трейлер и открытая страница, игра про машины вышла в продажу в Google Play. Короткий текст, семь клипов, два трейлера и все места, где можно поиграть.",
+    "body": [
+      {
+        "p": "72 часа заканчиваются в понедельник в 18:30 по Владивостоку. Обе игры сданы. Это последний из трёх постов ([день 1](https://goldenharbourgames.com/ru/log/far-east-hackathon-day-1/), [день 2](https://goldenharbourgames.com/ru/log/far-east-hackathon-day-2/)) и самый короткий: в третий день работа перестала быть про то, как сделать игры, и стала про то, как донести их до людей."
+      },
+      {
+        "p": "У каждой игры теперь свой трейлер, снятый на сборках понедельника."
+      },
+      {
+        "video": "https://youtu.be/2stU1R7WGI8",
+        "poster": "img/log/far-east-hackathon-day-3/trailer_pj.jpg",
+        "size": [
+          1280,
+          720
+        ],
+        "alt": "«Пираты Японского моря», трейлер. Одна минута."
+      },
+      {
+        "video": "https://youtu.be/Ro-0jnmdXpE",
+        "poster": "img/log/far-east-hackathon-day-3/trailer_gc.jpg",
+        "size": [
+          1280,
+          720
+        ],
+        "alt": "«Правый руль: Зелёный угол», трейлер. Полторы минуты."
+      },
+      {
+        "h": "Пираты Японского моря"
+      },
+      {
+        "p": "У пиратской игры новое русское имя: раньше она называлась «Железная джонка», теперь «Пираты Японского моря», как и по-английски."
+      },
+      {
+        "p": "В ночь на понедельник он сыграл в неё дважды и оба раза бросил обучение. В первый раз было слишком много текста. Во второй урок сказал «победи пирата», а он не смог понять, какой из кораблей пират. Заметки были короткими: «меньше текста, больше значков и красоты»."
+      },
+      {
+        "p": "Теперь у каждого корабля на воде есть цвет: зелёный у своих, жёлтый у нейтральных, красный у тех, кто хочет вашей смерти. Карточки уроков по одному предложению, с печатью и штампом, когда шаг пройден. Строки в городе стали рисунком, названием и ценой."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_fight.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_fight.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "Красный пират, наша джонка и карточка впередсмотрящего. Раньше она была абзацем."
+      },
+      {
+        "p": "Потом он спросил, зачем нужны призы. Теперь взятый корабль становится частью вашего флота. Каждый стоит жалованья, на него можно поставить офицера, а если денег нет, его можно поставить на прикол в своей бухте."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_fleet.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_fleet.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "Взятый корабль идёт с вами. Приказы флоту на клавишах 1–4."
+      },
+      {
+        "p": "Последнее, что ему не понравилось, — край мира. Там, где подробный берег встречался с грубой картой всего моря, был виден шов. Его решение: дальняя земля должна стать чем-то другим. Неразведанные берега теперь нарисованы как рукописная карта: бумага, тушь, горизонтали на сопках."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/pj_chart.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/pj_chart.jpg",
+        "size": [
+          1280,
+          560
+        ],
+        "alt": "Отъедьте достаточно далеко, и море станет картой."
+      },
+      {
+        "h": "Правый руль: Зелёный угол"
+      },
+      {
+        "p": "Обучение он назвал главной задачей дня и сам расписал, каким оно должно быть. Теперь игра начинается в порту, с пустым экраном и остановленными часами. Приходит первый пароход, вы по одной сгоняете машины с аппарели, а части интерфейса появляются по одной, когда они нужны."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_port.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_port.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "Порт, с которого теперь начинается игра. Он живёт каждый будний день, с чужими пароходами тоже."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_haggle.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_haggle.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "Торг с покупателем лицом к лицу. Этот экран почти не менялся: он ему понравился."
+      },
+      {
+        "p": "В браузере меню оказались телефонными, «огромными», а после исправления текст стал «очень-очень мелким». Теперь есть отдельная раскладка для компьютера. И третье место, куда тратить деньги: свой дом на берегу Амурского залива, который за семнадцать лет вырастает из съёмной комнаты в дом у моря."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_years.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_years.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "С 1998 по 2003: сопки машин, потом огни после темноты."
+      },
+      {
+        "clip": "img/log/far-east-hackathon-day-3/gc_home.mp4",
+        "poster": "img/log/far-east-hackathon-day-3/gc_home.jpg",
+        "size": [
+          1280,
+          600
+        ],
+        "alt": "Свой дом на Амурском заливе к концу игры."
+      },
+      {
+        "p": "И теперь это продукт. Первая площадка бесплатно. Остальное одной покупкой, без рекламы. Цену он назначил тремя словами: «4usd it is». Потом купил игру на своём телефоне, чтобы проверить, что всё работает, и сказал «Lets Go»."
+      },
+      {
+        "h": "Где машина ошиблась сегодня"
+      },
+      {
+        "list": [
+          "**Она написала обучение, которое никто не смог пройти.** Все проверки прошли. Только человек заметил, что пират выглядит как все остальные.",
+          "**Она отправила владельцев iPhone искать игру в Google Play.** На одном скриншоте для Apple осталась строчка из набора для Play. Поймали до проверки.",
+          "**Она сломала свою же сборку для Android**, упаковав заставку дважды, и инструмент подписи отказался принимать файл.",
+          "**Пропала земля.** После визита домой площадка и порт рисовались без земли под ними.",
+          "**Она всё ещё пишет слишком много.** И в первый, и в третий день заметка человека была одна: меньше слов."
+        ]
+      },
+      {
+        "h": "Семьдесят два часа в цифрах"
+      },
+      {
+        "list": [
+          "Строк кода, написанных человеком: ноль.",
+          "«Пираты Японского моря»: 105 сохранённых версий, около 22 400 строк кода игры, 24 проверки.",
+          "«Правый руль: Зелёный угол»: сборка 60, 164 модели машин, семнадцать лет, русский и английский.",
+          "Трейлеров: два для игр и два для хакатона."
+        ]
+      },
+      {
+        "h": "Поиграть"
+      },
+      {
+        "p": "**«Пираты Японского моря»**, для компьютера с клавиатурой и мышью:"
+      },
+      {
+        "list": [
+          "[itch.io](https://goldenharbourgames.itch.io/pirates-of-the-japan-sea), бесплатно в браузере",
+          "[MyIndie](https://myindie.net/games/game/piraty-yaponskogo-morya), страница хакатона",
+          "Epic Games Store: страница магазина в работе"
+        ]
+      },
+      {
+        "p": "**«Правый руль: Зелёный угол»**, для телефона или компьютера:"
+      },
+      {
+        "list": [
+          "[Google Play](https://play.google.com/store/apps/details?id=com.goldenharbourgames.greencorner), первая площадка бесплатно, полная игра одной покупкой",
+          "iPhone: [открытая бета в TestFlight](https://testflight.apple.com/join/B8zeNkPM), пока версия для App Store ждёт отправки на проверку",
+          "[itch.io](https://goldenharbourgames.itch.io/green-corner), первая площадка в браузере",
+          "[MyIndie](https://myindie.net/games/game/pravyj-rul-zelyonyj-ugol_e3d), страница хакатона"
+        ]
+      },
+      {
+        "p": "Судьи оценивают работы до 26 ноября. Что бы они ни решили, обе игры продолжаются, и цель с первого дня не изменилась: выпустить обе как следует, на стольких площадках, сколько их возьмёт."
+      },
+      {
+        "p": "Мы делаем игры открыто и меняем их по тому, что нам говорят, и эти три поста тому доказательство. Если в какой-то из игр что-то не так, напишите нам: [contact@goldenharbourgames.com](mailto:contact@goldenharbourgames.com)."
+      }
+    ]
+  }
+}
