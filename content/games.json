@@ -83,6 +83,28 @@
     "shorts": "https://www.youtube.com/playlist?list=PLTuTD7ki6z_o"
   },
   {
+    "id": "pirates-of-the-japan-sea",
+    "itch": "https://goldenharbourgames.itch.io/pirates-of-the-japan-sea",
+    "cover": "img/pirates-of-the-japan-sea.jpg",
+    "platforms": [
+      "windows",
+      "browser"
+    ],
+    "languages": [
+      "EN",
+      "RU"
+    ],
+    "embed": 20685227,
+    "frame": [
+      1280,
+      720
+    ],
+    "new": true,
+    "trailer": "https://www.youtube.com/watch?v=OEYkwEFP1Xg",
+    "trailer_ru": "https://www.youtube.com/watch?v=2stU1R7WGI8",
+    "trailer_poster": "img/games/pirates-of-the-japan-sea/trailer.jpg"
+  },
+  {
     "id": "vr-arcade-story",
     "itch": "https://goldenharbourgames.itch.io/vr-arcade-story",
     "cover": "img/vr-arcade-story.jpg",
@@ -120,7 +142,8 @@
       720
     ],
     "new": true,
-    "clip": "img/clips/stick-vs-weeds.mp4"
+    "clip": "img/clips/stick-vs-weeds.mp4",
+    "trailer": "https://www.youtube.com/watch?v=VURZpBiveKw"
   },
   {
     "id": "orbital-jump",

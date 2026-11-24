@@ -479,13 +479,13 @@
     "jdm-car-lot-tycoon": {
       "title": "JDM Car Lot Tycoon",
       "aka": "In Russian: «Правый руль: Зелёный угол»",
-      "text": "Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. The first lot is free.",
+      "text": "Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. Out now on Android, and the first lot is free.",
       "tags": [
         "Tycoon",
         "Pixel art"
       ],
       "seo_title": "JDM Car Lot Tycoon: a used car lot tycoon in 1990s Vladivostok",
-      "seo_description": "A pixel-art tycoon about a used Japanese car lot in Vladivostok, 1992 to 2008. Order cars through sailors, clear them at the port, wash and fix them, haggle face to face and grow from one muddy lot to seven. Free first lot on Android and in the browser.",
+      "seo_description": "A pixel-art tycoon about a used Japanese car lot in Vladivostok, 1992 to 2008. Order cars through sailors, clear them at the port, wash and fix them, haggle face to face and grow from one muddy lot to seven. Out now on Google Play; the first lot is free on Android and in the browser.",
       "intro": [
         "Vladivostok, April 1992. Your uncle meets you at the port, shows you how the trade works, then leaves you a patch of dirt on the hills above the city, five tired Japanese cars and a wire fence. Around you a whole market is growing on the slopes: the Green Corner.",
         "Buyers walk the rows, kick tyres, argue, leave and come back. You decide what to order, what to fix, where each car stands and how far to drop the price."
@@ -537,8 +537,81 @@
         {
           "title": "Where to play",
           "paragraphs": [
-            "On Android through Google Play, or here in the browser. An iPhone version is on its way through TestFlight.",
+            "Out now on Android, on Google Play, or here in the browser. It is coming to iPhone soon.",
             "The game is in active development and a new build comes out every few days. It was started at the Far East hackathon in November 2026. The code, the pixel art, the text, the music and the sound were made with AI tools; the design and direction come from people. Tell us what felt wrong and what you want more of: we read everything."
+          ]
+        }
+      ]
+    },
+    "pirates-of-the-japan-sea": {
+      "title": "Pirates of the Japan Sea",
+      "aka": "In Russian: «Пираты Японского моря»",
+      "text": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Build a fleet and a pirate cove before the Mongols come. A free open beta on Windows and in your browser.",
+      "tags": [
+        "Naval action",
+        "Sandbox"
+      ],
+      "seo_title": "Pirates of the Japan Sea: naval action on the Sea of Japan, 1220",
+      "seo_description": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Trade, climb, build a fleet and a pirate cove before the Mongols come in 1231. A free open beta on Windows and in the browser; the full game is coming to the Epic Games Store.",
+      "intro": [
+        "You start with one junk and fifty men. Five powers want the water, and the Mongols are coming in 1231. Build a fleet and a pirate cove of your own before they arrive.",
+        "A short tutorial teaches the helm, the fight and trade. Then the voyage opens in four chapters. Each one starts with a briefing: who holds which water, who is at war with whom, and what the Mongol clock says. Press P at any time for the state of the sea, and J for your Captain's Ledger: rank, wealth, fleet and the next three goals worth chasing."
+      ],
+      "shots": [
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_1.jpg",
+          "alt": "A fight at sea: fire bombs, burning decks and a raider of the Wako clans."
+        },
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_2.jpg",
+          "alt": "Boarding a war junk of Eastern Xia: send your men where she is weak."
+        },
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_3.jpg",
+          "alt": "Coming into the harbour of Haishen with a fire on deck."
+        },
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_4.jpg",
+          "alt": "A skirmish: your six ships against nine raiders."
+        },
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_5.jpg",
+          "alt": "The chart: pull the camera up through the clouds and drop back down anywhere."
+        },
+        {
+          "src": "img/games/pirates-of-the-japan-sea/shot_6.jpg",
+          "alt": "The shipyard at Haishen, from a river junk up to a tower ship."
+        }
+      ],
+      "sections": [
+        {
+          "title": "What you do",
+          "list": [
+            "Sail it yourself. Wind, oars and a full stop. One sea, 512 by 288 km, with no loading screens. Pull the camera up through the clouds to a hand-drawn chart and drop back down anywhere.",
+            "Fight it yourself. Turn and row to dodge, aim the fire-bomb thrower, switch to fire arrows, put out your own fires. Ships are ringed green, yellow or red so you always know who is who.",
+            "Board and take her. Grappling hooks, both crews on one deck. Then strip her, hold her officers for ransom, or put a prize crew aboard and keep her.",
+            "Trade. Every town makes some goods and wants others. Buy where it is made, sell where it is wanted, watch the price move as you sell.",
+            "Climb. Rank, silver and standing in every harbour. Standing opens contracts, legends and relics. Yards build bigger hulls, up to a floating tower ship.",
+            "Build a fleet and a cove. Prizes join you, officers take command, and your cove grows from a beach into a walled harbour."
+          ]
+        },
+        {
+          "title": "Skirmish",
+          "paragraphs": [
+            "One fight, your rules. Set a battle-value budget for each side, pick the flagship and escorts, the flags, an optional third fleet, the place on the chart, the hour and the weather. Then fight it out and see the tally."
+          ]
+        },
+        {
+          "title": "Play it on Windows",
+          "paragraphs": [
+            "This is a PC game first. The Windows download on itch.io (one .exe, about 130 MB, nothing to install) has the full graphics and runs smoothest. The browser version on this page is for a quick look: lighter graphics, and its speed depends on your browser."
+          ]
+        },
+        {
+          "title": "Free open beta",
+          "paragraphs": [
+            "The full game is coming to the Epic Games Store. This beta stays free on itch.io and keeps getting updates several times a week. It was started on 20 November 2026 at the Far East hackathon, built by one person and Claude Code.",
+            "A new voyage starts poor. To try the yards and the fleet straight away, turn on DEV TEST in Settings. Tell us what felt wrong and what you want more of: we read all of it."
           ]
         }
       ]
