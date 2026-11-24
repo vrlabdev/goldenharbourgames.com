@@ -1,0 +1,19 @@
+{
+  "_about": "Instagram bio links. 'short' = /go/<path>/ pages (to=auto, c=ig). 'hub' = the games on /links/, in this order (to=auto, c=ig-links). 'words' = the text on /links/ (English only).",
+  "short": [
+    {"path": "jdm", "game": "jdm-car-lot-tycoon"},
+    {"path": "pirates", "game": "pirates-of-the-japan-sea"},
+    {"path": "aerofire", "game": "aerofire-command"},
+    {"path": "vr-arcade", "game": "vr-arcade-story"},
+    {"path": "orbital-jump", "game": "orbital-jump"}
+  ],
+  "hub": ["jdm-car-lot-tycoon", "pirates-of-the-japan-sea", "aerofire-command", "vr-arcade-story", "orbital-jump", "souls-and-estates"],
+  "words": {
+    "title": "Our games",
+    "lede": "Tap a game to open it. On a phone you go to its store page if it has one. Otherwise you get the game's page on our site, where it plays free in the browser.",
+    "dev_note": "All of these games are in active development and we listen to feedback. If something is broken or not fun, write to us at",
+    "youtube": "Our YouTube channel",
+    "site": "The main site",
+    "youtube_url": "https://www.youtube.com/@goldenharbourgames"
+  }
+}

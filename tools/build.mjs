@@ -45,6 +45,8 @@ const shareImage = (p) => `${SITE}${p}?v=${imgV(p)}`;
 const games = JSON.parse(read('content/games.json'));
 // The studio elsewhere: itch, X and the rest. Shown in the footer and given to search engines as sameAs.
 const links = JSON.parse(read('content/links.json'));
+// The Instagram bio links: short /go/<path>/ pages and the /links/ hub (its games in order, its words).
+const bio = JSON.parse(read('content/bio.json'));
 // Analytics (content/analytics.json): Cloudflare Web Analytics counts page views without cookies; outbound
 // clicks and /go/ link opens go to Google Analytics as anonymous events (no cookie, no stored id) once
 // the stream has an api_secret. Store links carry a campaign tag so the stores report installs from here.
@@ -1878,12 +1880,15 @@ img { display: block; width: 420px; height: 420px; margin: 50px 60px 70px; }
 </style></head><body><img src="../img/logo.svg" alt=""></body></html>
 `;
 
-// /go/?g=<game id>&to=<itch|play|appstore|rustore>&c=<source code>: the link we hand out in emails and
+// /go/?g=<game id>&to=<itch|play|appstore|rustore|page|auto>&c=<source code>: the link we hand out in emails and
 // posts. It notes which link was opened (link_open: game, to, src) and forwards to the store. Only the
 // games' own store pages can be reached, so it is not an open redirect. No JS = a plain list of links.
-function goPage() {
+// to=auto picks by device: Android = Google Play (referrer utm_source=<c or instagram>&utm_medium=bio),
+// iPhone/iPad = App Store, anything else (or a missing store) = the game's page here (/play/<id>/).
+// def = the defaults a short page bakes in (content/bio.json "short": /go/jdm/ etc.); the query still wins.
+function goPage(def = null) {
   const map = {};
-  for (const g of games) map[g.id] = { itch: g.itch, play: g.google_play ? playLink(g, 'go') : undefined, appstore: g.app_store, rustore: g.rustore };
+  for (const g of games) map[g.id] = { id: g.id, itch: g.itch, play: g.google_play ? playLink(g, 'go') : undefined, gp: g.google_play, appstore: g.app_store, rustore: g.rustore, page: '/' + playPath(g) };
   for (const g of games) if (g.was) map[g.was] = map[g.id]; // links handed out under a game's old id still work
   const en = langs.find((l) => l.lang === 'en') || langs[0];
   return `<!doctype html>
@@ -1902,16 +1907,27 @@ ${CF_BEACON}</head>
   <a class="brand" href="/"><img src="/img/mark.svg" alt="" width="40" height="40"><span class="wordmark"><b>Golden Harbour</b><small>Games</small></span></a>
   <div class="lost-langs"><div>
     <p id="go-note">Taking you to the game…</p>
-${games.map((g) => `    <p><a class="button" href="${g.itch}">${esc(en.games[g.id].title)}</a></p>`).join('\n')}
+${(def ? games.filter((g) => g.id === def.g) : games).map((g) => `    <p><a class="button" href="${def ? '/' + playPath(g) : g.itch}">${esc(en.games[g.id].title)}</a></p>`).join('\n')}
   </div></div>
 </main>
 <script>
 (function () {
   ${EVENT_JS}
   var map = ${JSON.stringify(map)};
+  var D = ${JSON.stringify(def || {})};
   var q = new URLSearchParams(location.search);
-  var g = q.get('g') || '', to = q.get('to') || 'itch', src = (q.get('c') || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 24);
-  var dest = map[g] && (map[g][to] || map[g].itch);
+  var g = q.get('g') || D.g || '', to = q.get('to') || D.to || 'itch', src = (q.get('c') || D.c || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 24);
+  var m = map[g], dest;
+  if (m && to === 'auto') {
+    var ua = navigator.userAgent || '';
+    var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (/Android/i.test(ua) && m.gp) {
+      dest = m.gp + (m.gp.indexOf('?') < 0 ? '?' : '&') + 'referrer='
+        + encodeURIComponent('utm_source=' + (src || 'instagram') + '&utm_medium=bio&utm_campaign=' + m.id);
+      to = 'auto-play';
+    } else if (ios && m.appstore) { dest = m.appstore; to = 'auto-appstore'; }
+    else { dest = m.page; to = 'auto-page'; }
+  } else dest = m && (m[to] || m.itch);
   if (!dest) { document.getElementById('go-note').textContent = 'Pick a game:'; return; }
   ghgEvent('link_open', { game: g, to: to, src: src || '(none)' });
   setTimeout(function () { location.replace(dest); }, 180);
@@ -1921,7 +1937,55 @@ ${games.map((g) => `    <p><a class="button" href="${g.itch}">${esc(en.games[g.i
 </html>
 `;
 }
+// /links/: the Instagram bio hub. Phone first: one big button per game (content/bio.json "hub", in order),
+// each through /go/ with to=auto and c=ig-links, then the channel and the main site.
+function linksPage() {
+  const en = langs.find((l) => l.lang === 'en') || langs[0];
+  const w = bio.words;
+  const cards = bio.hub.map((id) => {
+    const g = games.find((x) => x.id === id);
+    if (!g) throw new Error(`content/bio.json: the hub names "${id}", which is not in games.json`);
+    const where = [...new Set(g.platforms.filter((p) => p !== 'phone' && p !== 'tablet').map((p) => en.platforms[p]).filter(Boolean))].join(', ');
+    return `    <li><a class="bio-game" href="/go/?g=${g.id}&amp;to=auto&amp;c=ig-links">
+      <img src="/${g.cover}" alt="" width="630" height="500" loading="lazy">
+      <span><b>${esc(en.games[g.id].title)}</b><small>${esc(where)}</small></span>
+    </a></li>`;
+  }).join('\n');
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Harbour Games</title>
+  <meta name="description" content="${esc(w.lede)}">
+  <link rel="canonical" href="${SITE}links/">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/mark.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=${CSS_V}">
+${CF_BEACON}</head>
+<body class="bio chart">
+<!-- Generated by tools/build.mjs from content/bio.json. -->
+<main class="bio-body">
+  <a class="brand" href="/"><img src="/img/mark.svg" alt="" width="40" height="40"><span class="wordmark"><b>Golden Harbour</b><small>Games</small></span></a>
+  <h1>${esc(w.title)}</h1>
+  <p class="bio-lede">${esc(w.lede)}</p>
+  <ul class="bio-games">
+${cards}
+  </ul>
+  <p class="bio-note">${esc(w.dev_note)} <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+  <p class="bio-more"><a href="${esc(w.youtube_url)}">${esc(w.youtube)}</a><a href="/">${esc(w.site)}</a></p>
+</main>
+</body>
+</html>
+`;
+}
 write('go/index.html', goPage());
+for (const s of bio.short) {
+  if (!games.some((g) => g.id === s.game)) throw new Error(`content/bio.json: the short link "${s.path}" names "${s.game}", which is not in games.json`);
+  write(`go/${s.path}/index.html`, goPage({ g: s.game, to: 'auto', c: 'ig' }));
+}
+write('links/index.html', linksPage());
 for (const t of langs) write(t.path + 'index.html', page(t));
 for (const t of langs) for (const g of games) write(t.path + playPath(g) + 'index.html', playPage(t, g));
 // A renamed game (games.json "was": its old id) keeps its old address as a page that forwards to the new one.
