@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=96cdc133">
+  <link rel="stylesheet" href="style.css?v=cdbffa64">
   <script>document.documentElement.className += ' js';</script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d099b436115c404db0a4fc8a654fc783"}'></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Golden Harbour Games","url":"https://goldenharbourgames.com/","email":"contact@goldenharbourgames.com","logo":"https://goldenharbourgames.com/img/apple-touch-icon.png","sameAs":["https://goldenharbourgames.itch.io/","https://play.google.com/store/apps/dev?id=5746367390018256657","https://apps.apple.com/developer/golden-harbour-games/id6827402542","https://www.youtube.com/@goldenharbourgames","https://www.instagram.com/goldenharbourgames/","https://www.facebook.com/1398649926668969","https://x.com/GoldenHrbrGames"],"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"}}</script>
@@ -91,7 +91,7 @@
           <a href="#beta">Beta testers</a>
           <a href="press/">Press kit</a>
           <a href="#contact">Contact</a>
-          <p class="menu-small"><a href="privacy/">Privacy</a> · <a href="terms/">Terms</a></p>
+          <p class="menu-small"><a href="privacy/">Privacy</a> <a href="terms/">Terms</a></p>
         </div>
       </div>
     </details>
@@ -100,20 +100,14 @@
 
 <section id="games" class="hero hero-games">
   <div class="hero-sky" aria-hidden="true">
-    <canvas class="hero-lights"></canvas>
-    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/><path d="M0 500H1000M500 0V1000" stroke-dasharray="2 8"/></svg>
-    <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
-    <span class="hero-pulse"></span><span class="hero-pulse late"></span>
+    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/></svg>
   </div>
   <div class="hero-head">
-    <div>
-      <p class="kicker">Independent game studio · Vladivostok ⇄ Sydney</p>
+    <div class="hero-words">
       <h1>Games from two <span>harbours.</span></h1>
+      <p class="lede">A small studio in Vladivostok and Sydney. Four of our games are on Google Play, three of them on the App Store too, and every one plays free in your browser.</p>
     </div>
-    <p class="lede">We love games, so we make the ones we want to play: small, polished and easy to pick up, whoever you are. Three are out on Android and iPhone, and every one of them plays free in your browser.</p>
-  </div>
     <div class="chips" role="group" aria-label="Show">
-      <span class="chips-label">Show</span>
       <button type="button" class="chip" aria-pressed="true" data-platform="">All <small>12</small></button>
       <button type="button" class="chip" aria-pressed="false" data-platform="browser">Browser <small>12</small></button>
       <button type="button" class="chip" aria-pressed="false" data-platform="phone">Phone <small>8</small></button>
@@ -122,18 +116,16 @@
       <button type="button" class="chip" aria-pressed="false" data-platform="windows">Windows <small>4</small></button>
       <button type="button" class="chip" aria-pressed="false" data-platform="ios">iPhone <small>3</small></button>
     </div>
+  </div>
     <div class="ring-stage" aria-roledescription="carousel" aria-label="In port now">
       <div class="ring-scene">
         <article class="ring-card" data-game="aerofire-command" data-index="0" data-platforms="android ios windows browser">
           <a class="ring-cover" href="play/aerofire-command/" tabindex="-1" draggable="false"><img src="img/aerofire-command.jpg" alt="AeroFire Command: Fire Season" width="630" height="500" draggable="false" fetchpriority="high"><video class="ring-clip" data-src="img/clips/aerofire-command.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Strategy · Simulation</p>
+            <p class="kind"><span class="badge">New</span>Strategy, Simulation</p>
             <h3>AeroFire Command: Fire Season</h3>
             <p class="text">A wildfire is heading for town. You don't fly the helicopters: you paint the map, and your fleet does the rest. Out now on Android and iPhone, free on PC and in your browser.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Android · iPhone · Windows · Browser</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU · ES · ID · ZH · TR · TH</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Android"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/></svg><span class="sr">Android</span></span><span class="plat" title="iPhone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 8.2c-1.1-1.4-3.4-1.8-4.8-.4-1.9 1.9-1.3 5.9.6 8.6 1 1.4 2 2.2 3 1.7.8-.4 1.6-.4 2.4 0 1 .5 2-.3 3-1.7 1.9-2.7 2.5-6.7.6-8.6-1.4-1.4-3.7-1-4.8.4z"/><path d="M12 8.2c0-2.1 1.1-3.6 3-4.2"/></svg><span class="sr">iPhone</span></span><span class="plat" title="Windows"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16v14H4zM12 5v14M4 12h16"/></svg><span class="sr">Windows</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span></span><span class="langs-n" title="Languages: EN, RU, ES, ID, ZH, TR, TH">7 languages</span></p>
             <p class="card-actions">
               <a class="play button" href="play/aerofire-command/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.aerofiredraw&referrer=utm_source%3Dgoldenharbourgames.com%26utm_medium%3Dhome%26utm_campaign%3Daerofire-command">Google Play <span aria-hidden="true">↗</span></a>
@@ -147,13 +139,10 @@
         <article class="ring-card" data-game="punch-league" data-index="1" data-platforms="android ios browser phone">
           <a class="ring-cover" href="play/punch-league/" tabindex="-1" draggable="false"><img src="img/punch-league.jpg" alt="Punch League" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/punch-league.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Card battler · Boxing</p>
+            <p class="kind"><span class="badge">New</span>Card battler, Boxing</p>
             <h3>Punch League</h3>
             <p class="text">A boxing card battler. He shows you his next punch, and sometimes he's lying. Read him, build your combination, win three belts. Out now on Android and iPhone.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Android · iPhone · Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Android"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/></svg><span class="sr">Android</span></span><span class="plat" title="iPhone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 8.2c-1.1-1.4-3.4-1.8-4.8-.4-1.9 1.9-1.3 5.9.6 8.6 1 1.4 2 2.2 3 1.7.8-.4 1.6-.4 2.4 0 1 .5 2-.3 3-1.7 1.9-2.7 2.5-6.7.6-8.6-1.4-1.4-3.7-1-4.8.4z"/><path d="M12 8.2c0-2.1 1.1-3.6 3-4.2"/></svg><span class="sr">iPhone</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/punch-league/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.punchleague&referrer=utm_source%3Dgoldenharbourgames.com%26utm_medium%3Dhome%26utm_campaign%3Dpunch-league">Google Play <span aria-hidden="true">↗</span></a>
@@ -167,14 +156,11 @@
         <article class="ring-card" data-game="jdm-car-lot-tycoon" data-index="2" data-platforms="android browser phone">
           <a class="ring-cover" href="play/jdm-car-lot-tycoon/" tabindex="-1" draggable="false"><img src="img/jdm-car-lot-tycoon.jpg" alt="JDM Car Lot Tycoon" width="630" height="500" draggable="false" decoding="async"></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Tycoon · Pixel art</p>
+            <p class="kind"><span class="badge">New</span>Tycoon, Pixel art</p>
             <h3>JDM Car Lot Tycoon</h3>
             <p class="aka">In Russian: «Правый руль: Зелёный угол»</p>
             <p class="text">Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. Out now on Android, and the first lot is free.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Android · Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Android"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/></svg><span class="sr">Android</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/jdm-car-lot-tycoon/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.greencorner&referrer=utm_source%3Dgoldenharbourgames.com%26utm_medium%3Dhome%26utm_campaign%3Djdm-car-lot-tycoon">Google Play <span aria-hidden="true">↗</span></a>
@@ -187,14 +173,11 @@
         <article class="ring-card" data-game="pirates-of-the-japan-sea" data-index="3" data-platforms="windows browser">
           <a class="ring-cover" href="play/pirates-of-the-japan-sea/" tabindex="-1" draggable="false"><img src="img/pirates-of-the-japan-sea.jpg" alt="Pirates of the Japan Sea" width="630" height="500" draggable="false" decoding="async"></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Naval action · Sandbox</p>
+            <p class="kind"><span class="badge">New</span>Naval action, Sandbox</p>
             <h3>Pirates of the Japan Sea</h3>
             <p class="aka">In Russian: «Пираты Японского моря»</p>
             <p class="text">Sail, fight and board by hand on one seamless Sea of Japan, 1220. Build a fleet and a pirate cove before the Mongols come. A free open beta on Windows and in your browser.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Windows · Browser</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Windows"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16v14H4zM12 5v14M4 12h16"/></svg><span class="sr">Windows</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/pirates-of-the-japan-sea/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/pirates-of-the-japan-sea">itch.io <span aria-hidden="true">↗</span></a>
@@ -206,13 +189,10 @@
         <article class="ring-card" data-game="vr-arcade-story" data-index="4" data-platforms="browser phone">
           <a class="ring-cover" href="play/vr-arcade-story/" tabindex="-1" draggable="false"><img src="img/vr-arcade-story.jpg" alt="VR Arcade Story" width="630" height="500" draggable="false" decoding="async"></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Tycoon · Simulation</p>
+            <p class="kind"><span class="badge">New</span>Tycoon, Simulation</p>
             <h3>VR Arcade Story</h3>
             <p class="text">Open a tiny VR arcade on the ground floor of a Vladivostok panel block in 2016 and grow it room by room. A small tycoon game based on a real lab, which one of us ran.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/vr-arcade-story/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/vr-arcade-story">itch.io <span aria-hidden="true">↗</span></a>
@@ -223,14 +203,11 @@
         <article class="ring-card" data-game="stick-vs-weeds" data-index="5" data-platforms="browser phone android">
           <a class="ring-cover" href="play/stick-vs-weeds/" tabindex="-1" draggable="false"><img src="img/stick-vs-weeds.jpg" alt="Stick vs. Weeds" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/stick-vs-weeds.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Arcade · Comedy · 18+</p>
+            <p class="kind"><span class="badge">New</span>Arcade, Comedy, 18+</p>
             <h3>Stick vs. Weeds</h3>
             <p class="aka">Отп*зди траву</p>
             <p class="text">Summer 1985. You are eight, you have a stick, and the nettles have it coming. A first-person slasher about a kid, a small Soviet town and everything that stings. In Russian, 18+, and very sweary.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Phone · Android</dd></div>
-              <div><dt>Languages</dt><dd>RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Android"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/></svg><span class="sr">Android</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: RU">RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/stick-vs-weeds/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/stick-vs-weeds">itch.io <span aria-hidden="true">↗</span></a>
@@ -242,13 +219,10 @@
         <article class="ring-card" data-game="orbital-jump" data-index="6" data-platforms="android ios browser phone">
           <a class="ring-cover" href="play/orbital-jump/" tabindex="-1" draggable="false"><img src="img/orbital-jump.jpg" alt="Orbital Jump Reloaded" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/orbital-jump.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Arcade · Space</p>
+            <p class="kind"><span class="badge">New</span>Arcade, Space</p>
             <h3>Orbital Jump Reloaded</h3>
             <p class="text">The 2021 planet-hopper rebuilt: ten worlds, a wall of fire behind you, items for a bad moment, five suits and the classic endless run. Out now on Android and iPhone, free in your browser.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Android · iPhone · Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Android"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/></svg><span class="sr">Android</span></span><span class="plat" title="iPhone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 8.2c-1.1-1.4-3.4-1.8-4.8-.4-1.9 1.9-1.3 5.9.6 8.6 1 1.4 2 2.2 3 1.7.8-.4 1.6-.4 2.4 0 1 .5 2-.3 3-1.7 1.9-2.7 2.5-6.7.6-8.6-1.4-1.4-3.7-1-4.8.4z"/><path d="M12 8.2c0-2.1 1.1-3.6 3-4.2"/></svg><span class="sr">iPhone</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/orbital-jump/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://play.google.com/store/apps/details?id=com.goldenharbourgames.orbitaljump&referrer=utm_source%3Dgoldenharbourgames.com%26utm_medium%3Dhome%26utm_campaign%3Dorbital-jump">Google Play <span aria-hidden="true">↗</span></a>
@@ -261,13 +235,10 @@
         <article class="ring-card" data-game="souls-and-estates" data-index="7" data-platforms="browser windows">
           <a class="ring-cover" href="play/souls-and-estates/" tabindex="-1" draggable="false"><img src="img/souls-and-estates.jpg" alt="Souls &amp; Estates" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/souls-and-estates.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Strategy · History</p>
+            <p class="kind"><span class="badge">New</span>Strategy, History</p>
             <h3>Souls &amp; Estates</h3>
             <p class="text">Head a Russian noble house until serfdom ends in 1861. Set what each serf village owes, lay out the land, hear the elders, winter in Moscow and climb the Table of Ranks.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Windows</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Windows"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16v14H4zM12 5v14M4 12h16"/></svg><span class="sr">Windows</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/souls-and-estates/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/souls-and-estates">itch.io <span aria-hidden="true">↗</span></a>
@@ -279,13 +250,10 @@
         <article class="ring-card" data-game="gull-chorus" data-index="8" data-platforms="browser windows phone">
           <a class="ring-cover" href="play/gull-chorus/" tabindex="-1" draggable="false"><img src="img/gull-chorus.jpg" alt="Gull Chorus" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/gull-chorus.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Arcade · Music</p>
+            <p class="kind"><span class="badge">New</span>Arcade, Music</p>
             <h3>Gull Chorus</h3>
             <p class="text">Every seagull you send flies again with the next one. Lead the flock down a real beach, steal the chips, smash everything, and the whole beach plays the song.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Windows · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Windows"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16v14H4zM12 5v14M4 12h16"/></svg><span class="sr">Windows</span></span><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN">EN</span></p>
             <p class="card-actions">
               <a class="play button" href="play/gull-chorus/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/gull-chorus">itch.io <span aria-hidden="true">↗</span></a>
@@ -297,14 +265,11 @@
         <article class="ring-card" data-game="roach-invasion" data-index="9" data-platforms="browser phone">
           <a class="ring-cover" href="play/roach-invasion/" tabindex="-1" draggable="false"><img src="img/roach-invasion.jpg" alt="Roach Invasion" width="630" height="500" draggable="false" decoding="async"></a>
           <div class="ring-body">
-            <p class="kind"><span class="badge">New</span>Arcade · Stealth</p>
+            <p class="kind"><span class="badge">New</span>Arcade, Stealth</p>
             <h3>Roach Invasion</h3>
             <p class="aka">Тараканье нашествие</p>
             <p class="text">You are one small cockroach in a huge kitchen. Grab the crumbs, run them home to the colony, and don’t be under the slipper when it comes down.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/roach-invasion/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/roach-invasion">itch.io <span aria-hidden="true">↗</span></a>
@@ -315,14 +280,11 @@
         <article class="ring-card" data-game="peregon" data-index="10" data-platforms="browser phone">
           <a class="ring-cover" href="play/peregon/" tabindex="-1" draggable="false"><img src="img/peregon.jpg" alt="Range Anxiety: Far East" width="630" height="500" draggable="false" decoding="async"><video class="ring-clip" data-src="img/clips/peregon.mp4" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video></a>
           <div class="ring-body">
-            <p class="kind">Roguelike · Road trip</p>
+            <p class="kind">Roguelike, Road trip</p>
             <h3>Range Anxiety: Far East</h3>
             <p class="aka">Перегон</p>
             <p class="text">A roguelike about buying used electric cars in Vladivostok and driving them somewhere colder. The car is fine. The country is the boss.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Phone</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Phone"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Phone</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/peregon/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/peregon">itch.io <span aria-hidden="true">↗</span></a>
@@ -333,13 +295,10 @@
         <article class="ring-card" data-game="vladivostok-fortress" data-index="11" data-platforms="browser tablet">
           <a class="ring-cover" href="play/vladivostok-fortress/" tabindex="-1" draggable="false"><img src="img/vladivostok-fortress.jpg" alt="Vladivostok Fortress" width="630" height="500" draggable="false" decoding="async"></a>
           <div class="ring-body">
-            <p class="kind">Narrative · Strategy · History</p>
+            <p class="kind">Narrative, Strategy, History</p>
             <h3>Vladivostok Fortress</h3>
             <p class="text">A narrative strategy game about building the world's last and biggest fortress, told through an engineer officer's album from 1899.</p>
-            <dl class="facts">
-              <div><dt>Plays on</dt><dd>Browser · Tablet</dd></div>
-              <div><dt>Languages</dt><dd>EN · RU</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="Plays on"><span class="plat" title="Browser"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/></svg><span class="sr">Browser</span></span><span class="plat" title="Tablet"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg><span class="sr">Tablet</span></span></span><span class="langs-n" title="Languages: EN, RU">EN, RU</span></p>
             <p class="card-actions">
               <a class="play button" href="play/vladivostok-fortress/">Play here <span aria-hidden="true">→</span></a>
               <a class="itch-link" href="https://goldenharbourgames.itch.io/vladivostok-fortress">itch.io <span aria-hidden="true">↗</span></a>
@@ -364,78 +323,26 @@
         <button type="button" aria-label="Range Anxiety: Far East" aria-current="false" data-index="10"></button>
         <button type="button" aria-label="Vladivostok Fortress" aria-current="false" data-index="11"></button>
       </div>
-      <p class="ring-hint">Drag to spin · arrows to step</p>
     </div>
     <p class="chips-none" hidden>Nothing plays there yet.</p>
 
 </section>
 
-<div class="titles" aria-hidden="true"><div class="titles-track"><div class="titles-set"><a href="play/aerofire-command/" tabindex="-1">AeroFire Command: Fire Season</a><i>✦</i><a href="play/punch-league/" tabindex="-1">Punch League</a><i>✦</i><a href="play/jdm-car-lot-tycoon/" tabindex="-1">JDM Car Lot Tycoon</a><i>✦</i><a href="play/pirates-of-the-japan-sea/" tabindex="-1">Pirates of the Japan Sea</a><i>✦</i><a href="play/vr-arcade-story/" tabindex="-1">VR Arcade Story</a><i>✦</i><a href="play/stick-vs-weeds/" tabindex="-1">Stick vs. Weeds</a><i>✦</i><a href="play/orbital-jump/" tabindex="-1">Orbital Jump Reloaded</a><i>✦</i><a href="play/souls-and-estates/" tabindex="-1">Souls &amp; Estates</a><i>✦</i><a href="play/gull-chorus/" tabindex="-1">Gull Chorus</a><i>✦</i><a href="play/roach-invasion/" tabindex="-1">Roach Invasion</a><i>✦</i><a href="play/peregon/" tabindex="-1">Range Anxiety: Far East</a><i>✦</i><a href="play/vladivostok-fortress/" tabindex="-1">Vladivostok Fortress</a><i>✦</i></div><div class="titles-set"><a href="play/aerofire-command/" tabindex="-1">AeroFire Command: Fire Season</a><i>✦</i><a href="play/punch-league/" tabindex="-1">Punch League</a><i>✦</i><a href="play/jdm-car-lot-tycoon/" tabindex="-1">JDM Car Lot Tycoon</a><i>✦</i><a href="play/pirates-of-the-japan-sea/" tabindex="-1">Pirates of the Japan Sea</a><i>✦</i><a href="play/vr-arcade-story/" tabindex="-1">VR Arcade Story</a><i>✦</i><a href="play/stick-vs-weeds/" tabindex="-1">Stick vs. Weeds</a><i>✦</i><a href="play/orbital-jump/" tabindex="-1">Orbital Jump Reloaded</a><i>✦</i><a href="play/souls-and-estates/" tabindex="-1">Souls &amp; Estates</a><i>✦</i><a href="play/gull-chorus/" tabindex="-1">Gull Chorus</a><i>✦</i><a href="play/roach-invasion/" tabindex="-1">Roach Invasion</a><i>✦</i><a href="play/peregon/" tabindex="-1">Range Anxiety: Far East</a><i>✦</i><a href="play/vladivostok-fortress/" tabindex="-1">Vladivostok Fortress</a><i>✦</i></div></div></div>
-<div class="strip"><div class="strip-track"><div class="strip-set"><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i></div><div class="strip-set" aria-hidden="true"><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i><span>Three games on Google Play and the App Store</span><i aria-hidden="true">◆</i><span>Free in your browser</span><i aria-hidden="true">◆</i><span>EN · RU · ES · ID · ZH · TR · TH</span><i aria-hidden="true">◆</i><span>12 games in port</span><i aria-hidden="true">◆</i></div></div></div>
-
 <main>
-  <section class="section games-after">
-    <aside class="voice voice-home reveal">
+  <section class="section home-voice">
+    <aside class="voice voice-home">
       <h2>In active development</h2>
       <p>Every game here is still being built. We try things, keep what works and change them step by step. Tell us what you think: we read everything and act on it.</p>
-      <p class="voice-links"><a class="button" href="mailto:contact@goldenharbourgames.com">Email us <span aria-hidden="true">✉</span></a> <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">The forum <span aria-hidden="true">↗</span></a> <a class="button ghost" href="log/">The harbour log <span aria-hidden="true">→</span></a></p>
-      <p class="voice-mail"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a></p>
-    </aside>
-    <aside class="voice beta reveal" id="beta">
-      <h2>Become an early beta tester</h2>
-      <p>We give new builds of our games to a small group of early testers before anyone else. You play first, tell us what is broken or boring, and we fix it.</p>
-      <p>To join, send us an email with the email address you want us to add: the one you use for Google Play on Android, or your Apple ID on iPhone. It is free, and you can leave at any time.</p>
-      <form class="beta-form" data-subject="Beta tester" data-body="Hello! Please add me to your early beta testers." data-email="Email to add:" data-phone="Phone:">
-        <label for="beta-email">The email address to add</label>
-        <div class="beta-row">
-          <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
-          <button class="button" type="submit">Write the email <span aria-hidden="true">✉</span></button>
-          <button class="button ghost beta-copy" type="button" data-done="Copied. Paste it into a new email to contact@goldenharbourgames.com and send it.">Copy the message</button>
-        </div>
-        <p class="beta-status" role="status" hidden></p>
-        <fieldset class="beta-phone">
-          <legend>Your phone</legend>
-          <label><input type="radio" name="phone" value="Android"> <span>Android</span></label>
-          <label><input type="radio" name="phone" value="iPhone"> <span>iPhone</span></label>
-        </fieldset>
-      </form>
-      <p class="beta-note">The first button opens your mail app with the message ready: press Send there. No mail app on this device? Copy the message and send it from any mail. Nothing is sent from this page. Our address: <a href="mailto:contact@goldenharbourgames.com?subject=Beta%20tester">contact@goldenharbourgames.com</a></p>
-      <script>
-(function () {
-  var f = document.querySelector('.beta-form'); if (!f) return;
-  var d = f.dataset, st = f.querySelector('.beta-status');
-  function text() {
-    var mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
-    return d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
-  }
-  f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(text());
-  });
-  // No mail app on this device: copy the same message, to paste into any mail in the browser.
-  f.querySelector('.beta-copy').addEventListener('click', function () {
-    if (!f.reportValidity()) return;
-    var t = text(), done = function () { st.textContent = this.dataset.done; st.hidden = false; }.bind(this);
-    var old = function () {
-      var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0';
-      document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (x) {} a.remove();
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, old); else old();
-  });
-})();
-      </script>
+      <p class="voice-links"><a class="button" href="mailto:contact@goldenharbourgames.com">Email us</a> <a class="button ghost" href="https://github.com/vrlabdev/goldenharbourgames.com/discussions">The forum <span aria-hidden="true">↗</span></a> <a class="button ghost" href="log/">The harbour log <span aria-hidden="true">→</span></a></p>
     </aside>
   </section>
 
-  <section id="creed" class="section creed chart">
+  <section id="creed" class="section creed">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">01 / What we care about</p>
-        <h2>Games first</h2>
-      </div>
+      <h2>Games first</h2>
       <p>We were players long before we were a studio. Four things we hold ourselves to.</p>
     </div>
-    <ol class="creed-grid">
+    <ul class="creed-grid">
       <li class="creed-item reveal">
         <h3>We make games we love</h3>
         <p>Every game here began as something one of us wanted to play and could not find. If we would not play it on our own phone on the train home, it does not ship.</p>
@@ -452,22 +359,19 @@
         <h3>We experiment</h3>
         <p>VR, AR, a robot on the desk, a game inside a Reddit post. We try new hardware and odd ideas to find ways of playing that do not exist yet, and we show the results, good or not.</p>
       </li>
-    </ol>
+    </ul>
     <p class="section-more"><a class="button ghost" href="studio/">More about the studio <span aria-hidden="true">→</span></a></p>
   </section>
 
   <section id="experiments" class="section lab">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">02 / Experiments</p>
-        <h2>From the workshop</h2>
-      </div>
+      <h2>From the workshop</h2>
       <p>VR, AR, robots and odd ideas. Not all of them become games. All of them teach us something about play.</p>
     </div>
     <div class="lab-grid">
       <a class="lab-card reveal" href="experiments/robots/">
         <img src="img/x/robots/thumb.jpg" alt="" width="800" height="500" loading="lazy" decoding="async">
-        <span class="lab-kind">Robots · Tools</span>
+        <span class="lab-kind">Robots, Tools</span>
         <span class="lab-title">Eva and Adam, taken apart</span>
         <span class="lab-text">Two humanoid robots live in our workshop. We write the software that makes one of them see, listen and pull faces, and we built a 3D guide that takes both of them apart screw by screw.</span>
         <span class="lab-status"><i class="dot building"></i>In progress</span>
@@ -492,10 +396,7 @@
 
   <section id="log" class="section log">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">03 / Log</p>
-        <h2>Harbour log</h2>
-      </div>
+      <h2>Harbour log</h2>
       <p>What changed lately, newest first. Every game on this site is a living build.</p>
     </div>
     <ol class="log-list">
@@ -515,153 +416,13 @@
         <time datetime="2026-11-23">23 Nov 2026</time>
         <div><a class="log-game" href="play/jdm-car-lot-tycoon/">JDM Car Lot Tycoon</a><p>JDM Car Lot Tycoon has a trailer and a page here. The first lot is free on Google Play and in the browser.</p></div>
       </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-22">22 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>Far East hackathon, day 2. Both games changed more than on day one, and nearly all of it began with the human saying no: a new interface for each, boarding seen close, day and night at sea, a port and car hills, and the roubles ruling reversed. Shorter text, more clips, a new film.</p><p class="log-post"><a href="log/far-east-hackathon-day-2/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-21">21 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>Far East hackathon, day 1. Two games in the same 72 hours, a pirate sandbox on the Sea of Japan in 1220 and a tycoon about the Green Corner car market in 1992, built by one person and one AI. How the work is split, with a one-minute film and the parts that went wrong.</p><p class="log-post"><a href="log/far-east-hackathon-day-1/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-19">19 Nov 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>Souls &amp; Estates went to a developers’ meetup, and nobody could read it: too much text, too many Russian words, every menu at once. What changed in the next three days, with pictures from before and after.</p><p class="log-post"><a href="log/souls-and-estates-nobody-could-read-it/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-19">19 Nov 2026</time>
-        <div><a class="log-game" href="play/vr-arcade-story/">VR Arcade Story</a><p>VR Arcade Story, version 0.1.35 in the browser: a station limit that grows with your rooms, six kinds of station, 28 combos, weather and weekdays, a power cut that plays out, and a hall that finally looks used.</p><p class="log-post"><a href="log/vr-arcade-story-kinds-and-light/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-19">19 Nov 2026</time>
-        <div><a class="log-game" href="play/orbital-jump/">Orbital Jump Reloaded</a><p>Orbital Jump Reloaded: how the source of a 2021 phone game became a new game on Google Play and the App Store in eight days, and the bug where the astronaut would not jump.</p><p class="log-post"><a href="log/orbital-jump-reloaded-second-life/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-18">18 Nov 2026</time>
-        <div><a class="log-game" href="play/vr-arcade-story/">VR Arcade Story</a><p>VRLABDV Story is now VR Arcade Story. Build 28 adds a main menu with three save slots, a research board and rooms that join. The browser build is the free part; the full game is coming to phones.</p><p class="log-post"><a href="log/vr-arcade-story-new-name/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-17">17 Nov 2026</time>
-        <div><a class="log-game" href="play/vr-arcade-story/">VR Arcade Story</a><p>VRLABDV Story joins the port: a small tycoon game about the VR lab one of us ran in Vladivostok in 2016. Its first build had no gameplay and was thrown away the same day. The devlog says what replaced it.</p><p class="log-post"><a href="log/vrlabdv-story-build-and-decide/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-17">17 Nov 2026</time>
-        <div><a class="log-game" href="play/stick-vs-weeds/">Stick vs. Weeds</a><p>Stick vs. Weeds, build 81: fists that finally close round the stick, a village with a map and a route for each day, a wide screen on phones, and four phone faults traced to four small causes.</p><p class="log-post"><a href="log/stick-vs-weeds-hands-and-map/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-17">17 Nov 2026</time>
-        <div><a class="log-game" href="play/vladivostok-fortress/">Vladivostok Fortress</a><p>Vladivostok Fortress is being rebuilt as an action strategy game about a landing that never happened. The first alpha looked fine and nobody knew what to do in it. Nothing to play yet; the devlog shows where it stands.</p><p class="log-post"><a href="log/fortress-the-landing/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-16">16 Nov 2026</time>
-        <div><a class="log-game" href="play/stick-vs-weeds/">Stick vs. Weeds</a><p>Stick vs. Weeds joins the port: summer 1985, a kid, a stick and nettles. An 18+ comedy slasher in Russian, made from a joke to a public build in three days. The devlog says how.</p><p class="log-post"><a href="log/stick-vs-weeds-three-days/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-16">16 Nov 2026</time>
-        <div><a class="log-game" href="play/punch-league/">Punch League</a><p>Punch League 2 is in the workshop: real-time 3D boxing in a real ring, built with Pasha. Why a prototype that passed every test was thrown away, and what stands in its place.</p><p class="log-post"><a href="log/punch-league-2-real-ring/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-16">16 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>Where to find us: YouTube, Instagram, Facebook, X, Reddit and itch.io, with the real numbers. We left TikTok. And the places where a message gets an answer.</p><p class="log-post"><a href="log/where-to-find-us/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-13">13 Nov 2026</time>
-        <div><a class="log-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><p>Fire Season, build 974: fires start further out and run at the town, and you stop them with a line drawn from barrier to barrier. Water cools the sides; only a line holds the head.</p><p class="log-post"><a href="log/aerofire-draw-the-line/">Read the devlog <span aria-hidden="true">→</span></a></p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-11">11 Nov 2026</time>
-        <div><a class="log-game" href="play/roach-invasion/">Roach Invasion</a><p>Roach Invasion joins the port: one small cockroach, a huge kitchen and a slipper. An early build, made with VR Lab in Vladivostok.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-11">11 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>The site gets a workshop: an Experiments page for our VR, AR and robot work, with a forum. The long read about the studio moved to a page of its own.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-11">11 Nov 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>0.104: icons on every screen and plain English in place of the old Russian terms, after a meetup told us there was too much to read.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-10">10 Nov 2026</time>
-        <div><a class="log-game" href="play/orbital-jump/">Orbital Jump Reloaded</a><p>Orbital Jump Reloaded is on the App Store for iPhone, with Game Center leaderboards and achievements.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-10">10 Nov 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>0.100: one mouse wheel now zooms from a village yard to the whole estate, the district as a table of miniatures, and a map table of central Russia.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-10">10 Nov 2026</time>
-        <div><a class="log-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><p>1.0.2 on the App Store: Game Center, and a loading card on the first start, so the map is ready when you arrive.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-07">7 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>Punch League and AeroFire Command: Fire Season are on the App Store for iPhone. Same games, no data sent.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-07">7 Nov 2026</time>
-        <div><a class="log-game" href="play/orbital-jump/">Orbital Jump Reloaded</a><p>Orbital Jump Reloaded 1.0 is on Google Play: ten worlds, items, suits, the endless run. Free, no ads. The same build plays here.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-05">5 Nov 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>Build 0.41: every building has levels and gates, a roads tool, district and Moscow plates on the map.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-05">5 Nov 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>A guided first year: nine framed steps, the Steward's Book and a three-minute intro film.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-02">2 Nov 2026</time>
-        <div><span class="log-game">goldenharbourgames.com</span><p>Site refresh: Orbital Jump joins the port, Souls &amp; Estates gets a Russian page, Punch League is on RuStore.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-02">2 Nov 2026</time>
-        <div><a class="log-game" href="play/orbital-jump/">Orbital Jump Reloaded</a><p>The 2021 phone game is back, rebuilt for the browser: one button, planet to planet, ahead of the sun.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-11-01">1 Nov 2026</time>
-        <div><a class="log-game" href="play/punch-league/">Punch League</a><p>1.134 on Google Play and RuStore: the whole career is free, purchases only in the shop.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-31">31 Oct 2026</time>
-        <div><a class="log-game" href="play/souls-and-estates/">Souls &amp; Estates</a><p>The Russian edition: every screen, event and name in Russian.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-30">30 Oct 2026</time>
-        <div><a class="log-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><p>Fire Season is out of beta on Google Play, with a Supporter pack to keep the fleet flying.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-30">30 Oct 2026</time>
-        <div><a class="log-game" href="play/punch-league/">Punch League</a><p>Out of beta on Google Play.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-28">28 Oct 2026</time>
-        <div><a class="log-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><p>Build 833: a new score, sound effects and radio voices in seven languages.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-27">27 Oct 2026</time>
-        <div><a class="log-game" href="play/gull-chorus/">Gull Chorus</a><p>0.7.3: coast-down flight, song tiers, grades, fast-forward, arrivals and beat visuals.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-25">25 Oct 2026</time>
-        <div><a class="log-game" href="play/punch-league/">Punch League</a><p>Open beta 1.127: Kai's career corner, a new motion set and a short-finish rule.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-23">23 Oct 2026</time>
-        <div><a class="log-game" href="play/punch-league/">Punch League</a><p>Google Play Games sign-in and a live shop.</p></div>
-      </li>
-      <li class="log-item reveal log-hidden" hidden>
-        <time datetime="2026-10-16">16 Oct 2026</time>
-        <div><a class="log-game" href="play/aerofire-command/">AeroFire Command: Fire Season</a><p>Anonymous play statistics on Android, with an opt-out in Settings. Details in the privacy policy.</p></div>
-      </li>
     </ol>
-    <p><button type="button" class="chip log-more-btn" aria-expanded="false" data-less="Fewer">Older entries <small>34</small></button></p>
     <p class="section-more"><a class="button ghost" href="log/">Devlogs and the full log <span aria-hidden="true">→</span></a></p>
   </section>
 
   <section id="channel" class="section channel">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">04 / Channel</p>
-        <h2>From the channel</h2>
-      </div>
+      <h2>From the channel</h2>
       <p>Short films from the games: the physics, the history and the fights behind them.</p>
     </div>
     <div class="video-grid">
@@ -698,21 +459,65 @@
 
       </article>
     </div>
-    <p class="channel-all"><a class="button ghost" href="https://www.youtube.com/@goldenharbourgames">All videos on YouTube <span aria-hidden="true">↗</span></a></p>
+    <p class="section-more"><a class="button ghost" href="https://www.youtube.com/@goldenharbourgames">All videos on YouTube <span aria-hidden="true">↗</span></a></p>
   </section>
 
-  <section id="contact" class="section contact chart">
-    <p class="kicker">05 / Contact</p>
-    <h2>Say hello</h2>
-    <p class="contact-text">Press, players, publishers, or someone who has driven the M60 in a Leaf: we read everything.</p>
-    <a class="email" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
+  <section id="contact" class="section contact">
+    <div class="contact-main reveal">
+      <h2>Say hello</h2>
+      <p class="contact-text">Press, players, publishers, or someone who has driven the M60 in a Leaf: we read everything.</p>
+      <a class="email" href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a>
+    </div>
+    <aside class="voice beta reveal" id="beta">
+      <h2>Become an early beta tester</h2>
+      <p>We give new builds of our games to a small group of early testers before anyone else. You play first, tell us what is broken or boring, and we fix it.</p>
+      <p>To join, send us an email with the email address you want us to add: the one you use for Google Play on Android, or your Apple ID on iPhone. It is free, and you can leave at any time.</p>
+      <form class="beta-form" data-subject="Beta tester" data-body="Hello! Please add me to your early beta testers." data-email="Email to add:" data-phone="Phone:">
+        <label for="beta-email">The email address to add</label>
+        <div class="beta-row">
+          <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+          <button class="button" type="submit">Write the email</button>
+          <button class="button ghost beta-copy" type="button" data-done="Copied. Paste it into a new email to contact@goldenharbourgames.com and send it.">Copy the message</button>
+        </div>
+        <p class="beta-status" role="status" hidden></p>
+        <fieldset class="beta-phone">
+          <legend>Your phone</legend>
+          <label><input type="radio" name="phone" value="Android"> <span>Android</span></label>
+          <label><input type="radio" name="phone" value="iPhone"> <span>iPhone</span></label>
+        </fieldset>
+      </form>
+      <p class="beta-note">The first button opens your mail app with the message ready: press Send there. No mail app on this device? Copy the message and send it from any mail. Nothing is sent from this page. Our address: <a href="mailto:contact@goldenharbourgames.com?subject=Beta%20tester">contact@goldenharbourgames.com</a></p>
+      <script>
+(function () {
+  var f = document.querySelector('.beta-form'); if (!f) return;
+  var d = f.dataset, st = f.querySelector('.beta-status');
+  function text() {
+    var mail = f.elements.email.value.trim(), ph = f.querySelector('input[name=phone]:checked');
+    return d.body + '\n\n' + d.email + ' ' + mail + (ph ? '\n' + d.phone + ' ' + ph.value : '') + '\n';
+  }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    location.href = 'mailto:contact@goldenharbourgames.com?subject=' + encodeURIComponent(d.subject) + '&body=' + encodeURIComponent(text());
+  });
+  // No mail app on this device: copy the same message, to paste into any mail in the browser.
+  f.querySelector('.beta-copy').addEventListener('click', function () {
+    if (!f.reportValidity()) return;
+    var t = text(), done = function () { st.textContent = this.dataset.done; st.hidden = false; }.bind(this);
+    var old = function () {
+      var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0';
+      document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (x) {} a.remove();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, old); else old();
+  });
+})();
+      </script>
+    </aside>
   </section>
 </main>
 
 <footer>
-  <p class="foot-brand"><img src="img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; Sydney, Australia</p>
-  <p class="foot-links"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> &middot; <a href="https://goldenharbourgames.itch.io/" rel="me">itch.io</a> &middot; <a href="https://play.google.com/store/apps/dev?id=5746367390018256657" rel="me">Google Play</a> &middot; <a href="https://apps.apple.com/developer/golden-harbour-games/id6827402542" rel="me">App Store</a> &middot; <a href="https://www.youtube.com/@goldenharbourgames" rel="me">YouTube</a> &middot; <a href="https://www.instagram.com/goldenharbourgames/" rel="me">Instagram</a> &middot; <a href="https://www.facebook.com/1398649926668969" rel="me">Facebook</a> &middot; <a href="https://x.com/GoldenHrbrGames" rel="me">X</a> &middot; <a href="press/">Press kit</a> &middot; <a href="privacy/">Privacy</a> &middot; <a href="terms/">Terms</a></p>
-  <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
+  <p class="foot-brand"><img src="img/mark.svg" alt="" width="28" height="28"><span>&copy; 2026 Golden Harbour Games, Sydney, Australia</span></p>
+  <p class="foot-links"><a href="mailto:contact@goldenharbourgames.com">contact@goldenharbourgames.com</a> <a href="https://goldenharbourgames.itch.io/" rel="me">itch.io</a> <a href="https://play.google.com/store/apps/dev?id=5746367390018256657" rel="me">Google Play</a> <a href="https://apps.apple.com/developer/golden-harbour-games/id6827402542" rel="me">App Store</a> <a href="https://www.youtube.com/@goldenharbourgames" rel="me">YouTube</a> <a href="https://www.instagram.com/goldenharbourgames/" rel="me">Instagram</a> <a href="https://www.facebook.com/1398649926668969" rel="me">Facebook</a> <a href="https://x.com/GoldenHrbrGames" rel="me">X</a> <a href="press/">Press kit</a> <a href="privacy/">Privacy</a> <a href="terms/">Terms</a></p>
 </footer>
 
 <a class="compass" href="#" aria-label="Back to the top" title="Back to the top">
@@ -968,7 +773,6 @@
     if (land < 1) {
       if (!landT0) landT0 = performance.now();
       land = Math.min(1, (performance.now() - landT0) / 1700);
-      if (land === 1) { var hero = stage.closest('.hero'); if (hero) hero.classList.add('is-landed'); }
     }
     tx += (ttx - tx) * 0.14; ty += (tty - ty) * 0.14;
     var leaning = Math.abs(ttx - tx) > 0.03 || Math.abs(tty - ty) > 0.03;
@@ -1096,65 +900,14 @@
   arm();
 })();
 
-// Harbour lights: small points drifting up behind the games, shifting a little with the mouse. One
-// canvas, drawn only while the top of the page is on screen; not at all for those who asked for
-// less motion or have Data Saver on.
-(function () {
-  var c = document.querySelector('.hero-lights');
-  if (!c || !c.getContext || window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
-  var hero = c.closest('.hero'), ctx = c.getContext('2d');
-  var W = 0, H = 0, pts = [], on = true, going = false, mx = 0, my = 0, sx = 0, sy = 0;
-  function size() {
-    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
-    W = hero.offsetWidth; H = hero.offsetHeight;
-    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.round(Math.min(110, W * H / 13000));
-    pts = [];
-    for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: 0.6 + Math.random() * 1.9, s: 0.12 + Math.random() * 0.5, p: Math.random() * 6.28, g: Math.random() < 0.34 });
-  }
-  function draw(t) {
-    going = false;
-    if (!on || document.hidden) return;
-    sx += (mx - sx) * 0.05; sy += (my - sy) * 0.05;
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < pts.length; i++) {
-      var q = pts[i];
-      q.y -= q.s * 0.45; q.x += Math.sin(t / 2600 + q.p) * 0.18;
-      if (q.y < -6) { q.y = H + 6; q.x = Math.random() * W; }
-      ctx.globalAlpha = 0.18 + 0.5 * (0.5 + 0.5 * Math.sin(t / 800 + q.p));
-      ctx.fillStyle = q.g ? '#e8b04b' : '#7fa2d6';
-      ctx.beginPath(); ctx.arc(q.x - sx * q.r * 14, q.y - sy * q.r * 10, q.r, 0, 6.2832); ctx.fill();
-    }
-    go();
-  }
-  function go() { if (!going && on) { going = true; requestAnimationFrame(draw); } }
-  hero.addEventListener('pointermove', function (e) { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
-  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { on = es[0].isIntersecting; go(); }).observe(hero);
-  document.addEventListener('visibilitychange', go);
-  var q2 = false;
-  window.addEventListener('resize', function () { if (q2) return; q2 = true; requestAnimationFrame(function () { q2 = false; size(); }); });
-  size(); go();
-})();
-
 // Old links to parts of this page that now have pages of their own still arrive.
 (function () {
   var moved = { '#about': 'studio/', '#build': 'studio/#build', '#crew': 'internships/' };
   if (moved[location.hash]) location.replace(moved[location.hash]);
 })();
 
-// The older log entries, and the videos playing in place.
+// The videos playing in place.
 (function () {
-  var more = document.querySelector('.log-more-btn');
-  if (more) {
-    var all = more.textContent, less = more.getAttribute('data-less');
-    more.addEventListener('click', function () {
-      var open = more.getAttribute('aria-expanded') !== 'true';
-      more.setAttribute('aria-expanded', String(open));
-      document.querySelectorAll('.log-hidden').forEach(function (li) { li.hidden = !open; li.classList.add('is-in'); });
-      more.textContent = open ? less : all;
-    });
-  }
   document.querySelectorAll('.video').forEach(function (v) {
     v.querySelector('.video-play').addEventListener('click', function () {
       var id = v.getAttribute('data-id');

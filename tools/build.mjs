@@ -137,6 +137,24 @@ const postPath = (p) => `${LOGP}${p.slug}/`;
 // A post's text: escaped, with **bold** kept.
 // Devlog text: **bold** and [text](https://link).
 const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>');
+// Where a game plays, as a set of small line icons of one weight (one 24 px box, one 1.8 px stroke).
+// On a card they stand alone with the word as a tooltip and for screen readers; `words` puts the word
+// beside each one (a game's own page, where there is room).
+const PLAT_ORDER = ['android', 'ios', 'windows', 'browser', 'phone', 'tablet'];
+const PLAT_ICON = {
+  android: '<path d="M5 17a7 7 0 0 1 14 0z"/><path d="M8.2 10.6 6.6 8M15.8 10.6 17.4 8"/><circle cx="9.5" cy="14.2" r=".6"/><circle cx="14.5" cy="14.2" r=".6"/>',
+  ios: '<path d="M12 8.2c-1.1-1.4-3.4-1.8-4.8-.4-1.9 1.9-1.3 5.9.6 8.6 1 1.4 2 2.2 3 1.7.8-.4 1.6-.4 2.4 0 1 .5 2-.3 3-1.7 1.9-2.7 2.5-6.7.6-8.6-1.4-1.4-3.7-1-4.8.4z"/><path d="M12 8.2c0-2.1 1.1-3.6 3-4.2"/>',
+  windows: '<path d="M4 5h16v14H4zM12 5v14M4 12h16"/>',
+  browser: '<path d="M3 5h18v14H3zM3 9h18"/><path d="M6 7h.01M8.5 7h.01"/>',
+  phone: '<path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/>',
+  tablet: '<path d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/>',
+};
+function platIcons(t, g, words = false) {
+  return PLAT_ORDER.filter((p) => g.platforms.includes(p)).map((p) => `<span class="plat" title="${esc(t.platforms[p])}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">${PLAT_ICON[p]}</svg><span${words ? '' : ' class="sr"'}>${esc(t.platforms[p])}</span></span>`).join('');
+}
+// The languages a game speaks: the codes when there are three or fewer, otherwise how many.
+const langLine = (t, g) => (g.languages.length <= 3 ? g.languages.join(', ') : t.lang_count.replace('{n}', g.languages.length));
+
 // "In active development": the studio's line on how the games are made and how to reach us, with the
 // ways in (email, forum, and on a game's page its itch comments). Home, studio and every game page.
 function voiceBlock(t, text, { up, g = null, title = t.voice.title, cls = '' } = {}) {
@@ -145,8 +163,7 @@ function voiceBlock(t, text, { up, g = null, title = t.voice.title, cls = '' } =
   return `<aside class="voice${cls ? ' ' + cls : ''}">
       <h2>${esc(title)}</h2>
 ${paras.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
-      <p class="voice-links"><a class="button" href="mailto:${EMAIL}">${esc(v.email)} <span aria-hidden="true">✉</span></a> <a class="button ghost" href="${lab.forum.url}">${esc(v.forum)} <span aria-hidden="true">↗</span></a>${g ? ` <a class="button ghost" href="${g.itch}#comments">${esc(v.itch)} <span aria-hidden="true">↗</span></a>` : ''}${up !== undefined && !g ? ` <a class="button ghost" href="${up}${t.path}${LOGP}">${esc(v.log)} <span aria-hidden="true">→</span></a>` : ''}${up !== undefined && !/voice-home/.test(cls) ? ` <a class="button ghost" href="${up}${t.path}#beta">${esc(t.beta.voice)} <span aria-hidden="true">→</span></a>` : ''}</p>
-      <p class="voice-mail"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
+      <p class="voice-links"><a class="button" href="mailto:${EMAIL}">${esc(v.email)}</a> <a class="button ghost" href="${lab.forum.url}">${esc(v.forum)} <span aria-hidden="true">↗</span></a>${g ? ` <a class="button ghost" href="${g.itch}#comments">${esc(v.itch)} <span aria-hidden="true">↗</span></a>` : ''}${up !== undefined && !g ? ` <a class="button ghost" href="${up}${t.path}${LOGP}">${esc(v.log)} <span aria-hidden="true">→</span></a>` : ''}${up !== undefined && !/voice-home/.test(cls) ? ` <a class="button ghost" href="${up}${t.path}#beta">${esc(t.beta.voice)} <span aria-hidden="true">→</span></a>` : ''}</p>
     </aside>`;
 }
 // Early beta testers: the reader types the address they want added and the button writes the email
@@ -161,7 +178,7 @@ ${b.text.map((x) => `      <p>${esc(x)}</p>`).join('\n')}
         <label for="beta-email">${esc(b.label)}</label>
         <div class="beta-row">
           <input type="email" id="beta-email" name="email" required autocomplete="email" inputmode="email" placeholder="${esc(b.placeholder)}">
-          <button class="button" type="submit">${esc(b.button)} <span aria-hidden="true">✉</span></button>
+          <button class="button" type="submit">${esc(b.button)}</button>
           <button class="button ghost beta-copy" type="button" data-done="${esc(b.copied)}">${esc(b.copy)}</button>
         </div>
         <p class="beta-status" role="status" hidden></p>
@@ -300,7 +317,7 @@ ${games.map((g) => `          <a href="${up}${t.path}${playPath(g)}"${sub === pl
           <a href="${anchor('beta')}">${esc(t.beta.nav)}</a>
           ${navLink(PRESS, t.press.link)}
           <a href="${anchor('contact')}">${esc(t.nav.contact)}</a>
-          <p class="menu-small">${navLink(PRIVACY, t.privacy.link)} · ${navLink(TERMS, t.terms.link)}</p>
+          <p class="menu-small">${navLink(PRIVACY, t.privacy.link)} ${navLink(TERMS, t.terms.link)}</p>
         </div>
       </div>
     </details>
@@ -310,9 +327,8 @@ ${games.map((g) => `          <a href="${up}${t.path}${playPath(g)}"${sub === pl
 ${main(up, home)}
 
 <footer>
-  <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28">&copy; 2026 Golden Harbour Games &middot; ${esc(t.footer)}</p>
-  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` &middot; <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')} &middot; <a href="${up}${t.path}${PRESS}">${esc(t.press.link)}</a> &middot; <a href="${up}${t.path}${PRIVACY}">${esc(t.privacy.link)}</a> &middot; <a href="${up}${t.path}${TERMS}">${esc(t.terms.link)}</a></p>
-  <p class="coords">43°06′N 131°53′E ⇄ 33°51′S 151°13′E</p>
+  <p class="foot-brand"><img src="${up}img/mark.svg" alt="" width="28" height="28"><span>&copy; 2026 Golden Harbour Games, ${esc(t.footer)}</span></p>
+  <p class="foot-links"><a href="mailto:${EMAIL}">${EMAIL}</a>${links.map((l) => ` <a href="${l.url}" rel="me">${esc(l.label)}</a>`).join('')} <a href="${up}${t.path}${PRESS}">${esc(t.press.link)}</a> <a href="${up}${t.path}${PRIVACY}">${esc(t.privacy.link)}</a> <a href="${up}${t.path}${TERMS}">${esc(t.terms.link)}</a></p>
 </footer>
 
 <a class="compass" href="#" aria-label="${esc(t.nav.top)}" title="${esc(t.nav.top)}">
@@ -474,7 +490,6 @@ function manifestBlock(t, kicker, h = 'h2') {
   return `<section id="build" class="section build chart">
   <div class="section-head reveal">
     <div>
-      <p class="kicker">${esc(kicker)}</p>
       <${h}>${esc(t.build.title)}</${h}>
     </div>
     <p>${esc(t.build.lede)}</p>
@@ -489,12 +504,12 @@ function manifestBlock(t, kicker, h = 'h2') {
 ${rows}
       </ol>
       <p class="man-note-foot">${esc(t.build.manifest_note)}</p>
-      <p class="man-tools"><span class="kicker">${esc(t.build.tools_title)}</span>${t.build.tools.map((x) => `<span class="tool">${esc(x)}</span>`).join('')}</p>
+      <p class="man-tools"><span class="man-tools-label">${esc(t.build.tools_title)}</span>${t.build.tools.map((x) => `<span class="tool">${esc(x)}</span>`).join('')}</p>
     </div>
     <div class="build-text reveal">
 ${t.build.paragraphs.map((p) => `      <p>${esc(p)}</p>`).join('\n')}
       <div class="promise">
-        <p class="kicker">${esc(t.build.promise_title)}</p>
+        <h3>${esc(t.build.promise_title)}</h3>
         <p>${esc(t.build.promise)}</p>
       </div>
     </div>
@@ -507,7 +522,6 @@ function aboutBlock(t, kicker, h = 'h2') {
   return `<section id="about" class="section about">
     <div class="section-head reveal">
       <div>
-        <p class="kicker">${esc(kicker)}</p>
         <${h}>${esc(t.about.title)}</${h}>
       </div>
       <div class="about-text">
@@ -545,7 +559,6 @@ function crewBlock(t, kicker, base, h = 'h2') {
   return `<section id="crew" class="section crew chart">
     <div class="section-head reveal">
       <div>
-        <p class="kicker">${esc(kicker)}</p>
         <${h}>${esc(t.crew.title)}</${h}>
       </div>
       <p>${esc(t.crew.lede)}</p>
@@ -596,7 +609,7 @@ function labCard(t, x, up, base) {
   const L = t.experiments;
   return `      <a class="lab-card reveal" href="${base}${labPath(x)}">
         <img src="${up}${x.thumb}" alt="" width="800" height="500" loading="lazy" decoding="async">
-        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')}</span>
+        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(', ')}</span>
         <span class="lab-title">${esc(c.title)}</span>
         <span class="lab-text">${esc(c.text)}</span>
         <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span>
@@ -610,7 +623,7 @@ function labTile(t, x, up, base) {
   const L = t.experiments;
   return `      <a class="lab-tile reveal" href="${base}${labPath(x)}" data-peek="peek-${x.id}" data-tags="${x.tags.join(' ')}">
         <img src="${up}${x.thumb}" alt="" width="800" height="500" loading="lazy" decoding="async">
-        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')}</span>
+        <span class="lab-kind">${x.tags.map((k) => esc(L.tags[k])).join(', ')}</span>
         <span class="lab-title">${esc(c.title)}</span>
         <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span>
       </a>`;
@@ -622,7 +635,7 @@ function labPeek(t, x, up, base) {
       <button type="button" class="trailer-close peek-close" aria-label="${esc(L.close)}">&times;</button>
       <img class="peek-cover" data-src="${up}${x.cover}" alt="${esc(c.cover_alt || c.title)}" width="1600" height="1000">
       <div class="peek-body">
-        <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span></p>
+        <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(', ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span></p>
         <h2>${esc(c.title)}</h2>
         <p class="peek-text">${esc(c.text)}</p>
         <dl class="peek-facts">
@@ -692,17 +705,13 @@ function page(t) {
   const ringCards = games.map((g, i) => {
     const c = t.games[g.id];
     const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
-    const plays = g.platforms.map((p) => t.platforms[p]).join(' · ');
     return `        <article class="ring-card" data-game="${g.id}" data-index="${i}" data-platforms="${g.platforms.join(' ')}">
           <a class="ring-cover" href="${playPath(g)}" tabindex="-1" draggable="false"><img src="${up}${g.cover}" alt="${esc(c.title)}" width="630" height="500" draggable="false"${i === 0 ? ' fetchpriority="high"' : ' decoding="async"'}>${g.clip ? `<video class="ring-clip" data-src="${up}${g.clip}" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>` : ''}</a>
           <div class="ring-body">
-            <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
+            <p class="kind">${badge}${c.tags.map(esc).join(', ')}</p>
             <h3>${esc(c.title)}</h3>${c.aka ? `\n            <p class="aka">${esc(c.aka)}</p>` : ''}
             <p class="text">${esc(c.text)}</p>
-            <dl class="facts">
-              <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
-              <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
-            </dl>
+            <p class="meta"><span class="plats" aria-label="${esc(t.plays_label)}">${platIcons(t, g)}</span><span class="langs-n" title="${esc(t.languages_label)}: ${g.languages.join(', ')}">${esc(langLine(t, g))}</span></p>
             <p class="card-actions">
               <a class="play button" href="${playPath(g)}">${esc(t.play_here)} <span aria-hidden="true">→</span></a>
               ${g.google_play ? `<a class="itch-link" href="${playLink(g, 'home')}">${esc(t.google_play)} <span aria-hidden="true">↗</span></a>
@@ -716,12 +725,11 @@ function page(t) {
         </article>`;
   }).join('\n');
   const arrow = (dir, label, d) => `<button type="button" class="ring-arrow ${dir}" aria-label="${esc(label)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`;
-  const showcase = () => `    <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
-      <span class="chips-label">${esc(t.filter.label)}</span>
+  const chipRow = () => `<div class="chips" role="group" aria-label="${esc(t.filter.label)}">
       <button type="button" class="chip" aria-pressed="true" data-platform="">${esc(t.filter.all)} <small>${games.length}</small></button>
 ${chips}
-    </div>
-    <div class="ring-stage" aria-roledescription="carousel" aria-label="${esc(t.games_title)}">
+    </div>`;
+  const showcase = () => `    <div class="ring-stage" aria-roledescription="carousel" aria-label="${esc(t.games_title)}">
       <div class="ring-scene">
 ${ringCards}
         ${arrow('prev', t.ring.prev, 'M15 5l-7 7 7 7')}
@@ -730,22 +738,17 @@ ${ringCards}
       <div class="ring-dots">
 ${games.map((g, i) => `        <button type="button" aria-label="${esc(t.games[g.id].title)}" aria-current="${i === 0}" data-index="${i}"></button>`).join('\n')}
       </div>
-      <p class="ring-hint">${esc(t.ring.hint)}</p>
     </div>
     <p class="chips-none" hidden>${esc(t.filter.none)}</p>
 `;
-
-  // Section numbers in the kickers, in the order the sections are written.
-  let n = 0;
-  const num = () => String(++n).padStart(2, '0');
 
   // One chip per platform any game plays on, with how many.
   const platformsInPort = Object.keys(t.platforms).filter((p) => games.some((g) => g.platforms.includes(p)));
   const chips = platformsInPort.map((p) => `      <button type="button" class="chip" aria-pressed="false" data-platform="${p}">${esc(t.platforms[p])} <small>${games.filter((g) => g.platforms.includes(p)).length}</small></button>`).join('\n');
 
-  // The harbour log: the newest entries open, the rest behind a button.
+  // The harbour log: the newest entries; every one of them is on the log page.
   const LOG_SHOWN = 4;
-  const logItems = log.map((e, i) => logItem(t, e, '', i >= LOG_SHOWN)).join('\n');
+  const logItems = log.slice(0, LOG_SHOWN).map((e) => logItem(t, e, '')).join('\n');
 
   // The newest videos: a poster each, playing in place when pressed. Shorts posters are upright.
   const viewsFmt = new Intl.NumberFormat(t.lang === 'ru' ? 'ru-RU' : 'en-AU');
@@ -860,7 +863,6 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     if (land < 1) {
       if (!landT0) landT0 = performance.now();
       land = Math.min(1, (performance.now() - landT0) / 1700);
-      if (land === 1) { var hero = stage.closest('.hero'); if (hero) hero.classList.add('is-landed'); }
     }
     tx += (ttx - tx) * 0.14; ty += (tty - ty) * 0.14;
     var leaning = Math.abs(ttx - tx) > 0.03 || Math.abs(tty - ty) > 0.03;
@@ -988,65 +990,14 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   arm();
 })();
 
-// Harbour lights: small points drifting up behind the games, shifting a little with the mouse. One
-// canvas, drawn only while the top of the page is on screen; not at all for those who asked for
-// less motion or have Data Saver on.
-(function () {
-  var c = document.querySelector('.hero-lights');
-  if (!c || !c.getContext || window.matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
-  var hero = c.closest('.hero'), ctx = c.getContext('2d');
-  var W = 0, H = 0, pts = [], on = true, going = false, mx = 0, my = 0, sx = 0, sy = 0;
-  function size() {
-    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
-    W = hero.offsetWidth; H = hero.offsetHeight;
-    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.round(Math.min(110, W * H / 13000));
-    pts = [];
-    for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: 0.6 + Math.random() * 1.9, s: 0.12 + Math.random() * 0.5, p: Math.random() * 6.28, g: Math.random() < 0.34 });
-  }
-  function draw(t) {
-    going = false;
-    if (!on || document.hidden) return;
-    sx += (mx - sx) * 0.05; sy += (my - sy) * 0.05;
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < pts.length; i++) {
-      var q = pts[i];
-      q.y -= q.s * 0.45; q.x += Math.sin(t / 2600 + q.p) * 0.18;
-      if (q.y < -6) { q.y = H + 6; q.x = Math.random() * W; }
-      ctx.globalAlpha = 0.18 + 0.5 * (0.5 + 0.5 * Math.sin(t / 800 + q.p));
-      ctx.fillStyle = q.g ? '#e8b04b' : '#7fa2d6';
-      ctx.beginPath(); ctx.arc(q.x - sx * q.r * 14, q.y - sy * q.r * 10, q.r, 0, 6.2832); ctx.fill();
-    }
-    go();
-  }
-  function go() { if (!going && on) { going = true; requestAnimationFrame(draw); } }
-  hero.addEventListener('pointermove', function (e) { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
-  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { on = es[0].isIntersecting; go(); }).observe(hero);
-  document.addEventListener('visibilitychange', go);
-  var q2 = false;
-  window.addEventListener('resize', function () { if (q2) return; q2 = true; requestAnimationFrame(function () { q2 = false; size(); }); });
-  size(); go();
-})();
-
 // Old links to parts of this page that now have pages of their own still arrive.
 (function () {
   var moved = { '#about': '${STUDIO}', '#build': '${STUDIO}#build', '#crew': '${CREW}' };
   if (moved[location.hash]) location.replace(moved[location.hash]);
 })();
 
-// The older log entries, and the videos playing in place.
+// The videos playing in place.
 (function () {
-  var more = document.querySelector('.log-more-btn');
-  if (more) {
-    var all = more.textContent, less = more.getAttribute('data-less');
-    more.addEventListener('click', function () {
-      var open = more.getAttribute('aria-expanded') !== 'true';
-      more.setAttribute('aria-expanded', String(open));
-      document.querySelectorAll('.log-hidden').forEach(function (li) { li.hidden = !open; li.classList.add('is-in'); });
-      more.textContent = open ? less : all;
-    });
-  }
   document.querySelectorAll('.video').forEach(function (v) {
     v.querySelector('.video-play').addEventListener('click', function () {
       var id = v.getAttribute('data-id');
@@ -1067,15 +1018,6 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
   const words = t.hero.title.split(' ');
   const last = words.pop();
   const heroTitle = `${esc(words.join(' '))} <span>${esc(last)}.</span>`;
-
-  const allLangs = [...new Set(games.flatMap((g) => g.languages))];
-  // The brass strip and the band of game titles above it both slide sideways for ever: each is written
-  // twice in a row and the row moves by half its width. The strip's facts repeat so that one set is
-  // wider than any screen.
-  const stripOnce = [...t.strip, allLangs.join(' · '), t.strip_games.replace('{n}', games.length)]
-    .map((s) => `<span>${esc(s)}</span><i aria-hidden="true">◆</i>`).join('');
-  const strip = stripOnce.repeat(3);
-  const titleSet = `<div class="titles-set">${games.map((g) => `<a href="${playPath(g)}" tabindex="-1">${esc(t.games[g.id].title)}</a><i>✦</i>`).join('')}</div>`;
 
   const org = {
     '@context': 'https://schema.org',
@@ -1099,53 +1041,40 @@ ${v.views >= 100 ? `        <p class="video-views">${esc(t.videos.views.replace(
     script: homeScript,
     main: () => `<section id="games" class="hero hero-games">
   <div class="hero-sky" aria-hidden="true">
-    <canvas class="hero-lights"></canvas>
-    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/><path d="M0 500H1000M500 0V1000" stroke-dasharray="2 8"/></svg>
-    <span class="orbit o1"><i></i></span><span class="orbit o2"><i></i></span><span class="orbit o3"><i></i></span>
-    <span class="hero-pulse"></span><span class="hero-pulse late"></span>
+    <svg class="hero-rings" viewBox="0 0 1000 1000" fill="none"><circle cx="500" cy="500" r="492" stroke-dasharray="3 9"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300" stroke-dasharray="1 12"/></svg>
   </div>
   <div class="hero-head">
-    <div>
-      <p class="kicker">${esc(t.hero.eyebrow)} · ${esc(t.hero.route)}</p>
+    <div class="hero-words">
       <h1>${heroTitle}</h1>
+      <p class="lede">${esc(t.hero.lede)}</p>
     </div>
-    <p class="lede">${esc(t.hero.lede)}</p>
+    ${chipRow()}
   </div>
 ${showcase()}
 </section>
 
-<div class="titles" aria-hidden="true"><div class="titles-track">${titleSet}${titleSet}</div></div>
-<div class="strip"><div class="strip-track"><div class="strip-set">${strip}</div><div class="strip-set" aria-hidden="true">${strip}</div></div></div>
-
 <main>
-  <section class="section games-after">
-    ${voiceBlock(t, t.voice.home, { up, cls: 'voice-home reveal' })}
-    ${betaBlock(t)}
+  <section class="section home-voice">
+    ${voiceBlock(t, t.voice.home, { up, cls: 'voice-home' })}
   </section>
 
-  <section id="creed" class="section creed chart">
+  <section id="creed" class="section creed">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.creed.nav)}</p>
-        <h2>${esc(t.creed.title)}</h2>
-      </div>
+      <h2>${esc(t.creed.title)}</h2>
       <p>${esc(t.creed.lede)}</p>
     </div>
-    <ol class="creed-grid">
+    <ul class="creed-grid">
 ${t.creed.items.map((i) => `      <li class="creed-item reveal">
         <h3>${esc(i.title)}</h3>
         <p>${esc(i.text)}</p>
       </li>`).join('\n')}
-    </ol>
+    </ul>
     <p class="section-more"><a class="button ghost" href="${STUDIO}">${esc(t.creed.more)} <span aria-hidden="true">→</span></a></p>
   </section>
 
   <section id="experiments" class="section lab">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.experiments.nav)}</p>
-        <h2>${esc(t.experiments.home_title)}</h2>
-      </div>
+      <h2>${esc(t.experiments.home_title)}</h2>
       <p>${esc(t.experiments.home_lede)}</p>
     </div>
     <div class="lab-grid">
@@ -1156,38 +1085,33 @@ ${labHome.slice(0, 3).map((x) => labCard(t, x, up, '')).join('\n')}
 
   <section id="log" class="section log">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.log.nav)}</p>
-        <h2>${esc(t.log.title)}</h2>
-      </div>
+      <h2>${esc(t.log.title)}</h2>
       <p>${esc(t.log.lede)}</p>
     </div>
     <ol class="log-list">
 ${logItems}
-    </ol>${log.length > LOG_SHOWN ? `
-    <p><button type="button" class="chip log-more-btn" aria-expanded="false" data-less="${esc(t.log.less)}">${esc(t.log.all)} <small>${log.length - LOG_SHOWN}</small></button></p>` : ''}
+    </ol>
     <p class="section-more"><a class="button ghost" href="${LOGP}">${esc(t.log_page.open)} <span aria-hidden="true">→</span></a></p>
   </section>
 ${videos.length ? `
   <section id="channel" class="section channel">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${num()} / ${esc(t.videos.nav)}</p>
-        <h2>${esc(t.videos.title)}</h2>
-      </div>
+      <h2>${esc(t.videos.title)}</h2>
       <p>${esc(t.videos.lede)}</p>
     </div>
     <div class="video-grid">
 ${videoItems}
     </div>
-    <p class="channel-all"><a class="button ghost" href="${links.find((l) => /youtube/i.test(l.url))?.url || 'https://www.youtube.com/@goldenharbourgames'}">${esc(t.videos.channel)} <span aria-hidden="true">↗</span></a></p>
+    <p class="section-more"><a class="button ghost" href="${links.find((l) => /youtube/i.test(l.url))?.url || 'https://www.youtube.com/@goldenharbourgames'}">${esc(t.videos.channel)} <span aria-hidden="true">↗</span></a></p>
   </section>
 ` : ''}
-  <section id="contact" class="section contact chart">
-    <p class="kicker">${num()} / ${esc(t.nav.contact)}</p>
-    <h2>${esc(t.contact.title)}</h2>
-    <p class="contact-text">${esc(t.contact.text)}</p>
-    <a class="email" href="mailto:${EMAIL}">${EMAIL}</a>
+  <section id="contact" class="section contact">
+    <div class="contact-main reveal">
+      <h2>${esc(t.contact.title)}</h2>
+      <p class="contact-text">${esc(t.contact.text)}</p>
+      <a class="email" href="mailto:${EMAIL}">${EMAIL}</a>
+    </div>
+    ${betaBlock(t)}
   </section>
 </main>`,
   });
@@ -1202,7 +1126,6 @@ function playPage(t, g) {
   const sub = playPath(g);
   const [fw, fh] = g.frame;
   const portrait = fh > fw;
-  const plays = g.platforms.map((x) => t.platforms[x]).join(' · ');
   const badge = g.new ? `<span class="badge">${esc(t.new)}</span>` : '';
   const aka = c.aka ? `\n        <p class="aka">${esc(c.aka)}</p>` : '';
   const note = esc(p.note) + (g.platforms.includes('phone') ? '' : ' ' + esc(p.note_tablet));
@@ -1226,7 +1149,7 @@ function playPage(t, g) {
   };
 
   return shell(t, sub, {
-    title: c.seo_title || `${c.title} · Golden Harbour Games`,
+    title: c.seo_title || `${c.title} – Golden Harbour Games`,
     description: c.seo_description || c.text,
     ogDescription: c.text,
     ogTitle: c.title,
@@ -1237,14 +1160,10 @@ function playPage(t, g) {
   <section class="section game-page chart">
     <p class="crumbs"><a href="${home}#games"><span aria-hidden="true">←</span> ${esc(p.back)}</a></p>
     <div class="game-head">
-      <p class="kind">${badge}${c.tags.map(esc).join(' · ')}</p>
+      <p class="kind">${badge}${c.tags.map(esc).join(', ')}</p>
       <h1>${esc(c.title)}</h1>${aka}
     </div>
-${g.trailer_poster && trailerOf(g, t) ? `
-    <figure class="post-figure post-video game-trailer">
-      <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}"><img src="${up}${g['trailer_poster_' + t.lang] || g.trailer_poster}" alt="${esc(t.trailer)}: ${esc(c.title)}" width="1280" height="720" fetchpriority="high"><span class="post-play" aria-hidden="true">▶</span></a>
-    </figure>
-` : ''}
+
     <div data-game="${g.id}" class="stage${portrait ? ' portrait' : ''}" style="--fw: ${fw}; --fh: ${fh}" data-embed="${embedUrl(g)}" data-title="${esc(p.frame_title.replace('{game}', c.title))}">
       <img class="stage-cover" src="${up}${g.cover}" alt="" width="630" height="500">${g.clip ? `
       <video class="stage-cover stage-clip" data-src="${up}${g.clip}" muted loop playsinline preload="none" aria-hidden="true" disablepictureinpicture></video>` : ''}
@@ -1279,12 +1198,16 @@ ${g.trailer_poster && trailerOf(g, t) ? `
     <div class="game-info">
       <p class="text">${esc(c.text)}</p>
 ${(c.intro || []).map((p) => `      <p class="text more">${esc(p)}</p>`).join('\n')}
-      <dl class="facts">
-        <div><dt>${esc(t.plays_label)}</dt><dd>${esc(plays)}</dd></div>
-        <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(' · ')}</dd></div>
+      <dl class="game-facts">
+        <div><dt>${esc(t.plays_label)}</dt><dd class="plats">${platIcons(t, g, true)}</dd></div>
+        <div><dt>${esc(t.languages_label)}</dt><dd>${g.languages.join(', ')}</dd></div>
       </dl>
     </div>
-${(c.shots || []).length ? `    <div class="lab-gallery game-shots">
+${g.trailer_poster && trailerOf(g, t) ? `
+    <figure class="post-figure post-video game-trailer">
+      <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}"><img src="${up}${g['trailer_poster_' + t.lang] || g.trailer_poster}" alt="${esc(t.trailer)}: ${esc(c.title)}" width="1280" height="720" fetchpriority="high"><span class="post-play" aria-hidden="true">▶</span></a>
+    </figure>
+` : ''}${(c.shots || []).length ? `    <div class="lab-gallery game-shots">
 ${c.shots.map((s) => `      <figure>
         <a href="${up}${s.src}" data-zoom><img src="${up}${s.src}" alt="${esc(s.alt)}" width="1600" height="900" loading="lazy" decoding="async"></a>
         <figcaption>${esc(s.alt)}</figcaption>
@@ -1306,7 +1229,7 @@ ${gamePosts.map((x) => postCard(t, x, up, up + t.path)).join('\n')}
   </section>
 
   <section class="section more-games">
-    <p class="kicker">${esc(p.more)}</p>
+    <h2 class="more-h">${esc(p.more)}</h2>
     <div class="more-grid">
 ${others.map((o) => `      <a class="more-card" href="${up}${t.path}${playPath(o)}">
         <img src="${up}${o.cover}" alt="" width="630" height="500" loading="lazy">
@@ -1420,7 +1343,7 @@ function studioPage(t) {
 ${manifestBlock(t, t.build.nav)}
 
   <section class="section next-up">
-    <p class="kicker">${esc(s.next)}</p>
+    <h2 class="more-h">${esc(s.next)}</h2>
     <p class="section-more"><a class="button" href="${up}${t.path}${LAB}">${esc(t.nav.experiments)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${CREW}">${esc(t.nav.crew)} <span aria-hidden="true">→</span></a> <a class="button ghost" href="${up}${t.path}${PRESS}">${esc(t.press.link)} <span aria-hidden="true">→</span></a></p>
   </section>
 </main>`,
@@ -1502,14 +1425,10 @@ function labIndex(t) {
     main: (up) => `<main>
   <section class="section lab lab-index chart">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${esc(L.nav)} · ${labItems.length}</p>
-        <h1>${esc(L.title)}</h1>
-      </div>
+      <h1>${esc(L.title)}</h1>
       <p>${esc(L.lede)}</p>
     </div>
     <div class="chips" role="group" aria-label="${esc(t.filter.label)}">
-      <span class="chips-label">${esc(t.filter.label)}</span>
       <button type="button" class="chip" aria-pressed="true" data-tag="">${esc(t.filter.all)} <small>${labItems.length}</small></button>
 ${Object.keys(L.tags).filter((k) => labItems.some((x) => x.tags.includes(k))).map((k) => `      <button type="button" class="chip" aria-pressed="false" data-tag="${k}">${esc(L.tags[k])} <small>${labItems.filter((x) => x.tags.includes(k)).length}</small></button>`).join('\n')}
     </div>
@@ -1544,7 +1463,7 @@ function labPage(t, x) {
     discussionUrl: threadUrl(x),
   };
   return shell(t, sub, {
-    title: `${c.title} · ${L.nav} · Golden Harbour Games`,
+    title: `${c.title} – ${L.nav} – Golden Harbour Games`,
     ogTitle: c.title,
     description: c.text,
     ogImage: shareImage(x.cover),
@@ -1555,7 +1474,7 @@ function labPage(t, x) {
   <section class="section game-page lab-page chart">
     <p class="crumbs"><a href="${up}${t.path}${LAB}"><span aria-hidden="true">←</span> ${esc(L.back)}</a></p>
     <div class="game-head">
-      <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(' · ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span> <time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
+      <p class="kind">${x.tags.map((k) => esc(L.tags[k])).join(', ')} <span class="lab-status"><i class="dot ${x.status}"></i>${esc(L.status[x.status])}</span> <time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
       <h1>${esc(c.title)}</h1>
     </div>
     <figure class="lab-hero"><a href="${up}${x.cover}" data-zoom><img src="${up}${x.cover}" alt="${esc(c.cover_alt || c.title)}" width="1600" height="1000" fetchpriority="high"></a></figure>
@@ -1595,7 +1514,7 @@ ${x.shots.map((s) => `      <figure class="reveal">
   </section>
 
   <section class="section more-games">
-    <p class="kicker">${esc(L.more)}</p>
+    <h2 class="more-h">${esc(L.more)}</h2>
     <div class="lab-grid">
 ${others.map((o) => labCard(t, o, up, up + t.path)).join('\n')}
     </div>
@@ -1611,7 +1530,7 @@ function postCard(t, x, up, base) {
   const g = x.game ? games.find((o) => o.id === x.game) : null;
   return `      <a class="post-card reveal" href="${base}${postPath(x)}">
         <img src="${up}${x.cover}" alt="" width="${x.size[0]}" height="${x.size[1]}" loading="lazy" decoding="async">
-        <span class="post-meta">${g ? esc(t.games[g.id].title) + ' · ' : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></span>
+        <span class="post-meta">${g ? '<span>' + esc(t.games[g.id].title) + '</span>' : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></span>
         <span class="post-title">${esc(c.title)}</span>
         <span class="post-text">${esc(c.description)}</span>
         <span class="more-go">${esc(t.log_page.read)} <span aria-hidden="true">→</span></span>
@@ -1684,7 +1603,7 @@ function postPage(t, x) {
     return `      <p>${rich(b.p)}</p>`;
   };
   return shell(t, sub, {
-    title: `${c.title} · ${g ? t.games[g.id].title + ' · ' : ''}Golden Harbour Games`,
+    title: `${c.title} – ${g ? t.games[g.id].title + ' – ' : ''}Golden Harbour Games`,
     ogTitle: c.title,
     description: c.description,
     ogImage: shareImage(x.cover),
@@ -1696,7 +1615,7 @@ function postPage(t, x) {
   <article class="section game-page post-page chart">
     <p class="crumbs"><a href="${up}${t.path}${LOGP}"><span aria-hidden="true">←</span> ${esc(L.back)}</a></p>
     <div class="game-head">
-      <p class="kind">${g ? `<a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · ` : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
+      <p class="kind">${g ? `<a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a>` : ''}<time datetime="${x.date}">${esc(dateFmt.format(new Date(x.date + 'T00:00:00')))}</time></p>
       <h1>${esc(c.title)}</h1>
       <p class="lede">${esc(c.description)}</p>
     </div>
@@ -1708,7 +1627,7 @@ ${c.body.map((b) => block(b, up)).join('\n')}
   </article>${others.length ? `
 
   <section class="section more-games">
-    <p class="kicker">${esc(L.posts)}</p>
+    <h2 class="more-h">${esc(L.posts)}</h2>
     <div class="post-grid">
 ${others.map((o) => postCard(t, o, up, up + t.path)).join('\n')}
     </div>
@@ -1730,10 +1649,7 @@ function logIndex(t) {
     main: (up) => `<main>
   <section class="section log log-page chart">
     <div class="section-head reveal">
-      <div>
-        <p class="kicker">${esc(t.log.nav)}</p>
-        <h1>${esc(t.log.title)}</h1>
-      </div>
+      <h1>${esc(t.log.title)}</h1>
       <p>${esc(L.lede)}</p>
     </div>${posts.length ? `
     <h2 class="lab-h">${esc(L.posts)}</h2>
@@ -1772,7 +1688,7 @@ function legalPage(t, key, sub) {
     `        <h2>${esc(s.title)}</h2>`,
     ...(s.paragraphs || []).map((x) => `        <p>${esc(x)}</p>`),
     ...(s.list ? [`        <ul>`, ...s.list.map((i) => `          <li>${esc(i)}</li>`), `        </ul>`] : []),
-    ...(s.links ? [`        <p>${s.links.map((l) => `<a href="${l.url}">${esc(l.label)}</a>`).join(' &middot; ')}</p>`] : []),
+    ...(s.links ? [`        <p class="links-row">${s.links.map((l) => `<a href="${l.url}">${esc(l.label)}</a>`).join(' ')}</p>`] : []),
     ...(s.email ? [`        <p><a href="mailto:${EMAIL}">${EMAIL}</a></p>`] : []),
     `      </section>`,
   ].join('\n');
@@ -1788,7 +1704,7 @@ function legalPage(t, key, sub) {
   <section class="section game-page chart">
     <p class="crumbs"><a href="${home}"><span aria-hidden="true">←</span> ${esc(p.back)}</a></p>
     <div class="game-head">
-      <p class="kicker"><time datetime="${p.date}">${esc(p.updated)}</time></p>
+      <p class="updated"><time datetime="${p.date}">${esc(p.updated)}</time></p>
       <h1>${esc(p.title)}</h1>
     </div>
     <div class="game-info">
@@ -1861,7 +1777,7 @@ ${p.boilerplate.map((x) => `        <p>${esc(x)}</p>`).join('\n')}
         <div class="press-logos">
 ${logos.map(([base, png, bg]) => `          <figure class="press-logo ${bg}">
             <img src="${kit(up)}${png}" alt="${base}" loading="lazy" decoding="async">
-            <figcaption><a href="${kit(up)}${base}.svg" download>SVG</a> · <a href="${kit(up)}${png}" download>PNG</a></figcaption>
+            <figcaption><a href="${kit(up)}${base}.svg" download>SVG</a> <a href="${kit(up)}${png}" download>PNG</a></figcaption>
           </figure>`).join('\n')}
         </div>
       </section>
@@ -1872,7 +1788,7 @@ ${logos.map(([base, png, bg]) => `          <figure class="press-logo ${bg}">
         <div class="press-covers">
 ${games.map((g) => `          <figure class="press-cover">
             <img src="${up}${g.cover}" alt="${esc(t.games[g.id].title)}" width="630" height="500" loading="lazy" decoding="async">
-            <figcaption><a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> · <a href="${up}${g.cover}" download>JPG</a>${trailerOf(g, t) ? ` · <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}">${esc(t.trailer)}</a>` : ''}</figcaption>
+            <figcaption><a href="${up}${t.path}${playPath(g)}">${esc(t.games[g.id].title)}</a> <a href="${up}${g.cover}" download>JPG</a>${trailerOf(g, t) ? ` <a href="${trailerOf(g, t)}" data-video="${ytId(trailerOf(g, t))}">${esc(t.trailer)}</a>` : ''}</figcaption>
           </figure>`).join('\n')}
         </div>
       </section>
@@ -1909,7 +1825,7 @@ function notFound() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 · Golden Harbour Games</title>
+  <title>404 – Golden Harbour Games</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/img/mark.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
