@@ -1101,7 +1101,7 @@ footer { font-size: 14.5px; }
 }
 .contact .beta h2 { font-size: clamp(22px, 2vw, 28px); }
 .email { font-size: clamp(16px, 1.55vw, 22px); overflow-wrap: normal; }
-@media (max-width: 480px) { .email { overflow-wrap: anywhere; } }
+@media (max-width: 480px) { .email { font-size: 15.5px; overflow-wrap: anywhere; } }
 
 /* more games: small tiles, so eleven of them do not make a second page */
 .more-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
@@ -1110,3 +1110,7 @@ footer { font-size: 14.5px; }
 .more-go { padding: 0 14px; font-size: 14px; }
 .game-trailer { margin-top: clamp(28px, 4vw, 44px); }
 @media (max-width: 640px) { .more-grid { grid-template-columns: 1fr; gap: 10px; } .more-title { padding: 0; } }
+/* long Russian words in a page title never push a phone screen sideways */
+h1, h2 { overflow-wrap: break-word; hyphens: auto; }
+.press-facts dd { overflow-wrap: anywhere; }
+@media (max-width: 640px) { .game-head h1, .section h1 { font-size: clamp(26px, 7.6vw, 34px); } }
