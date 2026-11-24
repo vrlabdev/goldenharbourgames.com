@@ -25,11 +25,9 @@
   },
   "switch_label": "Language",
   "hero": {
-    "eyebrow": "Independent game studio",
     "title": "Games from two harbours",
-    "lede": "We love games, so we make the ones we want to play: small, polished and easy to pick up, whoever you are. Three are out on Android and iPhone, and every one of them plays free in your browser.",
+    "lede": "A small studio in Vladivostok and Sydney. Four of our games are on Google Play, three of them on the App Store too, and every one plays free in your browser.",
     "button": "See the games",
-    "route": "Vladivostok ⇄ Sydney",
     "play": "Play Fire Season"
   },
   "games_title": "In port now",
@@ -623,8 +621,8 @@
       "Vladivostok sits on the Golden Horn, a bay named after Istanbul's. Sydney sits on Port Jackson. Both are harbour cities with a famous bridge across the water, and the studio is named for the pair of them.",
       "Our games come from both places: the roads, forts and weather of the Russian Far East, and the bushfire country around Sydney. They run on Android, iPhone, Windows and in a browser, and you can play them all free: right here, on Google Play, on the App Store or on itch.io."
     ],
-    "north": "Vladivostok · Golden Horn",
-    "south": "Sydney · Port Jackson",
+    "north": "Vladivostok, Golden Horn",
+    "south": "Sydney, Port Jackson",
     "mission_title": "Mission",
     "mission": "Make small, sharp games about real things, and treat the people who play them as grown-ups.",
     "vision_title": "Vision",
@@ -663,11 +661,6 @@
   },
   "games_lede": "Small, sharp games: on your phone from Google Play or the App Store, or in a browser tab.",
   "new": "New",
-  "strip": [
-    "Three games on Google Play and the App Store",
-    "Free in your browser"
-  ],
-  "strip_games": "{n} games in port",
   "play_here": "Play here",
   "on_itch": "itch.io",
   "playpage": {
@@ -687,13 +680,13 @@
   "privacy": {
     "link": "Privacy",
     "title": "Privacy policy",
-    "seo_title": "Privacy Policy · Golden Harbour Games",
+    "seo_title": "Privacy Policy – Golden Harbour Games",
     "description": "How Golden Harbour Games handles your data: seven games send anonymous play data, two of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
     "date": "2026-11-22",
     "updated": "Last updated: 22 November 2026",
     "back": "Home",
     "intro": [
-      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them — Google Play, the App Store, itch.io, Steam or this website — and the website itself."
+      "Golden Harbour Games Pty Ltd is a small game studio in Sydney, Australia. This page explains what we do with your data, which is very little. It covers all our games and apps, wherever you get them (Google Play, the App Store, itch.io, Steam or this website), and the website itself."
     ],
     "sections": [
       {
@@ -808,7 +801,7 @@
       {
         "title": "If this changes",
         "paragraphs": [
-          "If we ever add anything that touches your data — an account, online features, analytics, a store inside a game — we will update this page and the store listings before shipping it, and say what changed."
+          "If we ever add anything that touches your data, such as an account, online features, analytics or a store inside a game, we will update this page and the store listings before shipping it, and say what changed."
         ]
       },
       {
@@ -823,7 +816,7 @@
   "terms": {
     "link": "Terms",
     "title": "Terms of service",
-    "seo_title": "Terms of Service · Golden Harbour Games",
+    "seo_title": "Terms of Service – Golden Harbour Games",
     "description": "The terms for playing Golden Harbour Games games and buying their optional extras: what you may do with them, how purchases and refunds work, and your rights under consumer law.",
     "date": "2026-11-11",
     "updated": "Last updated: 19 November 2026",
@@ -944,7 +937,7 @@
   "press": {
     "link": "Press kit",
     "title": "Press kit",
-    "seo_title": "Press kit · Golden Harbour Games",
+    "seo_title": "Press kit – Golden Harbour Games",
     "back": "Home",
     "description": "Logos, covers, colours and the studio story for press and creators. Everything here may be used in coverage of Golden Harbour Games.",
     "intro": [
@@ -1016,8 +1009,7 @@
   },
   "ring": {
     "prev": "Previous game",
-    "next": "Next game",
-    "hint": "Drag to spin · arrows to step"
+    "next": "Next game"
   },
   "build": {
     "nav": "How we build",
@@ -1084,7 +1076,7 @@
   },
   "crew": {
     "title": "Game development internships and open projects",
-    "seo_title": "Game development internships and open projects (remote) · Golden Harbour Games",
+    "seo_title": "Game development internships and open projects (remote) – Golden Harbour Games",
     "description": "Work on real, released indie games, remotely. Students can do a course placement in game design, programming, art or sound; anyone can take an open project as an independent contributor, for credit and a share of the game’s revenue.",
     "lede": "Work on real games that are already on the App Store and Google Play. Pick a game, make one part of it better, and put your name in its credits.",
     "get_title": "What you get",
@@ -1223,7 +1215,7 @@
   },
   "studio": {
     "title": "The studio",
-    "seo_title": "The studio · Golden Harbour Games",
+    "seo_title": "The studio – Golden Harbour Games",
     "description": "Who makes Golden Harbour Games: two harbours, what we promise players, how the games are built by people and AI, and an honest note on how it is going.",
     "next": "Where to next"
   },
@@ -1233,7 +1225,7 @@
     "home_lede": "VR, AR, robots and odd ideas. Not all of them become games. All of them teach us something about play.",
     "all": "All {n} experiments",
     "title": "Experiments",
-    "seo_title": "Experiments: VR, AR, robots and game ideas · Golden Harbour Games",
+    "seo_title": "Experiments: VR, AR, robots and game ideas – Golden Harbour Games",
     "description": "What Golden Harbour Games tries outside its shipped games: a VR storm at sea, a wildfire on a table, AR models, humanoid robots and new places for a game to live. Write-ups, pictures and an open forum.",
     "lede": "This is the workshop. We use VR, AR and whatever else turns up to look for new ways to play. Each experiment has a write-up, pictures and a thread where you can tell us what you think.",
     "tags": {
@@ -1281,7 +1273,7 @@
     "log": "The harbour log"
   },
   "log_page": {
-    "seo_title": "Harbour log: devlogs and changes · Golden Harbour Games",
+    "seo_title": "Harbour log: devlogs and changes – Golden Harbour Games",
     "description": "Devlogs and every change to the Golden Harbour games, newest first: what we tried, what we changed and why.",
     "lede": "Devlogs and every change to our games, newest first. What we tried, what we kept and why.",
     "posts": "Devlogs",
@@ -1314,5 +1306,6 @@
     "voice": "Become a beta tester",
     "copy": "Copy the message",
     "copied": "Copied. Paste it into a new email to contact@goldenharbourgames.com and send it."
-  }
+  },
+  "lang_count": "{n} languages"
 }
