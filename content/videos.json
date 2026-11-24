@@ -1,53 +1,53 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-24",
   "videos": [
     {
-      "id": "8ONoBOemelY",
-      "title": "Two games in 72 hours, day 2: the human says no | Far East hackathon",
+      "id": "nDCd0z4NxYg",
+      "title": "Why did the Tsars auction off the right to sell vodka?",
       "views": 0,
+      "short": true
+    },
+    {
+      "id": "8sJtNhoa6vM",
+      "title": "Our boxing game never said who won an exchange. Now it does | What changed #5",
+      "views": 1,
+      "short": true
+    },
+    {
+      "id": "AUwbDMVVPTo",
+      "title": "We threw out our game's core loop. Now you draw one line | What changed",
+      "views": 5,
+      "short": true
+    },
+    {
+      "id": "VkrF23JVBtk",
+      "title": "Why do guests walk out of a full VR arcade?",
+      "views": 5,
+      "short": true
+    },
+    {
+      "id": "KBGVLYVMylU",
+      "title": "Торгуйся, продавай, расти: авторынок Владивостока 90-х",
+      "views": 269,
+      "short": true
+    },
+    {
+      "id": "jmlsGHM6pTY",
+      "title": "Haggle, sell, grow: a 1990s Vladivostok car lot",
+      "views": 41,
+      "short": true
+    },
+    {
+      "id": "Ro-0jnmdXpE",
+      "title": "Правый руль: Зелёный угол - трейлер | Авторынок Владивостока 1992-2008",
+      "views": 4,
       "short": false
     },
     {
-      "id": "JQNsOWH4tH4",
-      "title": "Две игры за 72 часа, день 2: человек говорит «нет» | Хакатон ДВФУ",
-      "views": 0,
+      "id": "3MLqw2erWdc",
+      "title": "JDM Car Lot Tycoon - Trailer | Used car lot tycoon, Vladivostok 1992-2008",
+      "views": 4,
       "short": false
-    },
-    {
-      "id": "I-NIrpYGXk4",
-      "title": "Our fields were striped wallpaper. So we redrew every strip | What changed #12",
-      "views": 2,
-      "short": true
-    },
-    {
-      "id": "nC4GhG2UNYI",
-      "title": "Between rounds our boxing game showed a list. Now you sit in your corner | What changed #4",
-      "views": 2,
-      "short": true
-    },
-    {
-      "id": "NFkCGkYuy_0",
-      "title": "Which is faster: a grass fire or a forest fire?",
-      "views": 25,
-      "short": true
-    },
-    {
-      "id": "UuWjSe8BDYA",
-      "title": "What changed: six hand reworks, the cause was the wrist | Stick vs. Weeds (18+ game)",
-      "views": 944,
-      "short": true
-    },
-    {
-      "id": "Ge5nnkvr9Nk",
-      "title": "Two VR stations and a back room full of junk. How far can it grow?",
-      "views": 18,
-      "short": true
-    },
-    {
-      "id": "KmHS0VW5d-Y",
-      "title": "Could a Russian noble mortgage his serfs?",
-      "views": 11,
-      "short": true
     }
   ]
 }
