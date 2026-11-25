@@ -62,6 +62,7 @@
     "cover": "img/jdm-car-lot-tycoon.jpg",
     "platforms": [
       "android",
+      "ios",
       "browser",
       "phone"
     ],
@@ -75,6 +76,7 @@
       720
     ],
     "google_play": "https://play.google.com/store/apps/details?id=com.goldenharbourgames.greencorner",
+    "app_store": "https://apps.apple.com/app/jdm-car-lot-tycoon/id6837887107",
     "new": true,
     "trailer": "https://www.youtube.com/watch?v=3MLqw2erWdc",
     "trailer_ru": "https://www.youtube.com/watch?v=Ro-0jnmdXpE",

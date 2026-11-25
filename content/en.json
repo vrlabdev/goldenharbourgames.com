@@ -26,7 +26,7 @@
   "switch_label": "Language",
   "hero": {
     "title": "Games from two harbours",
-    "lede": "A small studio in Vladivostok and Sydney. Four of our games are on Google Play, three of them on the App Store too, and every one plays free in your browser.",
+    "lede": "A small studio in Vladivostok and Sydney. Four of our games are on Google Play and the App Store, and every one plays free in your browser.",
     "button": "See the games",
     "play": "Play Fire Season"
   },
@@ -477,13 +477,13 @@
     "jdm-car-lot-tycoon": {
       "title": "JDM Car Lot Tycoon",
       "aka": "In Russian: «Правый руль: Зелёный угол»",
-      "text": "Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. Out now on Android, and the first lot is free.",
+      "text": "Run a used Japanese car lot on the hills above Vladivostok from 1992 to 2008. Buy cars through sailors, get them through the port, fix them up and haggle with buyers face to face. Out now on Android and iPhone, and the first lot is free.",
       "tags": [
         "Tycoon",
         "Pixel art"
       ],
       "seo_title": "JDM Car Lot Tycoon: a used car lot tycoon in 1990s Vladivostok",
-      "seo_description": "A pixel-art tycoon about a used Japanese car lot in Vladivostok, 1992 to 2008. Order cars through sailors, clear them at the port, wash and fix them, haggle face to face and grow from one muddy lot to seven. Out now on Google Play; the first lot is free on Android and in the browser.",
+      "seo_description": "A pixel-art tycoon about a used Japanese car lot in Vladivostok, 1992 to 2008. Order cars through sailors, clear them at the port, wash and fix them, haggle face to face and grow from one muddy lot to seven. Out now on Google Play and the App Store; the first lot is free on Android, iPhone and in the browser.",
       "intro": [
         "Vladivostok, April 1992. Your uncle meets you at the port, shows you how the trade works, then leaves you a patch of dirt on the hills above the city, five tired Japanese cars and a wire fence. Around you a whole market is growing on the slopes: the Green Corner.",
         "Buyers walk the rows, kick tyres, argue, leave and come back. You decide what to order, what to fix, where each car stands and how far to drop the price."
@@ -529,13 +529,13 @@
         {
           "title": "The free lot and the full game",
           "paragraphs": [
-            "The whole first lot is free, for as long as you like. The full game is one purchase on Google Play: no ads, no coins. The browser version on this page is the free lot."
+            "The whole first lot is free, for as long as you like. The full game is one purchase on Google Play or the App Store: no ads, no coins. The browser version on this page is the free lot."
           ]
         },
         {
           "title": "Where to play",
           "paragraphs": [
-            "Out now on Android, on Google Play, or here in the browser. It is coming to iPhone soon.",
+            "Out now on Android, on Google Play, and on iPhone, on the App Store, or here in the browser.",
             "The game is in active development and a new build comes out every few days. It was started at the Far East hackathon in November 2026. The code, the pixel art, the text, the music and the sound were made with AI tools; the design and direction come from people. Tell us what felt wrong and what you want more of: we read everything."
           ]
         }
@@ -637,11 +637,11 @@
     ],
     "letter_title": "How it is going (24 November 2026)",
     "letter": [
-      "Honestly? Better than a week ago, and still worse than we would like. Twelve games are in port. Four are on Google Play, and three of those are on the App Store too: Fire Season, Punch League and Orbital Jump Reloaded. The fourth, JDM Car Lot Tycoon, went on sale this week, and its iPhone version is with Apple.",
+      "Honestly? Better than a week ago, and still worse than we would like. Twelve games are in port. Four are on Google Play and on the App Store: Fire Season, Punch League, Orbital Jump Reloaded and JDM Car Lot Tycoon, which went on sale this week.",
       "The numbers are small. Our YouTube channel has passed forty-four thousand views across more than a hundred and seventy films, mostly about firefighting helicopters, Russian serfs, and things we got wrong and then fixed. Downloads are in the hundreds, not the thousands. Nobody has quit a day job. That is fine. This is a long voyage and the boat floats.",
       "What is working: shipping, and listening. We took Souls & Estates to a developers’ meetup and were told, kindly, that there was too much to read and too many Russian words. Within two days every screen had icons and the terms were plain English. Fire Season stopped being a game about painting water on flames and became one about where you draw the line. And at the Far East hackathon last weekend, one person and Claude Code built two games in 72 hours: Pirates of the Japan Sea, a naval sandbox that is now a free open beta on its way to the Epic Games Store, and JDM Car Lot Tycoon, the car lot game that is now on Google Play. The harbour log tells how, day by day.",
       "What is not working yet: being found. Twelve good small games nobody has heard of are still twelve games nobody has heard of. So we post every day, we answer every comment, and we keep pages like this one so that people who care how games get made can see how ours are.",
-      "Next: Pirates of the Japan Sea keeps getting updates several times a week on its way to the Epic Games Store; JDM Car Lot Tycoon comes to iPhone; VR Arcade Story now has all four of its acts and an ending, and goes to testers; Vladivostok Fortress is being rebuilt as an action strategy game; Fire Season gets spot fires and a wind that turns; Punch League is learning to fight in 3D; and the first human artist gets hired the month a game pays for one."
+      "Next: Pirates of the Japan Sea keeps getting updates several times a week on its way to the Epic Games Store; VR Arcade Story now has all four of its acts and an ending, and goes to testers; Vladivostok Fortress is being rebuilt as an action strategy game; Fire Season gets spot fires and a wind that turns; Punch League is learning to fight in 3D; and the first human artist gets hired the month a game pays for one."
     ]
   },
   "contact": {
