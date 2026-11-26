@@ -681,7 +681,7 @@
     "link": "Privacy",
     "title": "Privacy policy",
     "seo_title": "Privacy Policy – Golden Harbour Games",
-    "description": "How Golden Harbour Games handles your data: seven games send anonymous play data, two of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
+    "description": "How Golden Harbour Games handles your data: seven games send anonymous play data, three of them offer an optional Google Play Games sign-in, the rest collect none, and this website sets no cookies.",
     "date": "2026-11-26",
     "updated": "Last updated: 26 November 2026",
     "back": "Home",
@@ -692,11 +692,11 @@
       {
         "title": "Our games",
         "list": [
-          "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season and Punch League offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
+          "Our games need no account. Nothing is required to sign up for or log in to. AeroFire Command: Fire Season, Punch League and JDM Car Lot Tycoon offer an optional Google Play Games sign-in, described below; you can play the whole game without it.",
           "They contain no ads and no advertising tracking.",
           "Most of our games collect no data at all, Orbital Jump Reloaded on both stores included. The exceptions send anonymous play data, described in the next sections: AeroFire Command: Fire Season and Punch League on Android (the versions from Google Play); the browser versions of Souls & Estates, Gull Chorus, Range Anxiety: Far East, Stick vs Weeds, JDM Car Lot Tycoon, AeroFire Command and Punch League on itch.io; the Android versions of Stick vs Weeds and JDM Car Lot Tycoon; JDM Car Lot Tycoon on iPhone from version 1.0.2; and the Windows versions of Souls & Estates and AeroFire Command. The iPhone versions of Fire Season and Punch League send us nothing and have no Google sign-in, and Punch League from RuStore sends us nothing either.",
-          "On iPhone, Fire Season and Orbital Jump Reloaded can post your scores and achievements to Apple’s Game Center, if you are signed in to Game Center on your device. That goes to Apple, under your own Game Center settings; nothing comes to us.",
-          "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. We never hold a copy ourselves."
+          "On iPhone, Fire Season and Orbital Jump Reloaded can post your scores and achievements to Apple’s Game Center, if you are signed in to Game Center on your device. JDM Car Lot Tycoon on iPhone, from version 1.0.3, does the same with achievements only. That goes to Apple, under your own Game Center settings; nothing comes to us.",
+          "Game progress is saved on your own device. If you sign in to Google Play Games in Fire Season or Punch League, a copy of your career is also kept in your Google account, as described below. The same goes for your saved games in JDM Car Lot Tycoon on Android. On iPhone, JDM Car Lot Tycoon from version 1.0.3 keeps a copy of your saved games in your own iCloud, also described below. We never hold a copy ourselves."
         ]
       },
       {
@@ -734,11 +734,11 @@
         ]
       },
       {
-        "title": "Google Play Games in AeroFire Command: Fire Season and Punch League",
+        "title": "Google Play Games in AeroFire Command: Fire Season, Punch League and JDM Car Lot Tycoon",
         "paragraphs": [
-          "Fire Season and Punch League can sign you in to Google Play Games, if you choose to, from SETTINGS. Signing in gives you achievements, leaderboards and a cloud copy of your career. You never have to sign in to play.",
-          "When you sign in, Google Play Games gives the game your Play Games player ID and the display name and avatar you chose for Play Games. The game uses them to show your name on the leaderboards and to tell which saved game is yours. It does not receive your email address or your Google account name, and it never puts your Play Games name or ID in the anonymous play data.",
-          "Your achievements and scores are sent to Google Play Games, where they appear under your Play Games profile according to the visibility you chose there. Your saved career (in Fire Season the season, the fleet, the records and settings; in Punch League your fighters, record, belts, deck and the looks you own) is kept in your Google account's saved-games storage, not on any server of ours, and only that game can read it. Signing out, or clearing the game's data in Google Play Games, removes it.",
+          "Fire Season and Punch League can sign you in to Google Play Games, if you choose to, from SETTINGS. Signing in gives you achievements, leaderboards and a cloud copy of your career. JDM Car Lot Tycoon on Android offers the same optional sign-in from version 0.145: it gives you achievements and a cloud copy of your saved games, and it has no leaderboards. You never have to sign in to play.",
+          "When you sign in, Google Play Games gives the game your Play Games player ID and the display name and avatar you chose for Play Games. The game uses them to show your name on the leaderboards and to tell which saved game is yours. It does not receive your email address or your Google account name, and it never puts your Play Games name or ID in the anonymous play data. JDM Car Lot Tycoon receives your Play Games player ID and uses it only to tell which saved games are yours; it shows no player names.",
+          "Your achievements and scores are sent to Google Play Games, where they appear under your Play Games profile according to the visibility you chose there. Your saved career (in Fire Season the season, the fleet, the records and settings; in Punch League your fighters, record, belts, deck and the looks you own) is kept in your Google account's saved-games storage, not on any server of ours, and only that game can read it. Signing out, or clearing the game's data in Google Play Games, removes it. In JDM Car Lot Tycoon the saved games are up to three save slots (the lot, the cars, the money, the people and your progress) and your collection of manuals. They are kept in the same place: your Google account's saved-games storage, not on any server of ours, and only this game can read them. The purchase of the full game is not part of the save; the store restores it.",
           "Google processes this data under the Google Play Games terms and the Google privacy policy. We do not sell or share it, and we do not use it for advertising."
         ],
         "links": [
@@ -749,6 +749,23 @@
           {
             "label": "Google privacy policy",
             "url": "https://policies.google.com/privacy"
+          }
+        ]
+      },
+      {
+        "title": "iCloud in JDM Car Lot Tycoon on iPhone",
+        "paragraphs": [
+          "From version 1.0.3, JDM Car Lot Tycoon on iPhone keeps a copy of your saved games in your own iCloud: up to three save slots (the lot, the cars, the money, the people and your progress) and your collection of manuals. It uses the iCloud key-value storage of your Apple Account, which is private to you and to this app. We cannot read it.",
+          "The copy follows your iCloud settings: switching iCloud off for the game, or deleting the game's iCloud data, removes it. The purchase of the full game is not part of the save; the App Store restores it."
+        ],
+        "links": [
+          {
+            "label": "iCloud data security overview",
+            "url": "https://support.apple.com/en-us/102651"
+          },
+          {
+            "label": "Apple privacy policy",
+            "url": "https://www.apple.com/legal/privacy/en-ww/"
           }
         ]
       },
