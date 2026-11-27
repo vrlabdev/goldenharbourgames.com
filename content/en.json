@@ -544,16 +544,16 @@
     "pirates-of-the-japan-sea": {
       "title": "Pirates of the Japan Sea",
       "aka": "In Russian: «Пираты Японского моря»",
-      "text": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Build a fleet and a pirate cove before the Mongols come. A free open beta on Windows and in your browser.",
+      "text": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Build a fleet and a pirate cove before the Mongols come. A free demo on Windows and in your browser; the full game is coming to the Epic Games Store.",
       "tags": [
         "Naval action",
         "Sandbox"
       ],
       "seo_title": "Pirates of the Japan Sea: naval action on the Sea of Japan, 1220",
-      "seo_description": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Trade, climb, build a fleet and a pirate cove before the Mongols come in 1231. A free open beta on Windows and in the browser; the full game is coming to the Epic Games Store.",
+      "seo_description": "Sail, fight and board by hand on one seamless Sea of Japan, 1220. Trade, climb, build a fleet and a pirate cove before the Mongols come in 1231. A free demo on Windows and in the browser; the full game is coming to the Epic Games Store.",
       "intro": [
         "You start with one junk and fifty men. Five powers want the water, and the Mongols are coming in 1231. Build a fleet and a pirate cove of your own before they arrive.",
-        "A short tutorial teaches the helm, the fight and trade. Then the voyage opens in four chapters. Each one starts with a briefing: who holds which water, who is at war with whom, and what the Mongol clock says. Press P at any time for the state of the sea, and J for your Captain's Ledger: rank, wealth, fleet and the next three goals worth chasing."
+        "A short tutorial teaches the helm, the fight and trade. Then the voyage opens in four chapters, and the demo plays the first of them. Each one starts with a briefing: who holds which water, who is at war with whom, and what the Mongol clock says. Press P at any time for the state of the sea, and J for your Captain's Ledger: rank, wealth, fleet and the next three goals worth chasing."
       ],
       "shots": [
         {
@@ -596,7 +596,7 @@
         {
           "title": "Skirmish",
           "paragraphs": [
-            "One fight, your rules. Set a battle-value budget for each side, pick the flagship and escorts, the flags, an optional third fleet, the place on the chart, the hour and the weather. Then fight it out and see the tally."
+            "One fight, your rules. Set a battle-value budget for each side, pick the flagship and escorts, the flags, an optional third fleet, the place on the chart, the hour and the weather. Then fight it out and see the tally. The demo has fleets of up to three ships and the three smaller flagships."
           ]
         },
         {
@@ -606,10 +606,10 @@
           ]
         },
         {
-          "title": "Free open beta",
+          "title": "Free demo",
           "paragraphs": [
-            "The full game is coming to the Epic Games Store. This beta stays free on itch.io and keeps getting updates several times a week. It was started on 20 November 2026 at the Far East hackathon, built by one person and Claude Code.",
-            "A new voyage starts poor. To try the yards and the fleet straight away, turn on DEV TEST in Settings. Tell us what felt wrong and what you want more of: we read all of it."
+            "This is the free demo: the tutorial and the first chapter, up to your first written contract or 30 days at sea, and a smaller Skirmish. The full game, with the fleet, the cove and the Mongols, is coming to the Epic Games Store, and it carries on from your demo voyage.",
+            "It was started on 20 November 2026 at the Far East hackathon, built by one person and Claude Code. Tell us what felt wrong and what you want more of: we read all of it."
           ]
         }
       ]
